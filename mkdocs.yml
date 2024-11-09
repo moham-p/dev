@@ -1,0 +1,17 @@
+site_name: Moham Dev
+nav:
+  - Java: java.md
+theme:
+  name: material
+  logo: img/logo.png
+  favicon: img/favicon.ico
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+extra_css:
+  - stylesheets/extra.css
