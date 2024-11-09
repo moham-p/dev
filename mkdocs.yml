@@ -1,4 +1,4 @@
-site_name: Moham Dev
+site_name: "Code to Craft, Fueled by Curiosity"
 nav:
   - Java: java.md
 theme:
