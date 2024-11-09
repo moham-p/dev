@@ -18,3 +18,30 @@
 .md-nav .md-nav__list > li > ul {
     display: none;
 }
+
+.md-header__button.md-logo img, .md-header__button.md-logo svg {
+    fill: currentcolor;
+    display: block;
+    height: 4.0rem;
+    width: auto;
+}
+
+.md-header {
+    background-color: #212f3c;
+    box-shadow: 0 0 .2rem #0000, 0 .2rem .4rem #0000;
+    color: var(--md-primary-bg-color);
+    display: block;
+    left: 0;
+    position: sticky;
+    right: 0;
+    top: 0;
+    z-index: 4;
+}
+
+.md-header__title {
+    flex-grow: 1;
+    font-size: 0.9rem;
+    height: 1.1rem;
+    color: #DFFF00;
+    line-height: 2.4rem;
+}
