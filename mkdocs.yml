@@ -3,7 +3,7 @@ nav:
   - Java: java.md
 theme:
   name: material
-  logo: img/logo.png
+  logo: img/_logo.png
   favicon: img/favicon.ico
 markdown_extensions:
   - pymdownx.highlight:
