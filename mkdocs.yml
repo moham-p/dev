@@ -1,5 +1,6 @@
 site_name: ~/moham/dev
 nav:
+  - Home: index.md
   - Java: java.md
 theme:
   name: material
