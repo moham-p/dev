@@ -22,7 +22,7 @@
 .md-header__button.md-logo img, .md-header__button.md-logo svg {
     fill: currentcolor;
     display: block;
-    height: 4.0rem;
+    height: 2.0rem;
     width: auto;
 }
 
@@ -39,9 +39,5 @@
 }
 
 .md-header__title {
-    flex-grow: 1;
-    font-size: 0.9rem;
-    height: 1.1rem;
-    color: #DFFF00;
-    line-height: 2.4rem;
+    font-family: "Lucida Console", "Courier New", monospace;
 }
