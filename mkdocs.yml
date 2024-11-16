@@ -6,6 +6,8 @@ theme:
   name: material
   logo: img/_logo.png
   favicon: img/favicon.ico
+plugins:
+  - tags:
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
