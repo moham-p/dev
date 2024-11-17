@@ -43,9 +43,5 @@
 }
 
 .md-sidebar--primary {
-    display: none;
-}
-
-.md-content {
-    margin-left: 0; /* Adjust content margin to use the full width */
+    width: 10%;
 }

@@ -1,1 +1,1 @@
-[Java](tags/java.md)
+Hi

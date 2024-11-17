@@ -1,8 +1,9 @@
 site_name: ~/moham/dev
 
-plugins:
-  - search
-  - tags
+nav:
+  - Home: index.md
+  - Java: java.md
+  - Spring: spring.md
 
 theme:
   name: material
@@ -11,16 +12,12 @@ theme:
 
 markdown_extensions:
   - pymdownx.highlight:
-    anchor_linenums: true
-    line_spans: __span
-    pygments_lang_class: true
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
 
-extra_javascript:
-  - https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js
-  - https://cdn.jsdelivr.net/npm/mustache@4.2.0/mustache.min.js
-
 extra_css:
-  - stylesheets/extra.css
+  - extra.css
