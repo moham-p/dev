@@ -42,10 +42,6 @@
     font-family: "Lucida Console", "Courier New", monospace;
 }
 
-.md-sidebar--primary {
-    width: 20%;
-}
-
 .md-nav__title {
     display: none;
 }
