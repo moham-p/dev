@@ -38,10 +38,12 @@
     z-index: 4;
 }
 
+/* ~/moham/dev looks better with monospace */
 .md-header__title {
     font-family: "Lucida Console", "Courier New", monospace;
 }
 
+/* remove site title from the top of the Nav */
 .md-nav__title {
     display: none;
 }

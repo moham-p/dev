@@ -1,9 +1,13 @@
 site_name: ~/moham/dev
 
 nav:
-  - Home: index.md
-  - Java: java.md
-  - Spring: spring.md
+  - Moham: index.md
+  - Java:
+    - Primitive Data Types: java/Primitive Data Types.md
+    - Method-Level Authorization in Spring Security: spring/Method-Level Authorization in Spring Security.md
+  - Spring:
+      - Primitive Data Types: java/Primitive Data Types.md
+      - Method-Level Authorization in Spring Security: spring/Method-Level Authorization in Spring Security.md
 
 theme:
   name: material

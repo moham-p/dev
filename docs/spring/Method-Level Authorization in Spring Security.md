@@ -1,11 +1,9 @@
-## Method-Level Authorization in Spring Boot
-
 In this post, we'll explore how to use Spring Security to control access both at 
 the endpoint and method level using a sample project. 
 We'll cover role-based and authority-based security, showing how both can be configured 
 and used to enhance your application's overall security posture.
 
-### Spring Security Configuration
+## Spring Security Configuration
 
 To get started, we need to configure Spring Security. Below is the `SecurityConfig` class, which is responsible for setting up the security rules and ensuring proper authentication and authorization for our application. With Spring Security, you can create custom security policies that help protect your application from unauthorized access.
 
@@ -54,7 +52,7 @@ In this configuration, we set up an `InMemoryUserDetailsManager` with three user
 
 In addition to HTTP Basic authentication, this configuration can easily be extended to include OAuth2 or JWT-based authentication to provide more sophisticated security mechanisms. By using role-based access control in combination with more advanced authentication techniques, you can build a highly secure application that meets the requirements of modern software environments.
 
-### Applying Method-Level Authorization
+## Applying Method-Level Authorization
 
 To illustrate how to implement method-level authorization, we have two controllers in our project: `AdminController` and `Controller`. The `AdminController` handles administrative operations related to orders, while the general `Controller` manages regular user orders. By having separate controllers for different roles, we ensure that the application follows the principle of least privilege, where users only access the data they need.
 
@@ -96,7 +94,7 @@ The general `Controller` is used for managing orders accessible to regular users
 
 This controller does not have any special method-level security annotations, as it is intended for users with the `USER` role. The security configuration in `SecurityConfig` ensures that only users with the appropriate role can access these endpoints. This approach allows us to simplify the security rules for general users while applying more stringent rules for administrative tasks.
 
-### Response Examples for Endpoint Requests
+## Response Examples for Endpoint Requests
 
 Here are some examples of the responses for different requests made to the API endpoints:
 
@@ -145,7 +143,7 @@ HTTP 200 OK
 Order created
 ```
 
-### Roles vs Authorities
+## Roles vs Authorities
 
 Roles are a specific type of authority in Spring Security, distinguished by the `"ROLE_"` prefix in their names. For example, `.roles("ADMIN")` is equivalent to `.authorities("ROLE_ADMIN")`.
 
@@ -161,12 +159,12 @@ var admin = User.withUsername("admin")
 
 In such cases, explicitly specify all desired authorities in `.authorities()` to avoid unintentional overrides.
 
-### Additional Considerations for Method-Level Security
+## Additional Considerations for Method-Level Security
 
 Additionally, method-level security annotations like `@PreAuthorize` can be combined with other annotations such as `@PostAuthorize`, `@Secured`, and `@RolesAllowed` to provide even more flexibility. For instance, `@PostAuthorize` can be used to validate the response after the method has executed, which can be helpful in certain scenarios, such as ensuring that a user only sees data they are allowed to access.
 
 
-### Source Code
+## Source Code
 
 You can find the source code for this demo on GitHub: [Spring Security Method-Level Authorization Demo](https://github.com/moham-p/dev-codes/tree/main/spring/security)
 
