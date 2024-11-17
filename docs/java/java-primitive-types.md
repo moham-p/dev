@@ -1,6 +1,8 @@
-# Java
-
-## Primitive Data Types
+---
+title: Java Primitive Data Types
+tags:
+  - Java
+---
 
 In Java, the phrase "everything is an object" is often used to emphasize that Java is an object-oriented programming
 language. However, there are important exceptions to this rule. Here are the exceptions and explanations:

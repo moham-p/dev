@@ -41,3 +41,11 @@
 .md-header__title {
     font-family: "Lucida Console", "Courier New", monospace;
 }
+
+.md-sidebar--primary {
+    display: none;
+}
+
+.md-content {
+    margin-left: 0; /* Adjust content margin to use the full width */
+}
