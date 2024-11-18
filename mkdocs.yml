@@ -1,16 +1,14 @@
 site_name: ~/moham/dev
 
 nav:
-  - Moham: index.md
   - Java:
-    - Back: index.md
     - Primitive data types: java/Primitive data types.md
   - Spring:
-      - Back: index.md
-      - Method-level authorization in Spring Security: spring/Method-level authorization in Spring Security.md
+    - Method-level authorization in Spring Security: spring/Method-level authorization in Spring Security.md
 
 theme:
   name: material
+  custom_dir: overrides
   logo: img/_logo.png
   favicon: img/favicon.ico
 

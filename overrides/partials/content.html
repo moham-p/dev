@@ -1,0 +1,32 @@
+{#-
+This file was automatically generated - do not edit
+-#}
+{% if "material/tags" in config.plugins and tags %}
+{% include "partials/tags.html" %}
+{% endif %}
+{% include "partials/actions.html" %}
+
+{# Check if the page title is 'Moham' and set custom content #}
+{% if page.title == "Home" %}
+<h1>Moham</h1>
+<table>
+  <tr>
+    <td style="vertical-align: top; padding-right: 20px; font-size: 1.2em;">
+      <p>I'm a software developer with a passion for building efficient, scalable, and reliable systems. My work centers on Java, Spring, and databases, along with system design, DevOps, and cloud infrastructure.</p>
+      <p>On this blog, I share insights, tutorials, and experiences to support continuous learning. Welcome, and I hope you find ideas and resources to help in your own tech journey!</p>
+    </td>
+    <td style="vertical-align: top;">
+      <img src="img/moham.png" alt="Your Picture" style="max-width: 150px; border-radius: 8px;">
+    </td>
+  </tr>
+</table>
+{% else %}
+{% if "\x3ch1" not in page.content %}
+<h1>{{ page.title | d(config.site_name, true)}}</h1>
+{% endif %}
+{{ page.content }}
+{% endif %}
+
+{% include "partials/source-file.html" %}
+{% include "partials/feedback.html" %}
+{% include "partials/comments.html" %}
