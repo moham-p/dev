@@ -15,9 +15,9 @@ public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Excepti
     http
             .csrf(AbstractHttpConfigurer::disable)
             .authorizeHttpRequests(auth -> auth
-                    .requestMatchers("/public/**").permitAll()
-                    .requestMatchers("/admin/api/**").hasRole("ADMIN") 
-                    .requestMatchers("/api/**").hasRole("USER")
+                    .requestMatchers("/public/**").permitAll() // Allow access to public endpoints
+                    .requestMatchers("/admin/api/**").hasRole("ADMIN") // Require ADMIN role for admin endpoints
+                    .requestMatchers("/api/**").hasRole("USER") // Require USER role for general endpoints
                     .anyRequest().authenticated()
             )
             .httpBasic(Customizer.withDefaults());
@@ -26,7 +26,11 @@ public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Excepti
 }
 ```
 
-The `SecurityFilterChain` bean is responsible for defining how requests are secured. We start by disabling CSRF protection for simplicity (note that in production, you should consider enabling it for non-API requests). The authorization rules are straightforward: any request to `/public/**` is allowed without authentication, while `/admin/api/**` is restricted to users with the `ADMIN` role. Similarly, `/api/**` endpoints require the `USER` role, and all other requests must be authenticated. This layered approach to authorization allows us to provide clear boundaries for different types of users within our application, ensuring that each user only has access to the features they need.
+The `SecurityFilterChain` bean is responsible for defining how requests are secured. We start by disabling CSRF protection for simplicity (note that in production, you should consider enabling it for non-API requests).
+Spring evaluates the matchers in the order they are defined in the authorizeHttpRequests block, **stopping at the first match**. This means that if multiple matchers overlap or are too generic, the earlier ones will take precedence, potentially overriding more restrictive rules.
+
+
+This layered approach to authorization allows us to provide clear boundaries for different types of users within our application, ensuring that each user only has access to the features they need.
 
 ```java
 @Bean
@@ -52,11 +56,17 @@ public UserDetailsService userDetailsService() {
 
 In this configuration, we set up an `InMemoryUserDetailsManager` with three users: `user1`, `admin1`, and `admin2`. The user `user1` has the role `USER`, while `admin1` has the role `ADMIN`. Additionally, `admin2` has both the `ADMIN` role and an extra authority called `CREATE_ORDER`, which allows them to perform more specific actions, such as creating orders.
 
-In addition to HTTP Basic authentication, this configuration can easily be extended to include OAuth2 or JWT-based authentication to provide more sophisticated security mechanisms. By using role-based access control in combination with more advanced authentication techniques, you can build a highly secure application that meets the requirements of modern software environments.
+In addition to HTTP Basic authentication, this configuration can easily be extended to include OAuth2 or JWT-based authentication to provide more sophisticated security mechanisms. 
+
 
 ## Applying Method-Level Authorization
 
-To illustrate how to implement method-level authorization, we have two controllers in our project: `AdminController` and `Controller`. The `AdminController` handles administrative operations related to orders, while the general `Controller` manages regular user orders. By having separate controllers for different roles, we ensure that the application follows the principle of least privilege, where users only access the data they need.
+To illustrate how to implement method-level authorization, we have two controllers in our project: 
+
+- The `AdminController` handles administrative operations related to orders, while 
+- the general `Controller` manages regular user orders. 
+
+By having separate controllers for different roles, we ensure that the application follows the principle of least privilege, where users only access the data they need.
 
 ```java
 @RestController
@@ -92,9 +102,7 @@ public class Controller {
 }
 ```
 
-The general `Controller` is used for managing orders accessible to regular users. It has a `GET` endpoint that simply returns a list of orders:
-
-This controller does not have any special method-level security annotations, as it is intended for users with the `USER` role. The security configuration in `SecurityConfig` ensures that only users with the appropriate role can access these endpoints. This approach allows us to simplify the security rules for general users while applying more stringent rules for administrative tasks.
+The general `Controller` is used for managing orders accessible to regular users. This controller does not have any special method-level security annotations, as it is intended for users with the `USER` role. 
 
 ## Response Examples for Endpoint Requests
 
@@ -164,4 +172,9 @@ In such cases, explicitly specify all desired authorities in `.authorities()` to
 ## Additional Considerations for Method-Level Security
 
 Additionally, method-level security annotations like `@PreAuthorize` can be combined with other annotations such as `@PostAuthorize`, `@Secured`, and `@RolesAllowed` to provide even more flexibility. For instance, `@PostAuthorize` can be used to validate the response after the method has executed, which can be helpful in certain scenarios, such as ensuring that a user only sees data they are allowed to access.
+
+---
+
+Happy coding! 💻
+
 

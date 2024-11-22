@@ -2,9 +2,10 @@ site_name: ~/moham/dev
 
 nav:
   - Java:
-    - Primitive data types: java/Primitive data types.md
+    - How HashMap Handles Collisions: java/How HashMap Handles Collisions.md
   - Spring:
-    - Method-level authorization in Spring Security: spring/Method-level authorization in Spring Security.md
+    - Method-level authorization in Spring Security: spring/Method-Level Authorization in Spring Security.md
+    - How Singleton Components Work with Thread Pools: spring/How Singleton Components Work with Thread Pools.md
 
 theme:
   name: material
