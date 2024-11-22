@@ -3,6 +3,8 @@ the endpoint and method level using a sample project.
 We'll cover role-based and authority-based security, showing how both can be configured 
 and used to enhance your application's overall security posture.
 
+- Source code : [Spring Security Method-Level Authorization Demo](https://github.com/moham-p/dev-codes/tree/main/spring/security)
+
 ## Spring Security Configuration
 
 To get started, we need to configure Spring Security. Below is the `SecurityConfig` class, which is responsible for setting up the security rules and ensuring proper authentication and authorization for our application. With Spring Security, you can create custom security policies that help protect your application from unauthorized access.
@@ -162,11 +164,4 @@ In such cases, explicitly specify all desired authorities in `.authorities()` to
 ## Additional Considerations for Method-Level Security
 
 Additionally, method-level security annotations like `@PreAuthorize` can be combined with other annotations such as `@PostAuthorize`, `@Secured`, and `@RolesAllowed` to provide even more flexibility. For instance, `@PostAuthorize` can be used to validate the response after the method has executed, which can be helpful in certain scenarios, such as ensuring that a user only sees data they are allowed to access.
-
-
-## Source Code
-
-You can find the source code for this demo on GitHub: [Spring Security Method-Level Authorization Demo](https://github.com/moham-p/dev-codes/tree/main/spring/security)
-
----
 
