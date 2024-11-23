@@ -1,0 +1,67 @@
+/* Increase the width of code blocks */
+.md-typeset pre code {
+    white-space: pre-wrap; /* Allows code to wrap */
+    word-wrap: break-word; /* Breaks long words if necessary */
+    overflow-x: auto; /* Ensures that the block does not overflow */
+}
+
+/* Optional: Set a maximum width for the code block */
+.md-typeset pre {
+    max-width: 100%; /* Ensures the code block doesn't exceed the container width */
+}
+
+.md-header__button.md-logo img, .md-header__button.md-logo svg {
+    fill: currentcolor;
+    display: block;
+    height: 2.0rem;
+    width: auto;
+}
+
+.md-header {
+    background-color: #212f3c;
+    box-shadow: 0 0 .2rem #0000, 0 .2rem .4rem #0000;
+    color: var(--md-primary-bg-color);
+    display: block;
+    left: 0;
+    position: sticky;
+    right: 0;
+    top: 0;
+    z-index: 4;
+}
+
+/* ~/moham/dev looks better with monospace */
+.md-header__title {
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+/* Ensure second-level navigation items are visible */
+.md-nav__item {
+    display: block;
+}
+
+.md-nav__list ul {
+    display: block !important; /* Override potential collapse styles */
+}
+
+/* Optional: Adjust padding/margin for nested items on small screens */
+.md-nav__list ul li {
+    padding-left: 1em; /* Indent second-level items */
+}
+
+/* Optional: Customize for mobile view */
+@media (max-width: 768px) {
+    .md-nav__list ul {
+        padding-left: 0;
+    }
+
+    .md-nav__item {
+        margin-bottom: 0.5em;
+    }
+}
+
+
+.md-nav--primary .md-nav__title[for=__drawer] {
+    background-color: #212f3c;
+        color: var(--md-primary-bg-color);
+        font-weight: 700;
+}
