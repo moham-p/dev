@@ -8,18 +8,83 @@ This file was automatically generated - do not edit
 
 {# Check if the page title is 'Moham' and set custom content #}
 {% if page.title == "Home" %}
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latest Blog Posts</title>
+  <style>
+    .container {
+      padding: 1rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .post {
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #ddd;
+    }
+    .post h3 {
+      margin: 0;
+    }
+    .post p {
+      margin: 0.5rem 0;
+    }
+    .post a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+    .post a:hover {
+      text-decoration: underline;
+    }
+    .date {
+      font-size: 0.9em; /* Smaller font size */
+      background-color: #f0f0f0; /* Light gray background */
+      padding: 2px 6px;
+      border-radius: 3px;
+      display: inline-block;
+    }
+  </style>
+</head>
+
 <h1>Moham</h1>
-<table>
-  <tr>
-    <td style="vertical-align: top; padding-right: 20px; font-size: 1.2em;">
-      <p>I'm a software developer with a passion for building efficient, scalable, and reliable systems. My work centers on Java, Spring, and databases, along with system design, DevOps, and cloud infrastructure.</p>
-      <p>On this blog, I share insights, tutorials, and experiences to support continuous learning. Welcome, and I hope you find ideas and resources to help in your own tech journey!</p>
-    </td>
-    <td style="vertical-align: top;">
-      <img src="img/moham.png" alt="Your Picture" style="max-width: 150px; border-radius: 8px;">
-    </td>
-  </tr>
-</table>
+<div style="display: flex; align-items: flex-start;">
+  <div style="padding-right: 20px; font-size: 1.1em; flex: 1;">
+    <p>I'm a software developer passionate about building efficient, scalable, and reliable systems, with expertise in Java, Spring, system design, and architecture. On this blog, I share insights, tutorials, and experiences to foster continuous learning—welcome, and I hope you discover ideas and resources to support your tech journey!</p>
+  </div>
+  <div>
+    <img src="img/moham.png" alt="Your Picture" style="max-width: 120px; border-radius: 10px;">
+  </div>
+</div>
+
+<h2>Latest Blog Posts</h2>
+
+<div class="container">
+
+  <div class="post">
+    <h3>How Singleton Components Work with Thread Pools</h3>
+    <p>Spring’s component model is built on the principle of singletons for many of its core beans, ensuring efficiency and consistency across your application...
+      <a href="/spring/How%20Singleton%20Components%20Work%20with%20Thread%20Pools/">Read Post</a>
+    </p>
+    <p><span class="date">November 23, 2024</span></p>
+  </div>
+
+  <div class="post">
+    <h3>How HashMap Handles Collisions</h3>
+    <p>Collisions in a HashMap occur when multiple keys hash to the same bucket index...
+      <a href="/java/How%20HashMap%20Handles%20Collisions/">Read Post</a>
+    </p>
+    <p><span class="date">November 19, 2024</span></p>
+  </div>
+
+  <div class="post">
+    <h3>Method-level authorization in Spring Security</h3>
+    <p>In this post, we'll explore how to use Spring Security to control access both at the endpoint and method level using a sample project...
+      <a href="/spring/Method-Level%20Authorization%20in%20Spring%20Security/">Read Post</a>
+    </p>
+    <p><span class="date">November 16, 2024</span></p>
+  </div>
+
+</div>
 {% else %}
 {% if "\x3ch1" not in page.content %}
 <h1>{{ page.title | d(config.site_name, true)}}</h1>
