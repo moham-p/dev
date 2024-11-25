@@ -56,7 +56,7 @@ public class OrderController {
                 .stream()
                 .map(order -> new OrderDTO(order.getName(), order.getDescription()))
                 .toList();
-        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+        return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 }
 ```
