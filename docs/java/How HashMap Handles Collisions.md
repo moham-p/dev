@@ -86,9 +86,6 @@ Despite all keys having the same hash code, the `HashMap` successfully retrieves
 2. **Importance of Proper `hashCode` Implementation:** A poor hash code implementation, as shown in this example, can lead to performance degradation since all keys fall into the same bucket.
 3. **Balanced Trees for Performance:** Starting with Java 8, `HashMap` replaces the linked list with a balanced tree when collisions exceed a threshold, improving lookup times in heavily collided buckets.
 
-
 ---
 
 Happy coding! 💻
-
-

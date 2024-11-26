@@ -6,6 +6,8 @@ nav:
   - Spring:
     - Method-Level Authorization in Spring Security: spring/Method-Level Authorization in Spring Security.md
     - How Singleton Components Work with Thread Pools: spring/How Singleton Components Work with Thread Pools.md
+  - DevOps:
+    - Correlating Bamboo Concepts with AWS ECS: devops/Correlating Bamboo Concepts with AWS ECS.md
 
 theme:
   name: material
