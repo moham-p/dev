@@ -4,14 +4,15 @@ Invisible ownership subtasks are those that never make it into a ticket manageme
 
 A developer with low ownership might complete all visible subtasks, mark the ticket as "done," and move on. In contrast, developers with high ownership see each ticket as part of a larger system they are responsible for. They ask questions like:
 
-- "How does this change impact related modules?"
-- "Are there any integration concerns?"
-- "If this change is introducing a new dependency to some libraries, how will it get built in CI/CD?"
-- "If this is a backend change, how is it going to affect database migrations and downstream reports?"
-- "Are there any security implications related to this change?"
-- "How will this impact performance under load?"
-- "What are the testing requirements for these changes to ensure robustness?"
-  They consider the ripple effects of their changes and potential downstream impacts.
+- How does this change impact related modules?
+- Are there any integration concerns?
+- If this change is introducing a new dependency to some libraries, how will it get built in CI/CD?
+- If this is a backend change, how is it going to affect database migrations and downstream reports?
+- Are there any security implications related to this change?
+- How will this impact performance under load?
+- What are the testing requirements for these changes to ensure robustness?"
+
+Basically, every ticket has the potential to give you deeper knowledge of how different subsystems and teams in your company work, if you keep your curiosity alive and thriving.
 
 These invisible subtasks reveal the depth of a developer's engagement and often make the difference between a patchy implementation and a robust solution. Managers can use this concept to assess their team's level of ownership. Developers who ask about broader implications and take proactive steps demonstrate greater ownership. They don't just close a ticket—they ensure the change is successful in every dimension.
 
