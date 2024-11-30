@@ -1,6 +1,8 @@
 site_name: ~/moham/dev
 
 nav:
+  - Soft Skills:
+      - Invisible Ownership Subtasks: soft-skills/Invisible Ownership Subtasks.md
   - Java:
     - How HashMap Handles Collisions: java/How HashMap Handles Collisions.md
   - Spring:
