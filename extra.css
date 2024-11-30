@@ -65,3 +65,14 @@
         color: var(--md-primary-bg-color);
         font-weight: 700;
 }
+/* Apply to second-level items only */
+  .md-nav__list .md-nav__item {
+    padding-bottom: 12px; /* Increased padding for bottom spacing */
+  }
+
+  /* Add border only for second-level items */
+  .md-nav__list .md-nav__item > a {
+    border-bottom: 1px solid #f0f0f0; /* Thin border for second-level items */
+    padding-bottom: 8px; /* Optional: space between text and border */
+  }
+
