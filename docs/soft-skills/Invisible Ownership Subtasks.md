@@ -17,5 +17,7 @@ These invisible subtasks reveal the depth of a developer's engagement and often 
 
 Cultivating this kind of ownership requires a supportive environment. Managers need to create a culture where curiosity is encouraged, and developers feel empowered to take extra time to address invisible subtasks. Encouraging invisible ownership shifts teams from a culture of ticket-closing to one of high-quality, impactful development.
 
-Invisible ownership subtasks are a critical part of software development. They represent the difference between developers who merely complete tasks and those genuinely invested in the product's success. By recognizing and encouraging these efforts, we can create teams that are more effective and fulfilled in their work.
+---
+
+Happy coding! 💻
 
