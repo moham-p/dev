@@ -31,7 +31,7 @@
 
 /* ~/moham/dev looks better with monospace */
 .md-header__title {
-    font-family: "Lucida Console", "Courier New", monospace;
+    font-family: "JetBrains Mono";
 }
 
 /* Ensure second-level navigation items are visible */
