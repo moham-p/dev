@@ -1,0 +1,65 @@
+As developers, we often choose tools that enhance productivity and streamline our workflows. For Java developers, IntelliJ IDEA and Visual Studio Code (VS Code) are two popular choices. Each brings unique strengths to the table—IntelliJ's rich UI simplifies complex setups, while VS Code's explicit configurations encourage familiarity with command-line operations.
+
+But here's a critical observation: developers using IntelliJ often become less familiar with the actual commands their tools execute behind the scenes. This post argues why staying "friends with the console" is vital, even if you rely on an IDE with advanced features.
+
+---
+
+## The Abstraction Gap
+When you run a project in IntelliJ IDEA, the process feels seamless:
+- Select a run configuration.
+- Click the green play button.
+- Watch your application start.
+
+Behind the scenes, IntelliJ generates a command to launch your application, passing JVM arguments, system properties, and classpath settings. However, many developers don’t inspect this command, creating a knowledge gap. Over time, this reliance on the UI can lead to an aversion to using the console.
+
+In contrast, VS Code's `launch.json` file makes you explicitly define every aspect of your run configuration:
+- The main class to launch.
+- The JVM arguments to include.
+- Environment variables and debugging options.
+
+This approach forces you to understand the command being executed, fostering a deeper awareness of what’s happening under the hood.
+
+---
+
+## Why It Matters
+#### 1. **Portability**
+Knowing the command being executed allows you to replicate the same setup outside your IDE. This is especially critical in environments like CI/CD pipelines, where everything runs on the command line.
+
+#### 2. **Debugging Skills**
+When something breaks in production, you won’t have IntelliJ’s UI to save you. Understanding how to craft and troubleshoot the equivalent command-line invocation ensures you're better equipped to diagnose and resolve issues.
+
+#### 3. **Tool Independence**
+Becoming overly reliant on an IDE can tie your productivity to that tool. By understanding the underlying commands, you’re not just an IntelliJ user; you’re a developer who can adapt to any environment.
+
+---
+
+## Bridging the Gap
+If you’re an IntelliJ user, here’s how you can stay connected with the console:
+
+1. **Inspect Run Configurations**:
+   Every time you run your application, IntelliJ logs the generated command in the Run or Debug console. Take a moment to review it. Understand the JVM arguments, the classpath, and any system properties being passed.
+
+2. **Experiment with the Command Line**:
+   Copy the command from IntelliJ’s logs and execute it directly in your terminal. Modify parameters, try different options, and see how your application behaves.
+
+3. **Translate UI to Commands**:
+   When setting up run configurations in IntelliJ, think about how you’d define the same setup in a tool like VS Code or Maven. This mental exercise helps solidify your understanding.
+
+4. **Leverage Tools Like Maven and Gradle**:
+   These tools are designed for command-line execution and often integrate seamlessly with IDEs. Practice running your application with `mvn spring-boot:run` or `gradle bootRun` to gain familiarity with console workflows.
+
+---
+
+## Embrace the Best of Both Worlds
+Using IntelliJ IDEA doesn’t mean abandoning the console. Instead, think of the IDE as a tool that enhances your productivity without replacing foundational knowledge. When you understand the commands your IDE generates, you unlock a new level of control over your development process.
+
+Whether you’re configuring a debugging session, tweaking JVM options, or deploying your application to production, staying friends with the console ensures you remain on top of your craft.
+
+---
+
+## Final Thought
+An IDE should simplify your workflow, not shield you from understanding it. So, the next time you click "Run" in IntelliJ, take a moment to explore the command it generates. It’s not just a helpful exercise—it’s a step toward becoming a more confident and capable developer.
+
+---
+
+Happy coding! 💻
