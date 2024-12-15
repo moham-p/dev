@@ -11,17 +11,17 @@
   
   
   
-  <link rel="icon" href="/img/favicon.ico">
+  <link rel="icon" href="../../img/favicon.ico">
   <link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
   <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.33">
   
   
   
-  <title>Curiosity into `Code`</title>
+  <title>Transaction Management in PostgreSQL - Curiosity into `Code`</title>
   
   
   
-  <link rel="stylesheet" href="/assets/stylesheets/main.3cba04c6.min.css">
+  <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
   
   
 
@@ -40,9 +40,9 @@
   
   
   
-  <link rel="stylesheet" href="/extra.css">
+  <link rel="stylesheet" href="../../extra.css">
   
-  <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+  <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
   
   
 
@@ -60,6 +60,11 @@
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
   
+  
+  <a href="#autocommit-mode-the-default-behavior" class="md-skip">
+    Skip to content
+  </a>
+  
 </div>
 <div data-md-component="announce">
   
@@ -72,9 +77,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="Curiosity into `Code`" class="md-header__button md-logo" aria-label="Curiosity into `Code`" data-md-component="logo">
+    <a href="../.." title="Curiosity into `Code`" class="md-header__button md-logo" aria-label="Curiosity into `Code`" data-md-component="logo">
       
-  <img src="/img/_logo.png" alt="logo">
+  <img src="../../img/_logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -91,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Transaction Management in PostgreSQL
             
           </span>
         </div>
@@ -166,9 +171,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="Curiosity into `Code`" class="md-nav__button md-logo" aria-label="Curiosity into `Code`" data-md-component="logo">
+    <a href="../.." title="Curiosity into `Code`" class="md-nav__button md-logo" aria-label="Curiosity into `Code`" data-md-component="logo">
       
-  <img src="/img/_logo.png" alt="logo">
+  <img src="../../img/_logo.png" alt="logo">
 
     </a>
   </label>
@@ -220,7 +225,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/soft-skills/Invisible%20Ownership%20Subtasks/" class="md-nav__link">
+      <a href="../../soft-skills/Invisible%20Ownership%20Subtasks/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -283,7 +288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/java/How%20HashMap%20Handles%20Collisions/" class="md-nav__link">
+      <a href="../../java/How%20HashMap%20Handles%20Collisions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -304,7 +309,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/java/Stay%20Friends%20with%20the%20Console/" class="md-nav__link">
+      <a href="../../java/Stay%20Friends%20with%20the%20Console/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -367,7 +372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/spring/Method-Level%20Authorization%20in%20Spring%20Security/" class="md-nav__link">
+      <a href="../../spring/Method-Level%20Authorization%20in%20Spring%20Security/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -388,7 +393,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/spring/How%20Singleton%20Components%20Work%20with%20Thread%20Pools/" class="md-nav__link">
+      <a href="../../spring/How%20Singleton%20Components%20Work%20with%20Thread%20Pools/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -451,7 +456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/data/PostgreSQL%20Transactions%20-%20Part%201/" class="md-nav__link">
+      <a href="../PostgreSQL%20Transactions%20-%20Part%201/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -514,7 +519,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/devops/Correlating%20Bamboo%20Concepts%20with%20AWS%20ECS/" class="md-nav__link">
+      <a href="../../devops/Correlating%20Bamboo%20Concepts%20with%20AWS%20ECS/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -550,8 +555,83 @@
       <div class="md-content" data-md-component="content">
         <article class="md-content__inner md-typeset">
           
-  <h1>404 - Not found</h1>
+          
 
+
+
+
+
+<h1>Transaction Management in PostgreSQL</h1>
+
+<p>In modern database systems, managing transactions effectively is critical to maintaining data integrity and consistency. PostgreSQL, one of the most robust and widely used relational databases, provides comprehensive tools for transaction management. This blog explores the essentials of PostgreSQL transactions, focusing on isolation levels, locking mechanisms, and practical use cases.</p>
+<hr />
+<h4 id="autocommit-mode-the-default-behavior"><strong>Autocommit Mode: The Default Behavior</strong></h4>
+<p>PostgreSQL operates in autocommit mode by default, where each SQL statement is treated as an independent transaction. For example, a simple <code>SELECT</code> query executes and commits automatically. While convenient for quick operations, explicit transaction management becomes crucial for complex workflows involving multiple operations.</p>
+<p>When using application frameworks or ORMs (Object-Relational Mapping), transaction handling might be abstracted. Frameworks often manage transactions implicitly, wrapping reads and writes together into a transaction. However, understanding PostgreSQL’s transaction mechanics is essential for fine-grained control.</p>
+<hr />
+<h4 id="the-acid-properties-of-transactions"><strong>The ACID Properties of Transactions</strong></h4>
+<p>PostgreSQL adheres to the ACID principles:
+- <strong>Atomicity</strong>: Ensures transactions are all-or-nothing.
+- <strong>Consistency</strong>: Maintains database integrity before and after transactions.
+- <strong>Isolation</strong>: Prevents interference between concurrent transactions.
+- <strong>Durability</strong>: Guarantees committed changes persist despite failures.</p>
+<p>Isolation is particularly significant in multi-user environments, where transactions interact in complex ways.</p>
+<hr />
+<h4 id="transaction-isolation-levels-in-postgresql"><strong>Transaction Isolation Levels in PostgreSQL</strong></h4>
+<p>PostgreSQL supports four isolation levels, each balancing consistency and concurrency:</p>
+<ol>
+<li><strong>Read Uncommitted</strong>: Not implemented in PostgreSQL, ensuring a minimum level of data consistency.</li>
+<li><strong>Read Committed</strong> (Default): Ensures queries see only committed data. However, changes made during a transaction might not be visible until committed.</li>
+<li><strong>Repeatable Read</strong>: Offers a consistent snapshot of data for the duration of a transaction, preventing non-repeatable reads.</li>
+<li><strong>Serializable</strong>: The strictest level, simulating sequential transaction execution and eliminating concurrency anomalies, including phantom reads.</li>
+</ol>
+<p><strong>Phantom Reads</strong> illustrate isolation challenges:
+- A transaction retrieves rows with <code>SELECT * FROM person WHERE age &gt; 30;</code>.
+- If another transaction inserts <code>age = 35</code> and commits, rerunning the query includes the new row, creating a "phantom" effect. Repeatable Read prevents some anomalies but not phantoms. Serializable isolation eliminates them entirely.</p>
+<hr />
+<h4 id="pessimistic-vs-optimistic-locking"><strong>Pessimistic vs. Optimistic Locking</strong></h4>
+<ol>
+<li>
+<p><strong>Pessimistic Locking</strong>:
+   Locks rows immediately to prevent conflicts. For example, <code>SELECT FOR UPDATE</code> locks rows to avoid concurrent modifications. Ideal for high-conflict scenarios but may degrade performance due to contention.</p>
+</li>
+<li>
+<p><strong>Optimistic Locking</strong>:
+   Assumes conflicts are rare and defers checks until commit time. It compares data versions to detect conflicts, ensuring data integrity with minimal locking overhead. This approach is particularly suited for high-concurrency systems.</p>
+</li>
+</ol>
+<hr />
+<h4 id="locking-mechanisms-in-postgresql"><strong>Locking Mechanisms in PostgreSQL</strong></h4>
+<ul>
+<li><strong>Exclusive Locks</strong>: Acquired using <code>SELECT FOR UPDATE</code>, these prevent modifications by other transactions, ensuring rows are consistent for updates.</li>
+<li><strong>Shared Locks</strong>: Acquired with <code>SELECT FOR SHARE</code>, these prevent deletion or modification but allow concurrent shared access.</li>
+</ul>
+<p>For instance:
+- <strong>Double Booking Problem</strong>: Use <code>SELECT FOR UPDATE</code> to lock rows while verifying availability for reservations, preventing simultaneous modifications.</p>
+<hr />
+<h4 id="practical-tips-for-transaction-management"><strong>Practical Tips for Transaction Management</strong></h4>
+<ol>
+<li><strong>Choose the Right Isolation Level</strong>: Use Read Committed for most applications, Repeatable Read for consistent snapshots, and Serializable for critical data consistency.</li>
+<li><strong>Leverage Locking</strong>: Use locks judiciously to balance performance and consistency.</li>
+<li><strong>Optimize for Concurrency</strong>: Prefer optimistic locking in high-concurrency scenarios to minimize contention.</li>
+</ol>
+<hr />
+<p>By understanding PostgreSQL’s transaction management tools, developers can design systems that balance performance, concurrency, and data integrity effectively. Whether you’re building a high-traffic web app or managing sensitive financial data, mastering transactions ensures your application remains reliable under pressure.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
         </article>
       </div>
       
@@ -576,10 +656,10 @@
 </div>
 
 
-<script id="__config" type="application/json">{"base": "/", "features": [], "search": "/assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
 
 
-<script src="/assets/javascripts/bundle.af256bd8.min.js"></script>
+<script src="../../assets/javascripts/bundle.af256bd8.min.js"></script>
 
 
 </body>
