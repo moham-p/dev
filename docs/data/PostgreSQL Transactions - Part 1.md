@@ -85,19 +85,19 @@ execute <unnamed>: COMMIT
 ```
 Notice that the query is executed between BEGIN READ ONLY and COMMIT, which marks the boundaries of the transaction.
 
-### PostgreSQL Transactional Nature
+## PostgreSQL Transactional Nature
 
 In PostgreSQL, every query is executed in a transaction, whether explicitly declared or not. We didn’t explicitly define `@Transactional` in our service method `getAllAccounts`. However, PostgreSQL’s default **autocommit mode** implicitly wraps the query in its own transaction and commits it immediately after the query finishes.
 
 If you want to explicitly define transactions in your service methods that deal with reading data, you can do so by using the annotation `@Transactional(readOnly = true)`.
 
-#### Why Autocommit Exists
+### Why Autocommit Exists
 - PostgreSQL ensures that all queries are atomic, consistent, isolated, and durable (ACID properties).
 - Even a `SELECT` benefits from this, as it guarantees the query operates on a consistent snapshot of the database.
 
 ---
 
-### Why Consistency Matters for SELECT Queries
+## Why Consistency Matters for SELECT Queries
 
 A **snapshot** in a transaction refers to the consistent view of the database that a query or set of queries operates on. Don’t forget that `SELECT` operations can include complex joins across many tables. 
 These operations are executed as a single `SELECT` query (PostgreSQL does not split a complex join into subqueries).
