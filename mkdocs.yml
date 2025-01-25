@@ -13,8 +13,8 @@ nav:
     - PostgreSQL Transactions - Part 2: data/PostgreSQL Transactions - Part 2.md
     - PostgreSQL Transactions - Part 1: data/PostgreSQL Transactions - Part 1.md
   - DevOps:
-    - Correlating Bamboo Concepts with AWS ECS: devops/Correlating Bamboo Concepts with AWS ECS.md
     - Using Nginx to Front Both Backend and Frontend: devops/Using Nginx to Front Both Backend and Frontend.md
+    - Correlating Bamboo Concepts with AWS ECS: devops/Correlating Bamboo Concepts with AWS ECS.md
 
 theme:
   name: material
