@@ -9,10 +9,10 @@
   
   
   
-  <link rel="prev" href="../../security/Seamless%20AWS%20Access%20-%20Setting%20Up%20Azure%20AD%20as%20a%20Federated%20Identity%20Provider/">
+  <link rel="prev" href="../../data/PostgreSQL%20Transactions%20-%20Part%201/">
   
   
-  <link rel="next" href="../Correlating%20Bamboo%20Concepts%20with%20AWS%20ECS/">
+  <link rel="next" href="../../devops/Using%20Nginx%20to%20Front%20Both%20Backend%20and%20Frontend/">
   
   
   <link rel="icon" href="../../img/favicon.ico">
@@ -21,7 +21,7 @@
   
   
   
-  <title>Using Nginx to Front Both Backend and Frontend - Curiosity into `Code`</title>
+  <title>Seamless AWS Access - Setting Up Azure AD as a Federated Identity Provider - Curiosity into `Code`</title>
   
   
   
@@ -65,7 +65,7 @@
 <div data-md-component="skip">
   
   
-  <a href="#1-without-nginx-direct-setup" class="md-skip">
+  <a href="#what-is-federation" class="md-skip">
     Skip to content
   </a>
   
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Using Nginx to Front Both Backend and Frontend
+              Seamless AWS Access - Setting Up Azure AD as a Federated Identity Provider
             
           </span>
         </div>
@@ -506,17 +506,19 @@
     
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -530,75 +532,10 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Security
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../security/Seamless%20AWS%20Access%20-%20Setting%20Up%20Azure%20AD%20as%20a%20Federated%20Identity%20Provider/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Seamless AWS Access - Setting Up Azure AD as a Federated Identity Provider
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-    
-    
-  
-  
-    
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    DevOps
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_6">
-            <span class="md-nav__icon md-icon"></span>
-            DevOps
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -620,7 +557,7 @@
           
   
   <span class="md-ellipsis">
-    Using Nginx to Front Both Backend and Frontend
+    Seamless AWS Access - Setting Up Azure AD as a Federated Identity Provider
   </span>
   
 
@@ -631,7 +568,7 @@
         
   
   <span class="md-ellipsis">
-    Using Nginx to Front Both Backend and Frontend
+    Seamless AWS Access - Setting Up Azure AD as a Federated Identity Provider
   </span>
   
 
@@ -651,28 +588,85 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-without-nginx-direct-setup" class="md-nav__link">
+  <a href="#what-is-federation" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Without Nginx: Direct Setup
+      What is Federation?
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. Without Nginx: Direct Setup">
+    <nav class="md-nav" aria-label="What is Federation?">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#pros" class="md-nav__link">
+  <a href="#key-concepts-in-federation" class="md-nav__link">
     <span class="md-ellipsis">
-      Pros:
+      Key Concepts in Federation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Concepts in Federation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#federated-identity-saml-federation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Federated Identity (SAML Federation)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#cons" class="md-nav__link">
+  <a href="#delegated-authentication" class="md-nav__link">
     <span class="md-ellipsis">
-      Cons:
+      Delegated Authentication
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#single-sign-on-sso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Single Sign-On (SSO)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identity-providers-idps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Identity Providers (IdPs)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-azure-ad-as-an-identity-provider-for-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuring Azure AD as an Identity Provider for AWS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuring Azure AD as an Identity Provider for AWS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#steps-to-set-up-azure-ad-for-aws-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Steps to Set Up Azure AD for AWS Access
     </span>
   </a>
   
@@ -684,66 +678,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#handling-cors-in-spring-boot" class="md-nav__link">
+  <a href="#saml-federation-flow" class="md-nav__link">
     <span class="md-ellipsis">
-      Handling CORS in Spring Boot
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Handling CORS in Spring Boot">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#explanation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Explanation:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-with-nginx-reverse-proxy-setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. With Nginx: Reverse Proxy Setup
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. With Nginx: Reverse Proxy Setup">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pros_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pros:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example-nginx-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example Nginx Configuration
+      SAML Federation Flow
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
+  <a href="#key-benefits" class="md-nav__link">
     <span class="md-ellipsis">
-      Conclusion
+      Key Benefits
     </span>
   </a>
   
@@ -758,6 +704,48 @@
 
               
             
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+    
+    
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    DevOps
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            DevOps
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
               
                 
   
@@ -765,7 +753,28 @@
   
   
     <li class="md-nav__item">
-      <a href="../Correlating%20Bamboo%20Concepts%20with%20AWS%20ECS/" class="md-nav__link">
+      <a href="../../devops/Using%20Nginx%20to%20Front%20Both%20Backend%20and%20Frontend/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using Nginx to Front Both Backend and Frontend
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../devops/Correlating%20Bamboo%20Concepts%20with%20AWS%20ECS/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -807,93 +816,73 @@
 
 
 
-<h1>Using Nginx to Front Both Backend and Frontend</h1>
+<h1>Seamless AWS Access - Setting Up Azure AD as a Federated Identity Provider</h1>
 
-<p>When setting up a web application with a Spring Boot backend and a React frontend, you can choose to deploy them directly or use Nginx as a reverse proxy. Both options are viable, but using Nginx offers several advantages, especially for production environments.</p>
-<h2 id="1-without-nginx-direct-setup">1. <strong>Without Nginx: Direct Setup</strong></h2>
-<p>In this scenario, the backend and frontend are served directly to clients on their respective ports:</p>
+<p>Imagine you run a growing organization where employees need access to AWS services. Managing individual IAM users for each employee would be complex and inefficient. This is where identity federation becomes a game-changer. Instead of creating separate IAM users, you can configure Azure AD as an identity provider, allowing employees to log into AWS using their existing Azure AD credentials. This setup leverages SAML federation, ensuring seamless and secure access management without the overhead of IAM user administration.</p>
+<p>In this blog post, we'll explore <strong>identity federation</strong>, its key concepts, and how to set up <strong>Azure AD as an identity provider for AWS</strong>.</p>
+<h2 id="what-is-federation">What is Federation?</h2>
+<p>Federation enables users to authenticate using their existing credentials from a trusted identity provider (IdP) rather than creating separate accounts for different applications. This allows multiple systems or organizations to establish trust, enabling Single Sign-On (SSO) and seamless access to resources across different platforms.</p>
+<h3 id="key-concepts-in-federation">Key Concepts in Federation</h3>
+<h4 id="federated-identity-saml-federation">Federated Identity (SAML Federation)</h4>
 <ul>
-<li><strong>Frontend URL:</strong> <code>http://localhost:4200</code> (React)</li>
-<li><strong>Backend URL:</strong> <code>http://localhost:8085</code> (Spring Boot)</li>
+<li>Users authenticate via an external <strong>identity provider (IdP)</strong> instead of managing credentials separately for each application.</li>
+<li>For example, logging into a website using <strong>Google</strong> or <strong>Facebook</strong> credentials means the identity is federated.</li>
+<li>The identity provider verifies the user's credentials and shares user attributes (such as email and user ID) with the relying application.</li>
 </ul>
-<h3 id="pros">Pros:</h3>
+<h4 id="delegated-authentication">Delegated Authentication</h4>
 <ul>
-<li><strong>Simplicity:</strong> No need for additional tools or configuration.</li>
-<li><strong>Direct Access:</strong> Requests go straight to the backend or frontend, minimizing latency.</li>
+<li>Instead of handling authentication directly, an application (OAuth2 client) <strong>delegates the process</strong> to an external provider.</li>
+<li>Protocols like <strong>SAML</strong> and <strong>OpenID Connect (OIDC)</strong> are commonly used for this, depending on the use case.</li>
+<li>The OAuth2 authorization server trusts the identity provider to authenticate the user securely.</li>
 </ul>
-<h3 id="cons">Cons:</h3>
+<h4 id="single-sign-on-sso">Single Sign-On (SSO)</h4>
 <ul>
-<li><strong>CORS Issues:</strong> Since frontend (React) and backend (Spring Boot) are hosted on different origins, you'll need to configure CORS in Spring Boot. This adds complexity and potential security risks. </li>
+<li>Federation allows <strong>SSO</strong>, meaning users authenticate once and can access multiple applications without needing to log in again.</li>
+<li>Example: Employees signing into corporate applications via <strong>Azure AD</strong> gain access to various services without repeated logins.</li>
 </ul>
-<p><strong>Note</strong>: An origin is defined by the combination of the protocol, host, and port. Therefore, the URLs above are considered different origins because the ports (4200 vs. 8085) differ, even though the protocol and host are the same.</p>
-<h2 id="handling-cors-in-spring-boot">Handling CORS in Spring Boot</h2>
-<p>Spring Boot provides the <code>@CrossOrigin</code> annotation, which allows fine-grained control over cross-origin resource sharing.
-Here’s an example of how to configure a specific controller to handle CORS requests:</p>
-<div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nd">@CrossOrigin</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nd">@RestController</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&quot;/account&quot;</span><span class="p">)</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AccountController</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/{id}&quot;</span><span class="p">)</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Account</span><span class="w"> </span><span class="nf">retrieve</span><span class="p">(</span><span class="nd">@PathVariable</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="c1">// Fetch account details</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Account</span><span class="p">();</span><span class="w"> </span><span class="c1">// Example logic</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">}</span>
-</span></code></pre></div>
-<h3 id="explanation">Explanation:</h3>
+<h4 id="identity-providers-idps">Identity Providers (IdPs)</h4>
+<ul>
+<li>Common <strong>identity providers</strong> used in a federated OAuth2 setup include:</li>
+<li><strong>Google</strong></li>
+<li><strong>Facebook</strong></li>
+<li><strong>Azure AD</strong></li>
+<li><strong>Okta</strong></li>
+<li>Any SAML or OpenID Connect compliant provider</li>
+<li>The <strong>SAML or OpenID Connect provider</strong> establishes a federation relationship with these IdPs, allowing authentication via external credentials.</li>
+</ul>
+<h2 id="configuring-azure-ad-as-an-identity-provider-for-aws">Configuring Azure AD as an Identity Provider for AWS</h2>
+<p>Organizations often use <strong>Azure AD</strong> for authentication while running workloads on <strong>AWS</strong>. By integrating AWS IAM Identity Center (formerly AWS SSO) with Azure AD, users can log in to AWS resources using their Azure credentials.</p>
+<h3 id="steps-to-set-up-azure-ad-for-aws-access">Steps to Set Up Azure AD for AWS Access</h3>
 <ol>
-<li><strong><code>@CrossOrigin</code></strong>: This annotation, when used with its default configuration, enables cross-origin requests for all origins.</li>
-<li><strong>Controller-level CORS Configuration</strong>: You can apply this annotation to individual methods or at the class level for all endpoints within the controller.</li>
-<li><strong>Methods Supported</strong>: In the example, both <code>GET</code> and <code>DELETE</code> requests are exposed for CORS handling.</li>
+<li>Configure IAM Roles for SAML Users</li>
+<li>In AWS IAM, create roles with permissions needed for users.</li>
+<li>Link the role with the identity provider by configuring the <strong>SAML trust relationship</strong>.</li>
+<li>Define role mappings in <strong>AWS IAM Identity Center</strong>, so users receive appropriate permissions upon logging in.</li>
+<li>AWS STS will issue temporary credentials for users based on their assigned role.</li>
+<li><strong>Enable IAM Identity Center in AWS</strong>: Navigate to <strong>IAM Identity Center</strong> in the AWS console and select <strong>External Identity Provider</strong>.</li>
+<li><strong>Register AWS in Azure AD</strong>: In the <strong>Azure Portal</strong>, add AWS as an enterprise application under <strong>Azure Active Directory</strong>.</li>
+<li><strong>Configure SAML in Azure AD</strong>: Enable <strong>Single Sign-On (SSO)</strong> and set up <strong>SAML attributes</strong>.</li>
+<li><strong>Integrate with AWS IAM Identity Center</strong>: Upload the <strong>Azure AD Metadata XML</strong> in AWS and configure user mappings.</li>
+<li><strong>Assign Users and Groups</strong>: Ensure assigned users/groups match in both Azure AD and AWS IAM Identity Center.</li>
+<li><strong>Test the Integration</strong>: Verify login via Azure AD and check role-based access.</li>
 </ol>
-<p>While this approach is effective, it requires specifying the allowed origins manually and might not scale well for dynamic environments.</p>
-<h2 id="2-with-nginx-reverse-proxy-setup">2. <strong>With Nginx: Reverse Proxy Setup</strong></h2>
-<p>Using Nginx as a reverse proxy creates a unified entry point for both services. Nginx routes requests based on their paths:</p>
+<h2 id="saml-federation-flow">SAML Federation Flow</h2>
+<ol>
+<li><strong>User attempts to log in</strong> to an application.</li>
+<li>The application <strong>redirects</strong> the user to a <strong>SAML identity provider</strong> (e.g., Azure AD).</li>
+<li>The user <strong>authenticates</strong> with the identity provider.</li>
+<li>The <strong>identity provider returns a SAML assertion</strong> to AWS IAM Identity Center.</li>
+<li><strong>AWS Security Token Service (STS) issues temporary security credentials</strong> based on the SAML assertion.</li>
+<li>The user <strong>assumes an IAM role</strong> in AWS, granting them appropriate permissions.</li>
+<li>The application <strong>uses these temporary credentials</strong> to grant access to AWS resources.</li>
+</ol>
+<h2 id="key-benefits">Key Benefits</h2>
 <ul>
-<li><strong>Frontend URL:</strong> <code>http://localhost:9002</code> (Served through Nginx)</li>
-<li><strong>Backend API:</strong> <code>http://localhost:9002/api</code></li>
+<li><strong>Centralized Access Management</strong>: Manage AWS permissions via <strong>Azure AD</strong>.</li>
+<li><strong>Single Sign-On</strong>: Users authenticate once to access AWS services.</li>
+<li><strong>Enhanced Security</strong>: Enforce <strong>Conditional Access Policies</strong> and <strong>MFA</strong>.</li>
 </ul>
-<h3 id="pros_1">Pros:</h3>
-<ul>
-<li><strong>Unified Access Point:</strong> Both services are accessible on the same port. For example:<ul>
-<li><code>/</code> serves the React app.</li>
-<li><code>/api/*</code> routes to the Spring Boot backend.</li>
-</ul>
-</li>
-<li><strong>Avoid CORS Issues:</strong> Since Nginx proxies requests internally, the frontend and backend appear as a single origin.</li>
-<li><strong>SSL Termination:</strong> Nginx can handle HTTPS traffic, enhancing security in production.</li>
-<li><strong>Load Balancing:</strong> Distributes traffic among multiple instances of your backend or frontend.</li>
-<li><strong>Static Content Caching:</strong> Speeds up static file delivery and reduces backend load.</li>
-<li><strong>Enhanced Security:</strong> Supports rate limiting, IP filtering, and other protective measures.</li>
-</ul>
-<h2 id="example-nginx-configuration">Example Nginx Configuration</h2>
-<p>Here’s a sample <code>Nginx.conf</code> for routing requests to the frontend and backend:</p>
-<div class="language-Nginx highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">server</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="c1"># Route requests for the React frontend</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://localhost:4200</span><span class="p">;</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Host</span><span class="w"> </span><span class="nv">$host</span><span class="p">;</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Real-IP</span><span class="w"> </span><span class="nv">$remote_addr</span><span class="p">;</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="c1"># Route API requests to the Spring Boot backend</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/api/</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">        </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://localhost:8085</span><span class="p">;</span>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Host</span><span class="w"> </span><span class="nv">$host</span><span class="p">;</span>
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Real-IP</span><span class="w"> </span><span class="nv">$remote_addr</span><span class="p">;</span>
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-For</span><span class="w"> </span><span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="p">}</span>
-</span></code></pre></div>
-<h2 id="conclusion">Conclusion</h2>
-<ul>
-<li><strong>Without Nginx:</strong> Best for local development or simple setups where CORS issues can be managed, and scalability isn’t a concern.</li>
-<li><strong>With Nginx:</strong> Ideal for production environments requiring unified access, better security, and scalability.</li>
-</ul>
-<p>Whether you choose to go with or without Nginx depends on your specific use case, but understanding how to handle CORS is essential for smooth backend and frontend communication. Let me know if you’d like to dive deeper into any aspect of this configuration!</p>
+<p>With this setup, organizations can leverage Azure AD’s security while ensuring streamlined access control in AWS.</p>
 <hr />
 <p>Happy coding! 💻</p>
 
