@@ -9,6 +9,8 @@ nav:
   - Spring:
     - Method-Level Authorization in Spring Security: spring/Method-Level Authorization in Spring Security.md
     - How Singleton Components Work with Thread Pools: spring/How Singleton Components Work with Thread Pools.md
+  - Design:
+    - Don’t Mix Up Aggregates and Aggregators: design/Don’t Mix Up Aggregates and Aggregators.md
   - Data:
     - PostgreSQL Transactions - Part 2: data/PostgreSQL Transactions - Part 2.md
     - PostgreSQL Transactions - Part 1: data/PostgreSQL Transactions - Part 1.md
