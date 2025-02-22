@@ -9,10 +9,8 @@
   
   
   
-  <link rel="prev" href="../Using%20Nginx%20to%20Front%20Both%20Backend%20and%20Frontend/">
+  <link rel="prev" href="../Correlating%20Bamboo%20Concepts%20with%20AWS%20ECS/">
   
-  
-  <link rel="next" href="../How%20Web%20Servers%20Handle%20Logging%20Efficiently/">
   
   
   <link rel="icon" href="../../img/favicon.ico">
@@ -21,7 +19,7 @@
   
   
   
-  <title>Correlating Bamboo Concepts with AWS ECS - Curiosity into `Code`</title>
+  <title>How Web Servers Handle Logging Efficiently - Curiosity into `Code`</title>
   
   
   
@@ -65,7 +63,7 @@
 <div data-md-component="skip">
   
   
-  <a href="#atlassian-bamboo-concepts" class="md-skip">
+  <a href="#the-challenges-of-logging" class="md-skip">
     Skip to content
   </a>
   
@@ -100,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Correlating Bamboo Concepts with AWS ECS
+              How Web Servers Handle Logging Efficiently
             
           </span>
         </div>
@@ -690,6 +688,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../Correlating%20Bamboo%20Concepts%20with%20AWS%20ECS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Correlating Bamboo Concepts with AWS ECS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -704,7 +723,7 @@
           
   
   <span class="md-ellipsis">
-    Correlating Bamboo Concepts with AWS ECS
+    How Web Servers Handle Logging Efficiently
   </span>
   
 
@@ -715,7 +734,7 @@
         
   
   <span class="md-ellipsis">
-    Correlating Bamboo Concepts with AWS ECS
+    How Web Servers Handle Logging Efficiently
   </span>
   
 
@@ -735,37 +754,100 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#atlassian-bamboo-concepts" class="md-nav__link">
+  <a href="#the-challenges-of-logging" class="md-nav__link">
     <span class="md-ellipsis">
-      Atlassian Bamboo Concepts
+      The Challenges of Logging
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#mapping-bamboo-concepts-to-aws-ecs-for-parallel-usage" class="md-nav__link">
+  <a href="#techniques-for-fast-and-efficient-logging" class="md-nav__link">
     <span class="md-ellipsis">
-      Mapping Bamboo Concepts to AWS ECS for Parallel Usage
+      Techniques for Fast and Efficient Logging
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuring-bamboo-plans-using-iac-with-java" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuring Bamboo Plans Using IaC with Java
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuring Bamboo Plans Using IaC with Java">
+    <nav class="md-nav" aria-label="Techniques for Fast and Efficient Logging">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#example-defining-a-bamboo-plan-with-java" class="md-nav__link">
+  <a href="#1-buffered-writes" class="md-nav__link">
     <span class="md-ellipsis">
-      Example: Defining a Bamboo Plan with Java
+      1. Buffered Writes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-asynchronous-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Asynchronous Logging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-memory-mapped-files-mmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Memory-Mapped Files (MMAP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-batching-and-log-rotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Batching and Log Rotation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-direct-append-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Direct Append Mode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-write-ahead-logging-wal" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Write-Ahead Logging (WAL)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-using-faster-storage-ssd-ram-disks" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Using Faster Storage (SSD, RAM Disks)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-centralized-log-aggregation" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Centralized Log Aggregation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-compression-and-binary-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Compression and Binary Logging
     </span>
   </a>
   
@@ -773,15 +855,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#choosing-between-java-and-yaml" class="md-nav__link">
-    <span class="md-ellipsis">
-      Choosing Between Java and YAML
-    </span>
-  </a>
   
 </li>
       
@@ -798,27 +871,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../How%20Web%20Servers%20Handle%20Logging%20Efficiently/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    How Web Servers Handle Logging Efficiently
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -852,136 +904,47 @@
 
 
 
-<h1>Correlating Bamboo Concepts with AWS ECS</h1>
+<h1>How Web Servers Handle Logging Efficiently</h1>
 
-<p>When managing CI/CD pipelines with Atlassian Bamboo and deploying containerized workloads using AWS Elastic Container Service (ECS), understanding how their concepts align can help streamline workflows. This post explores how Bamboo and ECS can complement each other, enabling parallel usage for seamless integration of CI/CD and container orchestration.</p>
-<h2 id="atlassian-bamboo-concepts">Atlassian Bamboo Concepts</h2>
-<ol>
-<li>
-<p>Project<br />
-   A project in Bamboo is a logical grouping of plans, representing a high-level entity such as an application, service, or product.<br />
-   Example: For a "Payment System," the project might include multiple plans for backend, frontend, and database components.</p>
-</li>
-<li>
-<p>Plan<br />
-   A plan is a sequence of jobs that define how your code is built, tested, and packaged. This forms the foundation of Bamboo’s CI pipeline.<br />
-   Example: A backend plan could involve steps to compile Java code, run unit tests, and package it into a JAR file.</p>
-</li>
-<li>
-<p>Deployment<br />
-   Deployment in Bamboo refers to delivering an application or artifact (produced by a plan) to a specific environment, such as development, staging, or production.<br />
-   Example: A deployment plan outlines the steps for deploying the application to a staging environment, including configuration changes.</p>
-</li>
-<li>
-<p>Release<br />
-   A release is a versioned snapshot of your software, ready for deployment. It represents a stable build after passing tests.<br />
-   Example: Version <code>1.0.0</code> of your application is tagged as a release and marked as ready for production.</p>
-</li>
-</ol>
-<hr />
-<h2 id="mapping-bamboo-concepts-to-aws-ecs-for-parallel-usage">Mapping Bamboo Concepts to AWS ECS for Parallel Usage</h2>
-<p>While Bamboo manages CI/CD workflows, AWS ECS focuses on container orchestration. These tools can work together, with Bamboo feeding ECS through seamless CI/CD pipelines. Here's how their concepts align:</p>
-<ol>
-<li>
-<p>Project → ECS Cluster or Application Group<br />
-   A Bamboo project can correspond to an ECS cluster or a grouping of services within your infrastructure.<br />
-   Example: The "Payment System" project in Bamboo maps to an ECS cluster hosting multiple services.</p>
-</li>
-<li>
-<p>Plan → ECS Task Definition<br />
-   Bamboo plans can handle the CI pipeline for building and packaging Docker containers, which are then referenced in ECS task definitions.<br />
-   Example: A Bamboo plan builds a Docker container and pushes it to Amazon ECR, ready for deployment in ECS.</p>
-</li>
-<li>
-<p>Deployment → ECS Service Update<br />
-   Bamboo deployments can trigger ECS service updates, rolling out new versions of containers to specific environments like staging or production.<br />
-   Example: A Bamboo deployment task updates the ECS service with a new task definition.</p>
-</li>
-<li>
-<p>Release → Docker Image Version or Task Definition Revision<br />
-   Bamboo releases can represent versioned Docker images or ECS task definition revisions, providing stability and consistency.<br />
-   Example: A release like <code>payment-backend:1.0.0</code> is tagged in Bamboo and used as a task definition in ECS.</p>
-</li>
-</ol>
-<hr />
-<h2 id="configuring-bamboo-plans-using-iac-with-java">Configuring Bamboo Plans Using IaC with Java</h2>
-<p>Bamboo allows plans to be defined and managed programmatically using Infrastructure as Code (IaC). This approach ensures consistency, repeatability, and easier integration with version control systems.<br />
-As of now, Atlassian Bamboo supports Java (via the Bamboo Specs API) and YAML (for declarative configurations).</p>
-<h3 id="example-defining-a-bamboo-plan-with-java">Example: Defining a Bamboo Plan with Java</h3>
-<div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// Initialize Bamboo Server</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">BambooServer</span><span class="w"> </span><span class="n">bambooServer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BambooServer</span><span class="p">(</span><span class="s">&quot;https://your-bamboo-server.com&quot;</span><span class="p">);</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1">// Create the Bamboo Plan</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">Plan</span><span class="w"> </span><span class="n">plan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Plan</span><span class="p">(</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="n">Project</span><span class="p">().</span><span class="na">key</span><span class="p">(</span><span class="s">&quot;DOCKER&quot;</span><span class="p">).</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;Docker Project&quot;</span><span class="p">),</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="s">&quot;Docker Image Build Plan&quot;</span><span class="p">,</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="s">&quot;DIB&quot;</span><span class="p">)</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="p">.</span><span class="na">description</span><span class="p">(</span><span class="s">&quot;Plan to build Docker images for ECS deployment&quot;</span><span class="p">)</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="p">.</span><span class="na">stages</span><span class="p">(</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">Stage</span><span class="p">(</span><span class="s">&quot;Build Stage&quot;</span><span class="p">)</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">            </span><span class="p">.</span><span class="na">jobs</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Job</span><span class="p">(</span><span class="s">&quot;Build and Dockerize Job&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;BUILD&quot;</span><span class="p">)</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">                </span><span class="p">.</span><span class="na">tasks</span><span class="p">(</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">                    </span><span class="c1">// Step 1: Checkout the source code</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">                    </span><span class="k">new</span><span class="w"> </span><span class="n">VcsCheckoutTask</span><span class="p">()</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">                        </span><span class="p">.</span><span class="na">description</span><span class="p">(</span><span class="s">&quot;Checkout Code&quot;</span><span class="p">)</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">                        </span><span class="p">.</span><span class="na">checkoutItems</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">CheckoutItem</span><span class="p">().</span><span class="na">repository</span><span class="p">(</span><span class="s">&quot;MyRepo&quot;</span><span class="p">)),</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">                    </span><span class="c1">// Step 2: Build the application (e.g., Maven build)</span>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">                    </span><span class="k">new</span><span class="w"> </span><span class="n">ScriptTask</span><span class="p">()</span>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">                        </span><span class="p">.</span><span class="na">description</span><span class="p">(</span><span class="s">&quot;Build Application&quot;</span><span class="p">)</span>
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">                        </span><span class="p">.</span><span class="na">inlineBody</span><span class="p">(</span><span class="s">&quot;mvn clean install&quot;</span><span class="p">),</span>
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">                    </span><span class="c1">// Step 3: Build the Docker image</span>
-</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">                    </span><span class="k">new</span><span class="w"> </span><span class="n">DockerBuildImageTask</span><span class="p">()</span>
-</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">                        </span><span class="p">.</span><span class="na">description</span><span class="p">(</span><span class="s">&quot;Build Docker Image&quot;</span><span class="p">)</span>
-</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">                        </span><span class="p">.</span><span class="na">imageName</span><span class="p">(</span><span class="s">&quot;my-ecr-repo/my-app:latest&quot;</span><span class="p">)</span>
-</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">                        </span><span class="p">.</span><span class="na">dockerfileInWorkingDir</span><span class="p">()</span>
-</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">                </span><span class="p">)</span>
-</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">            </span><span class="p">)</span>
-</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">    </span><span class="p">);</span>
-</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>
-</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="c1">// Publish the plan to Bamboo</span>
-</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="n">bambooServer</span><span class="p">.</span><span class="na">publish</span><span class="p">(</span><span class="n">plan</span><span class="p">);</span>
-</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>
-</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Plan published successfully!&quot;</span><span class="p">);</span>
-</span></code></pre></div>
-<hr />
-<h2 id="choosing-between-java-and-yaml">Choosing Between Java and YAML</h2>
-<table>
-<thead>
-<tr>
-<th>Feature</th>
-<th>Java</th>
-<th>YAML</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Complexity</td>
-<td>Suitable for complex configurations</td>
-<td>Ideal for simple and straightforward setups</td>
-</tr>
-<tr>
-<td>Flexibility</td>
-<td>Highly flexible, supports logic and dynamic plans</td>
-<td>Limited to static declarative configurations</td>
-</tr>
-<tr>
-<td>Ease of Use</td>
-<td>Requires Java knowledge and tools</td>
-<td>Easy for non-developers to use</td>
-</tr>
-<tr>
-<td>Tooling</td>
-<td>IDE support, type checking</td>
-<td>Plain text editor is sufficient</td>
-</tr>
-</tbody>
-</table>
-<p>For most teams, YAML is easier for basic use cases, while Java offers the power and flexibility needed for advanced configurations. This approach complements AWS ECS, where you can similarly define infrastructure using tools like AWS CloudFormation or Terraform, enabling end-to-end IaC workflows.</p>
-<hr />
+<p>Have you ever wondered how web servers generate log files so quickly, even though writing to files is known to be an expensive operation? Logging is an essential aspect of web servers, providing critical insights into application behavior, performance, and errors. However, if every log entry triggered an immediate disk write, it would significantly slow down the server. So, how do web servers manage to write logs efficiently while maintaining high performance??</p>
+<h2 id="the-challenges-of-logging">The Challenges of Logging</h2>
+<p>Writing logs to files involves disk I/O operations, which can be slow compared to in-memory operations. Additionally, excessive logging can:</p>
+<ul>
+<li>Increase latency</li>
+<li>Cause performance bottlenecks</li>
+<li>Consume significant storage space</li>
+<li>Lead to disk contention</li>
+</ul>
+<p>To overcome these challenges, modern web servers and logging frameworks employ various optimization techniques. Let’s explore these methods.</p>
+<h2 id="techniques-for-fast-and-efficient-logging">Techniques for Fast and Efficient Logging</h2>
+<h3 id="1-buffered-writes">1. Buffered Writes</h3>
+<p>Instead of writing each log entry immediately to the disk, logs are first accumulated in memory and then flushed to disk in batches. This reduces the number of expensive disk write operations and improves performance.</p>
+<p>Most logging libraries, such as <strong>Logback</strong>, <strong>Log4j</strong>, and <strong>Systemd journald</strong>, use buffered I/O to optimize performance.</p>
+<h3 id="2-asynchronous-logging">2. Asynchronous Logging</h3>
+<p>Logging can be handled asynchronously, meaning log messages are placed in a queue and written to disk by a background thread. This prevents the main application thread from being blocked while waiting for the log entry to be written.</p>
+<h3 id="3-memory-mapped-files-mmap">3. Memory-Mapped Files (MMAP)</h3>
+<p>Some advanced logging systems use <strong>memory-mapped files</strong>, which allow the operating system to handle file I/O efficiently without explicit disk writes from the application. This technique enables faster and more efficient log writing.</p>
+<h3 id="4-batching-and-log-rotation">4. Batching and Log Rotation</h3>
+<ul>
+<li><strong>Batching:</strong> Instead of writing logs line-by-line, they are written in batches to minimize I/O overhead.</li>
+<li><strong>Log Rotation:</strong> Large log files can slow down a system. Log rotation ensures that old logs are compressed or archived while keeping active logs small and manageable.</li>
+</ul>
+<h3 id="5-direct-append-mode">5. Direct Append Mode</h3>
+<p>Using the <strong>append mode</strong> (<code>O_APPEND</code> flag in Linux) allows the server to keep the log file open and directly append new entries. This reduces system calls and enhances performance.</p>
+<h3 id="6-write-ahead-logging-wal">6. Write-Ahead Logging (WAL)</h3>
+<p>Some systems use <strong>write-ahead logging (WAL)</strong>, where logs are first written sequentially to a log file before committing transactions. This method reduces disk seek times and ensures durability.</p>
+<h3 id="7-using-faster-storage-ssd-ram-disks">7. Using Faster Storage (SSD, RAM Disks)</h3>
+<ul>
+<li>Writing logs to <strong>SSDs</strong> instead of traditional HDDs significantly improves performance.</li>
+<li>Some high-performance applications use <strong>in-memory log files (RAM disks)</strong> and periodically flush them to persistent storage.</li>
+</ul>
+<h3 id="8-centralized-log-aggregation">8. Centralized Log Aggregation</h3>
+<p>Many modern web applications use centralized logging solutions like <strong>Fluentd, Logstash, or Loki</strong> to offload log processing. Instead of writing logs to disk, the application sends them over the network to a log collector, minimizing disk usage.</p>
+<h3 id="9-compression-and-binary-logging">9. Compression and Binary Logging</h3>
+<p>Instead of writing plain text logs, some systems use <strong>binary logs</strong> or <strong>compressed logs</strong> to reduce I/O overhead. This method speeds up log writing and reduces storage costs.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>Using Bamboo and AWS ECS in parallel leverages the strengths of both platforms: Bamboo’s robust CI/CD pipelines and ECS’s efficient container orchestration. Adding IaC capabilities to Bamboo plans using Java enhances automation, consistency, and collaboration. Together, these tools empower teams to streamline workflows, scale workloads, and maintain reliable deployments across diverse environments.</p>
+<p>Efficient logging is crucial for maintaining web server performance. By implementing techniques like buffered writes, asynchronous logging, memory-mapped files, and log aggregation, servers can handle high log volumes without significant performance degradation.</p>
+<p>Understanding and leveraging these strategies can help developers optimize their logging mechanisms, ensuring that performance remains robust even under heavy workloads.</p>
 <hr />
 <p>Happy coding! 💻</p>
 
