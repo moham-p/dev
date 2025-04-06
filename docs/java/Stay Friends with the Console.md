@@ -2,8 +2,6 @@ As developers, we often choose tools that enhance productivity and streamline ou
 
 But here's a critical observation: developers using IntelliJ often become less familiar with the actual commands their tools execute behind the scenes. This post argues why staying "friends with the console" is vital, even if you rely on an IDE with advanced features.
 
----
-
 ## The Abstraction Gap
 When you run a project in IntelliJ IDEA, the process feels seamless:
 - Select a run configuration.
@@ -19,8 +17,6 @@ In contrast, VS Code's `launch.json` file makes you explicitly define every aspe
 
 This approach forces you to understand the command being executed, fostering a deeper awareness of what’s happening under the hood.
 
----
-
 ## Why It Matters
 #### 1. **Portability**
 Knowing the command being executed allows you to replicate the same setup outside your IDE. This is especially critical in environments like CI/CD pipelines, where everything runs on the command line.
@@ -30,8 +26,6 @@ When something breaks in production, you won’t have IntelliJ’s UI to save yo
 
 #### 3. **Tool Independence**
 Becoming overly reliant on an IDE can tie your productivity to that tool. By understanding the underlying commands, you’re not just an IntelliJ user; you’re a developer who can adapt to any environment.
-
----
 
 ## Bridging the Gap
 #### 1. **Inspect Run Configurations**:
@@ -64,14 +58,10 @@ These tools are designed for command-line execution and often integrate seamless
 - **IntelliJ**: Handles the classpath and configuration automatically but abstracts the process.
 - **Maven**: Provides a clear and portable way to replicate the same execution, ensuring you stay familiar with the underlying mechanics.
 
----
-
 ## Embrace the Best of Both Worlds
 Using IntelliJ IDEA doesn’t mean abandoning the console. Instead, think of the IDE as a tool that enhances your productivity without replacing foundational knowledge. When you understand the commands your IDE generates, you unlock a new level of control over your development process.
 
 Whether you’re configuring a debugging session, tweaking JVM options, or deploying your application to production, staying friends with the console ensures you remain on top of your craft.
-
----
 
 ## Final Thought
 An IDE should simplify your workflow, not shield you from understanding it. So, the next time you click "Run" in IntelliJ, take a moment to explore the command it generates. It’s not just a helpful exercise—it’s a step toward becoming a more confident and capable developer.

@@ -95,8 +95,6 @@ If you want to explicitly define transactions in your service methods that deal 
 - PostgreSQL ensures that all queries are atomic, consistent, isolated, and durable (ACID properties).
 - Even a `SELECT` benefits from this, as it guarantees the query operates on a consistent snapshot of the database.
 
----
-
 ## Why Consistency Matters for SELECT Queries
 
 A **snapshot** in a transaction refers to the consistent view of the database that a query or set of queries operates on. Don’t forget that `SELECT` operations can include complex joins across many tables. 

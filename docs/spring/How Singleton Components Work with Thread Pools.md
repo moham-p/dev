@@ -8,8 +8,6 @@ In Spring, the default scope of beans is `singleton`, which means Spring creates
 
 To verify that components like controllers, services, and repositories are singletons, you can use `System.identityHashCode` to print the unique memory reference hash for each bean instance.
 
----
-
 ## Verifying Singleton Behavior with Code
 
 Let’s take a look at a simple Spring Boot application to demonstrate this.
@@ -82,8 +80,6 @@ public class OrderService {
 }
 ```
 
----
-
 ## Observing Singleton Behavior in Logs
 
 When you run the application and make multiple requests to `/api/orders`, the logs will show the same hash code for each instance. In my case, the hash codes were:
@@ -96,8 +92,6 @@ OrderRepository HashCode: 23456789
 
 These consistent hash codes confirm that Spring is using the same instance of each bean across all requests.
 
----
-
 ## How Spring Handles Concurrent Requests with Thread Pools
 
 You might wonder: if these components are singletons, how does Spring handle multiple requests concurrently?
@@ -108,14 +102,10 @@ The answer lies in **thread pools**. Spring’s default thread pool (backed by t
 - The singleton components themselves are not thread-safe by design, but the stateless nature of most services and repositories makes them safe for multi-threaded access.
 - If your service or controller maintains state (e.g., using class-level variables), you must ensure thread safety manually, as multiple threads can access the same singleton instance simultaneously.
 
----
-
 ## Why Use Singletons?
 
 1. **Efficiency**: Singletons reduce memory usage and initialization overhead since only one instance is created.
 2. **Consistency**: Using a single instance ensures that the state and configuration are consistent throughout the application.
-
----
 
 ## Wrap Up
 

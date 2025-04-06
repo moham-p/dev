@@ -18,8 +18,6 @@ When managing CI/CD pipelines with Atlassian Bamboo and deploying containerized 
    A release is a versioned snapshot of your software, ready for deployment. It represents a stable build after passing tests.  
    Example: Version `1.0.0` of your application is tagged as a release and marked as ready for production.
 
----
-
 ## Mapping Bamboo Concepts to AWS ECS for Parallel Usage
 
 While Bamboo manages CI/CD workflows, AWS ECS focuses on container orchestration. These tools can work together, with Bamboo feeding ECS through seamless CI/CD pipelines. Here's how their concepts align:
@@ -39,8 +37,6 @@ While Bamboo manages CI/CD workflows, AWS ECS focuses on container orchestration
 4. Release → Docker Image Version or Task Definition Revision  
    Bamboo releases can represent versioned Docker images or ECS task definition revisions, providing stability and consistency.  
    Example: A release like `payment-backend:1.0.0` is tagged in Bamboo and used as a task definition in ECS.
-
----
 
 ## Configuring Bamboo Plans Using IaC with Java
 
@@ -88,8 +84,6 @@ bambooServer.publish(plan);
 System.out.println("Plan published successfully!");
 ```
 
----
-
 ## Choosing Between Java and YAML
 
 | Feature               | Java                                     | YAML                              |
@@ -100,8 +94,6 @@ System.out.println("Plan published successfully!");
 | Tooling           | IDE support, type checking                   | Plain text editor is sufficient |
 
 For most teams, YAML is easier for basic use cases, while Java offers the power and flexibility needed for advanced configurations. This approach complements AWS ECS, where you can similarly define infrastructure using tools like AWS CloudFormation or Terraform, enabling end-to-end IaC workflows.
-
----
 
 ## Conclusion
 

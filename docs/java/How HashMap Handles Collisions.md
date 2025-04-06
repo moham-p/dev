@@ -2,8 +2,6 @@ Collisions in a `HashMap` occur when multiple keys hash to the same bucket index
 
 Let’s dive into an example to understand how this works.
 
----
-
 ## The Code: Simulating Collisions
 
 The following example demonstrates what happens when multiple keys in a `HashMap` collide due to having the same hash code:
@@ -71,14 +69,10 @@ class KeyWithSameHash {
 5. **Value Retrieval**  
    Once the key is located (where `equals()` returns `true`), the corresponding value is returned.
 
----
-
 ## Retrieval Complexity
 
 
 Despite all keys having the same hash code, the `HashMap` successfully retrieves the correct value due to its `equals()` comparison mechanism. However, retrieval complexity can degrade to (O(n)) if all keys hash to the same bucket and the bucket uses a linked list, or to (O(log n)) if the bucket uses a balanced tree (introduced in Java 8).
-
----
 
 ## Wrap Up
 

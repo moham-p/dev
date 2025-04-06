@@ -2,8 +2,6 @@ When building concurrent applications in Java, managing threads properly is cruc
 
 This post will walk you through the fundamentals of using `ExecutorService` and customizing threads with `ThreadFactory`. Then we’ll explore a special thread pool used behind the scenes—`ForkJoinPool.commonPool()`.
 
----
-
 ## Why Use Thread Pools?
 
 Thread pools reuse threads instead of creating new ones for each task. This means:
@@ -11,8 +9,6 @@ Thread pools reuse threads instead of creating new ones for each task. This mean
 - Better performance (less time creating/destroying threads)
 - Controlled concurrency (limits how many threads run at once)
 - Cleaner code (no manual thread lifecycle management)
-
----
 
 ## Using `ExecutorService`
 
@@ -46,8 +42,6 @@ public class PoolExample {
 - `newSingleThreadExecutor()`
 
 Each comes with trade-offs depending on your workload (CPU-bound, I/O-bound, etc.).
-
----
 
 ## Customizing Threads with `ThreadFactory`
 
