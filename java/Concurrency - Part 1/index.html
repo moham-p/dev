@@ -12,7 +12,7 @@
   <link rel="prev" href="../Stay%20Friends%20with%20the%20Console/">
   
   
-  <link rel="next" href="../../spring/Method-Level%20Authorization%20in%20Spring%20Security/">
+  <link rel="next" href="../Concurrency%20-%20Part%202/">
   
   
   <link rel="icon" href="../../img/favicon.ico">
@@ -435,6 +435,27 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Concurrency%20-%20Part%202/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concurrency - Part 2
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -871,7 +892,6 @@
 
 <p>When building concurrent applications in Java, managing threads properly is crucial. Spawning raw threads (<code>new Thread(...)</code>) works for simple cases, but it's inefficient and hard to scale. Java’s concurrency package offers a more powerful approach: <strong>thread pools</strong>.</p>
 <p>This post will walk you through the fundamentals of using <code>ExecutorService</code> and customizing threads with <code>ThreadFactory</code>. Then we’ll explore a special thread pool used behind the scenes—<code>ForkJoinPool.commonPool()</code>.</p>
-<hr />
 <h2 id="why-use-thread-pools">Why Use Thread Pools?</h2>
 <p>Thread pools reuse threads instead of creating new ones for each task. This means:</p>
 <ul>
@@ -879,7 +899,6 @@
 <li>Controlled concurrency (limits how many threads run at once)</li>
 <li>Cleaner code (no manual thread lifecycle management)</li>
 </ul>
-<hr />
 <h2 id="using-executorservice">Using <code>ExecutorService</code></h2>
 <p><code>ExecutorService</code> is the most common way to use thread pools in Java:</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.ExecutorService</span><span class="p">;</span>
@@ -908,7 +927,6 @@
 <li><code>newSingleThreadExecutor()</code></li>
 </ul>
 <p>Each comes with trade-offs depending on your workload (CPU-bound, I/O-bound, etc.).</p>
-<hr />
 <h2 id="customizing-threads-with-threadfactory">Customizing Threads with <code>ThreadFactory</code></h2>
 <p>Need more control over thread naming or daemon settings? Use a <code>ThreadFactory</code>.</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.ThreadFactory</span><span class="p">;</span>

@@ -348,6 +348,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/Concurrency%20-%20Part%202/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concurrency - Part 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -924,7 +945,6 @@
 <h2 id="what-are-singletons-in-spring">What are Singletons in Spring?</h2>
 <p>In Spring, the default scope of beans is <code>singleton</code>, which means Spring creates exactly one instance of a bean per application context. This single instance is shared across all requests, ensuring consistency and reducing overhead.</p>
 <p>To verify that components like controllers, services, and repositories are singletons, you can use <code>System.identityHashCode</code> to print the unique memory reference hash for each bean instance.</p>
-<hr />
 <h2 id="verifying-singleton-behavior-with-code">Verifying Singleton Behavior with Code</h2>
 <p>Let’s take a look at a simple Spring Boot application to demonstrate this.</p>
 <h3 id="1-order-entity">1. <strong>Order Entity</strong></h3>
@@ -983,7 +1003,6 @@
 </span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="p">}</span>
 </span></code></pre></div>
-<hr />
 <h2 id="observing-singleton-behavior-in-logs">Observing Singleton Behavior in Logs</h2>
 <p>When you run the application and make multiple requests to <code>/api/orders</code>, the logs will show the same hash code for each instance. In my case, the hash codes were:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>OrderController HashCode: 12345678
@@ -991,7 +1010,6 @@
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>OrderRepository HashCode: 23456789
 </span></code></pre></div>
 <p>These consistent hash codes confirm that Spring is using the same instance of each bean across all requests.</p>
-<hr />
 <h2 id="how-spring-handles-concurrent-requests-with-thread-pools">How Spring Handles Concurrent Requests with Thread Pools</h2>
 <p>You might wonder: if these components are singletons, how does Spring handle multiple requests concurrently?</p>
 <p>The answer lies in <strong>thread pools</strong>. Spring’s default thread pool (backed by the servlet container, such as Tomcat) assigns each incoming HTTP request to a separate thread. Each thread executes the same singleton instance of your controller, service, and repository, ensuring that multiple requests can be processed concurrently.</p>
@@ -1000,13 +1018,11 @@
 <li>The singleton components themselves are not thread-safe by design, but the stateless nature of most services and repositories makes them safe for multi-threaded access.</li>
 <li>If your service or controller maintains state (e.g., using class-level variables), you must ensure thread safety manually, as multiple threads can access the same singleton instance simultaneously.</li>
 </ul>
-<hr />
 <h2 id="why-use-singletons">Why Use Singletons?</h2>
 <ol>
 <li><strong>Efficiency</strong>: Singletons reduce memory usage and initialization overhead since only one instance is created.</li>
 <li><strong>Consistency</strong>: Using a single instance ensures that the state and configuration are consistent throughout the application.</li>
 </ol>
-<hr />
 <h2 id="wrap-up">Wrap Up</h2>
 <p>Singletons, when combined with thread pools, allow Spring applications to scale efficiently without creating multiple instances of components. By logging <code>System.identityHashCode</code>, we verified that Spring uses the same instance of our beans across all requests. However, always remember to keep your singleton components stateless to avoid threading issues in multi-threaded environments.</p>
 <hr />

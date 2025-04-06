@@ -422,6 +422,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Concurrency%20-%20Part%202/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concurrency - Part 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -853,7 +874,6 @@
 
 <p>Collisions in a <code>HashMap</code> occur when multiple keys hash to the same bucket index. This situation arises because different keys can produce the same hash value. To handle such cases, <code>HashMap</code> employs <strong>separate chaining</strong>, where it stores multiple key-value pairs in a bucket using a linked list (or a balanced tree for performance optimization, starting from Java 8).</p>
 <p>Let’s dive into an example to understand how this works.</p>
-<hr />
 <h2 id="the-code-simulating-collisions">The Code: Simulating Collisions</h2>
 <p>The following example demonstrates what happens when multiple keys in a <code>HashMap</code> collide due to having the same hash code:</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.HashMap</span><span class="p">;</span>
@@ -925,10 +945,8 @@
    Once the key is located (where <code>equals()</code> returns <code>true</code>), the corresponding value is returned.</p>
 </li>
 </ol>
-<hr />
 <h2 id="retrieval-complexity">Retrieval Complexity</h2>
 <p>Despite all keys having the same hash code, the <code>HashMap</code> successfully retrieves the correct value due to its <code>equals()</code> comparison mechanism. However, retrieval complexity can degrade to (O(n)) if all keys hash to the same bucket and the bucket uses a linked list, or to (O(log n)) if the bucket uses a balanced tree (introduced in Java 8).</p>
-<hr />
 <h2 id="wrap-up">Wrap Up</h2>
 <ol>
 <li><strong>Efficient Collision Handling:</strong> <code>HashMap</code> can handle collisions gracefully using separate chaining, ensuring reliable behavior even when hash codes collide.</li>

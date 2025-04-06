@@ -348,6 +348,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/Concurrency%20-%20Part%202/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concurrency - Part 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -989,7 +1010,6 @@ Notice that the query is executed between BEGIN READ ONLY and COMMIT, which mark
 <li>PostgreSQL ensures that all queries are atomic, consistent, isolated, and durable (ACID properties).</li>
 <li>Even a <code>SELECT</code> benefits from this, as it guarantees the query operates on a consistent snapshot of the database.</li>
 </ul>
-<hr />
 <h2 id="why-consistency-matters-for-select-queries">Why Consistency Matters for SELECT Queries</h2>
 <p>A <strong>snapshot</strong> in a transaction refers to the consistent view of the database that a query or set of queries operates on. Don’t forget that <code>SELECT</code> operations can include complex joins across many tables. 
 These operations are executed as a single <code>SELECT</code> query (PostgreSQL does not split a complex join into subqueries).</p>

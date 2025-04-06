@@ -9,10 +9,10 @@
   
   
   
-  <link rel="prev" href="../How%20HashMap%20Handles%20Collisions/">
+  <link rel="prev" href="../Concurrency%20-%20Part%201/">
   
   
-  <link rel="next" href="../Concurrency%20-%20Part%201/">
+  <link rel="next" href="../../spring/Method-Level%20Authorization%20in%20Spring%20Security/">
   
   
   <link rel="icon" href="../../img/favicon.ico">
@@ -21,7 +21,7 @@
   
   
   
-  <title>Stay Friends with the Console - Curiosity into `Code`</title>
+  <title>Concurrency - Part 2 - Curiosity into `Code`</title>
   
   
   
@@ -65,7 +65,7 @@
 <div data-md-component="skip">
   
   
-  <a href="#the-abstraction-gap" class="md-skip">
+  <a href="#why-thread-pools-matter-in-web-servers" class="md-skip">
     Skip to content
   </a>
   
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Stay Friends with the Console
+              Concurrency - Part 2
             
           </span>
         </div>
@@ -312,28 +312,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Stay Friends with the Console
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../Stay%20Friends%20with%20the%20Console/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -342,144 +324,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#the-abstraction-gap" class="md-nav__link">
-    <span class="md-ellipsis">
-      The Abstraction Gap
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-it-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      Why It Matters
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Why It Matters">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-portability" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Portability
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-debugging-skills" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Debugging Skills
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-tool-independence" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Tool Independence
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bridging-the-gap" class="md-nav__link">
-    <span class="md-ellipsis">
-      Bridging the Gap
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Bridging the Gap">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-inspect-run-configurations" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Inspect Run Configurations:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-experiment-with-the-command-line" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Experiment with the Command Line:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-translate-ui-to-commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Translate UI to Commands:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-leverage-tools-like-maven-and-gradle" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Leverage Tools Like Maven and Gradle:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#embrace-the-best-of-both-worlds" class="md-nav__link">
-    <span class="md-ellipsis">
-      Embrace the Best of Both Worlds
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#final-thought" class="md-nav__link">
-    <span class="md-ellipsis">
-      Final Thought
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -510,10 +354,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../Concurrency%20-%20Part%202/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Concurrency - Part 2
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -522,6 +384,78 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-thread-pools-matter-in-web-servers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Thread Pools Matter in Web Servers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thread-pooling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thread Pooling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-thread-pool-in-spring-boot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuring Thread Pool in Spring Boot
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thread-lifecycle-in-tomcat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thread Lifecycle in Tomcat
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging-thread-id-in-spring-mvc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logging Thread ID in Spring MVC
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#takeaway" class="md-nav__link">
+    <span class="md-ellipsis">
+      Takeaway
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -954,57 +888,77 @@
 
 
 
-<h1>Stay Friends with the Console</h1>
+<h1>Concurrency - Part 2</h1>
 
-<p>As developers, we often choose tools that enhance productivity and streamline our workflows. For Java developers, IntelliJ IDEA and Visual Studio Code (VS Code) are two popular choices. Each brings unique strengths to the table—IntelliJ's rich UI simplifies complex setups, while VS Code's explicit configurations encourage familiarity with command-line operations.</p>
-<p>But here's a critical observation: developers using IntelliJ often become less familiar with the actual commands their tools execute behind the scenes. This post argues why staying "friends with the console" is vital, even if you rely on an IDE with advanced features.</p>
-<h2 id="the-abstraction-gap">The Abstraction Gap</h2>
-<p>When you run a project in IntelliJ IDEA, the process feels seamless:
-- Select a run configuration.
-- Click the green play button.
-- Watch your application start.</p>
-<p>Behind the scenes, IntelliJ generates a command to launch your application, passing JVM arguments, system properties, and classpath settings. However, many developers don’t inspect this command, creating a knowledge gap. Over time, this reliance on the UI can lead to an aversion to using the console.</p>
-<p>In contrast, VS Code's <code>launch.json</code> file makes you explicitly define every aspect of your run configuration:
-- The main class to launch.
-- The JVM arguments to include.
-- Environment variables and debugging options.</p>
-<p>This approach forces you to understand the command being executed, fostering a deeper awareness of what’s happening under the hood.</p>
-<h2 id="why-it-matters">Why It Matters</h2>
-<h4 id="1-portability">1. <strong>Portability</strong></h4>
-<p>Knowing the command being executed allows you to replicate the same setup outside your IDE. This is especially critical in environments like CI/CD pipelines, where everything runs on the command line.</p>
-<h4 id="2-debugging-skills">2. <strong>Debugging Skills</strong></h4>
-<p>When something breaks in production, you won’t have IntelliJ’s UI to save you. Understanding how to craft and troubleshoot the equivalent command-line invocation ensures you're better equipped to diagnose and resolve issues.</p>
-<h4 id="3-tool-independence">3. <strong>Tool Independence</strong></h4>
-<p>Becoming overly reliant on an IDE can tie your productivity to that tool. By understanding the underlying commands, you’re not just an IntelliJ user; you’re a developer who can adapt to any environment.</p>
-<h2 id="bridging-the-gap">Bridging the Gap</h2>
-<h4 id="1-inspect-run-configurations">1. <strong>Inspect Run Configurations</strong>:</h4>
-<p>Every time you run your application, IntelliJ logs the generated command in the Run or Debug console. Take a moment to review it. Understand the JVM arguments, the classpath, and any system properties being passed.</p>
-<h4 id="2-experiment-with-the-command-line">2. <strong>Experiment with the Command Line</strong>:</h4>
-<p>Copy the command from IntelliJ’s logs and execute it directly in your terminal. Modify parameters, try different options, and see how your application behaves.</p>
-<h4 id="3-translate-ui-to-commands">3. <strong>Translate UI to Commands</strong>:</h4>
-<p>When setting up run configurations in IntelliJ, think about how you’d define the same setup in a tool like VS Code or Maven. This mental exercise helps solidify your understanding.</p>
-<h4 id="4-leverage-tools-like-maven-and-gradle">4. <strong>Leverage Tools Like Maven and Gradle</strong>:</h4>
-<p>These tools are designed for command-line execution and often integrate seamlessly with IDEs. Practice running your application with commands like the following:</p>
-<p><strong>Command Generated by IntelliJ</strong>:
-   <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/Users/youruser/.sdkman/candidates/java/21.0.1-amzn/bin/java<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>-Dspring.output.ansi.enabled<span class="o">=</span>always<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>-Dfile.encoding<span class="o">=</span>UTF-8<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>-classpath<span class="w"> </span>/Users/youruser/project/target/classes:/Users/youruser/.m2/repository/org/springframework/...<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>com.example.Application
-</span></code></pre></div></p>
-<p><strong>Equivalent Maven Command</strong>:
-   <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>mvn<span class="w"> </span>spring-boot:run<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>-Dspring-boot.run.jvmArguments<span class="o">=</span><span class="s2">&quot;-Dspring.output.ansi.enabled=always -Dfile.encoding=UTF-8&quot;</span>
-</span></code></pre></div></p>
+<p>In <a href="../Concurrency - Part 1">part one</a>, we explored how to manage thread pools in Java using <code>ExecutorService</code> and how that 
+helps you write scalable, concurrent applications. In this post, we look at how Apache Tomcat, a popular Java HTTP 
+server, uses thread pools internally to manage concurrent HTTP requests.</p>
+<h2 id="why-thread-pools-matter-in-web-servers">Why Thread Pools Matter in Web Servers</h2>
+<p>When dealing with HTTP servers, thread pools are crucial for enabling efficient request handling. If a server created a 
+brand-new thread for every request, the overhead would be massive — not to mention unstable under load.</p>
+<p>Instead, servers like Tomcat use a thread pool, which reuses a fixed number of threads to handle incoming requests 
+concurrently.</p>
+<h2 id="thread-pooling">Thread Pooling</h2>
+<p>Tomcat maintains a pool of threads ready to process HTTP requests. When a request arrives:</p>
+<ol>
+<li>It’s handed off to an available thread from the pool.</li>
+<li>The request is processed (e.g., your Spring controller runs).</li>
+<li>The response is sent.</li>
+<li>The thread is returned to the pool.</li>
+</ol>
+<p>This reuse avoids the cost of creating/destroying threads on every request. By reusing threads, Tomcat can 
+handle hundreds of concurrent requests while keeping resource usage in check.</p>
+<h2 id="configuring-thread-pool-in-spring-boot">Configuring Thread Pool in Spring Boot</h2>
+<p>If you’re using Spring Boot with embedded Tomcat, you can configure the thread pool using <code>application.properties</code>:</p>
+<div class="language-properties highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Maximum number of worker threads</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">server.tomcat.max-threads</span><span class="o">=</span><span class="s">200</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Minimum number of idle (spare) threads kept alive</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="na">server.tomcat.min-spare-threads</span><span class="o">=</span><span class="s">10</span>
+</span></code></pre></div>
+<p>For advanced tuning (like <code>max-spare-threads</code>), you can customize it programmatically using a <code>TomcatConnectorCustomizer</code>.</p>
+<h2 id="thread-lifecycle-in-tomcat">Thread Lifecycle in Tomcat</h2>
 <ul>
-<li><strong>IntelliJ</strong>: Handles the classpath and configuration automatically but abstracts the process.</li>
-<li><strong>Maven</strong>: Provides a clear and portable way to replicate the same execution, ensuring you stay familiar with the underlying mechanics.</li>
+<li>On startup, Tomcat creates the number of threads specified by <code>minSpareThreads</code>.</li>
+<li>As requests increase, more threads are created (up to <code>maxThreads</code>).</li>
+<li>If threads are idle and the number exceeds <code>maxSpareThreads</code>, Tomcat starts shutting them down to save memory.</li>
 </ul>
-<h2 id="embrace-the-best-of-both-worlds">Embrace the Best of Both Worlds</h2>
-<p>Using IntelliJ IDEA doesn’t mean abandoning the console. Instead, think of the IDE as a tool that enhances your productivity without replacing foundational knowledge. When you understand the commands your IDE generates, you unlock a new level of control over your development process.</p>
-<p>Whether you’re configuring a debugging session, tweaking JVM options, or deploying your application to production, staying friends with the console ensures you remain on top of your craft.</p>
-<h2 id="final-thought">Final Thought</h2>
-<p>An IDE should simplify your workflow, not shield you from understanding it. So, the next time you click "Run" in IntelliJ, take a moment to explore the command it generates. It’s not just a helpful exercise—it’s a step toward becoming a more confident and capable developer.</p>
+<p>This dynamic scaling keeps your server responsive without over-allocating resources.</p>
+<h2 id="logging-thread-id-in-spring-mvc">Logging Thread ID in Spring MVC</h2>
+<p>If you want to see which thread is handling each request in your Spring Boot app, you can implement a 
+simple <code>HandlerInterceptor</code> like this:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.servlet.http.HttpServletRequest</span><span class="p">;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.servlet.http.HttpServletResponse</span><span class="p">;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">org.slf4j.Logger</span><span class="p">;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">org.slf4j.LoggerFactory</span><span class="p">;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.web.servlet.HandlerInterceptor</span><span class="p">;</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ThreadLogger</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">HandlerInterceptor</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Logger</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoggerFactory</span><span class="p">.</span><span class="na">getLogger</span><span class="p">(</span><span class="n">ThreadLogger</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="nd">@Override</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">preHandle</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">response</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="n">handler</span><span class="p">)</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">        </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">        </span><span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Thread ID preHandle: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Thread</span><span class="p">.</span><span class="na">currentThread</span><span class="p">().</span><span class="na">getId</span><span class="p">());</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>When you make requests to the server, your logs might look like this:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>2025-04-06 10:12:01.124  INFO 22544 --- [http-nio-8080-exec-1] c.e.d.ThreadLogger : Thread ID preHandle: 27
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>2025-04-06 10:12:01.126  INFO 22544 --- [http-nio-8080-exec-2] c.e.d.ThreadLogger : Thread ID preHandle: 30
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>2025-04-06 10:12:01.128  INFO 22544 --- [http-nio-8080-exec-3] c.e.d.ThreadLogger : Thread ID preHandle: 35
+</span></code></pre></div>
+<p>This shows that each HTTP request was picked up by a different worker thread from the pool.</p>
+<h2 id="takeaway">Takeaway</h2>
+<p>Tomcat does not spawn a thread per request. Instead, it:</p>
+<ul>
+<li>Uses a thread pool to handle requests efficiently</li>
+<li>Allows configuration of concurrency limits</li>
+<li>Scales based on load and resource availability</li>
+</ul>
+<p>This architecture is what makes Tomcat suitable for production-scale applications — and it’s another reason why understanding thread pools is essential for backend developers.</p>
 <hr />
 <p>Happy coding! 💻</p>
 

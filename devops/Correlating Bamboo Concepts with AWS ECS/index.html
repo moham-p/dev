@@ -348,6 +348,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/Concurrency%20-%20Part%202/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concurrency - Part 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -899,7 +920,6 @@
    Example: Version <code>1.0.0</code> of your application is tagged as a release and marked as ready for production.</p>
 </li>
 </ol>
-<hr />
 <h2 id="mapping-bamboo-concepts-to-aws-ecs-for-parallel-usage">Mapping Bamboo Concepts to AWS ECS for Parallel Usage</h2>
 <p>While Bamboo manages CI/CD workflows, AWS ECS focuses on container orchestration. These tools can work together, with Bamboo feeding ECS through seamless CI/CD pipelines. Here's how their concepts align:</p>
 <ol>
@@ -924,7 +944,6 @@
    Example: A release like <code>payment-backend:1.0.0</code> is tagged in Bamboo and used as a task definition in ECS.</p>
 </li>
 </ol>
-<hr />
 <h2 id="configuring-bamboo-plans-using-iac-with-java">Configuring Bamboo Plans Using IaC with Java</h2>
 <p>Bamboo allows plans to be defined and managed programmatically using Infrastructure as Code (IaC). This approach ensures consistency, repeatability, and easier integration with version control systems.<br />
 As of now, Atlassian Bamboo supports Java (via the Bamboo Specs API) and YAML (for declarative configurations).</p>
@@ -966,7 +985,6 @@ As of now, Atlassian Bamboo supports Java (via the Bamboo Specs API) and YAML (f
 </span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>
 </span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Plan published successfully!&quot;</span><span class="p">);</span>
 </span></code></pre></div>
-<hr />
 <h2 id="choosing-between-java-and-yaml">Choosing Between Java and YAML</h2>
 <table>
 <thead>
@@ -1000,7 +1018,6 @@ As of now, Atlassian Bamboo supports Java (via the Bamboo Specs API) and YAML (f
 </tbody>
 </table>
 <p>For most teams, YAML is easier for basic use cases, while Java offers the power and flexibility needed for advanced configurations. This approach complements AWS ECS, where you can similarly define infrastructure using tools like AWS CloudFormation or Terraform, enabling end-to-end IaC workflows.</p>
-<hr />
 <h2 id="conclusion">Conclusion</h2>
 <p>Using Bamboo and AWS ECS in parallel leverages the strengths of both platforms: Bamboo’s robust CI/CD pipelines and ECS’s efficient container orchestration. Adding IaC capabilities to Bamboo plans using Java enhances automation, consistency, and collaboration. Together, these tools empower teams to streamline workflows, scale workloads, and maintain reliable deployments across diverse environments.</p>
 <hr />
