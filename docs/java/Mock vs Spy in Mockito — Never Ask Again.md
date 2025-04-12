@@ -174,11 +174,43 @@ This approach gives you full control and avoids surprises from framework behavio
 
 ---
 
+## Bonus: `@Mock` vs `@MockBean`
+
+You might have also seen `@MockBean` in Spring Boot tests — here's how it differs from `@Mock`.
+
+| Annotation   | Used In            | Replaces Spring Bean? | Spring Context Required |
+|--------------|--------------------|------------------------|--------------------------|
+| `@Mock`      | Unit tests          | ❌ No                 | ❌ No                   |
+| `@MockBean`  | Integration tests (`@SpringBootTest`, `@WebMvcTest`, etc.) | ✅ Yes | ✅ Yes                  |
+
+- Use `@Mock` when you're testing in isolation, like with `@ExtendWith(MockitoExtension.class)`.
+- Use `@MockBean` when you want to **boot up a Spring context** and **replace a real bean** (like a repository or service) with a mock.
+
+### Example of `@MockBean`:
+
+```java
+@SpringBootTest
+class UserControllerIntegrationTest {
+
+    @MockBean
+    private UserRepository userRepository; // replaces actual bean in Spring context
+
+    @Autowired
+    private UserService userService;
+
+    // Test logic using real service but mocked repository
+}
+```
+
+This is great for higher-level tests where you want Spring wiring + selective mocking.
+
+
 ## Recap
 
 - `@Mock`: Use for dependencies. It’s like a **mannequin**.
 - `@Spy`: Use for real objects when you want to override specific methods. Like a **secret agent**.
 - `@InjectMocks`: Injects your mocks or spies into the class under test.
+- `@MockBean`: Use in Spring Boot integration tests to replace real Spring beans with mocks in the application context.
 - Always use `@ExtendWith(MockitoExtension.class)` when using Mockito with JUnit 5.
 
 ---
