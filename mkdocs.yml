@@ -8,6 +8,7 @@ nav:
     - Stay Friends with the Console: java/Stay Friends with the Console.md
     - Concurrency - Part 1: java/Concurrency - Part 1.md
     - Concurrency - Part 2: java/Concurrency - Part 2.md
+    - Mock vs Spy in Mockito — Never Ask Again: java/Mock vs Spy in Mockito — Never Ask Again.md
   - Spring:
     - Method-Level Authorization in Spring Security: spring/Method-Level Authorization in Spring Security.md
     - How Singleton Components Work with Thread Pools: spring/How Singleton Components Work with Thread Pools.md
