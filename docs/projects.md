@@ -1,3 +1,8 @@
+###  **Software Development Engineer \- [Envista](https://envistaco.com/en/)** (October 2024 \- Present)
+
+* Apply security and compliance best practices in the [Spark](https://ormco.com/en-us/spark) project. 
+
+
 ###  **Senior Backend Engineer, Maps API \- [Mapbox](https://www.mapbox.com/)** (Feb 2022 \- May 2024)
 
 * Developed the [Static Images API](https://docs.mapbox.com/api/maps/static-images), capable of handling over 6,000 requests per second, with a server-side rendering engine for clients such as Strava and Yahoo Japan Weather.
