@@ -1,3 +1,14 @@
+# Moham Pandi
+Email: me@moham.dev
+
+## Profile
+
+Experienced software developer with a focus on backend architecture, system design, and cloud-native development. 
+I thrive on solving complex problems with clean, scalable code—primarily in Java and Spring—and regularly share insights 
+through technical writing. I bring a mindset of ownership, performance optimization, and continuous improvement to every project I work on.
+
+## Work Experience
+
 ###  **Software Development Engineer \- [Envista](https://envistaco.com/en/)** (October 2024 \- Present)
 
 * Apply security and compliance best practices in the [Spark](https://ormco.com/en-us/spark) project. 
@@ -61,6 +72,6 @@
 
 * Reviewed existing software documents for compliance with RUP standards and made necessary revisions.
 
-### **Publications**
+## Publications
 * [A Novel Similarity Measure for Sequence Data](https://www.researchgate.net/publication/236848462_A_Novel_Similarity_Measure_for_Sequence_Data)
 * [NDVI Optimization Using Genetic Algorithm](https://ieeexplore.ieee.org/document/6121609)
