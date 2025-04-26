@@ -1,6 +1,7 @@
 When building concurrent applications in Java, managing threads properly is crucial. Spawning raw threads (`new Thread(...)`) works for simple cases, but it's inefficient and hard to scale. Java’s concurrency package offers a more powerful approach: **thread pools**.
 
-This post will walk you through the fundamentals of using `ExecutorService` and customizing threads with `ThreadFactory`. Then we’ll explore a special thread pool used behind the scenes—`ForkJoinPool.commonPool()`.
+This post will walk you through the fundamentals of using `ExecutorService` and customizing threads with `ThreadFactory`. 
+Then we’ll explore `ForkJoinPool.commonPool()` as a special thread pool designed mainly for short, CPU-bound tasks.
 
 ## Why Use Thread Pools?
 
@@ -137,12 +138,14 @@ Sum: 55
 
 ## When to Avoid It
 
-The `commonPool` works great for **non-blocking CPU-bound tasks**, but you **should not use it for blocking I/O or long-running tasks**, because:
+The `ForkJoinPool.commonPool()` is designed for **non-blocking, CPU-bound tasks**.  
+You **should not use it for blocking I/O or long-running tasks**, because:
 
 - It has a limited number of threads
-- If all are blocked, other tasks will starve
+- If all threads are blocked, other tasks will starve
 
-**Solution**: Use your own `ExecutorService` for blocking tasks:
+For example, if you have blocking or long-running processes, you should avoid using the default executor of  
+`CompletableFuture.supplyAsync()`. Instead, you should provide your own `ExecutorService`, like this:
 
 ```java
 CompletableFuture.supplyAsync(() -> slowOperation(), customExecutor);

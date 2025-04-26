@@ -1,12 +1,3 @@
-# Moham Pandi
-Email: me@moham.dev
-
-## Profile
-
-Experienced software developer with a focus on backend architecture, system design, and cloud-native development. 
-I thrive on solving complex problems with clean, scalable code—primarily in Java and Spring—and regularly share insights 
-through technical writing. I bring a mindset of ownership, performance optimization, and continuous improvement to every project I work on.
-
 ## Work Experience
 
 ###  **Software Development Engineer \- [Envista](https://envistaco.com/en/)** (October 2024 \- Present)
