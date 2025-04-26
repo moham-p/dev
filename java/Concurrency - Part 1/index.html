@@ -912,7 +912,8 @@
 <h1>Concurrency - Part 1</h1>
 
 <p>When building concurrent applications in Java, managing threads properly is crucial. Spawning raw threads (<code>new Thread(...)</code>) works for simple cases, but it's inefficient and hard to scale. Java’s concurrency package offers a more powerful approach: <strong>thread pools</strong>.</p>
-<p>This post will walk you through the fundamentals of using <code>ExecutorService</code> and customizing threads with <code>ThreadFactory</code>. Then we’ll explore a special thread pool used behind the scenes—<code>ForkJoinPool.commonPool()</code>.</p>
+<p>This post will walk you through the fundamentals of using <code>ExecutorService</code> and customizing threads with <code>ThreadFactory</code>. 
+Then we’ll explore <code>ForkJoinPool.commonPool()</code> as a special thread pool designed mainly for short, CPU-bound tasks.</p>
 <h2 id="why-use-thread-pools">Why Use Thread Pools?</h2>
 <p>Thread pools reuse threads instead of creating new ones for each task. This means:</p>
 <ul>
@@ -1029,12 +1030,14 @@ scheduling. It was designed for general-purpose task execution (particularly wel
 </span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>Sum: 55
 </span></code></pre></div>
 <h2 id="when-to-avoid-it">When to Avoid It</h2>
-<p>The <code>commonPool</code> works great for <strong>non-blocking CPU-bound tasks</strong>, but you <strong>should not use it for blocking I/O or long-running tasks</strong>, because:</p>
+<p>The <code>ForkJoinPool.commonPool()</code> is designed for <strong>non-blocking, CPU-bound tasks</strong>.<br />
+You <strong>should not use it for blocking I/O or long-running tasks</strong>, because:</p>
 <ul>
 <li>It has a limited number of threads</li>
-<li>If all are blocked, other tasks will starve</li>
+<li>If all threads are blocked, other tasks will starve</li>
 </ul>
-<p><strong>Solution</strong>: Use your own <code>ExecutorService</code> for blocking tasks:</p>
+<p>For example, if you have blocking or long-running processes, you should avoid using the default executor of<br />
+<code>CompletableFuture.supplyAsync()</code>. Instead, you should provide your own <code>ExecutorService</code>, like this:</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">CompletableFuture</span><span class="p">.</span><span class="na">supplyAsync</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">slowOperation</span><span class="p">(),</span><span class="w"> </span><span class="n">customExecutor</span><span class="p">);</span>
 </span></code></pre></div>
 <hr />
