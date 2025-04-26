@@ -1,8 +1,6 @@
-## Work Experience
-
 ###  **Software Development Engineer \- [Envista](https://envistaco.com/en/)** (October 2024 \- Present)
 
-* Apply security and compliance best practices in the [Spark](https://ormco.com/en-us/spark) project. 
+* Apply security and compliance best practices in the [Spark](https://ormco.com/en-us/spark-clear-aligners) solution. 
 
 
 ###  **Senior Backend Engineer, Maps API \- [Mapbox](https://www.mapbox.com/)** (Feb 2022 \- May 2024)
