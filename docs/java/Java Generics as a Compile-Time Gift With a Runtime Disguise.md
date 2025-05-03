@@ -88,17 +88,19 @@ This metadata isn’t used by the JVM but is preserved for tooling and static an
 
 ## Decompiled Code: What You See Isn’t What the JVM Sees
 
-If you compile and open your `.class` file in IntelliJ, it might look like this:
+If you compile your code and open the `.class` file in IntelliJ, you might see something like this:
 
 ```java
 List<String> strings = new ArrayList();
 ```
 
-This might surprise you — didn’t we write `new ArrayList<String>()`?
+At first glance, this might be confusing — didn’t we write `new ArrayList<String>()`?
 
-IntelliJ is using a **decompiler** (e.g., FernFlower) to reconstruct the original code. It's able to show the generic type (`<String>`) because Java **does store this information in the class file's metadata**, even though it's **not available to the JVM at runtime**.
+Here’s the key point: **the JVM doesn’t use that generic information at all**. It’s purely for tooling. At runtime, the JVM sees just `List` and `ArrayList`, with no knowledge of `<String>`.
 
-Run `javap -v YourClass.class` and look for the `Signature:` line to see proof.
+**Curious fact:** So how does the decompiler show `List<String>` on the left-hand side? IntelliJ uses FernFlower, a decompiler that cleverly reconstructs source code by reading metadata stored in the `.class` file — specifically the `Signature` attribute. Although **this metadata is invisible to the JVM at runtime, it remains accessible to IDEs, compilers, and reflection tools for analysis and support.**
+
+In other words, the generics information is preserved for you, the developer — not for the JVM. It enables IDE features like autocomplete and static analysis but plays no role in runtime behavior.
 
 ## Key Takeaways
 
