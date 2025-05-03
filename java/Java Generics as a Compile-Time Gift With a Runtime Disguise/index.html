@@ -1028,11 +1028,21 @@
 <p>Here’s the key point: <strong>the JVM doesn’t use that generic information at all</strong>. At runtime, it sees just <code>List</code> and <code>ArrayList</code>, with no awareness of <code>&lt;Person&gt;</code> — making generics a purely compile-time feature that relies heavily on IDEs and tooling to remain helpful.</p>
 <h2 id="key-takeaways">Key Takeaways</h2>
 <p>Generics in Java are one of those features that <strong>help you at compile time</strong> and make your code <strong>clearer and safer</strong> — but they don’t offer any guarantees at runtime. Understanding that is key to writing robust code.</p>
-<p>Remember:
-- Don't rely on generics to enforce safety at runtime.
-- Avoid unnecessary type casts that give you a <strong>false sense of safety</strong>.
-- Use IDEs and static analysis tools to your advantage.
-- Respect type erasure — it’s silently watching your back... and sometimes letting you fall.</p>
+<p>Remember:</p>
+<ul>
+<li>
+<p>Don't rely on generics to enforce safety at runtime.</p>
+</li>
+<li>
+<p>Avoid unnecessary type casts that give you a <strong>false sense of safety</strong>.</p>
+</li>
+<li>
+<p>Use IDEs and static analysis tools to your advantage.</p>
+</li>
+<li>
+<p>Respect type erasure — it’s silently watching your back... and sometimes letting you fall.</p>
+</li>
+</ul>
 <hr />
 <p>Happy coding! 💻</p>
 
