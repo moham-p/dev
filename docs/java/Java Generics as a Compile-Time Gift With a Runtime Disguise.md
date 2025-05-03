@@ -85,8 +85,6 @@ Modern IDEs like IntelliJ IDEA and Eclipse leverage generic metadata (stored in 
 - Code inspections
 - Generics-aware refactorings
 
-This metadata isn’t used by the JVM but is preserved for tooling and static analysis.
-
 If you compile this code:
 
 ```java
@@ -116,9 +114,13 @@ Here’s the key point: **the JVM doesn’t use that generic information at all*
 Generics in Java are one of those features that **help you at compile time** and make your code **clearer and safer** — but they don’t offer any guarantees at runtime. Understanding that is key to writing robust code.
 
 Remember:
+
 - Don't rely on generics to enforce safety at runtime.
+
 - Avoid unnecessary type casts that give you a **false sense of safety**.
+
 - Use IDEs and static analysis tools to your advantage.
+
 - Respect type erasure — it’s silently watching your back... and sometimes letting you fall.
 
 ---
