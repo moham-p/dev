@@ -100,8 +100,6 @@ Here’s the key point: **the JVM doesn’t use that generic information at all*
 
 **Curious fact:** So how does the decompiler show `List<String>` on the left-hand side? IntelliJ uses FernFlower, a decompiler that cleverly reconstructs source code by reading metadata stored in the `.class` file — specifically the `Signature` attribute. Although **this metadata is invisible to the JVM at runtime, it remains accessible to IDEs, compilers, and reflection tools for analysis and support.**
 
-In other words, the generics information is preserved for you, the developer — not for the JVM. It enables IDE features like autocomplete and static analysis but plays no role in runtime behavior.
-
 ## Key Takeaways
 
 Generics in Java are one of those features that **help you at compile time** and make your code **clearer and safer** — but they don’t offer any guarantees at runtime. Understanding that is key to writing robust code.
