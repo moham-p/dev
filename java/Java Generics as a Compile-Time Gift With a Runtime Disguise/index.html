@@ -1022,7 +1022,6 @@
 <p>At first glance, this might be confusing — didn’t we write <code>new ArrayList&lt;String&gt;()</code>?</p>
 <p>Here’s the key point: <strong>the JVM doesn’t use that generic information at all</strong>. It’s purely for tooling. At runtime, the JVM sees just <code>List</code> and <code>ArrayList</code>, with no knowledge of <code>&lt;String&gt;</code>.</p>
 <p><strong>Curious fact:</strong> So how does the decompiler show <code>List&lt;String&gt;</code> on the left-hand side? IntelliJ uses FernFlower, a decompiler that cleverly reconstructs source code by reading metadata stored in the <code>.class</code> file — specifically the <code>Signature</code> attribute. Although <strong>this metadata is invisible to the JVM at runtime, it remains accessible to IDEs, compilers, and reflection tools for analysis and support.</strong></p>
-<p>In other words, the generics information is preserved for you, the developer — not for the JVM. It enables IDE features like autocomplete and static analysis but plays no role in runtime behavior.</p>
 <h2 id="key-takeaways">Key Takeaways</h2>
 <p>Generics in Java are one of those features that <strong>help you at compile time</strong> and make your code <strong>clearer and safer</strong> — but they don’t offer any guarantees at runtime. Understanding that is key to writing robust code.</p>
 <p>Remember:
