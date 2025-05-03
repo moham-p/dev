@@ -507,15 +507,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#decompiled-code-what-you-see-isnt-what-the-jvm-sees" class="md-nav__link">
-    <span class="md-ellipsis">
-      Decompiled Code: What You See Isn’t What the JVM Sees
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#key-takeaways" class="md-nav__link">
     <span class="md-ellipsis">
       Key Takeaways
@@ -1009,19 +1000,33 @@
 <p>unless you truly need to depend on the exact type parameters.</p>
 <h2 id="ides-the-real-mvp-here">IDEs: The Real MVP Here</h2>
 <p><strong>Generics wouldn’t be nearly as helpful without IDEs supporting them so well.</strong></p>
-<p>Modern IDEs like IntelliJ IDEA and Eclipse leverage generic metadata (stored in the <code>.class</code> files) to provide:
-- Smart code suggestions
-- Type mismatch warnings
-- Code inspections
-- Generics-aware refactorings</p>
+<p>Modern IDEs like IntelliJ IDEA and Eclipse leverage generic metadata (stored in the <code>.class</code> files) to provide:</p>
+<ul>
+<li>Smart code suggestions</li>
+<li>Type mismatch warnings</li>
+<li>Code inspections</li>
+<li>Generics-aware refactorings</li>
+</ul>
 <p>This metadata isn’t used by the JVM but is preserved for tooling and static analysis.</p>
-<h2 id="decompiled-code-what-you-see-isnt-what-the-jvm-sees">Decompiled Code: What You See Isn’t What the JVM Sees</h2>
-<p>If you compile your code and open the <code>.class</code> file in IntelliJ, you might see something like this:</p>
-<div class="language-java highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">strings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="p">();</span>
+<p>If you compile this code:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">var</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span><span class="p">();</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">employees</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Person</span><span class="p">(</span><span class="mi">1L</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;admin&quot;</span><span class="p">));</span>
 </span></code></pre></div>
-<p>At first glance, this might be confusing — didn’t we write <code>new ArrayList&lt;String&gt;()</code>?</p>
-<p>Here’s the key point: <strong>the JVM doesn’t use that generic information at all</strong>. It’s purely for tooling. At runtime, the JVM sees just <code>List</code> and <code>ArrayList</code>, with no knowledge of <code>&lt;String&gt;</code>.</p>
-<p><strong>Curious fact:</strong> So how does the decompiler show <code>List&lt;String&gt;</code> on the left-hand side? IntelliJ uses FernFlower, a decompiler that cleverly reconstructs source code by reading metadata stored in the <code>.class</code> file — specifically the <code>Signature</code> attribute. Although <strong>this metadata is invisible to the JVM at runtime, it remains accessible to IDEs, compilers, and reflection tools for analysis and support.</strong></p>
+<p>and later open the <code>.class</code> file in IntelliJ, you might see something like this: (IntelliJ uses FernFlower to decompile)</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="p">();</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">employees</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Person</span><span class="p">(</span><span class="mi">1L</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;admin&quot;</span><span class="p">));</span>
+</span></code></pre></div>
+<p>This might be surprising at first — didn’t we explicitly write <code>new ArrayList&lt;Person&gt;()</code>?</p>
+<p>Here’s what’s happening:</p>
+<ul>
+<li>
+<p><strong>On the left-hand side</strong>, IntelliJ still shows <code>ArrayList&lt;Person&gt;</code> because generic type information is preserved in the class file as metadata. This metadata is accessible to <strong>IDEs, compilers, and reflection tools</strong> for purposes like static analysis and autocompletion. The decompiler cleverly reconstructs the original source by reading metadata like the <code>Signature</code> attribute from the <code>.class</code> file.</p>
+</li>
+<li>
+<p><strong>On the right-hand side</strong>, however, the type argument (<code>&lt;Person&gt;</code>) is erased. This is because the JVM doesn’t retain or use generic information at runtime. While that metadata enables your IDE to "remember" generic types, it plays <strong>no role in how the JVM executes your code</strong>.</p>
+</li>
+</ul>
+<p>Here’s the key point: <strong>the JVM doesn’t use that generic information at all</strong>. At runtime, it sees just <code>List</code> and <code>ArrayList</code>, with no awareness of <code>&lt;Person&gt;</code> — making generics a purely compile-time feature that relies heavily on IDEs and tooling to remain helpful.</p>
 <h2 id="key-takeaways">Key Takeaways</h2>
 <p>Generics in Java are one of those features that <strong>help you at compile time</strong> and make your code <strong>clearer and safer</strong> — but they don’t offer any guarantees at runtime. Understanding that is key to writing robust code.</p>
 <p>Remember:
