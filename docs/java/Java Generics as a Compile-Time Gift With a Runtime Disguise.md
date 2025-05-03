@@ -79,6 +79,7 @@ unless you truly need to depend on the exact type parameters.
 **Generics wouldn’t be nearly as helpful without IDEs supporting them so well.**
 
 Modern IDEs like IntelliJ IDEA and Eclipse leverage generic metadata (stored in the `.class` files) to provide:
+
 - Smart code suggestions
 - Type mismatch warnings
 - Code inspections
@@ -86,19 +87,29 @@ Modern IDEs like IntelliJ IDEA and Eclipse leverage generic metadata (stored in 
 
 This metadata isn’t used by the JVM but is preserved for tooling and static analysis.
 
-## Decompiled Code: What You See Isn’t What the JVM Sees
-
-If you compile your code and open the `.class` file in IntelliJ, you might see something like this:
+If you compile this code:
 
 ```java
-List<String> strings = new ArrayList();
+var employees = new ArrayList<Person>();
+employees.add(new Person(1L, "admin"));
 ```
 
-At first glance, this might be confusing — didn’t we write `new ArrayList<String>()`?
+and later open the `.class` file in IntelliJ, you might see something like this: (IntelliJ uses FernFlower to decompile)
 
-Here’s the key point: **the JVM doesn’t use that generic information at all**. It’s purely for tooling. At runtime, the JVM sees just `List` and `ArrayList`, with no knowledge of `<String>`.
+```java
+ArrayList<Person> employees = new ArrayList();
+employees.add(new Person(1L, "admin"));
+```
 
-**Curious fact:** So how does the decompiler show `List<String>` on the left-hand side? IntelliJ uses FernFlower, a decompiler that cleverly reconstructs source code by reading metadata stored in the `.class` file — specifically the `Signature` attribute. Although **this metadata is invisible to the JVM at runtime, it remains accessible to IDEs, compilers, and reflection tools for analysis and support.**
+This might be surprising at first — didn’t we explicitly write `new ArrayList<Person>()`?
+
+Here’s what’s happening:
+
+- **On the left-hand side**, IntelliJ still shows `ArrayList<Person>` because generic type information is preserved in the class file as metadata. This metadata is accessible to **IDEs, compilers, and reflection tools** for purposes like static analysis and autocompletion. The decompiler cleverly reconstructs the original source by reading metadata like the `Signature` attribute from the `.class` file.
+
+- **On the right-hand side**, however, the type argument (`<Person>`) is erased. This is because the JVM doesn’t retain or use generic information at runtime. While that metadata enables your IDE to "remember" generic types, it plays **no role in how the JVM executes your code**.
+
+Here’s the key point: **the JVM doesn’t use that generic information at all**. At runtime, it sees just `List` and `ArrayList`, with no awareness of `<Person>` — making generics a purely compile-time feature that relies heavily on IDEs and tooling to remain helpful.
 
 ## Key Takeaways
 
