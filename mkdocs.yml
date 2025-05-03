@@ -10,6 +10,7 @@ nav:
     - Concurrency - Part 2: java/Concurrency - Part 2.md
     - Mock vs Spy in Mockito — Never Ask Again: java/Mock vs Spy in Mockito — Never Ask Again.md
     - Concurrency - Part 3: java/Concurrency - Part 3.md
+    - Java Generics as a Compile-Time Gift With a Runtime Disguise: java/Java Generics as a Compile-Time Gift With a Runtime Disguise.md
   - Spring:
     - Method-Level Authorization in Spring Security: spring/Method-Level Authorization in Spring Security.md
     - How Singleton Components Work with Thread Pools: spring/How Singleton Components Work with Thread Pools.md
