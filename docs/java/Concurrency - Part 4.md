@@ -17,7 +17,7 @@ Reactive programming focuses on **declarative concurrency**—you define a pipel
 
 ## Project Reactor: A Reactive Concurrency Engine
 
-**Project Reactor**, the foundation of **Spring WebFlux**, brings reactive streams to Java. Instead of managing threads, queues, and futures, you work with two key abstractions:
+**Project Reactor** brings reactive streams to Java. Instead of managing threads, queues, and futures, you work with two key abstractions:
 
 * `Mono<T>`: A publisher of **zero or one** item.
 * `Flux<T>`: A publisher of **zero to many** items (a reactive stream).
@@ -54,12 +54,12 @@ Reactive streams (and Project Reactor) support **backpressure**, a critical feat
 
 This makes reactive pipelines **self-regulating**, especially in systems that process data continuously or unevenly (e.g., stream ingestion, APIs, or message queues).
 
-## Reactive Data Access with Spring WebFlux + R2DBC
+## Integrating Reactive Concurrency with Spring
 
-Traditional Spring Data JPA is blocking. To go fully non-blocking across the stack, use:
+To build fully non-blocking applications in the Spring ecosystem, you can combine **Project Reactor** with:
 
-* **Spring WebFlux**: Reactive web framework.
-* **Spring Data R2DBC**: Reactive relational database access.
+* **Spring WebFlux**: A reactive web framework.
+* **Spring Data R2DBC**: A reactive relational database integration.
 
 ### Reactive Repository Interface:
 
@@ -70,7 +70,7 @@ public interface PersonRepository extends ReactiveCrudRepository<Person, Long> {
 }
 ```
 
-Unlike blocking repositories, this interface returns `Flux` and `Mono`, fully integrated with Reactor.
+Unlike blocking repositories, this interface returns `Flux` and `Mono`, fully integrated with Reactor and WebFlux for end-to-end reactive pipelines.
 
 ## Project Reactor vs. Node.js: A Conceptual Parallel
 
