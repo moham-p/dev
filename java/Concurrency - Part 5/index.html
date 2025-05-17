@@ -9,10 +9,10 @@
   
   
   
-  <link rel="prev" href="../How%20HashMap%20Handles%20Collisions/">
+  <link rel="prev" href="../Concurrency%20-%20Part%204/">
   
   
-  <link rel="next" href="../Concurrency%20-%20Part%201/">
+  <link rel="next" href="../../spring/Method-Level%20Authorization%20in%20Spring%20Security/">
   
   
   <link rel="icon" href="../../img/favicon.ico">
@@ -21,7 +21,7 @@
   
   
   
-  <title>Stay Friends with the Console - Curiosity into `Code`</title>
+  <title>Concurrency - Part 5 - Curiosity into `Code`</title>
   
   
   
@@ -65,7 +65,7 @@
 <div data-md-component="skip">
   
   
-  <a href="#the-abstraction-gap" class="md-skip">
+  <a href="#clean-readable-code" class="md-skip">
     Skip to content
   </a>
   
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Stay Friends with the Console
+              Concurrency - Part 5
             
           </span>
         </div>
@@ -312,28 +312,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Stay Friends with the Console
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../Stay%20Friends%20with%20the%20Console/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -342,144 +324,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#the-abstraction-gap" class="md-nav__link">
-    <span class="md-ellipsis">
-      The Abstraction Gap
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-it-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      Why It Matters
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Why It Matters">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-portability" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Portability
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-debugging-skills" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Debugging Skills
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-tool-independence" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Tool Independence
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bridging-the-gap" class="md-nav__link">
-    <span class="md-ellipsis">
-      Bridging the Gap
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Bridging the Gap">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-inspect-run-configurations" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Inspect Run Configurations:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-experiment-with-the-command-line" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Experiment with the Command Line:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-translate-ui-to-commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Translate UI to Commands:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-leverage-tools-like-maven-and-gradle" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Leverage Tools Like Maven and Gradle:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#embrace-the-best-of-both-worlds" class="md-nav__link">
-    <span class="md-ellipsis">
-      Embrace the Best of Both Worlds
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#final-thought" class="md-nav__link">
-    <span class="md-ellipsis">
-      Final Thought
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -615,10 +459,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../Concurrency%20-%20Part%205/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Concurrency - Part 5
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -627,6 +489,102 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#clean-readable-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clean, Readable Code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parallel-with-nodejs-asyncawait" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parallel with Node.js Async/Await
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#better-resource-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Better Resource Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Better Resource Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jvm-level-behavior-of-virtual-threads" class="md-nav__link">
+    <span class="md-ellipsis">
+      JVM-Level Behavior of Virtual Threads
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#easier-debugging-and-tracing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Easier Debugging and Tracing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-demo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Demo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtual-threads-in-web-servers-spring-boot-tomcat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Virtual Threads in Web Servers (Spring Boot / Tomcat)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-thoughts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Final Thoughts
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1059,57 +1017,113 @@
 
 
 
-<h1>Stay Friends with the Console</h1>
+<h1>Concurrency - Part 5</h1>
 
-<p>As developers, we often choose tools that enhance productivity and streamline our workflows. For Java developers, IntelliJ IDEA and Visual Studio Code (VS Code) are two popular choices. Each brings unique strengths to the table—IntelliJ's rich UI simplifies complex setups, while VS Code's explicit configurations encourage familiarity with command-line operations.</p>
-<p>But here's a critical observation: developers using IntelliJ often become less familiar with the actual commands their tools execute behind the scenes. This post argues why staying "friends with the console" is vital, even if you rely on an IDE with advanced features.</p>
-<h2 id="the-abstraction-gap">The Abstraction Gap</h2>
-<p>When you run a project in IntelliJ IDEA, the process feels seamless:
-- Select a run configuration.
-- Click the green play button.
-- Watch your application start.</p>
-<p>Behind the scenes, IntelliJ generates a command to launch your application, passing JVM arguments, system properties, and classpath settings. However, many developers don’t inspect this command, creating a knowledge gap. Over time, this reliance on the UI can lead to an aversion to using the console.</p>
-<p>In contrast, VS Code's <code>launch.json</code> file makes you explicitly define every aspect of your run configuration:
-- The main class to launch.
-- The JVM arguments to include.
-- Environment variables and debugging options.</p>
-<p>This approach forces you to understand the command being executed, fostering a deeper awareness of what’s happening under the hood.</p>
-<h2 id="why-it-matters">Why It Matters</h2>
-<h4 id="1-portability">1. <strong>Portability</strong></h4>
-<p>Knowing the command being executed allows you to replicate the same setup outside your IDE. This is especially critical in environments like CI/CD pipelines, where everything runs on the command line.</p>
-<h4 id="2-debugging-skills">2. <strong>Debugging Skills</strong></h4>
-<p>When something breaks in production, you won’t have IntelliJ’s UI to save you. Understanding how to craft and troubleshoot the equivalent command-line invocation ensures you're better equipped to diagnose and resolve issues.</p>
-<h4 id="3-tool-independence">3. <strong>Tool Independence</strong></h4>
-<p>Becoming overly reliant on an IDE can tie your productivity to that tool. By understanding the underlying commands, you’re not just an IntelliJ user; you’re a developer who can adapt to any environment.</p>
-<h2 id="bridging-the-gap">Bridging the Gap</h2>
-<h4 id="1-inspect-run-configurations">1. <strong>Inspect Run Configurations</strong>:</h4>
-<p>Every time you run your application, IntelliJ logs the generated command in the Run or Debug console. Take a moment to review it. Understand the JVM arguments, the classpath, and any system properties being passed.</p>
-<h4 id="2-experiment-with-the-command-line">2. <strong>Experiment with the Command Line</strong>:</h4>
-<p>Copy the command from IntelliJ’s logs and execute it directly in your terminal. Modify parameters, try different options, and see how your application behaves.</p>
-<h4 id="3-translate-ui-to-commands">3. <strong>Translate UI to Commands</strong>:</h4>
-<p>When setting up run configurations in IntelliJ, think about how you’d define the same setup in a tool like VS Code or Maven. This mental exercise helps solidify your understanding.</p>
-<h4 id="4-leverage-tools-like-maven-and-gradle">4. <strong>Leverage Tools Like Maven and Gradle</strong>:</h4>
-<p>These tools are designed for command-line execution and often integrate seamlessly with IDEs. Practice running your application with commands like the following:</p>
-<p><strong>Command Generated by IntelliJ</strong>:
-   <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/Users/youruser/.sdkman/candidates/java/21.0.1-amzn/bin/java<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>-Dspring.output.ansi.enabled<span class="o">=</span>always<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>-Dfile.encoding<span class="o">=</span>UTF-8<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>-classpath<span class="w"> </span>/Users/youruser/project/target/classes:/Users/youruser/.m2/repository/org/springframework/...<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>com.example.Application
-</span></code></pre></div></p>
-<p><strong>Equivalent Maven Command</strong>:
-   <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>mvn<span class="w"> </span>spring-boot:run<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>-Dspring-boot.run.jvmArguments<span class="o">=</span><span class="s2">&quot;-Dspring.output.ansi.enabled=always -Dfile.encoding=UTF-8&quot;</span>
-</span></code></pre></div></p>
+<p>Before virtual threads, if you wanted to write scalable concurrent code without blocking physical OS threads, you typically chose one of these approaches:</p>
 <ul>
-<li><strong>IntelliJ</strong>: Handles the classpath and configuration automatically but abstracts the process.</li>
-<li><strong>Maven</strong>: Provides a clear and portable way to replicate the same execution, ensuring you stay familiar with the underlying mechanics.</li>
+<li>CompletableFuture — for async, non-blocking computation using futures and chaining.</li>
+<li>ExecutorService with thread pools — for managing a fixed number of threads efficiently.</li>
+<li>Reactive frameworks like Reactor or RxJava — for highly scalable, event-driven applications with non-blocking flows.</li>
 </ul>
-<h2 id="embrace-the-best-of-both-worlds">Embrace the Best of Both Worlds</h2>
-<p>Using IntelliJ IDEA doesn’t mean abandoning the console. Instead, think of the IDE as a tool that enhances your productivity without replacing foundational knowledge. When you understand the commands your IDE generates, you unlock a new level of control over your development process.</p>
-<p>Whether you’re configuring a debugging session, tweaking JVM options, or deploying your application to production, staying friends with the console ensures you remain on top of your craft.</p>
-<h2 id="final-thought">Final Thought</h2>
-<p>An IDE should simplify your workflow, not shield you from understanding it. So, the next time you click "Run" in IntelliJ, take a moment to explore the command it generates. It’s not just a helpful exercise—it’s a step toward becoming a more confident and capable developer.</p>
+<p><strong>Each of these had its own learning curve and trade-offs. In Java 21, virtual threads changed the game by allowing:</strong></p>
+<ul>
+<li>Blocking code (like <code>Thread.sleep()</code> or <code>InputStream.read()</code>)</li>
+<li>Written in a straightforward, linear style</li>
+<li>While still scaling to thousands of threads (because they're lightweight)</li>
+</ul>
+<h2 id="clean-readable-code">Clean, Readable Code</h2>
+<p>Virtual threads let you write code in a familiar, blocking style — without managing callbacks or chaining. Less boilerplate. More clarity.</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// With CompletableFuture</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">CompletableFuture</span><span class="p">.</span><span class="na">supplyAsync</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">getData</span><span class="p">())</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">                 </span><span class="p">.</span><span class="na">thenApply</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">processData</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">                 </span><span class="p">.</span><span class="na">thenAccept</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">println</span><span class="p">);</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1">// With Virtual Threads</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="kd">var</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getData</span><span class="p">();</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="kd">var</span><span class="w"> </span><span class="n">processed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">processData</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">processed</span><span class="p">);</span>
+</span></code></pre></div>
+<h2 id="parallel-with-nodejs-asyncawait">Parallel with Node.js Async/Await</h2>
+<p>If you’re coming from a Node.js background, virtual threads in Java will feel similar to async/await — both enable writing asynchronous code that <em>looks synchronous</em>.</p>
+<p><strong>Node.js with async/await:</strong></p>
+<div class="language-javascript highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">getData</span><span class="p">();</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">process</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+</span></code></pre></div>
+<p><strong>Before async/await:</strong></p>
+<div class="language-javascript highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nx">getData</span><span class="p">((</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nx">process</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="p">});</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">});</span>
+</span></code></pre></div>
+<p>Just like async/await replaced <strong>callback hell</strong> in JavaScript, virtual threads eliminate the need for deeply nested <code>CompletableFuture</code> chains in Java. You retain the readability of sequential code, while the underlying runtime handles scheduling, blocking, and continuation behind the scenes.</p>
+<blockquote>
+<p>⚠️ <strong>Note:</strong>
+Virtual threads do <strong>real blocking</strong>, but <strong>very efficiently</strong> using JVM scheduling.
+<code>async/await</code>, on the other hand, is <strong>syntactic sugar</strong> over <strong>non-blocking Promises</strong>. The underlying model is different even if the surface syntax looks similar.</p>
+</blockquote>
+<h2 id="better-resource-management">Better Resource Management</h2>
+<ul>
+<li>Virtual threads are lightweight and managed by the JVM — you can create millions of them.</li>
+<li><code>CompletableFuture</code> relies on a fixed thread pool, which can become a bottleneck under heavy load.</li>
+</ul>
+<h3 id="jvm-level-behavior-of-virtual-threads">JVM-Level Behavior of Virtual Threads</h3>
+<p>Unlike platform threads (which are heavyweight OS threads), virtual threads are <em>scheduled by the JVM</em>, not the OS. This enables a large number of virtual threads (up to a million) to coexist.</p>
+<ul>
+<li><strong>Platform Thread (PT)</strong>: \~0.25–1 MB of memory; JVM can manage \~1,000–10,000</li>
+<li><strong>Virtual Thread (VT)</strong>: \~1–2 KB of memory; JVM can manage up to 1 million</li>
+</ul>
+<p>Here’s how the JVM handles virtual threads internally:</p>
+<ol>
+<li>A virtual thread runs on a platform thread (PT) until it hits a blocking operation (e.g., DB call, file I/O).</li>
+<li>When blocked, the JVM unmounts the virtual thread from the PT.</li>
+<li>The PT is now free to run another virtual thread.</li>
+<li>Once the result is ready, the virtual thread is remounted on an available PT and resumes execution.</li>
+</ol>
+<p>This mount/unmount mechanism ensures that the few available platform threads are always busy with active tasks, minimizing wasted resources.</p>
+<h2 id="easier-debugging-and-tracing">Easier Debugging and Tracing</h2>
+<p>With virtual threads, you get:</p>
+<ul>
+<li>Clean stack traces</li>
+<li>Compatibility with traditional debugging tools</li>
+<li>Easier step-through in IDEs</li>
+</ul>
+<p>As opposed to tracing through deeply chained async calls in <code>CompletableFuture</code>.</p>
+<h2 id="quick-demo">Quick Demo</h2>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">VirtualThreadExample</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">InterruptedException</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">        </span><span class="n">Thread</span><span class="w"> </span><span class="n">thread</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Thread</span><span class="p">.</span><span class="na">ofVirtual</span><span class="p">()</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">                </span><span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;my-virtual-thread&quot;</span><span class="p">)</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">                </span><span class="p">.</span><span class="na">start</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">                        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Running in: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Thread</span><span class="p">.</span><span class="na">currentThread</span><span class="p">().</span><span class="na">getName</span><span class="p">())</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">                </span><span class="p">);</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="n">thread</span><span class="p">.</span><span class="na">join</span><span class="p">();</span><span class="w"> </span><span class="c1">// Wait for the virtual thread to complete</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="p">}</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="c1">//output</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="n">Running</span><span class="w"> </span><span class="n">in</span><span class="p">:</span><span class="w"> </span><span class="n">my</span><span class="o">-</span><span class="n">virtual</span><span class="o">-</span><span class="n">thread</span>
+</span></code></pre></div>
+<h2 id="virtual-threads-in-web-servers-spring-boot-tomcat">Virtual Threads in Web Servers (Spring Boot / Tomcat)</h2>
+<p>Starting with Spring Boot 3.2+, you can enable virtual threads in embedded Tomcat using:</p>
+<div class="language-properties highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="na">server.tomcat.virtual-threads.enabled</span><span class="o">=</span><span class="s">true</span>
+</span></code></pre></div>
+<p>This allows your application to handle incoming web requests using virtual threads, greatly increasing concurrency without thread pool exhaustion.</p>
+<p>How it works:</p>
+<ol>
+<li>Tomcat accepts web requests and spawns virtual threads instead of blocking platform threads.</li>
+<li>These virtual threads call into your Spring-based business logic.</li>
+<li>Calls to storage (e.g., databases) can block without worrying about holding up platform threads.</li>
+<li>The JVM automatically manages scheduling behind the scenes.</li>
+</ol>
+<p>This design improves scalability — particularly for I/O-heavy workloads — without changing your controller or service code.</p>
+<blockquote>
+<p>⚠️ <strong>Note:</strong> While enabling virtual threads in Tomcat is powerful, it’s worth proceeding cautiously — some libraries, tools, or native code may not yet fully support or benefit from the virtual thread model.</p>
+</blockquote>
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>Virtual threads are a major step forward in Java’s concurrency model. They combine the simplicity of synchronous code with the scalability of asynchronous processing — all without the boilerplate and complexity of <code>CompletableFuture</code>.</p>
+<p>They’re not a silver bullet, but for many applications, virtual threads are a cleaner, more powerful alternative.</p>
 <hr />
 <p>Happy coding! 💻</p>
 
