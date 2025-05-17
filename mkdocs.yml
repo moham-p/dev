@@ -12,6 +12,7 @@ nav:
     - Concurrency - Part 3: java/Concurrency - Part 3.md
     - Java Generics as a Compile-Time Gift With a Runtime Disguise: java/Java Generics as a Compile-Time Gift With a Runtime Disguise.md
     - Concurrency - Part 4: java/Concurrency - Part 4.md
+    - Concurrency - Part 5: java/Concurrency - Part 5.md
   - Spring:
     - Method-Level Authorization in Spring Security: spring/Method-Level Authorization in Spring Security.md
     - How Singleton Components Work with Thread Pools: spring/How Singleton Components Work with Thread Pools.md
