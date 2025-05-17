@@ -4,7 +4,7 @@ Before virtual threads, if you wanted to write scalable concurrent code without 
 * ExecutorService with thread pools — for managing a fixed number of threads efficiently.
 * Reactive frameworks like Reactor or RxJava — for highly scalable, event-driven applications with non-blocking flows.
 
-**Each of these had its own learning curve and trade-offs. In Java 21, virtual threads changed the game by allowing:**
+**Each of these had its own learning curve and trade-offs. In Java 21 ([this PR](https://github.com/openjdk/jdk/pull/8166)), virtual threads changed the game by allowing:**
 
 * Blocking code (like `Thread.sleep()` or `InputStream.read()`)
 * Written in a straightforward, linear style
