@@ -9,7 +9,6 @@
 
 <script>
   const images = [
-    { src: '/img/envista.jpg', caption: 'Envista' },
     { src: '/img/mapbox.jpg', caption: 'Mapbox' },
     { src: '/img/f-secure.jpg', caption: 'F-Secure' },
     { src: '/img/bankify.jpg', caption: 'Bankify' },
