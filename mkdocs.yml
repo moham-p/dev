@@ -14,6 +14,7 @@ nav:
     - Concurrency - Part 4: java/Concurrency - Part 4.md
     - Concurrency - Part 5: java/Concurrency - Part 5.md
     - Java’s Mission, No More Excuses: java/Java’s Mission - No More Excuses.md
+    - How Threads Share Code in Java: java/How Threads Share Code in Java.md
   - Spring:
     - Method-Level Authorization in Spring Security: spring/Method-Level Authorization in Spring Security.md
     - How Singleton Components Work with Thread Pools: spring/How Singleton Components Work with Thread Pools.md
