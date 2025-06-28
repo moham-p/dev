@@ -9,10 +9,6 @@
   
   
   
-  <link rel="prev" href="../../spring/How%20Singleton%20Components%20Work%20with%20Thread%20Pools/">
-  
-  
-  <link rel="next" href="../../data/PostgreSQL%20Transactions%20-%20Part%202/">
   
   
   <link rel="icon" href="../../img/favicon.ico">
@@ -21,7 +17,7 @@
   
   
   
-  <title>Don’t Mix Up Aggregates and Aggregators - Curiosity into `Code`</title>
+  <title>How to Scale Spring Boot for High Concurrency - Curiosity into `Code`</title>
   
   
   
@@ -65,7 +61,7 @@
 <div data-md-component="skip">
   
   
-  <a href="#aggregates-a-core-ddd-concept" class="md-skip">
+  <a href="#spring-boot-uses-thread-pools-for-concurrency" class="md-skip">
     Skip to content
   </a>
   
@@ -100,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Don’t Mix Up Aggregates and Aggregators
+              How to Scale Spring Boot for High Concurrency
             
           </span>
         </div>
@@ -565,7 +561,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/Method-Level%20Authorization%20in%20Spring%20Security/" class="md-nav__link">
+      <a href="../Method-Level%20Authorization%20in%20Spring%20Security/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -586,7 +582,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/How%20Singleton%20Components%20Work%20with%20Thread%20Pools/" class="md-nav__link">
+      <a href="../How%20Singleton%20Components%20Work%20with%20Thread%20Pools/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -611,19 +607,17 @@
     
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -637,7 +631,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Design
@@ -648,28 +642,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Don’t Mix Up Aggregates and Aggregators
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../design/Don%E2%80%99t%20Mix%20Up%20Aggregates%20and%20Aggregators/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -678,99 +654,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#aggregates-a-core-ddd-concept" class="md-nav__link">
-    <span class="md-ellipsis">
-      Aggregates: A Core DDD Concept
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Aggregates: A Core DDD Concept">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#key-characteristics-of-aggregates" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key Characteristics of Aggregates
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#repositories-and-aggregates" class="md-nav__link">
-    <span class="md-ellipsis">
-      Repositories and Aggregates
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#aggregators-a-microservices-pattern" class="md-nav__link">
-    <span class="md-ellipsis">
-      Aggregators: A Microservices Pattern
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Aggregators: A Microservices Pattern">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#key-characteristics-of-aggregators" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key Characteristics of Aggregators
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-key-difference" class="md-nav__link">
-    <span class="md-ellipsis">
-      The Key Difference
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
-    <span class="md-ellipsis">
-      Conclusion
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1056,83 +939,82 @@
 
 
 
-<h1>Don’t Mix Up Aggregates and Aggregators</h1>
+<h1>How to Scale Spring Boot for High Concurrency</h1>
 
-<p>When discussing software design, two terms that often get confused are <strong>Aggregates</strong> and <strong>Aggregators</strong>. While they may sound similar, they serve entirely different purposes. If you’re working with <strong>Domain-Driven Design (DDD)</strong> or <strong>microservices</strong>, understanding this distinction is crucial.</p>
-<h2 id="aggregates-a-core-ddd-concept">Aggregates: A Core DDD Concept</h2>
-<p>In <strong>Domain-Driven Design (DDD)</strong>, an <strong>Aggregate</strong> is a fundamental design practice that groups related entities and value objects into a single unit.</p>
-<blockquote>
-<p><strong>Definition:</strong> A cluster of related entities treated as a single unit for data changes. Each aggregate has a root entity (aggregate root) that controls access and ensures consistency.</p>
-</blockquote>
-<h3 id="key-characteristics-of-aggregates">Key Characteristics of Aggregates</h3>
-<ol>
-<li><strong>Aggregate Root:</strong> The main entity that controls access to other entities in the aggregate.</li>
-<li><strong>Consistency Boundary:</strong> Ensures that changes to the aggregate maintain its integrity.</li>
-<li><strong>Encapsulation:</strong> External systems interact only through the aggregate root.</li>
-</ol>
-<h3 id="repositories-and-aggregates">Repositories and Aggregates</h3>
-<p>Aggregates work closely with <strong>Repositories</strong>, which provide a mechanism for accessing and manipulating aggregates.</p>
+<p>In <a href="../How Singleton Components Work with Thread Pools">my previous post</a>, we explored how Spring Boot uses singleton-scoped components (like controllers, services, and repositories) and how multiple threads can safely share these instances thanks to stateless design. We verified singleton behavior using <code>System.identityHashCode</code> and explained how Spring delegates concurrent request processing to the servlet container’s thread pool (e.g., Tomcat).</p>
+<p>In this follow-up post, we go one level deeper — tackling questions like:</p>
 <ul>
-<li>Repositories act as collections of aggregates and handle data persistence.</li>
-<li>Instead of fetching individual entities, repositories return entire aggregates, ensuring that data integrity rules are respected.</li>
+<li>What happens when concurrent user traffic increases?</li>
+<li>Should you increase the Tomcat thread pool size?</li>
+<li>How do you determine the right number of threads?</li>
+<li>How do you monitor and tune your Spring Boot app for concurrency?</li>
 </ul>
-<p>For example, in an e-commerce system, an <strong>Order Aggregate</strong> might include an <code>Order</code> entity, <code>OrderItems</code>, and a <code>ShippingInfo</code> value object. The <code>Order</code> entity would be the <strong>aggregate root</strong>, ensuring that all updates go through it.</p>
-<h2 id="aggregators-a-microservices-pattern">Aggregators: A Microservices Pattern</h2>
-<p>On the other hand, <strong>Aggregators</strong> belong to the world of <strong>microservices</strong> and are used for composing data from multiple services.</p>
-<blockquote>
-<p><strong>Definition:</strong> An Aggregator is a microservice pattern used to collect and combine data from multiple services into a single response.</p>
-</blockquote>
-<h3 id="key-characteristics-of-aggregators">Key Characteristics of Aggregators</h3>
-<ol>
-<li><strong>Data Composition:</strong> Aggregators fetch data from different services and merge it.</li>
-<li><strong>API Gateway Role:</strong> Often act as an API facade, reducing multiple client calls.</li>
-<li><strong>Read Optimization:</strong> Helps improve response times by structuring data efficiently.</li>
-</ol>
-<p>For instance, in a <strong>hotel booking system</strong>, an <strong>Aggregator Service</strong> might gather data from separate services like:
-- A <strong>Room Availability Service</strong>
-- A <strong>Pricing Service</strong>
-- A <strong>Customer Reviews Service</strong></p>
-<p>Instead of forcing the client to call each service separately, the aggregator <strong>fetches and composes the data</strong>, returning a unified response.</p>
-<h2 id="the-key-difference">The Key Difference</h2>
-<table>
-<thead>
-<tr>
-<th>Feature</th>
-<th>Aggregates (DDD)</th>
-<th>Aggregators (Microservices)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Purpose</strong></td>
-<td>Ensures consistency and integrity of domain models</td>
-<td>Composes data from multiple microservices</td>
-</tr>
-<tr>
-<td><strong>Scope</strong></td>
-<td>Used within a bounded context in DDD</td>
-<td>Used at the service layer in microservices</td>
-</tr>
-<tr>
-<td><strong>Persistence</strong></td>
-<td>Managed via Repositories</td>
-<td>No direct persistence; just fetches and merges data</td>
-</tr>
-<tr>
-<td><strong>Data Flow</strong></td>
-<td>Focuses on transactional consistency</td>
-<td>Focuses on read-side optimization</td>
-</tr>
-<tr>
-<td><strong>Example</strong></td>
-<td>An <strong>Order Aggregate</strong> ensures all order-related changes follow business rules</td>
-<td>A <strong>Booking Aggregator</strong> merges room, pricing, and review data into one response</td>
-</tr>
-</tbody>
-</table>
-<h2 id="conclusion">Conclusion</h2>
-<p>Mixing up <strong>Aggregates</strong> and <strong>Aggregators</strong> can lead to confusion in both design and communication. If you’re building <strong>domain models</strong>, think <strong>Aggregates</strong>. If you’re composing <strong>data from multiple services</strong>, think <strong>Aggregators</strong>.</p>
-<p>Understanding this distinction can help you make better architectural decisions and communicate more effectively with your team. 🚀</p>
+<h2 id="spring-boot-uses-thread-pools-for-concurrency">Spring Boot Uses Thread Pools for Concurrency</h2>
+<p>Every incoming HTTP request is assigned to a thread from a <strong>shared thread pool</strong> maintained by the embedded servlet container (e.g., Tomcat, Jetty, or Undertow). 
+This makes your app capable of handling multiple users <strong>simultaneously</strong>, even though your beans are singleton-scoped.</p>
+<p>But here’s the catch: the thread pool has <strong>limits</strong>.</p>
+<p>If all threads are busy:</p>
+<ul>
+<li>Incoming requests are queued</li>
+<li>If the queue is full, then requests are rejected or delayed</li>
+</ul>
+<h2 id="when-should-you-increase-the-thread-pool-size">When Should You Increase the Thread Pool Size?</h2>
+<p>If your application starts experiencing, slow response times, request timeouts, or 5xx errors under load it might be time to look at 
+your <strong>Tomcat thread pool settings</strong>.</p>
+<p>You can configure them in <code>application.yml</code>:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">server</span><span class="p">:</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">tomcat</span><span class="p">:</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">threads</span><span class="p">:</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">      </span><span class="nt">max</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">200</span><span class="w">     </span><span class="c1"># default is 200</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="nt">min-spare</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+</span></code></pre></div>
+<p>But how do you know what number is right?</p>
+<h2 id="rule-of-thumb-io-bound-vs-cpu-bound">Rule of Thumb: I/O-Bound vs. CPU-Bound</h2>
+<p>Your thread pool sizing depends on the <strong>nature of your workload</strong>:</p>
+<h3 id="for-io-bound-applications">For I/O-Bound Applications</h3>
+<p><em>(e.g., database queries, external HTTP calls)</em></p>
+<ul>
+<li>Threads often sit idle waiting for I/O</li>
+<li>You can afford to have <strong>more threads than CPU cores</strong></li>
+<li>Start with: <strong>2x to 4x the number of cores</strong></li>
+</ul>
+<h3 id="for-cpu-bound-applications">For CPU-Bound Applications</h3>
+<p><em>(e.g., heavy computation, encoding)</em></p>
+<ul>
+<li>Threads are CPU-hungry</li>
+<li>More threads → more context switching → slower performance</li>
+<li>Match threads to number of CPU cores: <strong>maxThreads ≈ CPU cores</strong></li>
+</ul>
+<h3 id="example">Example</h3>
+<p>If your server has 8 cores:</p>
+<ul>
+<li>I/O-heavy service: try <code>maxThreads = 32–64</code></li>
+<li>CPU-heavy service: try <code>maxThreads = 8</code></li>
+</ul>
+<p>Always monitor and adjust.</p>
+<hr />
+<h2 id="monitoring-thread-pool-usage">Monitoring Thread Pool Usage</h2>
+<p>To make informed decisions, observe the actual load on your thread pool. You can do this using:</p>
+<h3 id="spring-boot-actuator-micrometer">Spring Boot Actuator + Micrometer</h3>
+<p>Enable actuator endpoints and integrate with:</p>
+<ul>
+<li>Prometheus</li>
+<li>Grafana</li>
+<li>CloudWatch, New Relic, etc.</li>
+</ul>
+<p>Look for:</p>
+<ul>
+<li><code>tomcat.threads.active</code></li>
+<li><code>tomcat.threads.max</code></li>
+<li><code>tomcat.threads.busy</code></li>
+</ul>
+<h3 id="jvisualvm-or-jfr">JVisualVM or JFR</h3>
+<p>For local testing, tools like <strong>VisualVM</strong> or <strong>Java Flight Recorder</strong> help track:</p>
+<ul>
+<li>Thread activity</li>
+<li>Garbage collection</li>
+<li>Stack traces and bottlenecks</li>
+</ul>
 <hr />
 <p>Happy coding! 💻</p>
 

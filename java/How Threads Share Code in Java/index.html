@@ -9,10 +9,10 @@
   
   
   
-  <link rel="prev" href="../../spring/How%20Singleton%20Components%20Work%20with%20Thread%20Pools/">
+  <link rel="prev" href="../Java%E2%80%99s%20Mission%20-%20No%20More%20Excuses/">
   
   
-  <link rel="next" href="../../data/PostgreSQL%20Transactions%20-%20Part%202/">
+  <link rel="next" href="../../spring/Method-Level%20Authorization%20in%20Spring%20Security/">
   
   
   <link rel="icon" href="../../img/favicon.ico">
@@ -21,7 +21,7 @@
   
   
   
-  <title>Don’t Mix Up Aggregates and Aggregators - Curiosity into `Code`</title>
+  <title>How Threads Share Code in Java - Curiosity into `Code`</title>
   
   
   
@@ -65,7 +65,7 @@
 <div data-md-component="skip">
   
   
-  <a href="#aggregates-a-core-ddd-concept" class="md-skip">
+  <a href="#short-answer" class="md-skip">
     Skip to content
   </a>
   
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Don’t Mix Up Aggregates and Aggregators
+              How Threads Share Code in Java
             
           </span>
         </div>
@@ -254,17 +254,19 @@
     
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -278,7 +280,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Java
@@ -292,7 +294,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/How%20HashMap%20Handles%20Collisions/" class="md-nav__link">
+      <a href="../How%20HashMap%20Handles%20Collisions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -313,7 +315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/Stay%20Friends%20with%20the%20Console/" class="md-nav__link">
+      <a href="../Stay%20Friends%20with%20the%20Console/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -334,7 +336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/Concurrency%20-%20Part%201/" class="md-nav__link">
+      <a href="../Concurrency%20-%20Part%201/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -355,7 +357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/Concurrency%20-%20Part%202/" class="md-nav__link">
+      <a href="../Concurrency%20-%20Part%202/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -376,7 +378,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/Mock%20vs%20Spy%20in%20Mockito%20%E2%80%94%20Never%20Ask%20Again/" class="md-nav__link">
+      <a href="../Mock%20vs%20Spy%20in%20Mockito%20%E2%80%94%20Never%20Ask%20Again/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -397,7 +399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/Concurrency%20-%20Part%203/" class="md-nav__link">
+      <a href="../Concurrency%20-%20Part%203/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -418,7 +420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/Java%20Generics%20as%20a%20Compile-Time%20Gift%20With%20a%20Runtime%20Disguise/" class="md-nav__link">
+      <a href="../Java%20Generics%20as%20a%20Compile-Time%20Gift%20With%20a%20Runtime%20Disguise/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -439,7 +441,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/Concurrency%20-%20Part%204/" class="md-nav__link">
+      <a href="../Concurrency%20-%20Part%204/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -460,7 +462,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/Concurrency%20-%20Part%205/" class="md-nav__link">
+      <a href="../Concurrency%20-%20Part%205/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -481,7 +483,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/Java%E2%80%99s%20Mission%20-%20No%20More%20Excuses/" class="md-nav__link">
+      <a href="../Java%E2%80%99s%20Mission%20-%20No%20More%20Excuses/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -499,10 +501,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../java/How%20Threads%20Share%20Code%20in%20Java/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    How Threads Share Code in Java
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -511,6 +531,126 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#short-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Short Answer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-code-and-threads-work-in-java" class="md-nav__link">
+    <span class="md-ellipsis">
+      How Code and Threads Work in Java
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How Code and Threads Work in Java">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Is the Stack?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#where-does-the-code-live" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where Does the Code Live?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-happens-when-multiple-threads-use-a-singleton" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Happens When Multiple Threads Use a Singleton?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-singleton-components-are-safe-in-spring-if-stateless" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Singleton Components Are Safe in Spring — If Stateless
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why Singleton Components Are Safe in Spring — If Stateless">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#avoid-shared-mutable-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚠️ Avoid Shared Mutable State
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-method-local-variables-instead" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Use Method-Local Variables Instead
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-world-analogy-shared-code-private-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Real-World Analogy: Shared Code, Private Data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wrap-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wrap-Up
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -611,19 +751,17 @@
     
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -637,7 +775,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Design
@@ -648,28 +786,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Don’t Mix Up Aggregates and Aggregators
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../design/Don%E2%80%99t%20Mix%20Up%20Aggregates%20and%20Aggregators/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -678,99 +798,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#aggregates-a-core-ddd-concept" class="md-nav__link">
-    <span class="md-ellipsis">
-      Aggregates: A Core DDD Concept
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Aggregates: A Core DDD Concept">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#key-characteristics-of-aggregates" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key Characteristics of Aggregates
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#repositories-and-aggregates" class="md-nav__link">
-    <span class="md-ellipsis">
-      Repositories and Aggregates
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#aggregators-a-microservices-pattern" class="md-nav__link">
-    <span class="md-ellipsis">
-      Aggregators: A Microservices Pattern
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Aggregators: A Microservices Pattern">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#key-characteristics-of-aggregators" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key Characteristics of Aggregators
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-key-difference" class="md-nav__link">
-    <span class="md-ellipsis">
-      The Key Difference
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
-    <span class="md-ellipsis">
-      Conclusion
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1056,83 +1083,111 @@
 
 
 
-<h1>Don’t Mix Up Aggregates and Aggregators</h1>
+<h1>How Threads Share Code in Java</h1>
 
-<p>When discussing software design, two terms that often get confused are <strong>Aggregates</strong> and <strong>Aggregators</strong>. While they may sound similar, they serve entirely different purposes. If you’re working with <strong>Domain-Driven Design (DDD)</strong> or <strong>microservices</strong>, understanding this distinction is crucial.</p>
-<h2 id="aggregates-a-core-ddd-concept">Aggregates: A Core DDD Concept</h2>
-<p>In <strong>Domain-Driven Design (DDD)</strong>, an <strong>Aggregate</strong> is a fundamental design practice that groups related entities and value objects into a single unit.</p>
-<blockquote>
-<p><strong>Definition:</strong> A cluster of related entities treated as a single unit for data changes. Each aggregate has a root entity (aggregate root) that controls access and ensures consistency.</p>
-</blockquote>
-<h3 id="key-characteristics-of-aggregates">Key Characteristics of Aggregates</h3>
-<ol>
-<li><strong>Aggregate Root:</strong> The main entity that controls access to other entities in the aggregate.</li>
-<li><strong>Consistency Boundary:</strong> Ensures that changes to the aggregate maintain its integrity.</li>
-<li><strong>Encapsulation:</strong> External systems interact only through the aggregate root.</li>
-</ol>
-<h3 id="repositories-and-aggregates">Repositories and Aggregates</h3>
-<p>Aggregates work closely with <strong>Repositories</strong>, which provide a mechanism for accessing and manipulating aggregates.</p>
+<p>In <a href="../../spring/How Singleton Components Work with Thread Pools">a previous post</a> we explored how Spring Boot handles multiple requests using thread pools, 
+and how singleton-scoped components (like controllers and services) work in such an environment. But an equally important question remains:
+<em>“If all threads share the same singleton, do they each copy the code into their stack?”</em></p>
+<h2 id="short-answer">Short Answer</h2>
+<p><strong>No</strong>, each thread does <strong>not</strong> copy the code of the singleton class into its own stack.</p>
+<p>Instead:</p>
 <ul>
-<li>Repositories act as collections of aggregates and handle data persistence.</li>
-<li>Instead of fetching individual entities, repositories return entire aggregates, ensuring that data integrity rules are respected.</li>
+<li>The code is shared</li>
+<li>Each thread gets its own stack frame and local variables when invoking a method</li>
 </ul>
-<p>For example, in an e-commerce system, an <strong>Order Aggregate</strong> might include an <code>Order</code> entity, <code>OrderItems</code>, and a <code>ShippingInfo</code> value object. The <code>Order</code> entity would be the <strong>aggregate root</strong>, ensuring that all updates go through it.</p>
-<h2 id="aggregators-a-microservices-pattern">Aggregators: A Microservices Pattern</h2>
-<p>On the other hand, <strong>Aggregators</strong> belong to the world of <strong>microservices</strong> and are used for composing data from multiple services.</p>
-<blockquote>
-<p><strong>Definition:</strong> An Aggregator is a microservice pattern used to collect and combine data from multiple services into a single response.</p>
-</blockquote>
-<h3 id="key-characteristics-of-aggregators">Key Characteristics of Aggregators</h3>
-<ol>
-<li><strong>Data Composition:</strong> Aggregators fetch data from different services and merge it.</li>
-<li><strong>API Gateway Role:</strong> Often act as an API facade, reducing multiple client calls.</li>
-<li><strong>Read Optimization:</strong> Helps improve response times by structuring data efficiently.</li>
-</ol>
-<p>For instance, in a <strong>hotel booking system</strong>, an <strong>Aggregator Service</strong> might gather data from separate services like:
-- A <strong>Room Availability Service</strong>
-- A <strong>Pricing Service</strong>
-- A <strong>Customer Reviews Service</strong></p>
-<p>Instead of forcing the client to call each service separately, the aggregator <strong>fetches and composes the data</strong>, returning a unified response.</p>
-<h2 id="the-key-difference">The Key Difference</h2>
-<table>
-<thead>
-<tr>
-<th>Feature</th>
-<th>Aggregates (DDD)</th>
-<th>Aggregators (Microservices)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Purpose</strong></td>
-<td>Ensures consistency and integrity of domain models</td>
-<td>Composes data from multiple microservices</td>
-</tr>
-<tr>
-<td><strong>Scope</strong></td>
-<td>Used within a bounded context in DDD</td>
-<td>Used at the service layer in microservices</td>
-</tr>
-<tr>
-<td><strong>Persistence</strong></td>
-<td>Managed via Repositories</td>
-<td>No direct persistence; just fetches and merges data</td>
-</tr>
-<tr>
-<td><strong>Data Flow</strong></td>
-<td>Focuses on transactional consistency</td>
-<td>Focuses on read-side optimization</td>
-</tr>
-<tr>
-<td><strong>Example</strong></td>
-<td>An <strong>Order Aggregate</strong> ensures all order-related changes follow business rules</td>
-<td>A <strong>Booking Aggregator</strong> merges room, pricing, and review data into one response</td>
-</tr>
-</tbody>
-</table>
-<h2 id="conclusion">Conclusion</h2>
-<p>Mixing up <strong>Aggregates</strong> and <strong>Aggregators</strong> can lead to confusion in both design and communication. If you’re building <strong>domain models</strong>, think <strong>Aggregates</strong>. If you’re composing <strong>data from multiple services</strong>, think <strong>Aggregators</strong>.</p>
-<p>Understanding this distinction can help you make better architectural decisions and communicate more effectively with your team. 🚀</p>
+<h2 id="how-code-and-threads-work-in-java">How Code and Threads Work in Java</h2>
+<h3 id="what-is-the-stack">What Is the Stack?</h3>
+<p>Each thread in Java has its own call stack. It stores:</p>
+<ul>
+<li>Method call frames</li>
+<li>Local variables</li>
+<li>Return addresses</li>
+</ul>
+<p>Each time a method is called, a new stack frame is pushed onto the thread’s private stack memory.</p>
+<hr />
+<h3 id="where-does-the-code-live">Where Does the Code Live?</h3>
+<p>The compiled method code (bytecode) lives in the JVM's method area, also known as:</p>
+<ul>
+<li><strong>Metaspace</strong> (in modern JVMs)</li>
+<li><strong>Code cache</strong></li>
+</ul>
+<p>This area is <strong>shared</strong> by all threads. There's only <strong>one copy of the method</strong>, no matter how many threads invoke it.</p>
+<hr />
+<h3 id="what-happens-when-multiple-threads-use-a-singleton">What Happens When Multiple Threads Use a Singleton?</h3>
+<p>Consider this singleton class:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MySingleton</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">MySingleton</span><span class="w"> </span><span class="n">instance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MySingleton</span><span class="p">();</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="nf">MySingleton</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">MySingleton</span><span class="w"> </span><span class="nf">getInstance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">instance</span><span class="p">;</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doSomething</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">        </span><span class="c1">// some logic</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Now multiple threads run:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">MySingleton</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">doSomething</span><span class="p">();</span>
+</span></code></pre></div>
+<p>Each thread:</p>
+<ul>
+<li>Calls <code>getInstance()</code> and receives the <strong>same singleton instance</strong></li>
+<li>
+<p>Invokes <code>doSomething()</code>, which:</p>
+<ul>
+<li>Pushes a stack frame onto <strong>that thread’s stack</strong></li>
+<li>Allocates <strong>method-local variables</strong></li>
+<li>Executes the <strong>shared code</strong> independently</li>
+</ul>
+</li>
+</ul>
+<p>The code for <code>doSomething()</code> is not copied — it is <strong>shared</strong>, but executed in separate thread contexts.</p>
+<hr />
+<h2 id="why-singleton-components-are-safe-in-spring-if-stateless">Why Singleton Components Are Safe in Spring — If Stateless</h2>
+<p>Spring Boot creates most beans as <strong>singletons</strong> by default:</p>
+<ul>
+<li>One instance per application context</li>
+<li>Shared across all requests and threads</li>
+</ul>
+<p>This is safe <strong>only if the bean is stateless</strong>.</p>
+<hr />
+<h3 id="avoid-shared-mutable-state">⚠️ Avoid Shared Mutable State</h3>
+<p>Here’s a dangerous anti-pattern:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nd">@Service</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DangerousService</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w"> </span><span class="c1">// ❌ shared mutable state!</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>This <code>names</code> list is shared by all threads. Concurrent access can lead to:</p>
+<ul>
+<li>Race conditions</li>
+<li><code>ConcurrentModificationException</code></li>
+<li>Corrupted data</li>
+</ul>
+<hr />
+<h3 id="use-method-local-variables-instead">✅ Use Method-Local Variables Instead</h3>
+<p>Here’s a safer version:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@Service</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SafeService</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">handleRequest</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w"> </span><span class="c1">// ✅ local to this method</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">        </span><span class="n">names</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="c1">// process names...</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Every request gets its own list, allocated in that thread’s stack frame. No interference, no bugs.</p>
+<hr />
+<h2 id="real-world-analogy-shared-code-private-data">Real-World Analogy: Shared Code, Private Data</h2>
+<p>Imagine the method as a set of instructions written on a whiteboard in a room. Each thread walks into the room, 
+reads the instructions, and follows them using its own notebook (stack frame). Everyone reads the same board, but works with their own materials.</p>
+<hr />
+<h2 id="wrap-up">Wrap-Up</h2>
+<p>Threads don’t copy code — they just execute shared code in their own private space. That’s why singleton beans in Spring are safe, as long as you keep them stateless.</p>
+<p>If your method uses only local variables and doesn’t touch shared state, you're good.</p>
 <hr />
 <p>Happy coding! 💻</p>
 
