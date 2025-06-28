@@ -73,10 +73,10 @@
 
 .md-nav__item--nested > label.md-nav__link {
     font-weight: bold;
-    font-family: "JetBrains Mono", monospace;
+    font-size: 0.8rem;
 }
 
 .md-nav__link[href="/"] {
     font-weight: bold;
-    font-family: "JetBrains Mono", monospace;
+    font-size: 0.8rem;
 }
