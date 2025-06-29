@@ -87,6 +87,6 @@
     font-size: 0.8rem;
 }
 
-.md-sidebar__inner {
-background-color:  #f2f4f4;
+.md-sidebar__scrollwrap {
+    background-color:  #f2f4f4;
 }
