@@ -86,3 +86,7 @@
 .md-nav__link[href="/"] {
     font-size: 0.8rem;
 }
+
+.md-sidebar__inner {
+    background-color:  #f2f4f4;
+}
