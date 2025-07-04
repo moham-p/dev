@@ -9,6 +9,10 @@
   
   
   
+  <link rel="prev" href="../How%20Singleton%20Components%20Work%20with%20Thread%20Pools/">
+  
+  
+  <link rel="next" href="../../design/Don%E2%80%99t%20Mix%20Up%20Aggregates%20and%20Aggregators/">
   
   
   <link rel="icon" href="../../img/favicon.ico">
@@ -523,17 +527,19 @@
     
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -547,7 +553,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Spring
@@ -591,6 +597,156 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    How to Scale Spring Boot for High Concurrency
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    How to Scale Spring Boot for High Concurrency
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#spring-boot-uses-thread-pools-for-concurrency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Spring Boot Uses Thread Pools for Concurrency
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-should-you-increase-the-thread-pool-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      When Should You Increase the Thread Pool Size?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rule-of-thumb-io-bound-vs-cpu-bound" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rule of Thumb: I/O-Bound vs. CPU-Bound
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rule of Thumb: I/O-Bound vs. CPU-Bound">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-io-bound-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      For I/O-Bound Applications
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-cpu-bound-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      For CPU-Bound Applications
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-thread-pool-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring Thread Pool Usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoring Thread Pool Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spring-boot-actuator-micrometer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Spring Boot Actuator + Micrometer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jvisualvm-or-jfr" class="md-nav__link">
+    <span class="md-ellipsis">
+      JVisualVM or JFR
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -950,9 +1106,9 @@
 <li>How do you monitor and tune your Spring Boot app for concurrency?</li>
 </ul>
 <h2 id="spring-boot-uses-thread-pools-for-concurrency">Spring Boot Uses Thread Pools for Concurrency</h2>
-<p>Every incoming HTTP request is assigned to a thread from a <strong>shared thread pool</strong> maintained by the embedded servlet container (e.g., Tomcat, Jetty, or Undertow). 
-This makes your app capable of handling multiple users <strong>simultaneously</strong>, even though your beans are singleton-scoped.</p>
-<p>But here’s the catch: the thread pool has <strong>limits</strong>.</p>
+<p>Every incoming HTTP request is assigned to a thread from a shared thread pool maintained by the embedded servlet container (e.g., Tomcat, Jetty, or Undertow). 
+This makes your app capable of handling multiple users simultaneously, even though your beans are singleton-scoped.</p>
+<p>But here’s the catch: the thread pool has limits.</p>
 <p>If all threads are busy:</p>
 <ul>
 <li>Incoming requests are queued</li>
