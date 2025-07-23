@@ -9,8 +9,10 @@
   
   
   
+  <link rel="prev" href="../Don%E2%80%99t%20Mix%20Up%20Aggregates%20and%20Aggregators/">
   
-  <link rel="next" href="../../java/How%20HashMap%20Handles%20Collisions/">
+  
+  <link rel="next" href="../../data/PostgreSQL%20Transactions%20-%20Part%202/">
   
   
   <link rel="icon" href="../../img/favicon.ico">
@@ -19,7 +21,7 @@
   
   
   
-  <title>Invisible Ownership Subtasks - Curiosity into `Code`</title>
+  <title>Don't Mix Up Polling and Pooling - Curiosity into `Code`</title>
   
   
   
@@ -62,6 +64,11 @@
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
   
+  
+  <a href="#polling-checking-for-new-data" class="md-skip">
+    Skip to content
+  </a>
+  
 </div>
 <div data-md-component="announce">
   
@@ -93,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Invisible Ownership Subtasks
+              Don't Mix Up Polling and Pooling
             
           </span>
         </div>
@@ -184,19 +191,17 @@
     
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
         
           
           <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
@@ -210,7 +215,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             Soft Skills
@@ -221,17 +226,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../soft-skills/Invisible%20Ownership%20Subtasks/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -240,7 +238,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -635,17 +632,19 @@
     
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -659,7 +658,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Design
@@ -673,7 +672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/Don%E2%80%99t%20Mix%20Up%20Aggregates%20and%20Aggregators/" class="md-nav__link">
+      <a href="../Don%E2%80%99t%20Mix%20Up%20Aggregates%20and%20Aggregators/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -691,10 +690,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../design/Don%27t%20Mix%20Up%20Polling%20and%20Pooling/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Don't Mix Up Polling and Pooling
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -703,6 +720,66 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#polling-checking-for-new-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Polling — Checking for New Data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Polling — Checking for New Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#push-the-opposite-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      Push — The Opposite Approach
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pooling-reusing-expensive-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pooling — Reusing Expensive Resources
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -988,23 +1065,80 @@
 
 
 
-<h1>Invisible Ownership Subtasks</h1>
+<h1>Don't Mix Up Polling and Pooling</h1>
 
-<p>When software developers pick up a new ticket, they often see a list of clearly defined subtasks—requirements documented in tools like Jira that need to be completed to move the ticket forward. However, the best developers recognize that visible subtasks are only part of the picture. There's another category, the "invisible ownership subtasks," that distinguishes those who truly take ownership from those who just check the boxes.</p>
-<p>Invisible ownership subtasks are those that never make it into a ticket management system. They require thinking about the wider impact of the change—how it affects other modules, edge cases, and dependencies. Developers with this mindset have a deeper sense of responsibility and seek to understand the consequences of their work.</p>
-<p>A developer with low ownership might complete all visible subtasks, mark the ticket as "done," and move on. In contrast, developers with high ownership see each ticket as part of a larger system they are responsible for. They ask questions like:</p>
+<p>In system design, two similar-sounding terms often cause confusion: polling and pooling. They address completely 
+different challenges — one deals with <strong>when to act</strong>, the other with <strong>how to manage resources</strong>.</p>
+<hr />
+<h2 id="polling-checking-for-new-data">Polling — Checking for New Data</h2>
+<p>Polling is when a consumer repeatedly checks if new data is available. The consumer tracks what it last saw (e.g., a timestamp or ID), then asks the producer:</p>
+<blockquote>
+<p>“Is there anything newer than what I already have?”</p>
+</blockquote>
+<p>If new data is available, the consumer then pulls it.</p>
 <ul>
-<li>How does this change impact related modules?</li>
-<li>Are there any integration concerns?</li>
-<li>If this change is introducing a new dependency to some libraries, how will it get built in CI/CD?</li>
-<li>If this is a backend change, how is it going to affect database migrations and downstream reports?</li>
-<li>Are there any security implications related to this change?</li>
-<li>How will this impact performance under load?</li>
-<li>What are the testing requirements for these changes to ensure robustness?"</li>
+<li>
+<p>Polling vs. Pulling:</p>
+<ul>
+<li>Polling = <em>"Do you have anything new?"</em></li>
+<li>Pulling = <em>"Okay, now give me the new thing."</em></li>
 </ul>
-<p>Basically, every ticket has the potential to give you deeper knowledge of how different subsystems and teams in your company work, if you keep your curiosity alive and thriving.</p>
-<p>These invisible subtasks reveal the depth of a developer's engagement and often make the difference between a patchy implementation and a robust solution. Managers can use this concept to assess their team's level of ownership. Developers who ask about broader implications and take proactive steps demonstrate greater ownership. They don't just close a ticket—they ensure the change is successful in every dimension.</p>
-<p>Cultivating this kind of ownership requires a supportive environment. Managers need to create a culture where curiosity is encouraged, and developers feel empowered to take extra time to address invisible subtasks. Encouraging invisible ownership shifts teams from a culture of ticket-closing to one of high-quality, impactful development.</p>
+</li>
+</ul>
+<h3 id="push-the-opposite-approach">Push — The Opposite Approach</h3>
+<p>In a push model, the producer sends new data directly to consumers whenever it becomes available.</p>
+<ul>
+<li>Push is event‑driven rather than time‑driven, often implemented using consumer webhooks. As soon as new data is ready, the producer sends it to the consumer via an HTTP POST or PUT request</li>
+</ul>
+<hr />
+<h2 id="pooling-reusing-expensive-resources">Pooling — Reusing Expensive Resources</h2>
+<p>Pooling refers to maintaining and reusing a fixed set of resources instead of creating new ones on demand. It is widely used for threads, database connections, or <strong>any</strong> object that is expensive to create and initialize.</p>
+<ul>
+<li>
+<p>Examples:</p>
+<ul>
+<li>Thread pool: Reuse a fixed number of threads.</li>
+<li>DB connection pool: Maintain live DB connections to avoid reconnecting.</li>
+</ul>
+</li>
+</ul>
+<p>Think of it as:</p>
+<blockquote>
+<p>“Don’t create a new one — grab one from the pool.”</p>
+</blockquote>
+<hr />
+<h2 id="summary">Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Purpose</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Polling</td>
+<td>Repeatedly check for updates</td>
+<td>Checking job status, polling a queue</td>
+</tr>
+<tr>
+<td>Pulling</td>
+<td>Retrieve data when needed</td>
+<td>Fetching new messages or records</td>
+</tr>
+<tr>
+<td>Pushing</td>
+<td>Send data as soon as it's ready</td>
+<td>Webhook or POST from server to client</td>
+</tr>
+<tr>
+<td>Pooling</td>
+<td>Reuse heavy resources</td>
+<td>Thread pool, DB connection pool</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <p>Happy coding! 💻</p>
 
