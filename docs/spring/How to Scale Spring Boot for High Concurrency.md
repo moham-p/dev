@@ -10,10 +10,10 @@ In this follow-up post, we go one level deeper — tackling questions like:
 
 ## Spring Boot Uses Thread Pools for Concurrency
 
-Every incoming HTTP request is assigned to a thread from a **shared thread pool** maintained by the embedded servlet container (e.g., Tomcat, Jetty, or Undertow). 
-This makes your app capable of handling multiple users **simultaneously**, even though your beans are singleton-scoped.
+Every incoming HTTP request is assigned to a thread from a shared thread pool maintained by the embedded servlet container (e.g., Tomcat, Jetty, or Undertow). 
+This makes your app capable of handling multiple users simultaneously, even though your beans are singleton-scoped.
 
-But here’s the catch: the thread pool has **limits**.
+But here’s the catch: the thread pool has limits.
 
 If all threads are busy:
 
