@@ -3,6 +3,7 @@ site_name: Curiosity into `Code`
 nav:
   - Soft Skills:
       - Invisible Ownership Subtasks: soft-skills/Invisible Ownership Subtasks.md
+      - Staying on Track When a Ticket Gets Complicated: soft-skills/Staying on Track When a Ticket Gets Complicated.md
   - Java:
     - How HashMap Handles Collisions: java/How HashMap Handles Collisions.md
     - Stay Friends with the Console: java/Stay Friends with the Console.md
