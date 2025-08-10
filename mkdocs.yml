@@ -28,6 +28,7 @@ nav:
     - PostgreSQL Transactions - Part 1: data/PostgreSQL Transactions - Part 1.md
   - Security:
     - Seamless AWS Access - Setting Up Azure AD as a Federated Identity Provider: security/Seamless AWS Access - Setting Up Azure AD as a Federated Identity Provider.md
+    - Defending Against XSS in React and JSP: security/Defending Against XSS in React and JSP.md
   - DevOps:
     - Using Nginx to Front Both Backend and Frontend: devops/Using Nginx to Front Both Backend and Frontend.md
     - Correlating Bamboo Concepts with AWS ECS: devops/Correlating Bamboo Concepts with AWS ECS.md

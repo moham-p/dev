@@ -9,55 +9,66 @@ handle XSS.
 
 ## React: XSS Is Mostly Handled — If You Let It
 
-✅ **React escapes by default**
+### React escapes by default
+
 React’s rendering engine automatically escapes all content interpolated into JSX. For example:
 
 ```jsx
-const userInput = "<script>alert('XSS')</script>";
-return <div>{userInput}</div>;
+function App() {
+  const [input, setInput] = useState('');
+
+  return (
+    <div>
+      <input value={input} onChange={e => setInput(e.target.value)} />
+      <div>{input}</div>
+    </div>
+  );
+}
 ```
 
-This renders as:
+If a user types:
 
-```html
-<div>&lt;script&gt;alert('XSS')&lt;/script&gt;</div>
+```
+<img src="x" onerror="alert('XSS')" />
 ```
 
-✅ No script executes — React encoded it safely.
+React will render it **as text** (no image loads, and no script runs). 
+This happens because React automatically replaces certain special HTML characters — like `<`, `>`, `&`, and `"` — with their safe HTML-escaped versions (`&lt;`, `&gt;`, `&amp;`, `&quot;`) before adding them to the page’s DOM.
 
----
 
-❌ React provides an escape hatch called `dangerouslySetInnerHTML` — and the name itself is a warning. It reflects React’s **security-first design**: by including the word *“dangerously”*, the framework signals clearly that **you’re bypassing its built-in protections and assuming responsibility** for content safety.
+### You can skip the built-in protection by using `dangerouslySetInnerHTML`
 
-**Unsafe Example:**
+It reflects React’s security-first design: by including the word *“dangerously”*, the framework signals clearly that you’re bypassing its built-in protections and assuming responsibility for content safety. For example:
 
 ```jsx
 <div dangerouslySetInnerHTML={{ __html: userInput }} />
 ```
 
-If `userInput` is `<script>alert('XSS')</script>`, it will execute in the browser.
+If `userInput` contains `<script>alert('XSS')</script>`, the script will run. If you choose to use `dangerouslySetInnerHTML`, 
+you take full responsibility for sanitizing the input — for example, by using a library like [DOMPurify](https://github.com/cure53/DOMPurify).
 
----
-
-✅ **If you must inject HTML, sanitize it first**
-For HTML coming from a CMS, WYSIWYG editor, or any untrusted source, sanitize it with a library like [DOMPurify](https://github.com/cure53/DOMPurify):
 
 ```jsx
 import DOMPurify from 'dompurify';
 
-const clean = DOMPurify.sanitize(userInput);
-return <div dangerouslySetInnerHTML={{ __html: clean }} />;
-```
+function App() {
+  const [input, setInput] = useState('');
+  const clean = DOMPurify.sanitize(input);
 
----
+  return (
+    <div>
+      <input value={input} onChange={e => setInput(e.target.value)} />
+      <div dangerouslySetInnerHTML={{ __html: clean }} />
+    </div>
+  );
+}
+```
 
 ## JSP: XSS Prevention Is Manual — and Easy to Get Wrong
 
 JSP is a server-rendered frontend technology used in older Java-based applications. Unlike React, it does **not** escape output by default. If you print user input directly into HTML, it will be rendered as-is — including any malicious scripts.
 
----
-
-❌ **Vulnerable example:**
+### Vulnerable example
 
 ```jsp
 <%= request.getParameter("username") %>
@@ -65,9 +76,7 @@ JSP is a server-rendered frontend technology used in older Java-based applicatio
 
 If `username` is `<script>alert('XSS')</script>`, the script will run in the browser.
 
----
-
-✅ **The safe and recommended way: `<c:out>`**
+### The safe and recommended way###
 Use JSTL's `<c:out>` to escape user content:
 
 ```jsp
@@ -76,8 +85,6 @@ Use JSTL's `<c:out>` to escape user content:
 ```
 
 This safely escapes HTML characters like `<`, `>`, and `&`.
-
----
 
 ### How `<c:out>` compares to other options
 
@@ -88,8 +95,6 @@ This safely escapes HTML characters like `<`, `>`, and `&`.
 | `fn:escapeXml(...)`                | ✅             | ❌              | ⚠️ (okay)   |
 | `<c:out value="..." />`            | ✅             | ✅              | ✅           |
 
----
-
 ## Why `<c:out>` is used even for non-user data
 
 You might see `<c:out>` used consistently throughout JSP code — even when rendering values that aren’t obviously user-driven. That’s intentional:
@@ -99,16 +104,10 @@ You might see `<c:out>` used consistently throughout JSP code — even when rend
 3. **Future-proofing** — requirements change; code should be resilient.
 4. **Consistency** — uniform escaping makes templates easier to audit and maintain.
 
----
-Here’s the concise version of the new section with just **SonarQube** mentioned:
 
----
+## Enterprise-Ready Tools to Find XSS in Legacy JSP
 
-## Scanning for XSS in Legacy Frontends Like JSP
-
-Manually spotting XSS vulnerabilities in large JSP codebases can be difficult. Tools like **SonarQube** help by automatically detecting insecure patterns — such as unescaped output with `<%= ... %>` or unsanitized user input.
-
-SonarQube supports Java and JSP, integrates into CI/CD pipelines, and highlights risky lines in your code. It's a valuable safety net when maintaining or auditing legacy frontend systems.
+Manually spotting XSS in large JSP codebases can be challenging, especially as projects grow and patterns become harder to track. This is where **SonarQube** (static application security testing, or SAST) helps — it analyzes source code to detect insecure patterns, such as unescaped `<%= ... %>` or unsanitized user input, and integrates into CI/CD pipelines to catch issues early. **Burp Suite** (dynamic application security testing, or DAST) complements this by scanning and probing a running application to uncover vulnerabilities that static analysis might miss. Using both static and dynamic testing together provides strong, complementary coverage when maintaining or auditing legacy frontend systems.
 
 ---
 
