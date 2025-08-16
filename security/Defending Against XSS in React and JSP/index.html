@@ -9,6 +9,10 @@
   
   
   
+  <link rel="prev" href="../Seamless%20AWS%20Access%20-%20Setting%20Up%20Azure%20AD%20as%20a%20Federated%20Identity%20Provider/">
+  
+  
+  <link rel="next" href="../../devops/Using%20Nginx%20to%20Front%20Both%20Backend%20and%20Frontend/">
   
   
   <link rel="icon" href="../../img/favicon.ico">
@@ -817,17 +821,19 @@
     
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -841,7 +847,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Security
@@ -864,6 +870,156 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Defending Against XSS in React and JSP
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Defending Against XSS in React and JSP
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#react-xss-is-mostly-handled-if-you-let-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      React: XSS Is Mostly Handled — If You Let It
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="React: XSS Is Mostly Handled — If You Let It">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#react-escapes-by-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      React escapes by default
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#you-can-skip-the-built-in-protection-by-using-dangerouslysetinnerhtml" class="md-nav__link">
+    <span class="md-ellipsis">
+      You can skip the built-in protection by using dangerouslySetInnerHTML
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jsp-xss-prevention-is-manual-and-easy-to-get-wrong" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSP: XSS Prevention Is Manual — and Easy to Get Wrong
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="JSP: XSS Prevention Is Manual — and Easy to Get Wrong">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vulnerable-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vulnerable example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-safe-and-recommended-way" class="md-nav__link">
+    <span class="md-ellipsis">
+      The safe and recommended way
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-cout-compares-to-other-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      How &lt;c:out&gt; compares to other options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-cout-is-used-even-for-non-user-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why &lt;c:out&gt; is used even for non-user data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enterprise-ready-tools-to-find-xss-in-legacy-jsp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enterprise-Ready Tools to Find XSS in Legacy JSP
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1011,45 +1167,56 @@ making it easier to introduce XSS bugs.</p>
 handle XSS.</p>
 <hr />
 <h2 id="react-xss-is-mostly-handled-if-you-let-it">React: XSS Is Mostly Handled — If You Let It</h2>
-<p>✅ <strong>React escapes by default</strong>
-React’s rendering engine automatically escapes all content interpolated into JSX. For example:</p>
-<div class="language-jsx highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">userInput</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;script&gt;alert(&#39;XSS&#39;)&lt;/script&gt;&quot;</span><span class="p">;</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">return</span><span class="w"> </span><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;{</span><span class="nx">userInput</span><span class="p">}&lt;/</span><span class="nt">div</span><span class="p">&gt;;</span>
+<h3 id="react-escapes-by-default">React escapes by default</h3>
+<p>React’s rendering engine automatically escapes all content interpolated into JSX. For example:</p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">App</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">input</span><span class="p">,</span><span class="w"> </span><span class="nx">setInput</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="p">&lt;</span><span class="nt">input</span><span class="w"> </span><span class="na">value</span><span class="o">=</span><span class="p">{</span><span class="nx">input</span><span class="p">}</span><span class="w"> </span><span class="na">onChange</span><span class="o">=</span><span class="p">{</span><span class="nx">e</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setInput</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">)}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;{</span><span class="nx">input</span><span class="p">}&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p">);</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>This renders as:</p>
-<div class="language-html highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span><span class="ni">&amp;lt;</span>script<span class="ni">&amp;gt;</span>alert(&#39;XSS&#39;)<span class="ni">&amp;lt;</span>/script<span class="ni">&amp;gt;</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<p>If a user types:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>&lt;img src=&quot;x&quot; onerror=&quot;alert(&#39;XSS&#39;)&quot; /&gt;
 </span></code></pre></div>
-<p>✅ No script executes — React encoded it safely.</p>
-<hr />
-<p>❌ React provides an escape hatch called <code>dangerouslySetInnerHTML</code> — and the name itself is a warning. It reflects React’s <strong>security-first design</strong>: by including the word <em>“dangerously”</em>, the framework signals clearly that <strong>you’re bypassing its built-in protections and assuming responsibility</strong> for content safety.</p>
-<p><strong>Unsafe Example:</strong></p>
+<p>React will render it <strong>as text</strong> (no image loads, and no script runs). 
+This happens because React automatically replaces certain special HTML characters — like <code>&lt;</code>, <code>&gt;</code>, <code>&amp;</code>, and <code>"</code> — with their safe HTML-escaped versions (<code>&amp;lt;</code>, <code>&amp;gt;</code>, <code>&amp;amp;</code>, <code>&amp;quot;</code>) before adding them to the page’s DOM.</p>
+<h3 id="you-can-skip-the-built-in-protection-by-using-dangerouslysetinnerhtml">You can skip the built-in protection by using <code>dangerouslySetInnerHTML</code></h3>
+<p>It reflects React’s security-first design: by including the word <em>“dangerously”</em>, the framework signals clearly that you’re bypassing its built-in protections and assuming responsibility for content safety. For example:</p>
 <div class="language-jsx highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">&lt;</span><span class="nt">div</span><span class="w"> </span><span class="na">dangerouslySetInnerHTML</span><span class="o">=</span><span class="p">{{</span><span class="w"> </span><span class="nx">__html</span><span class="o">:</span><span class="w"> </span><span class="nx">userInput</span><span class="w"> </span><span class="p">}}</span><span class="w"> </span><span class="p">/&gt;</span>
 </span></code></pre></div>
-<p>If <code>userInput</code> is <code>&lt;script&gt;alert('XSS')&lt;/script&gt;</code>, it will execute in the browser.</p>
-<hr />
-<p>✅ <strong>If you must inject HTML, sanitize it first</strong>
-For HTML coming from a CMS, WYSIWYG editor, or any untrusted source, sanitize it with a library like <a href="https://github.com/cure53/DOMPurify">DOMPurify</a>:</p>
+<p>If <code>userInput</code> contains <code>&lt;script&gt;alert('XSS')&lt;/script&gt;</code>, the script will run. If you choose to use <code>dangerouslySetInnerHTML</code>, 
+you take full responsibility for sanitizing the input — for example, by using a library like <a href="https://github.com/cure53/DOMPurify">DOMPurify</a>.</p>
 <div class="language-jsx highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">DOMPurify</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;dompurify&#39;</span><span class="p">;</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">clean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">DOMPurify</span><span class="p">.</span><span class="nx">sanitize</span><span class="p">(</span><span class="nx">userInput</span><span class="p">);</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">return</span><span class="w"> </span><span class="p">&lt;</span><span class="nt">div</span><span class="w"> </span><span class="na">dangerouslySetInnerHTML</span><span class="o">=</span><span class="p">{{</span><span class="w"> </span><span class="nx">__html</span><span class="o">:</span><span class="w"> </span><span class="nx">clean</span><span class="w"> </span><span class="p">}}</span><span class="w"> </span><span class="p">/&gt;;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kd">function</span><span class="w"> </span><span class="nx">App</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">input</span><span class="p">,</span><span class="w"> </span><span class="nx">setInput</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">clean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">DOMPurify</span><span class="p">.</span><span class="nx">sanitize</span><span class="p">(</span><span class="nx">input</span><span class="p">);</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">      </span><span class="p">&lt;</span><span class="nt">input</span><span class="w"> </span><span class="na">value</span><span class="o">=</span><span class="p">{</span><span class="nx">input</span><span class="p">}</span><span class="w"> </span><span class="na">onChange</span><span class="o">=</span><span class="p">{</span><span class="nx">e</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setInput</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">)}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">      </span><span class="p">&lt;</span><span class="nt">div</span><span class="w"> </span><span class="na">dangerouslySetInnerHTML</span><span class="o">=</span><span class="p">{{</span><span class="w"> </span><span class="nx">__html</span><span class="o">:</span><span class="w"> </span><span class="nx">clean</span><span class="w"> </span><span class="p">}}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">  </span><span class="p">);</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="p">}</span>
 </span></code></pre></div>
-<hr />
 <h2 id="jsp-xss-prevention-is-manual-and-easy-to-get-wrong">JSP: XSS Prevention Is Manual — and Easy to Get Wrong</h2>
 <p>JSP is a server-rendered frontend technology used in older Java-based applications. Unlike React, it does <strong>not</strong> escape output by default. If you print user input directly into HTML, it will be rendered as-is — including any malicious scripts.</p>
-<hr />
-<p>❌ <strong>Vulnerable example:</strong></p>
+<h3 id="vulnerable-example">Vulnerable example</h3>
 <div class="language-jsp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">&lt;%=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getParameter</span><span class="p">(</span><span class="s">&quot;username&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">%&gt;</span>
 </span></code></pre></div>
 <p>If <code>username</code> is <code>&lt;script&gt;alert('XSS')&lt;/script&gt;</code>, the script will run in the browser.</p>
-<hr />
-<p>✅ <strong>The safe and recommended way: <code>&lt;c:out&gt;</code></strong>
-Use JSTL's <code>&lt;c:out&gt;</code> to escape user content:</p>
+<h3 id="the-safe-and-recommended-way">The safe and recommended way</h3>
+<p>Use JSTL's <code>&lt;c:out&gt;</code> to escape user content:</p>
 <div class="language-jsp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">&lt;%@</span><span class="w"> </span><span class="n">taglib</span><span class="w"> </span><span class="n">prefix</span><span class="o">=</span><span class="s">&quot;c&quot;</span><span class="w"> </span><span class="n">uri</span><span class="o">=</span><span class="s">&quot;http://java.sun.com/jsp/jstl/core&quot;</span><span class="w"> </span><span class="k">%&gt;</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nt">&lt;c:out</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;${param.username}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 </span></code></pre></div>
 <p>This safely escapes HTML characters like <code>&lt;</code>, <code>&gt;</code>, and <code>&amp;</code>.</p>
-<hr />
 <h3 id="how-cout-compares-to-other-options">How <code>&lt;c:out&gt;</code> compares to other options</h3>
 <table>
 <thead>
@@ -1087,7 +1254,6 @@ Use JSTL's <code>&lt;c:out&gt;</code> to escape user content:</p>
 </tr>
 </tbody>
 </table>
-<hr />
 <h2 id="why-cout-is-used-even-for-non-user-data">Why <code>&lt;c:out&gt;</code> is used even for non-user data</h2>
 <p>You might see <code>&lt;c:out&gt;</code> used consistently throughout JSP code — even when rendering values that aren’t obviously user-driven. That’s intentional:</p>
 <ol>
@@ -1096,12 +1262,8 @@ Use JSTL's <code>&lt;c:out&gt;</code> to escape user content:</p>
 <li><strong>Future-proofing</strong> — requirements change; code should be resilient.</li>
 <li><strong>Consistency</strong> — uniform escaping makes templates easier to audit and maintain.</li>
 </ol>
-<hr />
-<p>Here’s the concise version of the new section with just <strong>SonarQube</strong> mentioned:</p>
-<hr />
-<h2 id="scanning-for-xss-in-legacy-frontends-like-jsp">Scanning for XSS in Legacy Frontends Like JSP</h2>
-<p>Manually spotting XSS vulnerabilities in large JSP codebases can be difficult. Tools like <strong>SonarQube</strong> help by automatically detecting insecure patterns — such as unescaped output with <code>&lt;%= ... %&gt;</code> or unsanitized user input.</p>
-<p>SonarQube supports Java and JSP, integrates into CI/CD pipelines, and highlights risky lines in your code. It's a valuable safety net when maintaining or auditing legacy frontend systems.</p>
+<h2 id="enterprise-ready-tools-to-find-xss-in-legacy-jsp">Enterprise-Ready Tools to Find XSS in Legacy JSP</h2>
+<p>Manually spotting XSS in large JSP codebases can be challenging, especially as projects grow and patterns become harder to track. This is where <strong>SonarQube</strong> (static application security testing, or SAST) helps — it analyzes source code to detect insecure patterns, such as unescaped <code>&lt;%= ... %&gt;</code> or unsanitized user input, and integrates into CI/CD pipelines to catch issues early. <strong>Burp Suite</strong> (dynamic application security testing, or DAST) complements this by scanning and probing a running application to uncover vulnerabilities that static analysis might miss. Using both static and dynamic testing together provides strong, complementary coverage when maintaining or auditing legacy frontend systems.</p>
 <hr />
 <p>Happy coding! 💻</p>
 
