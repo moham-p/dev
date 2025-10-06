@@ -34,6 +34,7 @@ nav:
     - Using Nginx to Front Both Backend and Frontend: devops/Using Nginx to Front Both Backend and Frontend.md
     - Correlating Bamboo Concepts with AWS ECS: devops/Correlating Bamboo Concepts with AWS ECS.md
     - How Web Servers Handle Logging Efficiently: devops/How Web Servers Handle Logging Efficiently.md
+    - Making the Invisible Visible: devops/Making the Invisible Visible.md
 
 theme:
   name: material
