@@ -89,5 +89,54 @@
 
 .md-sidebar__scrollwrap {
     background-color:  #f6f7f7;
-      border-right: 3px solid #dee0e2;
+      border-right: 3px solid #212f3c;
+}
+
+.md-main{
+    background-color:  #f6f7f7;
+}
+
+.md-main__inner {
+  margin-top: 0 !important;
+}
+
+.md-nav--primary .md-nav__item--home {
+  background: #212f3c;
+  width: 95%;
+  border-radius: .5rem;
+}
+
+.md-nav--primary .md-nav__item--home > .md-nav__link {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  box-sizing: border-box;
+  padding: .75rem 1rem;
+  color: #fff;
+  text-decoration: none;
+  border-top: 0;
+}
+
+.md-typeset h1 {
+  font-weight: 800;
+  color: #212f3c;
+}
+
+.md-typeset h2 {
+  background: #C4C4C4;
+  color: #212f3c;
+  border-left: 5px solid #212f3c;
+  padding: .5rem .75rem;
+  margin: 1.25rem 0 .75rem;
+  line-height: 1.25;
+}
+
+.md-typeset h1 .headerlink,
+.md-typeset h2 .headerlink {
+  color: currentColor;
+  opacity: .65;
+}
+.md-typeset h1:hover .headerlink,
+.md-typeset h2:hover .headerlink {
+  opacity: 1;
 }

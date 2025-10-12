@@ -20,13 +20,20 @@ This file was automatically generated - do not edit
     {% include "partials/source.html" %}
   </div>
   {% endif %}
-  <ul class="md-nav__list" data-md-scrollfix>
-    <li class="md-nav__item">
-      <a href="/" class="md-nav__link" title="Home">Home</a>
-    </li>
-    {% for nav_item in nav %}
-    {% set path = "__nav_" ~ loop.index %}
-    {{ item.render(nav_item, path, 1) }}
-    {% endfor %}
-  </ul>
+    <ul class="md-nav__list">
+        <li class="md-nav__item md-nav__item--home">
+            <a href="/" class="md-nav__link md-nav__link--home" title="Home">
+                <svg class="md-icon md-icon--home" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                </svg>
+                Home
+            </a>
+        </li>
+        {% for nav_item in nav %}
+        {% set path = "__nav_" ~ loop.index %}
+        {{ item.render(nav_item, path, 1) }}
+        {% endfor %}
+    </ul>
+
+
 </nav>
