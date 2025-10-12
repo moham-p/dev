@@ -89,7 +89,7 @@
 
 .md-sidebar__scrollwrap {
     background-color:  #f6f7f7;
-      border-right: 3px solid #212f3c;
+      border-right: 5px solid #212f3c;
 }
 
 .md-main{
@@ -102,8 +102,7 @@
 
 .md-nav--primary .md-nav__item--home {
   background: #212f3c;
-  width: 95%;
-  border-radius: .5rem;
+  width: 100%;
 }
 
 .md-nav--primary .md-nav__item--home > .md-nav__link {
