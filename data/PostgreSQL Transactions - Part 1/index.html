@@ -1215,18 +1215,19 @@
 
 <h1>PostgreSQL Transactions - Part 1</h1>
 
-<p>Understanding transactions is a foundational skill in database systems. Transactions are critical for ensuring database reliability and consistency. By exploring transactions, you can:</p>
+<p>Understanding transactions is a foundational skill in database systems. Transactions are critical for ensuring database 
+reliability and consistency. By exploring transactions, you can:</p>
 <ul>
 <li>Build robust, error-resilient applications.</li>
 <li>Debug database behaviors with confidence.</li>
 <li>Design systems that handle concurrency and consistency gracefully.</li>
 </ul>
-<p>Curiosity about transactions is a gateway to mastering how databases work behind the scenes. PostgreSQL’s handling of transactions, even for simple queries, offers insights into how databases maintain ACID properties (Atomicity, Consistency, Isolation, Durability).</p>
-<ul>
-<li>Source code : <a href="https://github.com/moham-p/dev-codes/tree/main/database/trans">Spring boot / JPA / PostgreSQL</a></li>
-</ul>
+<p>Curiosity about transactions is a gateway to mastering how databases work behind the scenes. PostgreSQL’s handling of 
+transactions, even for simple queries, offers insights into how databases maintain ACID properties (Atomicity, Consistency, 
+Isolation, Durability).</p>
 <h2 id="exploring-postgresql-transactions-with-a-simple-select-query-in-spring-boot">Exploring PostgreSQL Transactions with a Simple SELECT Query in Spring Boot</h2>
-<p>When we think about database transactions, the focus is often on <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code> queries. But did you know that even a simple <code>SELECT</code> query in PostgreSQL is part of a transaction? Let's build a simple demo project to verify this behavior.</p>
+<p>When we think about database transactions, the focus is often on <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code> queries. But did you know 
+that even a simple <code>SELECT</code> query in PostgreSQL is part of a transaction? Let's build a simple demo project to verify this behavior.</p>
 <h3 id="code-setup-a-minimal-spring-boot-example">Code Setup: A Minimal Spring Boot Example</h3>
 <p>Here’s a simple setup to illustrate the concept:</p>
 <h4 id="entity">Entity</h4>
