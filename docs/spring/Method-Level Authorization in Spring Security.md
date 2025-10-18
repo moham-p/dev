@@ -1,9 +1,6 @@
-In this post, we'll explore how to use Spring Security to control access both at 
-the endpoint and method level using a sample project. 
-We'll cover role-based and authority-based security, showing how both can be configured 
-and used to enhance your application's overall security posture.
-
-- Source code : [Spring Security Method-Level Authorization Demo](https://github.com/moham-p/dev-codes/tree/main/spring/security)
+In this post, we'll explore how to use Spring Security to control access both at the endpoint and method level using a 
+sample project. We'll cover role-based and authority-based security, showing how both can be configured and used to enhance 
+your application's overall security posture.
 
 ## Spring Security Configuration
 

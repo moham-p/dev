@@ -21,6 +21,7 @@ nav:
     - Method-Level Authorization in Spring Security: spring/Method-Level Authorization in Spring Security.md
     - How Singleton Components Work with Thread Pools: spring/How Singleton Components Work with Thread Pools.md
     - How to Scale Spring Boot for High Concurrency: spring/How to Scale Spring Boot for High Concurrency.md
+    - If You Don’t Practice TDD, Do This Instead: spring/If You Don’t Practice TDD, Do This Instead.md
   - Design:
     - Don’t Mix Up Aggregates and Aggregators: design/Don’t Mix Up Aggregates and Aggregators.md
     - Don't Mix Up Polling and Pooling: design/Don't Mix Up Polling and Pooling.md

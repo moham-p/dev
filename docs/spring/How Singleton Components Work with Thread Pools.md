@@ -1,6 +1,7 @@
-Spring’s component model is built on the principle of *singletons* for many of its core beans, ensuring efficiency and consistency across your application. If you’ve ever wondered how Spring handles multiple requests while maintaining a single instance for components like controllers, services, and repositories, this article will walk you through it with practical examples and insights.
-
-- Source code : [Singleton Components Demo](https://github.com/moham-p/dev-codes/tree/main/spring/thread)
+Spring’s component model is built on the principle of *singletons* for many of its core beans, ensuring efficiency and 
+consistency across your application. If you’ve ever wondered how Spring handles multiple requests while maintaining a 
+single instance for components like controllers, services, and repositories, this article will walk you through it with 
+practical examples and insights.
 
 ## What are Singletons in Spring?
 

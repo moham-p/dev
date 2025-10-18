@@ -1,16 +1,18 @@
-Understanding transactions is a foundational skill in database systems. Transactions are critical for ensuring database reliability and consistency. By exploring transactions, you can:
+Understanding transactions is a foundational skill in database systems. Transactions are critical for ensuring database 
+reliability and consistency. By exploring transactions, you can:
 
 - Build robust, error-resilient applications.
 - Debug database behaviors with confidence.
 - Design systems that handle concurrency and consistency gracefully.
 
-Curiosity about transactions is a gateway to mastering how databases work behind the scenes. PostgreSQL’s handling of transactions, even for simple queries, offers insights into how databases maintain ACID properties (Atomicity, Consistency, Isolation, Durability).
-
-- Source code : [Spring boot / JPA / PostgreSQL](https://github.com/moham-p/dev-codes/tree/main/database/trans)
+Curiosity about transactions is a gateway to mastering how databases work behind the scenes. PostgreSQL’s handling of 
+transactions, even for simple queries, offers insights into how databases maintain ACID properties (Atomicity, Consistency, 
+Isolation, Durability).
 
 ## Exploring PostgreSQL Transactions with a Simple SELECT Query in Spring Boot
 
-When we think about database transactions, the focus is often on `INSERT`, `UPDATE`, or `DELETE` queries. But did you know that even a simple `SELECT` query in PostgreSQL is part of a transaction? Let's build a simple demo project to verify this behavior.
+When we think about database transactions, the focus is often on `INSERT`, `UPDATE`, or `DELETE` queries. But did you know 
+that even a simple `SELECT` query in PostgreSQL is part of a transaction? Let's build a simple demo project to verify this behavior.
 
 ### Code Setup: A Minimal Spring Boot Example
 
