@@ -2,7 +2,6 @@ Despite years of recommendations, TDD still isn’t mainstream. But that doesn�
 In fact, testing becomes much more enjoyable when you understand the tools and purpose behind it.
 
 
-
 ## Read the Testing Documentation of the Technology You Use
 
 Most developers learn testing by example — copy, paste, and tweak until it works.
