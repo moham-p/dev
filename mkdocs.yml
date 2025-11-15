@@ -1,5 +1,7 @@
 site_name: Curiosity into `Code`
 
+dev_addr: 127.0.0.1:9000
+
 nav:
   - Soft Skills:
       - Invisible Ownership Subtasks: soft-skills/Invisible Ownership Subtasks.md

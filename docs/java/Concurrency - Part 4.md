@@ -17,7 +17,7 @@ Reactive programming focuses on **declarative concurrency**—you define a pipel
 
 ## Project Reactor: A Reactive Concurrency Engine
 
-**Project Reactor** brings reactive streams to Java. Instead of managing threads, queues, and futures, you work with two key abstractions:
+**Project Reactor** brings [Reactive Streams](https://github.com/reactive-streams/reactive-streams-jvm/blob/v1.0.4/README.md) to Java. Instead of managing threads, queues, and futures, you work with two key abstractions:
 
 * `Mono<T>`: A publisher of **zero or one** item.
 * `Flux<T>`: A publisher of **zero to many** items (a reactive stream).
@@ -112,14 +112,14 @@ CompletableFuture:
 
 - Provides a straightforward API to handle asynchronous tasks and their results.
 
-- Does not implement the Reactive Streams specification. It is more focused on individual, one-time asynchronous tasks
+- Does not implement the [Reactive Streams specification](https://github.com/reactive-streams/reactive-streams-jvm/blob/v1.0.4/README.md#specification). It is more focused on individual, one-time asynchronous tasks
   rather than streams of data.
 
 - Supports chaining of asynchronous operations through methods like thenApply, thenAccept, thenCompose, etc.
 
 Project Reactor:
 
-- A library that implements the Reactive Streams specification and provides a powerful API for reactive programming.
+- A library that implements the [Reactive Streams specification](https://github.com/reactive-streams/reactive-streams-jvm/blob/v1.0.4/README.md#specification) and provides a powerful API for reactive programming.
 
 - Offers two main types: Mono (for zero or one result) and Flux (for zero or more results).
 
