@@ -1285,7 +1285,7 @@
 </table>
 <p>Reactive programming focuses on <strong>declarative concurrency</strong>—you define a pipeline of operations, and the system executes them asynchronously and concurrently <em>behind the scenes</em>.</p>
 <h2 id="project-reactor-a-reactive-concurrency-engine">Project Reactor: A Reactive Concurrency Engine</h2>
-<p><strong>Project Reactor</strong> brings reactive streams to Java. Instead of managing threads, queues, and futures, you work with two key abstractions:</p>
+<p><strong>Project Reactor</strong> brings <a href="https://github.com/reactive-streams/reactive-streams-jvm/blob/v1.0.4/README.md">Reactive Streams</a> to Java. Instead of managing threads, queues, and futures, you work with two key abstractions:</p>
 <ul>
 <li><code>Mono&lt;T&gt;</code>: A publisher of <strong>zero or one</strong> item.</li>
 <li><code>Flux&lt;T&gt;</code>: A publisher of <strong>zero to many</strong> items (a reactive stream).</li>
@@ -1420,7 +1420,7 @@
 <p>Provides a straightforward API to handle asynchronous tasks and their results.</p>
 </li>
 <li>
-<p>Does not implement the Reactive Streams specification. It is more focused on individual, one-time asynchronous tasks
+<p>Does not implement the <a href="https://github.com/reactive-streams/reactive-streams-jvm/blob/v1.0.4/README.md#specification">Reactive Streams specification</a>. It is more focused on individual, one-time asynchronous tasks
   rather than streams of data.</p>
 </li>
 <li>
@@ -1430,7 +1430,7 @@
 <p>Project Reactor:</p>
 <ul>
 <li>
-<p>A library that implements the Reactive Streams specification and provides a powerful API for reactive programming.</p>
+<p>A library that implements the <a href="https://github.com/reactive-streams/reactive-streams-jvm/blob/v1.0.4/README.md#specification">Reactive Streams specification</a> and provides a powerful API for reactive programming.</p>
 </li>
 <li>
 <p>Offers two main types: Mono (for zero or one result) and Flux (for zero or more results).</p>
