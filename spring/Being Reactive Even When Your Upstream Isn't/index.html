@@ -9,10 +9,10 @@
   
   
   
-  <link rel="prev" href="../Invisible%20Ownership%20Subtasks/">
+  <link rel="prev" href="../If%20You%20Don%E2%80%99t%20Practice%20TDD%2C%20Do%20This%20Instead/">
   
   
-  <link rel="next" href="../../java/How%20HashMap%20Handles%20Collisions/">
+  <link rel="next" href="../../design/Don%E2%80%99t%20Mix%20Up%20Aggregates%20and%20Aggregators/">
   
   
   <link rel="icon" href="../../img/favicon.ico">
@@ -21,7 +21,7 @@
   
   
   
-  <title>Staying on Track When a Ticket Gets Complicated - Curiosity into `Code`</title>
+  <title>Being Reactive Even When Your Upstream Isn't - Curiosity into `Code`</title>
   
   
   
@@ -65,7 +65,7 @@
 <div data-md-component="skip">
   
   
-  <a href="#1-start-on-your-own-but-know-when-to-ask-for-help" class="md-skip">
+  <a href="#what-does-reactive-really-mean" class="md-skip">
     Skip to content
   </a>
   
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Staying on Track When a Ticket Gets Complicated
+              Being Reactive Even When Your Upstream Isn't
             
           </span>
         </div>
@@ -196,19 +196,17 @@
         
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
         
           
           <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
@@ -222,7 +220,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             Soft Skills
@@ -236,7 +234,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Invisible%20Ownership%20Subtasks/" class="md-nav__link">
+      <a href="../../soft-skills/Invisible%20Ownership%20Subtasks/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -254,28 +252,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Staying on Track When a Ticket Gets Complicated
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../soft-skills/Staying%20on%20Track%20When%20a%20Ticket%20Gets%20Complicated/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -284,60 +264,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-start-on-your-own-but-know-when-to-ask-for-help" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Start on Your Own — But Know When to Ask for Help
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-split-the-work-essential-vs-optional" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Split the Work: Essential vs. Optional
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-take-a-break-seriously" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Take a Break — Seriously
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-communicate-early" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Communicate Early
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -648,17 +574,19 @@
         
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -672,7 +600,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Spring
@@ -686,7 +614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/Method-Level%20Authorization%20in%20Spring%20Security/" class="md-nav__link">
+      <a href="../Method-Level%20Authorization%20in%20Spring%20Security/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -707,7 +635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/How%20Singleton%20Components%20Work%20with%20Thread%20Pools/" class="md-nav__link">
+      <a href="../How%20Singleton%20Components%20Work%20with%20Thread%20Pools/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -728,7 +656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/How%20to%20Scale%20Spring%20Boot%20for%20High%20Concurrency/" class="md-nav__link">
+      <a href="../How%20to%20Scale%20Spring%20Boot%20for%20High%20Concurrency/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -749,7 +677,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/If%20You%20Don%E2%80%99t%20Practice%20TDD%2C%20Do%20This%20Instead/" class="md-nav__link">
+      <a href="../If%20You%20Don%E2%80%99t%20Practice%20TDD%2C%20Do%20This%20Instead/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -767,10 +695,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../spring/Being%20Reactive%20Even%20When%20Your%20Upstream%20Isn%27t/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Being Reactive Even When Your Upstream Isn't
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -779,6 +725,78 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-does-reactive-really-mean" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Does “Reactive” Really Mean?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calling-a-non-reactive-upstream-with-webclient-is-still-reactive" class="md-nav__link">
+    <span class="md-ellipsis">
+      Calling a Non-Reactive Upstream with WebClient Is Still Reactive
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-only-thing-that-breaks-reactivity-blocking-on-your-side" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Only Thing That Breaks Reactivity: Blocking on Your Side
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-if-the-upstream-dependency-is-only-available-as-a-blocking-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      What If the Upstream Dependency Is Only Available as a Blocking API?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reactive-as-a-value-you-provide-forward" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reactive as a Value You Provide Forward
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1192,41 +1210,98 @@
 
 
 
-<h1>Staying on Track When a Ticket Gets Complicated</h1>
+<h1>Being Reactive Even When Your Upstream Isn't</h1>
 
-<p>You start working on a ticket thinking it’ll be done in a day or two. But then… things get complicated. Something doesn’t work. Docs aren’t clear. You fix one thing, and two new problems show up.</p>
-<p>Don’t worry — it happens to all of us. Here are some simple and helpful tips to keep moving when a ticket starts dragging on.</p>
-<hr />
-<h2 id="1-start-on-your-own-but-know-when-to-ask-for-help">1. <strong>Start on Your Own — But Know When to Ask for Help</strong></h2>
-<p>The first step is to <em>try</em>. Explore the codebase. Search your organization’s repositories — maybe a similar problem has already been solved. Consult the framework or library documentation. Use AI tools for assistance.</p>
-<p>There’s a point where continuing alone becomes counterproductive. Recognizing that point is a skill in itself. If you're hitting the same wall repeatedly, it's time to reach out — whether it’s to a teammate, another team, or someone who has context on the problem.</p>
-<p>Asking for help isn’t a weakness — it’s a way to unlock progress.</p>
-<hr />
-<h2 id="2-split-the-work-essential-vs-optional">2. <strong>Split the Work: Essential vs. Optional</strong></h2>
-<p>Sometimes, the technical challenge lies in an <em>optional</em> part of the ticket — maybe a UI optimization, a secondary integration, or a refactor that seemed small at the beginning. Don’t let that part hold the entire delivery hostage.</p>
-<p>Instead, break the ticket down:</p>
-<ul>
-<li>Finish the essential part.</li>
-<li>Document your current state on the challenging piece.</li>
-<li>Create a follow-up ticket.</li>
-<li>Move it to the backlog for later.</li>
-</ul>
-<p>This allows the team to make progress without losing sight of the long-term goal.</p>
-<hr />
-<h2 id="3-take-a-break-seriously">3. <strong>Take a Break — Seriously</strong></h2>
-<p>It sounds simple, but it’s powerful.</p>
-<p>Call it a day. Sign off early if you’re feeling overwhelmed and start fresh the next morning. 
-I’ve lost count of how many times a challenge in the late evening showed its solution the next morning.</p>
-<p>Your brain sometimes just needs rest — not more effort.</p>
-<hr />
-<h2 id="4-communicate-early">4. <strong>Communicate Early</strong></h2>
-<p>If a ticket has been in progress for a while and it’s starting to look risky for the sprint, don’t wait for someone to ask — be proactive.</p>
-<p>In your pull request, acknowledge the limitations. Suggest reasonable improvements that can be done now, and propose follow-ups for the rest. When reviewers see that you’ve thought about trade-offs and already scoped future work, they’re more likely to be pragmatic — rather than push for perfection at the cost of timelines.</p>
-<p>Include a note like:</p>
+<p>Modern systems rarely get built in a perfect greenfield. You inherit blocking SDKs, legacy REST services, JDBC drivers, and upstream APIs that have never heard the word “reactive.” Yet you still want to design your own service using <strong>Spring WebFlux</strong>, <strong>R2DBC</strong>, and reactive patterns—because your <em>downstream</em> consumers benefit massively from it.</p>
+<p>And that’s the key idea of this post:</p>
 <blockquote>
-<p>“This implementation covers X and Y. Z requires more investigation and is tracked in ticket ABC-123. Happy to discuss if needed.”</p>
+<p><strong>You can provide a fully reactive experience to downstream services even when your upstream dependencies aren’t reactive at all.</strong>
+You don’t need end-to-end reactivity to gain (and give!) reactive benefits.</p>
 </blockquote>
-<p>Setting expectations helps your reviewers focus on what matters <em>now</em>.</p>
+<h2 id="what-does-reactive-really-mean">What Does “Reactive” Really Mean?</h2>
+<p>We often talk about “reactive systems” as if every component in the pipeline must be non-blocking for the whole architecture to work. In reality, reactivity is more local and more composable than that.</p>
+<p>When we say <em>“my service is reactive”</em>, we mean:</p>
+<ul>
+<li>It handles requests on a non-blocking runtime (e.g., Netty).</li>
+<li>It does not block threads waiting for I/O.</li>
+<li>It exposes <strong>reactive APIs</strong> (<code>Mono</code>, <code>Flux</code>) to downstream callers.</li>
+<li>It processes workloads efficiently under load due to event-loop and backpressure principles.</li>
+</ul>
+<p>None of this requires upstream dependencies to be reactive.
+It only requires <em>you</em> to avoid blocking in your own execution path.</p>
+<h2 id="calling-a-non-reactive-upstream-with-webclient-is-still-reactive">Calling a Non-Reactive Upstream with WebClient Is Still Reactive</h2>
+<p>Let’s imagine your upstream service is a classic Spring MVC REST API or even a PHP/Node server. Totally blocking on its side.</p>
+<p>Your service calls it using <strong>WebClient</strong>:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">public</span><span class="w"> </span><span class="n">Mono</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getFoo</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">webClient</span><span class="p">.</span><span class="na">get</span><span class="p">()</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">        </span><span class="p">.</span><span class="na">uri</span><span class="p">(</span><span class="s">&quot;/foo/{id}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">)</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">        </span><span class="p">.</span><span class="na">retrieve</span><span class="p">()</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">        </span><span class="p">.</span><span class="na">bodyToMono</span><span class="p">(</span><span class="n">Foo</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Even though the upstream service itself performs blocking I/O internally, <em>your</em> call is still non-blocking:</p>
+<ul>
+<li>Netty sends the request asynchronously.</li>
+<li>Your event-loop threads are not blocked.</li>
+<li>The returned <code>Mono</code> represents a deferred result.</li>
+<li>Other requests can be processed concurrently without waiting.</li>
+</ul>
+<p>To your downstream services, you remain <strong>fully reactive</strong>.</p>
+<h2 id="the-only-thing-that-breaks-reactivity-blocking-on-your-side">The Only Thing That Breaks Reactivity: Blocking on Your Side</h2>
+<p>Where people fall into trouble is not the upstream service—but their own code.</p>
+<p>These patterns kill your reactivity:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">webClient</span><span class="p">.</span><span class="na">get</span><span class="p">()...</span><span class="na">block</span><span class="p">();</span><span class="w">            </span><span class="c1">// ❌ blocks the event loop</span>
+</span></code></pre></div>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">RestTemplate</span><span class="p">.</span><span class="na">getForObject</span><span class="p">(...);</span><span class="w">      </span><span class="c1">// ❌ blocking client</span>
+</span></code></pre></div>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">someMono</span><span class="p">.</span><span class="na">toFuture</span><span class="p">().</span><span class="na">get</span><span class="p">();</span><span class="w">           </span><span class="c1">// ❌ another way of blocking</span>
+</span></code></pre></div>
+<p>Once you block, you lose WebFlux’s scalability benefits. Under load, your app becomes slow, consumes more threads, and may even lock up.</p>
+<p>So the rule is simple:</p>
+<blockquote>
+<p><strong>Don’t block. Don’t force asynchronous/reactive types back into synchronous ones.</strong></p>
+</blockquote>
+<h2 id="what-if-the-upstream-dependency-is-only-available-as-a-blocking-api">What If the Upstream Dependency Is Only Available as a Blocking API?</h2>
+<p>Sometimes the upstream doesn’t even expose HTTP.
+You may be stuck with:</p>
+<ul>
+<li>JDBC / JPA</li>
+<li>Legacy SOAP clients</li>
+<li>Old Java SDKs that block</li>
+</ul>
+<p>You can still keep your reactive contract with downstream callers by isolating the blocking call:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">public</span><span class="w"> </span><span class="n">Mono</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getFoo</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Mono</span><span class="p">.</span><span class="na">fromCallable</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">blockingClient</span><span class="p">.</span><span class="na">getFoo</span><span class="p">(</span><span class="n">id</span><span class="p">))</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">               </span><span class="p">.</span><span class="na">subscribeOn</span><span class="p">(</span><span class="n">Schedulers</span><span class="p">.</span><span class="na">boundedElastic</span><span class="p">());</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Here:</p>
+<ul>
+<li>Your public API stays reactive.</li>
+<li>The blocking operation is moved to a dedicated thread pool.</li>
+<li>Your event-loop threads remain clean and fast.</li>
+</ul>
+<p>While this is not “pure” end-to-end reactivity, it preserves the reactive <em>surface area</em> of your service—what downstream consumers see and rely on.</p>
+<h2 id="reactive-as-a-value-you-provide-forward">Reactive as a Value You Provide Forward</h2>
+<p>Downstream services benefit when you stay reactive:</p>
+<ul>
+<li>They get a non-blocking API.</li>
+<li>They can compose your calls with their own reactive pipelines.</li>
+<li>They benefit from backpressure and event-loop efficiency.</li>
+<li>They experience higher throughput and better resource utilization.</li>
+</ul>
+<p>Even if <em>your</em> upstream is not reactive, <em>you</em> can still push the ecosystem forward by choosing a reactive foundation. Your service becomes the first domino in encouraging a broader migration.</p>
+<p>Just like you can design clean REST APIs even when consuming messy ones, you can design a clean reactive API even when upstream dependencies force compromises internally.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>With Spring WebFlux, WebClient, and R2DBC:</p>
+<ul>
+<li>Upstream being non-reactive is <em>not</em> a blocker.</li>
+<li>You can still maintain a reactive contract for all downstream consumers.</li>
+<li>You only need to avoid blocking on your own threads.</li>
+<li>Reactive is still a meaningful architectural improvement—even in isolation.</li>
+</ul>
+<p><strong>You give your consumers something better than you received.
+And over time, that can reshape the entire system landscape.</strong></p>
 <hr />
 <p>Happy coding! 💻</p>
 
