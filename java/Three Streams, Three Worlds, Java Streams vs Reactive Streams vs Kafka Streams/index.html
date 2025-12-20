@@ -9,19 +9,23 @@
   
   
   
+  <link rel="prev" href="../Don%E2%80%99t%20Let%20Your%20Java%20Debugger%20Fool%20You/">
   
   
-  <link rel="icon" href="/img/favicon.ico">
+  <link rel="next" href="../../spring/Method-Level%20Authorization%20in%20Spring%20Security/">
+  
+  
+  <link rel="icon" href="../../img/favicon.ico">
   <link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
   <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.33">
   
   
   
-  <title>Curiosity into `Code`</title>
+  <title>Three Streams, Three Worlds, Java Streams vs Reactive Streams vs Kafka Streams - Curiosity into `Code`</title>
   
   
   
-  <link rel="stylesheet" href="/assets/stylesheets/main.3cba04c6.min.css">
+  <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
   
   
 
@@ -40,9 +44,9 @@
   
   
   
-  <link rel="stylesheet" href="/extra.css">
+  <link rel="stylesheet" href="../../extra.css">
   
-  <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+  <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
   
   
 
@@ -60,6 +64,11 @@
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
   
+  
+  <a href="#1-java-8-streams-api" class="md-skip">
+    Skip to content
+  </a>
+  
 </div>
 <div data-md-component="announce">
   
@@ -72,9 +81,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="Curiosity into `Code`" class="md-header__button md-logo" aria-label="Curiosity into `Code`" data-md-component="logo">
+    <a href="../.." title="Curiosity into `Code`" class="md-header__button md-logo" aria-label="Curiosity into `Code`" data-md-component="logo">
       
-  <img src="/img/_logo.png" alt="logo">
+  <img src="../../img/_logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -91,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Three Streams, Three Worlds, Java Streams vs Reactive Streams vs Kafka Streams
             
           </span>
         </div>
@@ -166,9 +175,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="Curiosity into `Code`" class="md-nav__button md-logo" aria-label="Curiosity into `Code`" data-md-component="logo">
+    <a href="../.." title="Curiosity into `Code`" class="md-nav__button md-logo" aria-label="Curiosity into `Code`" data-md-component="logo">
       
-  <img src="/img/_logo.png" alt="logo">
+  <img src="../../img/_logo.png" alt="logo">
 
     </a>
   </label>
@@ -225,7 +234,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/soft-skills/Invisible%20Ownership%20Subtasks/" class="md-nav__link">
+      <a href="../../soft-skills/Invisible%20Ownership%20Subtasks/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -246,7 +255,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/soft-skills/Staying%20on%20Track%20When%20a%20Ticket%20Gets%20Complicated/" class="md-nav__link">
+      <a href="../../soft-skills/Staying%20on%20Track%20When%20a%20Ticket%20Gets%20Complicated/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -271,17 +280,19 @@
         
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -295,7 +306,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Java
@@ -309,7 +320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/java/How%20HashMap%20Handles%20Collisions/" class="md-nav__link">
+      <a href="../How%20HashMap%20Handles%20Collisions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -330,7 +341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/java/Stay%20Friends%20with%20the%20Console/" class="md-nav__link">
+      <a href="../Stay%20Friends%20with%20the%20Console/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -351,7 +362,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/java/Concurrency%20-%20Part%201/" class="md-nav__link">
+      <a href="../Concurrency%20-%20Part%201/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -372,7 +383,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/java/Concurrency%20-%20Part%202/" class="md-nav__link">
+      <a href="../Concurrency%20-%20Part%202/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -393,7 +404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/java/Mock%20vs%20Spy%20in%20Mockito%20%E2%80%94%20Never%20Ask%20Again/" class="md-nav__link">
+      <a href="../Mock%20vs%20Spy%20in%20Mockito%20%E2%80%94%20Never%20Ask%20Again/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -414,7 +425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/java/Concurrency%20-%20Part%203/" class="md-nav__link">
+      <a href="../Concurrency%20-%20Part%203/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -435,7 +446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/java/Java%20Generics%20as%20a%20Compile-Time%20Gift%20With%20a%20Runtime%20Disguise/" class="md-nav__link">
+      <a href="../Java%20Generics%20as%20a%20Compile-Time%20Gift%20With%20a%20Runtime%20Disguise/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -456,7 +467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/java/Concurrency%20-%20Part%204/" class="md-nav__link">
+      <a href="../Concurrency%20-%20Part%204/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -477,7 +488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/java/Concurrency%20-%20Part%205/" class="md-nav__link">
+      <a href="../Concurrency%20-%20Part%205/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -498,7 +509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/java/Java%E2%80%99s%20Mission%20-%20No%20More%20Excuses/" class="md-nav__link">
+      <a href="../Java%E2%80%99s%20Mission%20-%20No%20More%20Excuses/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -519,7 +530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/java/How%20Threads%20Share%20Code%20in%20Java/" class="md-nav__link">
+      <a href="../How%20Threads%20Share%20Code%20in%20Java/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -540,7 +551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/java/Don%E2%80%99t%20Let%20Your%20Java%20Debugger%20Fool%20You/" class="md-nav__link">
+      <a href="../Don%E2%80%99t%20Let%20Your%20Java%20Debugger%20Fool%20You/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -558,10 +569,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/java/Three%20Streams%2C%20Three%20Worlds%2C%20Java%20Streams%20vs%20Reactive%20Streams%20vs%20Kafka%20Streams/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Three Streams, Three Worlds, Java Streams vs Reactive Streams vs Kafka Streams
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -570,6 +599,174 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-java-8-streams-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Java 8 Streams API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Java 8 Streams API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Characteristics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relationship-to-reactive-streams" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relationship to Reactive Streams
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-reactive-streams-specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Reactive Streams Specification
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Reactive Streams Specification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-characteristics_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Characteristics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relationship-to-java-8-streams" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relationship to Java 8 Streams
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-kafka-streams" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Kafka Streams
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Kafka Streams">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-characteristics_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Characteristics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relationship-to-reactive-streams_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relationship to Reactive Streams
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relationship-to-java-8-streams_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relationship to Java 8 Streams
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commonly-confused-but-unrelated-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commonly Confused but Unrelated APIs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Commonly Confused but Unrelated APIs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#java-io-streams-inputstream-outputstream" class="md-nav__link">
+    <span class="md-ellipsis">
+      Java IO Streams (InputStream, OutputStream)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#java-nio-channels-and-buffers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Java NIO Channels and Buffers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Final Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -624,7 +821,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/spring/Method-Level%20Authorization%20in%20Spring%20Security/" class="md-nav__link">
+      <a href="../../spring/Method-Level%20Authorization%20in%20Spring%20Security/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -645,7 +842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/spring/How%20Singleton%20Components%20Work%20with%20Thread%20Pools/" class="md-nav__link">
+      <a href="../../spring/How%20Singleton%20Components%20Work%20with%20Thread%20Pools/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -666,7 +863,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/spring/How%20to%20Scale%20Spring%20Boot%20for%20High%20Concurrency/" class="md-nav__link">
+      <a href="../../spring/How%20to%20Scale%20Spring%20Boot%20for%20High%20Concurrency/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -687,7 +884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/spring/If%20You%20Don%E2%80%99t%20Practice%20TDD%2C%20Do%20This%20Instead/" class="md-nav__link">
+      <a href="../../spring/If%20You%20Don%E2%80%99t%20Practice%20TDD%2C%20Do%20This%20Instead/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -708,7 +905,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/spring/Being%20Reactive%20Even%20When%20Your%20Upstream%20Isn%27t/" class="md-nav__link">
+      <a href="../../spring/Being%20Reactive%20Even%20When%20Your%20Upstream%20Isn%27t/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -771,7 +968,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/design/Don%E2%80%99t%20Mix%20Up%20Aggregates%20and%20Aggregators/" class="md-nav__link">
+      <a href="../../design/Don%E2%80%99t%20Mix%20Up%20Aggregates%20and%20Aggregators/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -792,7 +989,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/design/Don%27t%20Mix%20Up%20Polling%20and%20Pooling/" class="md-nav__link">
+      <a href="../../design/Don%27t%20Mix%20Up%20Polling%20and%20Pooling/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -855,7 +1052,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/data/PostgreSQL%20Transactions%20-%20Part%202/" class="md-nav__link">
+      <a href="../../data/PostgreSQL%20Transactions%20-%20Part%202/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -876,7 +1073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/data/PostgreSQL%20Transactions%20-%20Part%201/" class="md-nav__link">
+      <a href="../../data/PostgreSQL%20Transactions%20-%20Part%201/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -939,7 +1136,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/security/Seamless%20AWS%20Access%20-%20Setting%20Up%20Azure%20AD%20as%20a%20Federated%20Identity%20Provider/" class="md-nav__link">
+      <a href="../../security/Seamless%20AWS%20Access%20-%20Setting%20Up%20Azure%20AD%20as%20a%20Federated%20Identity%20Provider/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -960,7 +1157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/security/Defending%20Against%20XSS%20in%20React%20and%20JSP/" class="md-nav__link">
+      <a href="../../security/Defending%20Against%20XSS%20in%20React%20and%20JSP/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1023,7 +1220,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/devops/Using%20Nginx%20to%20Front%20Both%20Backend%20and%20Frontend/" class="md-nav__link">
+      <a href="../../devops/Using%20Nginx%20to%20Front%20Both%20Backend%20and%20Frontend/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1044,7 +1241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/devops/Correlating%20Bamboo%20Concepts%20with%20AWS%20ECS/" class="md-nav__link">
+      <a href="../../devops/Correlating%20Bamboo%20Concepts%20with%20AWS%20ECS/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1065,7 +1262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/devops/How%20Web%20Servers%20Handle%20Logging%20Efficiently/" class="md-nav__link">
+      <a href="../../devops/How%20Web%20Servers%20Handle%20Logging%20Efficiently/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1086,7 +1283,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/devops/Making%20the%20Invisible%20Visible/" class="md-nav__link">
+      <a href="../../devops/Making%20the%20Invisible%20Visible/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1124,8 +1321,193 @@
       <div class="md-content" data-md-component="content">
         <article class="md-content__inner md-typeset">
           
-  <h1>404 - Not found</h1>
+          
 
+
+
+
+
+<h1>Three Streams, Three Worlds, Java Streams vs Reactive Streams vs Kafka Streams</h1>
+
+<p>If you have worked with modern Java or Kafka-based systems, you have almost certainly encountered the term <em>stream</em> in multiple contexts:</p>
+<ul>
+<li>Java 8 Streams</li>
+<li>Reactive Streams</li>
+<li>Kafka Streams</li>
+</ul>
+<p>They sound related. They look related. They are <strong>not</strong> related.</p>
+<p>Despite sharing the same word, these technologies solve fundamentally different problems, operate under different execution models, and have no technical dependency on one another. This post provides a clear, definitive breakdown of what each one is—and what it is not.</p>
+<hr />
+<h2 id="1-java-8-streams-api">1. Java 8 Streams API</h2>
+<p><strong>Type:</strong> In-memory functional processing
+<strong>Package:</strong> <code>java.util.stream.*</code>
+<strong>Execution model:</strong> Pull-based, synchronous
+<strong>Primary use case:</strong> Declarative processing of collections already in memory</p>
+<p>Java 8 Streams were introduced to make collection processing more expressive and less error-prone by replacing imperative loops with functional-style operations.</p>
+<h3 id="key-characteristics">Key Characteristics</h3>
+<ul>
+<li>Operates on <strong>finite</strong>, in-memory data structures</li>
+<li>Executes synchronously by default</li>
+<li>No built-in concurrency model (aside from <code>.parallel()</code>)</li>
+<li>No support for backpressure</li>
+<li>No concept of continuous or unbounded data</li>
+</ul>
+<p>Java 8 Streams are best understood as <em>functional loops</em> over collections.</p>
+<h3 id="relationship-to-reactive-streams">Relationship to Reactive Streams</h3>
+<p><strong>None.</strong></p>
+<p>Java 8 Streams do not model asynchronous data flow, event-driven systems, or non-blocking execution. They are purely an in-memory abstraction.</p>
+<hr />
+<h2 id="2-reactive-streams-specification">2. Reactive Streams Specification</h2>
+<p><strong>Type:</strong> Asynchronous, non-blocking stream processing specification
+<strong>Examples:</strong> Project Reactor, RxJava (2+), Akka Streams
+<strong>Execution model:</strong> Push-based, asynchronous
+<strong>Core feature:</strong> Backpressure</p>
+<p>Reactive Streams define a <strong>standard protocol</strong> for handling asynchronous streams of data with backpressure, allowing producers and consumers to operate at different speeds safely.</p>
+<h3 id="key-characteristics_1">Key Characteristics</h3>
+<ul>
+<li>Designed for <strong>event-driven</strong>, asynchronous pipelines</li>
+<li>Supports <strong>potentially infinite</strong> streams</li>
+<li>Explicit backpressure support</li>
+<li>
+<p>Defines four core interfaces:</p>
+<ul>
+<li><code>Publisher</code></li>
+<li><code>Subscriber</code></li>
+<li><code>Subscription</code></li>
+<li><code>Processor</code></li>
+<li>Forms the basis of <code>java.util.concurrent.Flow</code> (Java 9+)</li>
+</ul>
+</li>
+</ul>
+<h3 id="relationship-to-java-8-streams">Relationship to Java 8 Streams</h3>
+<p>There is <strong>no direct relationship</strong> beyond terminology.</p>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Java 8 Streams</th>
+<th>Reactive Streams</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data size</td>
+<td>Finite</td>
+<td>Potentially infinite</td>
+</tr>
+<tr>
+<td>Execution model</td>
+<td>Pull</td>
+<td>Push</td>
+</tr>
+<tr>
+<td>Asynchronous</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Backpressure</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Primary domain</td>
+<td>Collections</td>
+<td>Event-driven systems</td>
+</tr>
+</tbody>
+</table>
+<p>They address entirely different problem spaces.</p>
+<hr />
+<h2 id="3-kafka-streams">3. Kafka Streams</h2>
+<p><strong>Type:</strong> Distributed stream-processing library
+<strong>Part of:</strong> Apache Kafka
+<strong>Execution model:</strong> Thread-based, distributed
+<strong>Primary use case:</strong> Stateful processing of event streams stored in Kafka</p>
+<p>Kafka Streams is a client library for building <strong>distributed, fault-tolerant stream processing applications</strong> directly on top of Kafka topics.</p>
+<h3 id="key-characteristics_2">Key Characteristics</h3>
+<ul>
+<li>Processes <strong>unbounded</strong>, persistent event streams</li>
+<li>Runs across multiple instances for scalability</li>
+<li>
+<p>Supports stateful operations:</p>
+<ul>
+<li>Aggregations</li>
+<li>Joins</li>
+<li>Windowing</li>
+<li>Uses embedded state stores (typically RocksDB)</li>
+<li>Relies on Kafka consumer and producer APIs</li>
+<li>Not reactive and not non-blocking by design</li>
+</ul>
+</li>
+</ul>
+<h3 id="relationship-to-reactive-streams_1">Relationship to Reactive Streams</h3>
+<p><strong>None.</strong></p>
+<p>Kafka Streams does <strong>not</strong> implement the Reactive Streams specification, does not expose <code>Publisher</code>/<code>Subscriber</code>, and does not provide backpressure semantics as defined by Reactive Streams.</p>
+<h3 id="relationship-to-java-8-streams_1">Relationship to Java 8 Streams</h3>
+<p>Also <strong>none</strong>, despite superficial similarities in method names.</p>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Kafka Streams</th>
+<th>Java 8 Streams</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data source</td>
+<td>Kafka topics and partitions</td>
+<td>In-memory collections</td>
+</tr>
+<tr>
+<td>Lifecycle</td>
+<td>Continuous, long-running</td>
+<td>Finite</td>
+</tr>
+<tr>
+<td>Execution</td>
+<td>Distributed, multi-threaded</td>
+<td>Local, synchronous</td>
+</tr>
+<tr>
+<td>State</td>
+<td>Persistent (RocksDB)</td>
+<td>Stateless</td>
+</tr>
+</tbody>
+</table>
+<p>The shared vocabulary (<code>map</code>, <code>filter</code>, etc.) is a matter of API familiarity—not shared semantics.</p>
+<hr />
+<h2 id="commonly-confused-but-unrelated-apis">Commonly Confused but Unrelated APIs</h2>
+<h3 id="java-io-streams-inputstream-outputstream">Java IO Streams (<code>InputStream</code>, <code>OutputStream</code>)</h3>
+<p>These are <strong>byte-oriented I/O abstractions</strong> for reading and writing data. They predate Java 8 Streams and have nothing to do with functional or reactive programming.</p>
+<h3 id="java-nio-channels-and-buffers">Java NIO Channels and Buffers</h3>
+<p>NIO provides <strong>non-blocking I/O primitives</strong>, but it is neither functional nor reactive by default. While it can be used in reactive systems, it is not a streaming abstraction in the same sense.</p>
+<hr />
+<h2 id="final-summary">Final Summary</h2>
+<p><strong>Java 8 Streams</strong> are an in-memory functional API.
+<strong>Reactive Streams</strong> define an asynchronous backpressure protocol.
+<strong>Kafka Streams</strong> is a distributed event-processing engine.</p>
+<p>They all contain the word <em>stream</em>, but they have <strong>no technical relationship</strong> to one another.</p>
+<p>Understanding this distinction is critical for designing correct, scalable systems—and for avoiding conceptual shortcuts that lead to architectural mistakes.</p>
+<hr />
+<p>Happy coding! 💻</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
         </article>
       </div>
       
@@ -1150,10 +1532,10 @@
 </div>
 
 
-<script id="__config" type="application/json">{"base": "/", "features": [], "search": "/assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
 
 
-<script src="/assets/javascripts/bundle.af256bd8.min.js"></script>
+<script src="../../assets/javascripts/bundle.af256bd8.min.js"></script>
 
 
 </body>
