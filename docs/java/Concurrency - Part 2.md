@@ -79,6 +79,12 @@ When you make requests to the server, your logs might look like this:
 
 This shows that each HTTP request was picked up by a different worker thread from the pool.
 
+Another way to identify the executing thread is to place a breakpoint in the controller method and then inspect the 
+Threads tab in the IDE, as shown below.
+
+![debug-thread-1.png](../img/debug-thread-1.png)
+![debug-thread-2.png](../img/debug-thread-2.png)
+
 
 ## Takeaway
 
