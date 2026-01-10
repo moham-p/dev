@@ -1294,6 +1294,10 @@ simple <code>HandlerInterceptor</code> like this:</p>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>2025-04-06 10:12:01.128  INFO 22544 --- [http-nio-8080-exec-3] c.e.d.ThreadLogger : Thread ID preHandle: 35
 </span></code></pre></div>
 <p>This shows that each HTTP request was picked up by a different worker thread from the pool.</p>
+<p>Another way to identify the executing thread is to place a breakpoint in the controller method and then inspect the 
+Threads tab in the IDE, as shown below.</p>
+<p><img alt="debug-thread-1.png" src="../../img/debug-thread-1.png" />
+<img alt="debug-thread-2.png" src="../../img/debug-thread-2.png" /></p>
 <h2 id="takeaway">Takeaway</h2>
 <p>Tomcat does not spawn a thread per request. Instead, it:</p>
 <ul>
