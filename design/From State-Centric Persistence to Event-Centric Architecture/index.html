@@ -10,10 +10,8 @@
   
   
   
-  <link rel="canonical" href="https://moham.dev/devops/Making%20the%20Invisible%20Visible/">
+  <link rel="canonical" href="https://moham.dev/design/From%20State-Centric%20Persistence%20to%20Event-Centric%20Architecture/">
   
-  
-  <link rel="prev" href="../How%20Web%20Servers%20Handle%20Logging%20Efficiently/">
   
   
   
@@ -26,7 +24,7 @@
   
   
   
-  <title>Making the Invisible Visible - Curiosity into `Code`</title>
+  <title>From State Centric Persistence to Event Centric Architecture - Curiosity into `Code`</title>
   
   
   
@@ -70,7 +68,7 @@
 <div data-md-component="skip">
   
   
-  <a href="#the-three-pillars-of-observability" class="md-skip">
+  <a href="#the-bolted-on-events-problem" class="md-skip">
     Skip to content
   </a>
   
@@ -105,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Making the Invisible Visible
+              From State Centric Persistence to Event Centric Architecture
             
           </span>
         </div>
@@ -748,7 +746,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/Don%E2%80%99t%20Mix%20Up%20Aggregates%20and%20Aggregators/" class="md-nav__link">
+      <a href="../Don%E2%80%99t%20Mix%20Up%20Aggregates%20and%20Aggregators/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -769,7 +767,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/Don%27t%20Mix%20Up%20Polling%20and%20Pooling/" class="md-nav__link">
+      <a href="../Don%27t%20Mix%20Up%20Polling%20and%20Pooling/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -790,7 +788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/Don%E2%80%99t%20Do%20DDD%20%E2%80%94%20Just%20Do%20These%205%20Things%20in%20Your%20Next%20Project/" class="md-nav__link">
+      <a href="../Don%E2%80%99t%20Do%20DDD%20%E2%80%94%20Just%20Do%20These%205%20Things%20in%20Your%20Next%20Project/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -983,19 +981,17 @@
         
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
         
           
           <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
@@ -1009,7 +1005,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             DevOps
@@ -1023,7 +1019,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Using%20Nginx%20to%20Front%20Both%20Backend%20and%20Frontend/" class="md-nav__link">
+      <a href="../../devops/Using%20Nginx%20to%20Front%20Both%20Backend%20and%20Frontend/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1044,7 +1040,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Correlating%20Bamboo%20Concepts%20with%20AWS%20ECS/" class="md-nav__link">
+      <a href="../../devops/Correlating%20Bamboo%20Concepts%20with%20AWS%20ECS/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1065,7 +1061,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../How%20Web%20Servers%20Handle%20Logging%20Efficiently/" class="md-nav__link">
+      <a href="../../devops/How%20Web%20Servers%20Handle%20Logging%20Efficiently/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1083,28 +1079,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Making the Invisible Visible
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../devops/Making%20the%20Invisible%20Visible/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1113,135 +1091,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#the-three-pillars-of-observability" class="md-nav__link">
-    <span class="md-ellipsis">
-      The Three Pillars of Observability
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="The Three Pillars of Observability">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-metrics-the-systems-vital-signs" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Metrics — The System’s Vital Signs
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-logs-the-narrative-of-events" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Logs — The Narrative of Events
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-traces-the-journey-of-a-request" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Traces — The Journey of a Request
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-relationship-between-a-trace-and-spans" class="md-nav__link">
-    <span class="md-ellipsis">
-      The Relationship Between a Trace and Spans
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#a-concrete-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      A Concrete Example
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="A Concrete Example">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#step-1-the-client-service-receives-the-request" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 1: The Client Service receives the request
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-2-the-client-service-calls-the-order-service" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 2: The Client Service calls the Order Service
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-3-the-order-service-calls-the-payment-service" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 3: The Order Service calls the Payment Service
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-it-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      Why It Matters
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      Summary
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1277,120 +1126,45 @@
 
 
 
-<h1>Making the Invisible Visible</h1>
+<h1>From State Centric Persistence to Event Centric Architecture</h1>
 
-<p>It’s Friday afternoon. Everything seems fine — until it isn’t.
-A flood of customer complaints suddenly hits support: orders are timing out. Your dashboards show healthy CPU, low memory, and “green” service statuses. The logs? A maze of JSON lines and timestamps, none of which point to the real issue.</p>
-<p>You know something is wrong — you just can’t see <strong>where</strong>.</p>
-<p>This is where <strong>observability</strong> steps in. It’s the difference between hoping the system works and actually <strong>understanding</strong> it.
-Observability gives your system a voice — the ability to explain itself through <strong>metrics</strong>, <strong>logs</strong>, and <strong>traces</strong>.</p>
-<p>To make that possible, your code needs a way to emit this data — that’s what <strong>instrumentation</strong> does.
-It’s the act of adding sensors to your system, either manually or automatically, so every request, error, and dependency can be measured and observed. Without instrumentation, observability would be like listening for a heartbeat without a stethoscope.</p>
-<h2 id="the-three-pillars-of-observability">The Three Pillars of Observability</h2>
-<p>Observability rests on three complementary pillars. Each provides a unique view into your system’s health and behavior — and together, they transform guesswork into clarity.</p>
-<h3 id="1-metrics-the-systems-vital-signs">1. Metrics — The System’s Vital Signs</h3>
-<p>Metrics are numbers that represent the state of your system over time. They show patterns: how many requests per second, average latency, memory usage, error rates.</p>
-<p>They’re lightweight, structured, and great for detecting trends. A sudden spike in request duration or a drop in throughput tells you something’s off.</p>
-<p>In the <strong>JVM and Spring ecosystem</strong>, metrics are often collected using <strong>Micrometer</strong> — a dimensional metrics library designed specifically for Java applications.
-Think of it as <em>SLF4J for metrics</em>: an abstraction that lets you instrument your code once and send those metrics to any backend — Prometheus, Datadog, CloudWatch, and many others.</p>
-<p>Micrometer comes built into <strong>Spring Boot Actuator</strong>, meaning your applications are automatically instrumented to report vital metrics without extra setup. Many third-party libraries also use Micrometer, giving you end-to-end visibility across your entire stack.</p>
-<p>But metrics answer <strong>what</strong> is happening — not <strong>why</strong>.</p>
-<h3 id="2-logs-the-narrative-of-events">2. Logs — The Narrative of Events</h3>
-<p>Logs are the system’s diary. They record discrete events: a login attempt, a failed API call, a timeout exception.</p>
-<p>They’re detailed and descriptive — useful for understanding <em>context</em>. When you correlate logs with metrics, you can move from “The latency increased” to “The latency increased because the payment API threw repeated timeouts.”</p>
-<p>Logs tell the story, but without connection to requests that span multiple services, they can become noise. That’s where tracing comes in.</p>
-<h3 id="3-traces-the-journey-of-a-request">3. Traces — The Journey of a Request</h3>
-<p>Traces reveal how a single request travels through your distributed system — across microservices, queues, and databases.</p>
-<p>A <strong>trace</strong> shows the complete journey of one operation from start to finish. Each stop along the way — every API call, query, or function — is recorded as a <strong>span</strong>.</p>
-<p>Traces answer <strong>where</strong> and <strong>why</strong> something went wrong. They’re the bridge between metrics and logs, showing you the full path that led to the problem.</p>
-<h2 id="the-relationship-between-a-trace-and-spans">The Relationship Between a Trace and Spans</h2>
-<p>Think of a <strong>trace</strong> as the <em>entire story</em> of a request.
-Each <strong>span</strong> is a <em>chapter</em> in that story — a smaller operation that contributes to the whole.</p>
-<p>A <strong>trace = a collection of spans</strong>, connected through parent-child relationships.</p>
-<h2 id="a-concrete-example">A Concrete Example</h2>
-<p>Imagine your system has three services:</p>
+<p>Traditional persistence models—typically ORM-based and CRUD-oriented—are optimized for storing <em>current state</em>. Aggregates are mapped to tables, fields to columns, and instances to rows. While this approach is familiar and effective for basic data storage, it has a structural weakness that becomes increasingly visible in modern systems: <strong>domain events are not a first-class concern</strong>.</p>
+<p>When an aggregate changes state—an order is placed, a payment is captured, an address is updated—those changes often need to be communicated to other parts of the system. In event-driven and microservice architectures, this communication happens through <strong>domain events</strong>. Yet in traditional persistence, event publication is usually <em>bolted on</em> to the business logic rather than being an inherent part of it.</p>
+<h3 id="the-bolted-on-events-problem">The “Bolted-On” Events Problem</h3>
+<p>In a typical ORM-based design, the flow looks like this:</p>
 <ol>
-<li><strong>Client Service</strong> – receives the user’s request.</li>
-<li><strong>Order Service</strong> – processes the order details.</li>
-<li><strong>Payment Service</strong> – charges the user’s credit card.</li>
+<li>Business logic updates an aggregate</li>
+<li>The ORM persists the new state</li>
+<li>A transaction commits</li>
+<li>An event is published (if the developer remembered to do it)</li>
 </ol>
-<p>Now, a user places an order. Behind the scenes, this happens:</p>
-<h3 id="step-1-the-client-service-receives-the-request">Step 1: The Client Service receives the request</h3>
+<p>The problem is that steps 2–4 are not intrinsically linked. ORMs may offer lifecycle callbacks, but they are technical hooks, not business-aware mechanisms. There is no built-in guarantee that event publication is atomic with state changes. As a result, systems can easily end up in inconsistent states:</p>
 <ul>
-<li>A <strong>trace</strong> is created for this request.</li>
-<li>The <strong>root span</strong> begins: <code>client /placeOrder</code>.</li>
-<li>Timing starts when the request arrives and stops when the response is sent.</li>
+<li>The database update succeeds but the event is never published</li>
+<li>The event is published even though the transaction rolls back</li>
+<li>The event contains incomplete or incorrect business data</li>
 </ul>
-<h3 id="step-2-the-client-service-calls-the-order-service">Step 2: The Client Service calls the Order Service</h3>
+<p>In a microservice architecture, where downstream services rely on events for synchronization, workflows, and integration, this inconsistency leads to subtle but serious reliability issues.</p>
+<h3 id="event-sourcing-persisting-aggregates-as-events">Event Sourcing: Persisting Aggregates as Events</h3>
+<p>Event sourcing addresses this mismatch by reversing the relationship between state and events. Instead of persisting aggregates as rows that represent their latest state, <strong>event sourcing persists each aggregate as a sequence of domain events</strong> in an event store.</p>
+<p>For example, rather than storing an <code>Order</code> as a single row in an <code>ORDER</code> table, event sourcing stores a stream of events such as:</p>
 <ul>
-<li>A <strong>child span</strong> is created: <code>HTTP POST /orders</code>.</li>
-<li>The <strong>trace ID</strong> links it back to the root span.</li>
-<li>The Order Service adds its own span to the same trace.</li>
+<li><code>OrderCreated</code></li>
+<li><code>OrderApproved</code></li>
+<li><code>OrderShipped</code></li>
 </ul>
-<h3 id="step-3-the-order-service-calls-the-payment-service">Step 3: The Order Service calls the Payment Service</h3>
-<ul>
-<li>Another span appears: <code>call PaymentService</code>.</li>
-<li>The Payment Service adds its own internal span: <code>processPayment</code>.</li>
-</ul>
-<p>Each span includes:</p>
-<ul>
-<li>Start and end timestamps</li>
-<li>Metadata (like HTTP method, URL, or response code)</li>
-<li>The shared <strong>trace ID</strong></li>
-<li>A <strong>parent span ID</strong>, defining relationships</li>
-</ul>
-<p>Visualized, the trace looks like this:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Trace ID: 9afc1234...
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a> ├── client /placeOrder (root span) [120ms]
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a> │    ├── HTTP POST /orders [85ms]
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a> │    │    └── call PaymentService [40ms]
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a> │    │          └── processPayment [20ms]
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a> │    └── sendResponseToUser [5ms]
-</span></code></pre></div>
-<h2 id="why-it-matters">Why It Matters</h2>
-<p>If the Payment Service slows down, that specific span lights up as the bottleneck.
-You instantly know <strong>where</strong> the delay occurred — without scanning thousands of logs or guessing which service misbehaved.
-This is the power of <strong>distributed tracing</strong>: it makes invisible latency visible.</p>
-<h2 id="summary">Summary</h2>
-<p>Metrics, logs, and traces aren’t competitors — they’re collaborators.</p>
-<ul>
-<li><strong>Metrics</strong> show you <em>what</em> is happening.</li>
-<li><strong>Logs</strong> tell you <em>what happened</em>.</li>
-<li><strong>Traces</strong> show you <em>where and why</em>.</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>Concept</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Trace</strong></td>
-<td>The entire journey of one request across services</td>
-<td>“Place order” request from start to finish</td>
-</tr>
-<tr>
-<td><strong>Span</strong></td>
-<td>A single operation within that journey</td>
-<td><code>HTTP call to PaymentService</code>, <code>processOrder</code></td>
-</tr>
-<tr>
-<td><strong>Trace ID</strong></td>
-<td>Shared ID linking all spans</td>
-<td>Same across all related spans</td>
-</tr>
-<tr>
-<td><strong>Parent-Child Relationship</strong></td>
-<td>Shows which operation called which</td>
-<td><code>client</code> → <code>order</code> → <code>payment</code></td>
-</tr>
-</tbody>
-</table>
-<hr />
-<p>Happy coding! 💻</p>
+<p>The aggregate’s current state is derived by replaying these events. In this model, events are not a side effect of state changes—they <em>are</em> the state changes.</p>
+<h3 id="reliable-event-publication-and-built-in-auditing">Reliable Event Publication and Built-In Auditing</h3>
+<p>A major benefit of event sourcing is that <strong>domain events are reliably published whenever an aggregate’s state changes</strong>. Event persistence and event publication are part of the same operation, eliminating the risk that business logic and integration logic drift apart.</p>
+<p>This reliability makes event sourcing a strong foundation for event-driven microservice architectures. Because events can also record metadata—such as the identity of the user who made the change—the event stream doubles as an <strong>accurate, guaranteed audit log</strong>. The same stream can then be reused for notifications, inter-service integration, analytics, and monitoring without additional instrumentation.</p>
+<h3 id="snapshots-and-aggregate-reconstruction">Snapshots and Aggregate Reconstruction</h3>
+<p>Replaying an entire event stream every time an aggregate is loaded can be inefficient for long-lived aggregates. To address this, event-sourced systems commonly use <strong>snapshots</strong>.</p>
+<p>A snapshot captures the aggregate’s state at a specific point in time. When loading the aggregate, the system recreates the aggregate instance from the snapshot rather than constructing it using its default constructor and replaying every historical event. Only the events that occurred after the snapshot are applied, preserving correctness while significantly improving performance.</p>
+<h3 id="the-challenge-of-evolving-events">The Challenge of Evolving Events</h3>
+<p>Event sourcing introduces its own complexities, particularly around <strong>schema evolution</strong>. Events and snapshots are stored forever, and their schemas will inevitably change over time. Aggregates may need to handle events from multiple schema versions, which can lead to bloated and fragile code.</p>
+<p>A well-established solution is to <strong>upgrade events to the latest schema version when they are loaded from the event store</strong>. This keeps version-handling logic outside the aggregate, allowing aggregates to apply only the current version of events and remain focused on business behavior rather than compatibility concerns.</p>
+<h3 id="closing-thoughts">Closing Thoughts</h3>
+<p>Traditional persistence treats event publication, auditing, and integration as secondary concerns—features that must be manually bolted on and carefully maintained. Event sourcing makes a different trade-off: it elevates events to the source of truth. In doing so, it aligns business state with system integration, provides reliable event publication, enables accurate auditing, and offers a scalable foundation for event-driven architectures—provided its additional complexity is handled with discipline.</p>
 
 
 
