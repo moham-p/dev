@@ -1,4 +1,14 @@
+site_description: Moham Pandi technical blog
 site_name: Curiosity into `Code`
+site_url: https://moham.dev
+
+plugins:
+  - rss:
+      feeds_filenames:
+        rss_created: rss.xml
+        rss_updated: rss-updated.xml
+        json_created: feed.json
+        json_updated: feed-updated.json
 
 dev_addr: 127.0.0.1:9000
 
@@ -29,7 +39,8 @@ nav:
   - Design:
     - Don’t Mix Up Aggregates and Aggregators: design/Don’t Mix Up Aggregates and Aggregators.md
     - Don't Mix Up Polling and Pooling: design/Don't Mix Up Polling and Pooling.md
-#    - Don’t Do DDD — Just Do These 5 Things in Your Next Project: design/Don’t Do DDD — Just Do These 5 Things in Your Next Project.md
+    - From State-Centric Persistence to Event-Centric Architecture: design/From State-Centric Persistence to Event-Centric Architecture.md
+    - Don’t Do DDD — Just Do These 5 Things in Your Next Project: design/Don’t Do DDD — Just Do These 5 Things in Your Next Project.md
   - Data:
     - PostgreSQL Transactions - Part 2: data/PostgreSQL Transactions - Part 2.md
     - PostgreSQL Transactions - Part 1: data/PostgreSQL Transactions - Part 1.md
