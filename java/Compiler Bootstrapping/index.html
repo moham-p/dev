@@ -10,13 +10,13 @@
   
   
   
-  <link rel="canonical" href="https://moham.dev/spring/How%20to%20Scale%20Spring%20Boot%20for%20High%20Concurrency/">
+  <link rel="canonical" href="https://moham.dev/java/Compiler%20Bootstrapping/">
   
   
-  <link rel="prev" href="../How%20Singleton%20Components%20Work%20with%20Thread%20Pools/">
+  <link rel="prev" href="../Three%20Streams%2C%20Three%20Worlds%2C%20Java%20Streams%20vs%20Reactive%20Streams%20vs%20Kafka%20Streams/">
   
   
-  <link rel="next" href="../If%20You%20Don%E2%80%99t%20Practice%20TDD%2C%20Do%20This%20Instead/">
+  <link rel="next" href="../../spring/Method-Level%20Authorization%20in%20Spring%20Security/">
   
   
   <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../feed_rss_created.xml">
@@ -28,7 +28,7 @@
   
   
   
-  <title>How to Scale Spring Boot for High Concurrency - Curiosity into `Code`</title>
+  <title>Compiler Bootstrapping - Curiosity into `Code`</title>
   
   
   
@@ -72,7 +72,7 @@
 <div data-md-component="skip">
   
   
-  <a href="#spring-boot-uses-thread-pools-for-concurrency" class="md-skip">
+  <a href="#step-1-the-first-compiler" class="md-skip">
     Skip to content
   </a>
   
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              How to Scale Spring Boot for High Concurrency
+              Compiler Bootstrapping
             
           </span>
         </div>
@@ -250,17 +250,19 @@
         
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -274,7 +276,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Java
@@ -288,7 +290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/How%20HashMap%20Handles%20Collisions/" class="md-nav__link">
+      <a href="../How%20HashMap%20Handles%20Collisions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -309,7 +311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/Stay%20Friends%20with%20the%20Console/" class="md-nav__link">
+      <a href="../Stay%20Friends%20with%20the%20Console/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -330,7 +332,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/Concurrency%20-%20Part%201/" class="md-nav__link">
+      <a href="../Concurrency%20-%20Part%201/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -351,7 +353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/Concurrency%20-%20Part%202/" class="md-nav__link">
+      <a href="../Concurrency%20-%20Part%202/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -372,7 +374,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/Mock%20vs%20Spy%20in%20Mockito%20%E2%80%94%20Never%20Ask%20Again/" class="md-nav__link">
+      <a href="../Mock%20vs%20Spy%20in%20Mockito%20%E2%80%94%20Never%20Ask%20Again/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -393,7 +395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/Concurrency%20-%20Part%203/" class="md-nav__link">
+      <a href="../Concurrency%20-%20Part%203/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -414,7 +416,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/Java%20Generics%20as%20a%20Compile-Time%20Gift%20With%20a%20Runtime%20Disguise/" class="md-nav__link">
+      <a href="../Java%20Generics%20as%20a%20Compile-Time%20Gift%20With%20a%20Runtime%20Disguise/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -435,7 +437,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/Concurrency%20-%20Part%204/" class="md-nav__link">
+      <a href="../Concurrency%20-%20Part%204/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -456,7 +458,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/Concurrency%20-%20Part%205/" class="md-nav__link">
+      <a href="../Concurrency%20-%20Part%205/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -477,7 +479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/Java%E2%80%99s%20Mission%20-%20No%20More%20Excuses/" class="md-nav__link">
+      <a href="../Java%E2%80%99s%20Mission%20-%20No%20More%20Excuses/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -498,7 +500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/How%20Threads%20Share%20Code%20in%20Java/" class="md-nav__link">
+      <a href="../How%20Threads%20Share%20Code%20in%20Java/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -519,7 +521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/Don%E2%80%99t%20Let%20Your%20Java%20Debugger%20Fool%20You/" class="md-nav__link">
+      <a href="../Don%E2%80%99t%20Let%20Your%20Java%20Debugger%20Fool%20You/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -540,118 +542,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/Three%20Streams%2C%20Three%20Worlds%2C%20Java%20Streams%20vs%20Reactive%20Streams%20vs%20Kafka%20Streams/" class="md-nav__link">
+      <a href="../Three%20Streams%2C%20Three%20Worlds%2C%20Java%20Streams%20vs%20Reactive%20Streams%20vs%20Kafka%20Streams/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Three Streams, Three Worlds, Java Streams vs Reactive Streams vs Kafka Streams
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../java/Compiler%20Bootstrapping/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Compiler Bootstrapping
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-        
-        
-        
-  
-  
-    
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Spring
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            Spring
-          </label>
-          <ul class="md-nav__list">
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Method-Level%20Authorization%20in%20Spring%20Security/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Method-Level Authorization in Spring Security
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../How%20Singleton%20Components%20Work%20with%20Thread%20Pools/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    How Singleton Components Work with Thread Pools
   </span>
   
 
@@ -679,7 +574,7 @@
           
   
   <span class="md-ellipsis">
-    How to Scale Spring Boot for High Concurrency
+    Compiler Bootstrapping
   </span>
   
 
@@ -690,7 +585,7 @@
         
   
   <span class="md-ellipsis">
-    How to Scale Spring Boot for High Concurrency
+    Compiler Bootstrapping
   </span>
   
 
@@ -710,55 +605,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#spring-boot-uses-thread-pools-for-concurrency" class="md-nav__link">
+  <a href="#step-1-the-first-compiler" class="md-nav__link">
     <span class="md-ellipsis">
-      Spring Boot Uses Thread Pools for Concurrency
+      Step 1 — The First Compiler
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#when-should-you-increase-the-thread-pool-size" class="md-nav__link">
+  <a href="#step-2-introducing-kotlin-into-the-compiler" class="md-nav__link">
     <span class="md-ellipsis">
-      When Should You Increase the Thread Pool Size?
+      Step 2 — Introducing Kotlin into the Compiler
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rule-of-thumb-io-bound-vs-cpu-bound" class="md-nav__link">
-    <span class="md-ellipsis">
-      Rule of Thumb: I/O-Bound vs. CPU-Bound
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Rule of Thumb: I/O-Bound vs. CPU-Bound">
+    <nav class="md-nav" aria-label="Step 2 — Introducing Kotlin into the Compiler">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#for-io-bound-applications" class="md-nav__link">
+  <a href="#why-the-jvm-and-bytecode-matter" class="md-nav__link">
     <span class="md-ellipsis">
-      For I/O-Bound Applications
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#for-cpu-bound-applications" class="md-nav__link">
-    <span class="md-ellipsis">
-      For CPU-Bound Applications
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example
+      Why the JVM and Bytecode Matter
     </span>
   </a>
   
@@ -770,35 +638,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#monitoring-thread-pool-usage" class="md-nav__link">
+  <a href="#step-3-full-self-hosting" class="md-nav__link">
     <span class="md-ellipsis">
-      Monitoring Thread Pool Usage
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Monitoring Thread Pool Usage">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#spring-boot-actuator-micrometer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Spring Boot Actuator + Micrometer
+      Step 3 — Full Self-Hosting
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#jvisualvm-or-jfr" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#what-runs-when-you-compile-kotlin-today" class="md-nav__link">
     <span class="md-ellipsis">
-      JVisualVM or JFR
+      What Runs When You Compile Kotlin Today?
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#bootstrapping-vs-self-hosting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bootstrapping vs Self-Hosting
+    </span>
+  </a>
   
 </li>
       
@@ -811,6 +673,48 @@
 
               
             
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+        
+        
+        
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Spring
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Spring
+          </label>
+          <ul class="md-nav__list">
+            
               
                 
   
@@ -818,7 +722,70 @@
   
   
     <li class="md-nav__item">
-      <a href="../If%20You%20Don%E2%80%99t%20Practice%20TDD%2C%20Do%20This%20Instead/" class="md-nav__link">
+      <a href="../../spring/Method-Level%20Authorization%20in%20Spring%20Security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Method-Level Authorization in Spring Security
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring/How%20Singleton%20Components%20Work%20with%20Thread%20Pools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How Singleton Components Work with Thread Pools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring/How%20to%20Scale%20Spring%20Boot%20for%20High%20Concurrency/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to Scale Spring Boot for High Concurrency
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring/If%20You%20Don%E2%80%99t%20Practice%20TDD%2C%20Do%20This%20Instead/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -839,7 +806,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Being%20Reactive%20Even%20When%20Your%20Upstream%20Isn%27t/" class="md-nav__link">
+      <a href="../../spring/Being%20Reactive%20Even%20When%20Your%20Upstream%20Isn%27t/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1282,82 +1249,91 @@
 
 
 
-<h1>How to Scale Spring Boot for High Concurrency</h1>
+<h1>Compiler Bootstrapping</h1>
 
-<p>In <a href="../How Singleton Components Work with Thread Pools">my previous post</a>, we explored how Spring Boot uses singleton-scoped components (like controllers, services, and repositories) and how multiple threads can safely share these instances thanks to stateless design. We verified singleton behavior using <code>System.identityHashCode</code> and explained how Spring delegates concurrent request processing to the servlet container’s thread pool (e.g., Tomcat).</p>
-<p>In this follow-up post, we go one level deeper — tackling questions like:</p>
+<p>You may have heard that a <strong>language X is written in X</strong>, and you may be wondering how that is possible. How can a language exist before it exists? The answer is <strong>compiler bootstrapping</strong> — a staged engineering process that allows a language to evolve into a self-hosted system. </p>
+<p>Let’s walk through it using Kotlin as a concrete example, developed by the team at JetBrains.</p>
+<h2 id="step-1-the-first-compiler">Step 1 — The First Compiler</h2>
+<p>Kotlin was designed for the JVM ecosystem, where:</p>
 <ul>
-<li>What happens when concurrent user traffic increases?</li>
-<li>Should you increase the Tomcat thread pool size?</li>
-<li>How do you determine the right number of threads?</li>
-<li>How do you monitor and tune your Spring Boot app for concurrency?</li>
+<li>Java was dominant</li>
+<li>The JVM was mature</li>
+<li><code>javac</code> already existed</li>
 </ul>
-<h2 id="spring-boot-uses-thread-pools-for-concurrency">Spring Boot Uses Thread Pools for Concurrency</h2>
-<p>Every incoming HTTP request is assigned to a thread from a shared thread pool maintained by the embedded servlet container (e.g., Tomcat, Jetty, or Undertow). 
-This makes your app capable of handling multiple users simultaneously, even though your beans are singleton-scoped.</p>
-<p>But here’s the catch: the thread pool has limits.</p>
-<p>If all threads are busy:</p>
-<ul>
-<li>Incoming requests are queued</li>
-<li>If the queue is full, then requests are rejected or delayed</li>
-</ul>
-<h2 id="when-should-you-increase-the-thread-pool-size">When Should You Increase the Thread Pool Size?</h2>
-<p>If your application starts experiencing, slow response times, request timeouts, or 5xx errors under load it might be time to look at 
-your <strong>Tomcat thread pool settings</strong>.</p>
-<p>You can configure them in <code>application.yml</code>:</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">server</span><span class="p">:</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">tomcat</span><span class="p">:</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">threads</span><span class="p">:</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">      </span><span class="nt">max</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">200</span><span class="w">     </span><span class="c1"># default is 200</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="nt">min-spare</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<p>So the Kotlin team at JetBrains wrote the first compiler in Java.</p>
+<p>The pipeline looked like this:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Kotlin compiler v0 (Java source)
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    ↓
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>javac
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    ↓
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>v0.jar (JVM bytecode)
 </span></code></pre></div>
-<p>But how do you know what number is right?</p>
-<h2 id="rule-of-thumb-io-bound-vs-cpu-bound">Rule of Thumb: I/O-Bound vs. CPU-Bound</h2>
-<p>Your thread pool sizing depends on the <strong>nature of your workload</strong>:</p>
-<h3 id="for-io-bound-applications">For I/O-Bound Applications</h3>
-<p><em>(e.g., database queries, external HTTP calls)</em></p>
+<p>Key point:</p>
 <ul>
-<li>Threads often sit idle waiting for I/O</li>
-<li>You can afford to have <strong>more threads than CPU cores</strong></li>
-<li>Start with: <strong>2x to 4x the number of cores</strong></li>
+<li>v0 was just a Java program.</li>
+<li>It translated Kotlin source into JVM bytecode.</li>
+<li>There was no self-hosting yet.</li>
 </ul>
-<h3 id="for-cpu-bound-applications">For CPU-Bound Applications</h3>
-<p><em>(e.g., heavy computation, encoding)</em></p>
+<p>Here is the revised section with the JVM/bytecode explanation integrated naturally and concisely:</p>
+<h2 id="step-2-introducing-kotlin-into-the-compiler">Step 2 — Introducing Kotlin into the Compiler</h2>
+<p>Once Kotlin became expressive and stable enough, the JetBrains team started rewriting parts of the compiler in Kotlin itself.</p>
+<p>Now the pipeline changed:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>v0.jar
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    ↓
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Compiles Kotlin-based compiler source (v1)
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    ↓
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>v1.jar
+</span></code></pre></div>
+<p>Important details:</p>
 <ul>
-<li>Threads are CPU-hungry</li>
-<li>More threads → more context switching → slower performance</li>
-<li>Match threads to number of CPU cores: <strong>maxThreads ≈ CPU cores</strong></li>
+<li>v1 is written (partly or fully) in Kotlin.</li>
+<li>It is compiled by v0’s <strong>binary</strong>, not its source.</li>
+<li>There is no circular dependency.</li>
 </ul>
-<h3 id="example">Example</h3>
-<p>If your server has 8 cores:</p>
+<h3 id="why-the-jvm-and-bytecode-matter">Why the JVM and Bytecode Matter</h3>
+<p>Each compiler version is distributed as:</p>
 <ul>
-<li>I/O-heavy service: try <code>maxThreads = 32–64</code></li>
-<li>CPU-heavy service: try <code>maxThreads = 8</code></li>
+<li>Precompiled <code>.class</code> files</li>
+<li>Packaged into a <code>.jar</code></li>
+<li>Executed by the JVM</li>
 </ul>
-<p>Always monitor and adjust.</p>
-<hr />
-<h2 id="monitoring-thread-pool-usage">Monitoring Thread Pool Usage</h2>
-<p>To make informed decisions, observe the actual load on your thread pool. You can do this using:</p>
-<h3 id="spring-boot-actuator-micrometer">Spring Boot Actuator + Micrometer</h3>
-<p>Enable actuator endpoints and integrate with:</p>
+<p>Bootstrapping relies on an already compiled compiler (<strong>binary artifacts</strong>), not recursive source evaluation.</p>
+<h2 id="step-3-full-self-hosting">Step 3 — Full Self-Hosting</h2>
+<p>After several iterations, the compiler became fully written in Kotlin.</p>
+<p>From then on:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Compiler v(N-1)
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    ↓
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Compiles compiler vN
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    ↓
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>Compiler vN
+</span></code></pre></div>
+<p>At this stage, Kotlin is self-hosting.</p>
+<p>But there is always a prior stable compiler in the chain.</p>
+<h2 id="what-runs-when-you-compile-kotlin-today">What Runs When You Compile Kotlin Today?</h2>
+<p>When you run:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>kotlinc<span class="w"> </span>MyFile.kt
+</span></code></pre></div>
+<p>You are executing:</p>
 <ul>
-<li>Prometheus</li>
-<li>Grafana</li>
-<li>CloudWatch, New Relic, etc.</li>
+<li>A prebuilt Kotlin compiler <code>.jar</code></li>
+<li>Already compiled by a previous Kotlin compiler</li>
+<li>Running as JVM bytecode</li>
 </ul>
-<p>Look for:</p>
+<p>The original Java-based compiler (v0) is not part of your toolchain anymore. It was part of the bootstrap history — not the current execution path.</p>
+<h2 id="bootstrapping-vs-self-hosting">Bootstrapping vs Self-Hosting</h2>
+<p>They are related but different:</p>
 <ul>
-<li><code>tomcat.threads.active</code></li>
-<li><code>tomcat.threads.max</code></li>
-<li><code>tomcat.threads.busy</code></li>
+<li><strong>Self-hosting</strong> → The compiler is written in its own language.</li>
+<li><strong>Bootstrapping</strong> → The staged process that gets you there.</li>
 </ul>
-<h3 id="jvisualvm-or-jfr">JVisualVM or JFR</h3>
-<p>For local testing, tools like <strong>VisualVM</strong> or <strong>Java Flight Recorder</strong> help track:</p>
-<ul>
-<li>Thread activity</li>
-<li>Garbage collection</li>
-<li>Stack traces and bottlenecks</li>
-</ul>
+<p>Bootstrapping looks like this:</p>
+<ol>
+<li>Implement compiler in another language.</li>
+<li>Produce working compiler binary.</li>
+<li>Rewrite compiler in target language.</li>
+<li>Use version N to build version N+1.</li>
+</ol>
+<p>It’s versioned recursion, not circular dependency.</p>
 <hr />
 <p>Happy coding! 💻</p>
 
