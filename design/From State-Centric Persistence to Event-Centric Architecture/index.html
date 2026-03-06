@@ -10,13 +10,13 @@
   
   
   
-  <link rel="canonical" href="https://moham.dev/java/How%20Threads%20Share%20Code%20in%20Java/">
+  <link rel="canonical" href="https://moham.dev/design/From%20State-Centric%20Persistence%20to%20Event-Centric%20Architecture/">
   
   
-  <link rel="prev" href="../Java%E2%80%99s%20Mission%20-%20No%20More%20Excuses/">
+  <link rel="prev" href="../Don%27t%20Mix%20Up%20Polling%20and%20Pooling/">
   
   
-  <link rel="next" href="../Don%E2%80%99t%20Let%20Your%20Java%20Debugger%20Fool%20You/">
+  <link rel="next" href="../Don%E2%80%99t%20Do%20DDD%20%E2%80%94%20Just%20Do%20These%205%20Things%20in%20Your%20Next%20Project/">
   
   
   <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../feed_rss_created.xml">
@@ -28,7 +28,7 @@
   
   
   
-  <title>How Threads Share Code in Java - Curiosity into `Code`</title>
+  <title>From State-Centric Persistence to Event-Centric Architecture - Curiosity into `Code`</title>
   
   
   
@@ -72,7 +72,7 @@
 <div data-md-component="skip">
   
   
-  <a href="#short-answer" class="md-skip">
+  <a href="#the-bolted-on-events-problem" class="md-skip">
     Skip to content
   </a>
   
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              How Threads Share Code in Java
+              From State-Centric Persistence to Event-Centric Architecture
             
           </span>
         </div>
@@ -250,19 +250,17 @@
         
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -276,7 +274,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Java
@@ -290,7 +288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../How%20HashMap%20Handles%20Collisions/" class="md-nav__link">
+      <a href="../../java/How%20HashMap%20Handles%20Collisions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -311,7 +309,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Stay%20Friends%20with%20the%20Console/" class="md-nav__link">
+      <a href="../../java/Stay%20Friends%20with%20the%20Console/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -332,7 +330,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Concurrency%20-%20Part%201/" class="md-nav__link">
+      <a href="../../java/Concurrency%20-%20Part%201/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -353,7 +351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Concurrency%20-%20Part%202/" class="md-nav__link">
+      <a href="../../java/Concurrency%20-%20Part%202/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -374,7 +372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Mock%20vs%20Spy%20in%20Mockito%20%E2%80%94%20Never%20Ask%20Again/" class="md-nav__link">
+      <a href="../../java/Mock%20vs%20Spy%20in%20Mockito%20%E2%80%94%20Never%20Ask%20Again/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -395,7 +393,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Concurrency%20-%20Part%203/" class="md-nav__link">
+      <a href="../../java/Concurrency%20-%20Part%203/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -416,7 +414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Java%20Generics%20as%20a%20Compile-Time%20Gift%20With%20a%20Runtime%20Disguise/" class="md-nav__link">
+      <a href="../../java/Java%20Generics%20as%20a%20Compile-Time%20Gift%20With%20a%20Runtime%20Disguise/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -437,7 +435,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Concurrency%20-%20Part%204/" class="md-nav__link">
+      <a href="../../java/Concurrency%20-%20Part%204/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -458,7 +456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Concurrency%20-%20Part%205/" class="md-nav__link">
+      <a href="../../java/Concurrency%20-%20Part%205/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -479,7 +477,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Java%E2%80%99s%20Mission%20-%20No%20More%20Excuses/" class="md-nav__link">
+      <a href="../../java/Java%E2%80%99s%20Mission%20-%20No%20More%20Excuses/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -497,28 +495,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    How Threads Share Code in Java
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../java/How%20Threads%20Share%20Code%20in%20Java/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -527,126 +507,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#short-answer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Short Answer
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-code-and-threads-work-in-java" class="md-nav__link">
-    <span class="md-ellipsis">
-      How Code and Threads Work in Java
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How Code and Threads Work in Java">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-is-the-stack" class="md-nav__link">
-    <span class="md-ellipsis">
-      What Is the Stack?
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#where-does-the-code-live" class="md-nav__link">
-    <span class="md-ellipsis">
-      Where Does the Code Live?
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#what-happens-when-multiple-threads-use-a-singleton" class="md-nav__link">
-    <span class="md-ellipsis">
-      What Happens When Multiple Threads Use a Singleton?
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-singleton-components-are-safe-in-spring-if-stateless" class="md-nav__link">
-    <span class="md-ellipsis">
-      Why Singleton Components Are Safe in Spring — If Stateless
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Why Singleton Components Are Safe in Spring — If Stateless">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#avoid-shared-mutable-state" class="md-nav__link">
-    <span class="md-ellipsis">
-      ⚠️ Avoid Shared Mutable State
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#use-method-local-variables-instead" class="md-nav__link">
-    <span class="md-ellipsis">
-      ✅ Use Method-Local Variables Instead
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#real-world-analogy-shared-code-private-data" class="md-nav__link">
-    <span class="md-ellipsis">
-      Real-World Analogy: Shared Code, Private Data
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#wrap-up" class="md-nav__link">
-    <span class="md-ellipsis">
-      Wrap-Up
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -659,7 +519,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Don%E2%80%99t%20Let%20Your%20Java%20Debugger%20Fool%20You/" class="md-nav__link">
+      <a href="../../java/Don%E2%80%99t%20Let%20Your%20Java%20Debugger%20Fool%20You/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -680,7 +540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Three%20Streams%2C%20Three%20Worlds%2C%20Java%20Streams%20vs%20Reactive%20Streams%20vs%20Kafka%20Streams/" class="md-nav__link">
+      <a href="../../java/Three%20Streams%2C%20Three%20Worlds%2C%20Java%20Streams%20vs%20Reactive%20Streams%20vs%20Kafka%20Streams/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -701,7 +561,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Compiler%20Bootstrapping/" class="md-nav__link">
+      <a href="../../java/Compiler%20Bootstrapping/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -873,17 +733,19 @@
         
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -897,7 +759,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Design
@@ -911,7 +773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/Don%E2%80%99t%20Mix%20Up%20Aggregates%20and%20Aggregators/" class="md-nav__link">
+      <a href="../Don%E2%80%99t%20Mix%20Up%20Aggregates%20and%20Aggregators/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -932,7 +794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/Don%27t%20Mix%20Up%20Polling%20and%20Pooling/" class="md-nav__link">
+      <a href="../Don%27t%20Mix%20Up%20Polling%20and%20Pooling/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -950,10 +812,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../design/From%20State-Centric%20Persistence%20to%20Event-Centric%20Architecture/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    From State-Centric Persistence to Event-Centric Architecture
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -962,6 +842,78 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-bolted-on-events-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      The “Bolted-On” Events Problem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#event-sourcing-persisting-aggregates-as-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      Event Sourcing: Persisting Aggregates as Events
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reliable-event-publication-and-built-in-auditing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reliable Event Publication and Built-In Auditing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#snapshots-and-aggregate-reconstruction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Snapshots and Aggregate Reconstruction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-challenge-of-evolving-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Challenge of Evolving Events
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#closing-thoughts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Closing Thoughts
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -974,7 +926,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/Don%E2%80%99t%20Do%20DDD%20%E2%80%94%20Just%20Do%20These%205%20Things%20in%20Your%20Next%20Project/" class="md-nav__link">
+      <a href="../Don%E2%80%99t%20Do%20DDD%20%E2%80%94%20Just%20Do%20These%205%20Things%20in%20Your%20Next%20Project/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1312,113 +1264,45 @@
 
 
 
-<h1>How Threads Share Code in Java</h1>
+<h1>From State-Centric Persistence to Event-Centric Architecture</h1>
 
-<p>In <a href="../../spring/How Singleton Components Work with Thread Pools">a previous post</a> we explored how Spring Boot handles multiple requests using thread pools, 
-and how singleton-scoped components (like controllers and services) work in such an environment. But an equally important question remains:
-<em>“If all threads share the same singleton, do they each copy the code into their stack?”</em></p>
-<h2 id="short-answer">Short Answer</h2>
-<p><strong>No</strong>, each thread does <strong>not</strong> copy the code of the singleton class into its own stack.</p>
-<p>Instead:</p>
+<p>Traditional persistence models—typically ORM-based and CRUD-oriented—are optimized for storing <em>current state</em>. Aggregates are mapped to tables, fields to columns, and instances to rows. While this approach is familiar and effective for basic data storage, it has a structural weakness that becomes increasingly visible in modern systems: <strong>domain events are not a first-class concern</strong>.</p>
+<p>When an aggregate changes state—an order is placed, a payment is captured, an address is updated—those changes often need to be communicated to other parts of the system. In event-driven and microservice architectures, this communication happens through <strong>domain events</strong>. Yet in traditional persistence, event publication is usually <em>bolted on</em> to the business logic rather than being an inherent part of it.</p>
+<h2 id="the-bolted-on-events-problem">The “Bolted-On” Events Problem</h2>
+<p>In a typical ORM-based design, the flow looks like this:</p>
+<ol>
+<li>Business logic updates an aggregate</li>
+<li>The ORM persists the new state</li>
+<li>A transaction commits</li>
+<li>An event is published (if the developer remembered to do it)</li>
+</ol>
+<p>The problem is that steps 2–4 are not intrinsically linked. ORMs may offer lifecycle callbacks, but they are technical hooks, not business-aware mechanisms. There is no built-in guarantee that event publication is atomic with state changes. As a result, systems can easily end up in inconsistent states:</p>
 <ul>
-<li>The code is shared</li>
-<li>Each thread gets its own stack frame and local variables when invoking a method</li>
+<li>The database update succeeds but the event is never published</li>
+<li>The event is published even though the transaction rolls back</li>
+<li>The event contains incomplete or incorrect business data</li>
 </ul>
-<h2 id="how-code-and-threads-work-in-java">How Code and Threads Work in Java</h2>
-<h3 id="what-is-the-stack">What Is the Stack?</h3>
-<p>Each thread in Java has its own call stack. It stores:</p>
+<p>In a microservice architecture, where downstream services rely on events for synchronization, workflows, and integration, this inconsistency leads to subtle but serious reliability issues.</p>
+<h2 id="event-sourcing-persisting-aggregates-as-events">Event Sourcing: Persisting Aggregates as Events</h2>
+<p>Event sourcing addresses this mismatch by reversing the relationship between state and events. Instead of persisting aggregates as rows that represent their latest state, <strong>event sourcing persists each aggregate as a sequence of domain events</strong> in an event store.</p>
+<p>For example, rather than storing an <code>Order</code> as a single row in an <code>ORDER</code> table, event sourcing stores a stream of events such as:</p>
 <ul>
-<li>Method call frames</li>
-<li>Local variables</li>
-<li>Return addresses</li>
+<li><code>OrderCreated</code></li>
+<li><code>OrderApproved</code></li>
+<li><code>OrderShipped</code></li>
 </ul>
-<p>Each time a method is called, a new stack frame is pushed onto the thread’s private stack memory.</p>
-<hr />
-<h3 id="where-does-the-code-live">Where Does the Code Live?</h3>
-<p>The compiled method code (bytecode) lives in the JVM's method area, also known as:</p>
-<ul>
-<li><strong>Metaspace</strong> (in modern JVMs)</li>
-<li><strong>Code cache</strong></li>
-</ul>
-<p>This area is <strong>shared</strong> by all threads. There's only <strong>one copy of the method</strong>, no matter how many threads invoke it.</p>
-<hr />
-<h3 id="what-happens-when-multiple-threads-use-a-singleton">What Happens When Multiple Threads Use a Singleton?</h3>
-<p>Consider this singleton class:</p>
-<div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MySingleton</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">MySingleton</span><span class="w"> </span><span class="n">instance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MySingleton</span><span class="p">();</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="nf">MySingleton</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">MySingleton</span><span class="w"> </span><span class="nf">getInstance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">instance</span><span class="p">;</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doSomething</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">        </span><span class="c1">// some logic</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">}</span>
-</span></code></pre></div>
-<p>Now multiple threads run:</p>
-<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">MySingleton</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">doSomething</span><span class="p">();</span>
-</span></code></pre></div>
-<p>Each thread:</p>
-<ul>
-<li>Calls <code>getInstance()</code> and receives the <strong>same singleton instance</strong></li>
-<li>
-<p>Invokes <code>doSomething()</code>, which:</p>
-<ul>
-<li>Pushes a stack frame onto <strong>that thread’s stack</strong></li>
-<li>Allocates <strong>method-local variables</strong></li>
-<li>Executes the <strong>shared code</strong> independently</li>
-</ul>
-</li>
-</ul>
-<p>The code for <code>doSomething()</code> is not copied — it is <strong>shared</strong>, but executed in separate thread contexts.</p>
-<hr />
-<h2 id="why-singleton-components-are-safe-in-spring-if-stateless">Why Singleton Components Are Safe in Spring — If Stateless</h2>
-<p>Spring Boot creates most beans as <strong>singletons</strong> by default:</p>
-<ul>
-<li>One instance per application context</li>
-<li>Shared across all requests and threads</li>
-</ul>
-<p>This is safe <strong>only if the bean is stateless</strong>.</p>
-<hr />
-<h3 id="avoid-shared-mutable-state">⚠️ Avoid Shared Mutable State</h3>
-<p>Here’s a dangerous anti-pattern:</p>
-<div class="language-java highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nd">@Service</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DangerousService</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w"> </span><span class="c1">// ❌ shared mutable state!</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">}</span>
-</span></code></pre></div>
-<p>This <code>names</code> list is shared by all threads. Concurrent access can lead to:</p>
-<ul>
-<li>Race conditions</li>
-<li><code>ConcurrentModificationException</code></li>
-<li>Corrupted data</li>
-</ul>
-<hr />
-<h3 id="use-method-local-variables-instead">✅ Use Method-Local Variables Instead</h3>
-<p>Here’s a safer version:</p>
-<div class="language-java highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@Service</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SafeService</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">handleRequest</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w"> </span><span class="c1">// ✅ local to this method</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">        </span><span class="n">names</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="c1">// process names...</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="p">}</span>
-</span></code></pre></div>
-<p>Every request gets its own list, allocated in that thread’s stack frame. No interference, no bugs.</p>
-<hr />
-<h2 id="real-world-analogy-shared-code-private-data">Real-World Analogy: Shared Code, Private Data</h2>
-<p>Imagine the method as a set of instructions written on a whiteboard in a room. Each thread walks into the room, 
-reads the instructions, and follows them using its own notebook (stack frame). Everyone reads the same board, but works with their own materials.</p>
-<hr />
-<h2 id="wrap-up">Wrap-Up</h2>
-<p>Threads don’t copy code — they just execute shared code in their own private space. That’s why singleton beans in Spring are safe, as long as you keep them stateless.</p>
-<p>If your method uses only local variables and doesn’t touch shared state, you're good.</p>
-<hr />
-<p>Happy coding! 💻</p>
+<p>The aggregate’s current state is derived by replaying these events. In this model, events are not a side effect of state changes—they <em>are</em> the state changes.</p>
+<h2 id="reliable-event-publication-and-built-in-auditing">Reliable Event Publication and Built-In Auditing</h2>
+<p>A major benefit of event sourcing is that <strong>domain events are reliably published whenever an aggregate’s state changes</strong>. Event persistence and event publication are part of the same operation, eliminating the risk that business logic and integration logic drift apart.</p>
+<p>This reliability makes event sourcing a strong foundation for event-driven microservice architectures. Because events can also record metadata—such as the identity of the user who made the change—the event stream doubles as an <strong>accurate, guaranteed audit log</strong>. The same stream can then be reused for notifications, inter-service integration, analytics, and monitoring without additional instrumentation.</p>
+<h2 id="snapshots-and-aggregate-reconstruction">Snapshots and Aggregate Reconstruction</h2>
+<p>Replaying an entire event stream every time an aggregate is loaded can be inefficient for long-lived aggregates. To address this, event-sourced systems commonly use <strong>snapshots</strong>.</p>
+<p>A snapshot captures the aggregate’s state at a specific point in time. When loading the aggregate, the system recreates the aggregate instance from the snapshot rather than constructing it using its default constructor and replaying every historical event. Only the events that occurred after the snapshot are applied, preserving correctness while significantly improving performance.</p>
+<h2 id="the-challenge-of-evolving-events">The Challenge of Evolving Events</h2>
+<p>Event sourcing introduces its own complexities, particularly around <strong>schema evolution</strong>. Events and snapshots are stored forever, and their schemas will inevitably change over time. Aggregates may need to handle events from multiple schema versions, which can lead to bloated and fragile code.</p>
+<p>A well-established solution is to <strong>upgrade events to the latest schema version when they are loaded from the event store</strong>. This keeps version-handling logic outside the aggregate, allowing aggregates to apply only the current version of events and remain focused on business behavior rather than compatibility concerns.</p>
+<h2 id="closing-thoughts">Closing Thoughts</h2>
+<p>Traditional persistence treats event publication, auditing, and integration as secondary concerns—features that must be manually bolted on and carefully maintained. Event sourcing makes a different trade-off: it elevates events to the source of truth. In doing so, it aligns business state with system integration, provides reliable event publication, enables accurate auditing, and offers a scalable foundation for event-driven architectures—provided its additional complexity is handled with discipline.</p>
 
 
 
