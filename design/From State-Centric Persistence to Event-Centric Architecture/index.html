@@ -13,10 +13,10 @@
   <link rel="canonical" href="https://moham.dev/design/From%20State-Centric%20Persistence%20to%20Event-Centric%20Architecture/">
   
   
-  <link rel="prev" href="../Don%27t%20Mix%20Up%20Polling%20and%20Pooling/">
+  <link rel="prev" href="../Don%E2%80%99t%20Do%20DDD%20%E2%80%94%20Just%20Do%20These%205%20Things%20in%20Your%20Next%20Project/">
   
   
-  <link rel="next" href="../Don%E2%80%99t%20Do%20DDD%20%E2%80%94%20Just%20Do%20These%205%20Things%20in%20Your%20Next%20Project/">
+  <link rel="next" href="../../data/PostgreSQL%20Transactions%20-%20Part%202/">
   
   
   <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../feed_rss_created.xml">
@@ -812,6 +812,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../Don%E2%80%99t%20Do%20DDD%20%E2%80%94%20Just%20Do%20These%205%20Things%20in%20Your%20Next%20Project/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Don’t Do DDD — Just Do These 5 Things in Your Next Project
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -914,27 +935,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Don%E2%80%99t%20Do%20DDD%20%E2%80%94%20Just%20Do%20These%205%20Things%20in%20Your%20Next%20Project/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Don’t Do DDD — Just Do These 5 Things in Your Next Project
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -1303,6 +1303,8 @@
 <p>A well-established solution is to <strong>upgrade events to the latest schema version when they are loaded from the event store</strong>. This keeps version-handling logic outside the aggregate, allowing aggregates to apply only the current version of events and remain focused on business behavior rather than compatibility concerns.</p>
 <h2 id="closing-thoughts">Closing Thoughts</h2>
 <p>Traditional persistence treats event publication, auditing, and integration as secondary concerns—features that must be manually bolted on and carefully maintained. Event sourcing makes a different trade-off: it elevates events to the source of truth. In doing so, it aligns business state with system integration, provides reliable event publication, enables accurate auditing, and offers a scalable foundation for event-driven architectures—provided its additional complexity is handled with discipline.</p>
+<hr />
+<p>Happy coding! 💻</p>
 
 
 

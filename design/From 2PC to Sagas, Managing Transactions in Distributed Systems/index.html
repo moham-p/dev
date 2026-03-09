@@ -10,13 +10,9 @@
   
   
   
-  <link rel="canonical" href="https://moham.dev/java/How%20HashMap%20Handles%20Collisions/">
+  <link rel="canonical" href="https://moham.dev/design/From%202PC%20to%20Sagas%2C%20Managing%20Transactions%20in%20Distributed%20Systems/">
   
   
-  <link rel="prev" href="../../soft-skills/Staying%20on%20Track%20When%20a%20Ticket%20Gets%20Complicated/">
-  
-  
-  <link rel="next" href="../Stay%20Friends%20with%20the%20Console/">
   
   
   <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../feed_rss_created.xml">
@@ -28,7 +24,7 @@
   
   
   
-  <title>How HashMap Handles Collisions - Curiosity into `Code`</title>
+  <title>From 2PC to Sagas, Managing Transactions in Distributed Systems - Curiosity into `Code`</title>
   
   
   
@@ -72,7 +68,7 @@
 <div data-md-component="skip">
   
   
-  <a href="#the-code-simulating-collisions" class="md-skip">
+  <a href="#life-was-simple-in-the-monolith" class="md-skip">
     Skip to content
   </a>
   
@@ -107,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              How HashMap Handles Collisions
+              From 2PC to Sagas, Managing Transactions in Distributed Systems
             
           </span>
         </div>
@@ -250,19 +246,17 @@
         
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -276,7 +270,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Java
@@ -287,28 +281,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    How HashMap Handles Collisions
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../java/How%20HashMap%20Handles%20Collisions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -317,60 +293,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#the-code-simulating-collisions" class="md-nav__link">
-    <span class="md-ellipsis">
-      The Code: Simulating Collisions
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-by-step-breakdown" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step-by-Step Breakdown
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#retrieval-complexity" class="md-nav__link">
-    <span class="md-ellipsis">
-      Retrieval Complexity
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#wrap-up" class="md-nav__link">
-    <span class="md-ellipsis">
-      Wrap Up
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -383,7 +305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Stay%20Friends%20with%20the%20Console/" class="md-nav__link">
+      <a href="../../java/Stay%20Friends%20with%20the%20Console/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -404,7 +326,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Concurrency%20-%20Part%201/" class="md-nav__link">
+      <a href="../../java/Concurrency%20-%20Part%201/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -425,7 +347,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Concurrency%20-%20Part%202/" class="md-nav__link">
+      <a href="../../java/Concurrency%20-%20Part%202/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -446,7 +368,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Mock%20vs%20Spy%20in%20Mockito%20%E2%80%94%20Never%20Ask%20Again/" class="md-nav__link">
+      <a href="../../java/Mock%20vs%20Spy%20in%20Mockito%20%E2%80%94%20Never%20Ask%20Again/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -467,7 +389,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Concurrency%20-%20Part%203/" class="md-nav__link">
+      <a href="../../java/Concurrency%20-%20Part%203/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -488,7 +410,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Java%20Generics%20as%20a%20Compile-Time%20Gift%20With%20a%20Runtime%20Disguise/" class="md-nav__link">
+      <a href="../../java/Java%20Generics%20as%20a%20Compile-Time%20Gift%20With%20a%20Runtime%20Disguise/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -509,7 +431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Concurrency%20-%20Part%204/" class="md-nav__link">
+      <a href="../../java/Concurrency%20-%20Part%204/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -530,7 +452,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Concurrency%20-%20Part%205/" class="md-nav__link">
+      <a href="../../java/Concurrency%20-%20Part%205/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -551,7 +473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Java%E2%80%99s%20Mission%20-%20No%20More%20Excuses/" class="md-nav__link">
+      <a href="../../java/Java%E2%80%99s%20Mission%20-%20No%20More%20Excuses/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -572,7 +494,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../How%20Threads%20Share%20Code%20in%20Java/" class="md-nav__link">
+      <a href="../../java/How%20Threads%20Share%20Code%20in%20Java/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -593,7 +515,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Don%E2%80%99t%20Let%20Your%20Java%20Debugger%20Fool%20You/" class="md-nav__link">
+      <a href="../../java/Don%E2%80%99t%20Let%20Your%20Java%20Debugger%20Fool%20You/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -614,7 +536,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Three%20Streams%2C%20Three%20Worlds%2C%20Java%20Streams%20vs%20Reactive%20Streams%20vs%20Kafka%20Streams/" class="md-nav__link">
+      <a href="../../java/Three%20Streams%2C%20Three%20Worlds%2C%20Java%20Streams%20vs%20Reactive%20Streams%20vs%20Kafka%20Streams/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -635,7 +557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Compiler%20Bootstrapping/" class="md-nav__link">
+      <a href="../../java/Compiler%20Bootstrapping/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -845,7 +767,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/Don%E2%80%99t%20Mix%20Up%20Aggregates%20and%20Aggregators/" class="md-nav__link">
+      <a href="../Don%E2%80%99t%20Mix%20Up%20Aggregates%20and%20Aggregators/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -866,7 +788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/Don%27t%20Mix%20Up%20Polling%20and%20Pooling/" class="md-nav__link">
+      <a href="../Don%27t%20Mix%20Up%20Polling%20and%20Pooling/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -887,7 +809,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/Don%E2%80%99t%20Do%20DDD%20%E2%80%94%20Just%20Do%20These%205%20Things%20in%20Your%20Next%20Project/" class="md-nav__link">
+      <a href="../Don%E2%80%99t%20Do%20DDD%20%E2%80%94%20Just%20Do%20These%205%20Things%20in%20Your%20Next%20Project/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -908,7 +830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/From%20State-Centric%20Persistence%20to%20Event-Centric%20Architecture/" class="md-nav__link">
+      <a href="../From%20State-Centric%20Persistence%20to%20Event-Centric%20Architecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1246,89 +1168,163 @@
 
 
 
-<h1>How HashMap Handles Collisions</h1>
+<h1>From 2PC to Sagas, Managing Transactions in Distributed Systems</h1>
 
-<p>Collisions in a <code>HashMap</code> occur when multiple keys hash to the same bucket index. This situation arises because different keys can produce the same hash value. To handle such cases, <code>HashMap</code> employs <strong>separate chaining</strong>, where it stores multiple key-value pairs in a bucket using a linked list (or a balanced tree for performance optimization, starting from Java 8).</p>
-<p>Let’s dive into an example to understand how this works.</p>
-<h2 id="the-code-simulating-collisions">The Code: Simulating Collisions</h2>
-<p>The following example demonstrates what happens when multiple keys in a <code>HashMap</code> collide due to having the same hash code:</p>
-<div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.HashMap</span><span class="p">;</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HashMapCollisionExample</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">       </span><span class="kd">var</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">KeyWithSameHash</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">       </span><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">KeyWithSameHash</span><span class="p">(</span><span class="s">&quot;Key1&quot;</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;Value1&quot;</span><span class="p">);</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">       </span><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">KeyWithSameHash</span><span class="p">(</span><span class="s">&quot;Key2&quot;</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;Value2&quot;</span><span class="p">);</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">       </span><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">KeyWithSameHash</span><span class="p">(</span><span class="s">&quot;Key3&quot;</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;Value3&quot;</span><span class="p">);</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">       </span><span class="c1">// prints Value3</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">       </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">map</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">KeyWithSameHash</span><span class="p">(</span><span class="s">&quot;Key3&quot;</span><span class="p">)));</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="p">}</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="kd">class</span> <span class="nc">KeyWithSameHash</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">key</span><span class="p">;</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">KeyWithSameHash</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">key</span><span class="p">;</span>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">    </span><span class="nd">@Override</span>
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">hashCode</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1001</span><span class="p">;</span><span class="w"> </span><span class="c1">// Causes all keys to hash to the same bucket</span>
-</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>
-</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">    </span><span class="nd">@Override</span>
-</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">equals</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">obj</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">obj</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
-</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obj</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">getClass</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="na">getClass</span><span class="p">())</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
-</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="w">        </span><span class="n">KeyWithSameHash</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">KeyWithSameHash</span><span class="p">)</span><span class="w"> </span><span class="n">obj</span><span class="p">;</span>
-</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">key</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="na">key</span><span class="p">);</span>
-</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>
-</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="w">    </span><span class="nd">@Override</span>
-</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">key</span><span class="p">;</span>
-</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="p">}</span>
-</span></code></pre></div>
-<h2 id="step-by-step-breakdown">Step-by-Step Breakdown</h2>
-<ol>
-<li>
-<p><strong>Hash Code Calculation</strong><br />
-   When you call <code>map.put(new KeyWithSameHash("Key3"), "Value3")</code>, the <code>hashCode()</code> method of the key returns <code>1001</code> for all instances, forcing all keys to map to the same bucket.</p>
-</li>
-<li>
-<p><strong>Bucket Index Determination</strong><br />
-   Although the hash code is <code>1001</code>, the bucket index is calculated using a bitwise operation (<code>hashCode % bucketArrayLength</code>), ensuring entries are distributed across available buckets. However, in this case, all keys land in the same bucket because their hash codes are identical.</p>
-</li>
-<li>
-<p><strong>Collision Handling</strong><br />
-   Since multiple keys are mapped to the same bucket, <code>HashMap</code> handles the collision using a linked list (or balanced tree). Each entry in the bucket is stored as a node in the list.</p>
-</li>
-<li>
-<p><strong>Key Lookup</strong><br />
-   When you retrieve a value using a key (e.g., <code>new KeyWithSameHash("Key3")</code>), the <code>HashMap</code>:</p>
+<p>Modern distributed applications rarely resemble the monoliths we built a decade ago. Instead of a single codebase and database, today’s systems are composed of many independently deployed services, often communicating through an event bus such as Apache Kafka.
+This architectural shift brings scalability and autonomy—but it fundamentally changes how transactions work.</p>
+<p>In a monolith, transactions are straightforward. In distributed systems, they are not.</p>
+<p>This post explains why traditional transactions break down, why the Outbox pattern is not enough, and how the Saga pattern addresses long-running, distributed business workflows.</p>
+<h2 id="life-was-simple-in-the-monolith">Life Was Simple in the Monolith</h2>
+<p>In a monolithic architecture:</p>
 <ul>
-<li>Finds the bucket for the key.</li>
-<li>Traverses the linked list in that bucket.</li>
-<li>Compares each key in the list using the <code>equals()</code> method until it finds a match.</li>
+<li>All modules run in a single process</li>
+<li>All data typically lives in a single database</li>
+<li>Business operations execute inside one transactional context</li>
+</ul>
+<p>A checkout flow—charging a payment, reserving inventory, sending confirmation—can be wrapped in a single database transaction.
+If anything fails, the database rolls everything back.</p>
+<p>Two-phase commit (2PC) or even a single local transaction provides:</p>
+<ul>
+<li>Atomicity</li>
+<li>Consistency</li>
+<li>Clear failure semantics</li>
+</ul>
+<p>Developers rarely have to think about partial success.</p>
+<h2 id="the-distributed-reality">The Distributed Reality</h2>
+<p>When applications are decomposed into services:</p>
+<ul>
+<li>Each service owns its own database</li>
+<li>Communication happens via events or remote calls</li>
+<li>Transactions may span multiple services and long time windows</li>
+</ul>
+<p>At this point, 2PC becomes impractical:</p>
+<ul>
+<li>It couples services tightly</li>
+<li>It scales poorly</li>
+<li>It introduces blocking and failure amplification</li>
+</ul>
+<p>More importantly, many real-world workflows are long-running. You cannot lock databases across services for minutes—or hours—waiting for a business process to complete.</p>
+<p>Something has to change.</p>
+<h2 id="the-dual-write-problem">The Dual Write Problem</h2>
+<p>A common challenge in distributed systems is the <strong>dual write problem</strong>:</p>
+<ol>
+<li>A service updates its database</li>
+<li>It publishes an event or calls another service</li>
+<li>One succeeds while the other fails</li>
+</ol>
+<p>The result is inconsistency.</p>
+<p>For example, the database might successfully store a new order, but the event notifying downstream services might never be published. Those services would then remain unaware that the order exists.</p>
+<h2 id="the-outbox-pattern-and-its-limits">The Outbox Pattern (and Its Limits)</h2>
+<p>The <strong>Transactional Outbox pattern</strong> addresses this reliability problem.</p>
+<p>Instead of publishing a message directly after updating the database, the service first writes the outgoing message to an <strong>outbox table in the same database transaction</strong> as the business data change. Because both writes occur in a single transaction, they either succeed or fail together.</p>
+<p>Once the transaction commits, a separate process retrieves messages from the outbox table and publishes them to the message broker. This publishing step can be implemented in different ways, such as:</p>
+<ul>
+<li>A <strong>polling publisher</strong>, which periodically queries the outbox table for new messages</li>
+<li><strong>transaction log tailing</strong>, where changes are detected directly from the database’s transaction log</li>
+</ul>
+<p>This approach ensures that messages are <strong>reliably delivered</strong> without requiring distributed transactions.</p>
+<p>However, it is important to understand the scope of the problem this pattern solves. The Outbox pattern guarantees <strong>reliable communication between services</strong>, but it does not guarantee <strong>business-level consistency across multiple services</strong>.</p>
+<h2 id="when-reliable-messaging-is-not-enough">When Reliable Messaging Is Not Enough</h2>
+<p>Consider a checkout process split across services:</p>
+<ul>
+<li>Order Service creates an order</li>
+<li>Inventory Service reserves stock</li>
+<li>Shipping Service creates a label</li>
+<li>Notification Service sends an email</li>
+</ul>
+<p>All of these steps must succeed—or the system must undo the ones that already ran.</p>
+<p>In a monolith, this is trivial.
+In a distributed system, there is no shared transaction to roll back.</p>
+<p>This is the class of problems the <strong>Saga pattern</strong> is designed to solve.</p>
+<h2 id="what-is-the-saga-pattern">What Is the Saga Pattern?</h2>
+<p>A <strong>Saga</strong> models a business transaction as a sequence of <strong>local transactions</strong>, each executed by a different service.</p>
+<p>Key characteristics:</p>
+<ul>
+<li>Each service commits its own database transaction</li>
+<li>There is no global rollback</li>
+<li>Failures are handled through <strong>compensating actions</strong></li>
+</ul>
+<p>Instead of rolling back, the system explicitly undoes completed steps.</p>
+<p>Example:</p>
+<ul>
+<li>Inventory reserved → later failure → inventory is released</li>
+<li>Payment captured → later failure → refund is issued</li>
+</ul>
+<p>This shifts responsibility from the database to the application.</p>
+<h2 id="two-ways-to-implement-a-saga">Two Ways to Implement a Saga</h2>
+<h3 id="1-choreography-event-driven-sagas">1. Choreography (Event-Driven Sagas)</h3>
+<p>In choreography:</p>
+<ul>
+<li>There is no central coordinator</li>
+<li>
+<p>Each service:</p>
+<ul>
+<li>Executes its local transaction</li>
+<li>Publishes an event</li>
+<li>The next service reacts to that event</li>
 </ul>
 </li>
-<li>
-<p><strong>Value Retrieval</strong><br />
-   Once the key is located (where <code>equals()</code> returns <code>true</code>), the corresponding value is returned.</p>
-</li>
-</ol>
-<h2 id="retrieval-complexity">Retrieval Complexity</h2>
-<p>Despite all keys having the same hash code, the <code>HashMap</code> successfully retrieves the correct value due to its <code>equals()</code> comparison mechanism. However, retrieval complexity can degrade to (O(n)) if all keys hash to the same bucket and the bucket uses a linked list, or to (O(log n)) if the bucket uses a balanced tree (introduced in Java 8).</p>
-<h2 id="wrap-up">Wrap Up</h2>
-<ol>
-<li><strong>Efficient Collision Handling:</strong> <code>HashMap</code> can handle collisions gracefully using separate chaining, ensuring reliable behavior even when hash codes collide.</li>
-<li><strong>Importance of Proper <code>hashCode</code> Implementation:</strong> A poor hash code implementation, as shown in this example, can lead to performance degradation since all keys fall into the same bucket.</li>
-<li><strong>Balanced Trees for Performance:</strong> Starting with Java 8, <code>HashMap</code> replaces the linked list with a balanced tree when collisions exceed a threshold, improving lookup times in heavily collided buckets.</li>
-</ol>
+</ul>
+<p><strong>Advantages</strong></p>
+<ul>
+<li>Highly decoupled</li>
+<li>Naturally fits event-driven architectures</li>
+<li>Scales well</li>
+</ul>
+<p><strong>Trade-offs</strong></p>
+<ul>
+<li>Business flow is implicit and scattered</li>
+<li>Harder to trace and debug</li>
+<li>Failure handling logic is distributed</li>
+</ul>
+<h3 id="2-orchestration-centralized-control">2. Orchestration (Centralized Control)</h3>
+<p>In orchestration:</p>
+<ul>
+<li>A <strong>Saga Orchestrator</strong> coordinates the process</li>
+<li>It tells services what to do and when</li>
+<li>It decides when to trigger compensating actions</li>
+</ul>
+<p>Communication may be:</p>
+<ul>
+<li>Synchronous (HTTP, gRPC)</li>
+<li>Asynchronous (messaging, Kafka)</li>
+</ul>
+<p><strong>Advantages</strong></p>
+<ul>
+<li>Business logic is explicit and centralized</li>
+<li>Easier to reason about complex workflows</li>
+<li>Clear visibility into process state</li>
+</ul>
+<p><strong>Trade-offs</strong></p>
+<ul>
+<li>Additional component to manage</li>
+<li>Risk of creating a bottleneck if poorly designed</li>
+</ul>
+<h2 id="the-core-mental-shift">The Core Mental Shift</h2>
+<p>The most important takeaway is conceptual:</p>
+<p><strong>Distributed systems do not give you rollback for free.</strong></p>
+<p>You must:</p>
+<ul>
+<li>Accept partial failure as normal</li>
+<li>Design compensating actions explicitly</li>
+<li>Treat business workflows as state machines, not transactions</li>
+</ul>
+<p>The Saga pattern formalizes this approach.</p>
+<h2 id="when-to-use-what">When to Use What</h2>
+<ul>
+<li><strong>Single service, simple consistency</strong> → local transactions</li>
+<li><strong>Reliable event publication</strong> → Outbox pattern</li>
+<li><strong>Multi-step, cross-service business processes</strong> → Saga pattern</li>
+</ul>
+<p>In practice, these patterns are often used together:</p>
+<ul>
+<li><strong>Outbox</strong> ensures that state changes and events are published reliably</li>
+<li><strong>Saga</strong> ensures that multi-service workflows remain consistent</li>
+</ul>
+<h2 id="closing-thoughts">Closing Thoughts</h2>
+<p>Migrating from monoliths to distributed systems is not just a technical refactor—it is a <strong>transactional paradigm shift</strong>.</p>
+<p>The Saga pattern is not a silver bullet, but it provides a practical and scalable way to manage long-running, distributed business processes in a world where traditional transactions no longer apply.</p>
+<p>Understanding this shift is essential for designing systems that fail predictably—and recover correctly.</p>
 <hr />
 <p>Happy coding! 💻</p>
 
