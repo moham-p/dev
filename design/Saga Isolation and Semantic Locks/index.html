@@ -10,13 +10,13 @@
   
   
   
-  <link rel="canonical" href="https://moham.dev/devops/Correlating%20Bamboo%20Concepts%20with%20AWS%20ECS/">
+  <link rel="canonical" href="https://moham.dev/design/Saga%20Isolation%20and%20Semantic%20Locks/">
   
   
-  <link rel="prev" href="../Using%20Nginx%20to%20Front%20Both%20Backend%20and%20Frontend/">
+  <link rel="prev" href="../From%202PC%20to%20Sagas%2C%20Managing%20Transactions%20in%20Distributed%20Systems/">
   
   
-  <link rel="next" href="../How%20Web%20Servers%20Handle%20Logging%20Efficiently/">
+  <link rel="next" href="../../data/PostgreSQL%20Transactions%20-%20Part%202/">
   
   
   <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../feed_rss_created.xml">
@@ -28,7 +28,7 @@
   
   
   
-  <title>Correlating Bamboo Concepts with AWS ECS - Curiosity into `Code`</title>
+  <title>Saga Isolation and Semantic Locks - Curiosity into `Code`</title>
   
   
   
@@ -72,7 +72,7 @@
 <div data-md-component="skip">
   
   
-  <a href="#atlassian-bamboo-concepts" class="md-skip">
+  <a href="#database-locks-vs-semantic-locks" class="md-skip">
     Skip to content
   </a>
   
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Correlating Bamboo Concepts with AWS ECS
+              Saga Isolation and Semantic Locks
             
           </span>
         </div>
@@ -733,17 +733,19 @@
         
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -757,7 +759,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Design
@@ -771,7 +773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/Don%E2%80%99t%20Mix%20Up%20Aggregates%20and%20Aggregators/" class="md-nav__link">
+      <a href="../Don%E2%80%99t%20Mix%20Up%20Aggregates%20and%20Aggregators/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -792,7 +794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/Don%27t%20Mix%20Up%20Polling%20and%20Pooling/" class="md-nav__link">
+      <a href="../Don%27t%20Mix%20Up%20Polling%20and%20Pooling/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -813,7 +815,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/Don%E2%80%99t%20Do%20DDD%20%E2%80%94%20Just%20Do%20These%205%20Things%20in%20Your%20Next%20Project/" class="md-nav__link">
+      <a href="../Don%E2%80%99t%20Do%20DDD%20%E2%80%94%20Just%20Do%20These%205%20Things%20in%20Your%20Next%20Project/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -834,7 +836,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/From%20State-Centric%20Persistence%20to%20Event-Centric%20Architecture/" class="md-nav__link">
+      <a href="../From%20State-Centric%20Persistence%20to%20Event-Centric%20Architecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -855,7 +857,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/From%202PC%20to%20Sagas%2C%20Managing%20Transactions%20in%20Distributed%20Systems/" class="md-nav__link">
+      <a href="../From%202PC%20to%20Sagas%2C%20Managing%20Transactions%20in%20Distributed%20Systems/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -873,10 +875,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../design/Saga%20Isolation%20and%20Semantic%20Locks/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Saga Isolation and Semantic Locks
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -885,6 +905,135 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#database-locks-vs-semantic-locks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database Locks vs Semantic Locks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interaction-with-choreography-vs-orchestration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interaction with Choreography vs Orchestration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interaction with Choreography vs Orchestration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-choreography-event-driven-sagas" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Choreography (Event-driven Sagas)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-orchestration-centralized-sagas" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Orchestration (Centralized Sagas)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-difference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Difference
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-production-failure-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Real Production Failure Scenarios
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Real Production Failure Scenarios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-double-booking-resource-conflict" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Double Booking / Resource Conflict
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-concurrent-cancel-vs-confirm" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Concurrent Cancel vs Confirm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-retry-storms-and-duplicate-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Retry Storms and Duplicate Processing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-cross-saga-interference" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Cross-Saga Interference
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-takeaway" class="md-nav__link">
+    <span class="md-ellipsis">
+      Final Takeaway
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1069,19 +1218,17 @@
         
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
         
           
           <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
@@ -1095,7 +1242,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             DevOps
@@ -1109,7 +1256,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Using%20Nginx%20to%20Front%20Both%20Backend%20and%20Frontend/" class="md-nav__link">
+      <a href="../../devops/Using%20Nginx%20to%20Front%20Both%20Backend%20and%20Frontend/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1127,28 +1274,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Correlating Bamboo Concepts with AWS ECS
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../devops/Correlating%20Bamboo%20Concepts%20with%20AWS%20ECS/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1157,84 +1286,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#atlassian-bamboo-concepts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Atlassian Bamboo Concepts
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mapping-bamboo-concepts-to-aws-ecs-for-parallel-usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      Mapping Bamboo Concepts to AWS ECS for Parallel Usage
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuring-bamboo-plans-using-iac-with-java" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuring Bamboo Plans Using IaC with Java
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuring Bamboo Plans Using IaC with Java">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example-defining-a-bamboo-plan-with-java" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example: Defining a Bamboo Plan with Java
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#choosing-between-java-and-yaml" class="md-nav__link">
-    <span class="md-ellipsis">
-      Choosing Between Java and YAML
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
-    <span class="md-ellipsis">
-      Conclusion
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1247,7 +1298,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../How%20Web%20Servers%20Handle%20Logging%20Efficiently/" class="md-nav__link">
+      <a href="../../devops/How%20Web%20Servers%20Handle%20Logging%20Efficiently/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1268,7 +1319,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Making%20the%20Invisible%20Visible/" class="md-nav__link">
+      <a href="../../devops/Making%20the%20Invisible%20Visible/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1312,132 +1363,219 @@
 
 
 
-<h1>Correlating Bamboo Concepts with AWS ECS</h1>
+<h1>Saga Isolation and Semantic Locks</h1>
 
-<p>When managing CI/CD pipelines with Atlassian Bamboo and deploying containerized workloads using AWS Elastic Container Service (ECS), understanding how their concepts align can help streamline workflows. This post explores how Bamboo and ECS can complement each other, enabling parallel usage for seamless integration of CI/CD and container orchestration.</p>
-<h2 id="atlassian-bamboo-concepts">Atlassian Bamboo Concepts</h2>
-<ol>
-<li>
-<p>Project<br />
-   A project in Bamboo is a logical grouping of plans, representing a high-level entity such as an application, service, or product.<br />
-   Example: For a "Payment System," the project might include multiple plans for backend, frontend, and database components.</p>
-</li>
-<li>
-<p>Plan<br />
-   A plan is a sequence of jobs that define how your code is built, tested, and packaged. This forms the foundation of Bamboo’s CI pipeline.<br />
-   Example: A backend plan could involve steps to compile Java code, run unit tests, and package it into a JAR file.</p>
-</li>
-<li>
-<p>Deployment<br />
-   Deployment in Bamboo refers to delivering an application or artifact (produced by a plan) to a specific environment, such as development, staging, or production.<br />
-   Example: A deployment plan outlines the steps for deploying the application to a staging environment, including configuration changes.</p>
-</li>
-<li>
-<p>Release<br />
-   A release is a versioned snapshot of your software, ready for deployment. It represents a stable build after passing tests.<br />
-   Example: Version <code>1.0.0</code> of your application is tagged as a release and marked as ready for production.</p>
-</li>
-</ol>
-<h2 id="mapping-bamboo-concepts-to-aws-ecs-for-parallel-usage">Mapping Bamboo Concepts to AWS ECS for Parallel Usage</h2>
-<p>While Bamboo manages CI/CD workflows, AWS ECS focuses on container orchestration. These tools can work together, with Bamboo feeding ECS through seamless CI/CD pipelines. Here's how their concepts align:</p>
-<ol>
-<li>
-<p>Project → ECS Cluster or Application Group<br />
-   A Bamboo project can correspond to an ECS cluster or a grouping of services within your infrastructure.<br />
-   Example: The "Payment System" project in Bamboo maps to an ECS cluster hosting multiple services.</p>
-</li>
-<li>
-<p>Plan → ECS Task Definition<br />
-   Bamboo plans can handle the CI pipeline for building and packaging Docker containers, which are then referenced in ECS task definitions.<br />
-   Example: A Bamboo plan builds a Docker container and pushes it to Amazon ECR, ready for deployment in ECS.</p>
-</li>
-<li>
-<p>Deployment → ECS Service Update<br />
-   Bamboo deployments can trigger ECS service updates, rolling out new versions of containers to specific environments like staging or production.<br />
-   Example: A Bamboo deployment task updates the ECS service with a new task definition.</p>
-</li>
-<li>
-<p>Release → Docker Image Version or Task Definition Revision<br />
-   Bamboo releases can represent versioned Docker images or ECS task definition revisions, providing stability and consistency.<br />
-   Example: A release like <code>payment-backend:1.0.0</code> is tagged in Bamboo and used as a task definition in ECS.</p>
-</li>
-</ol>
-<h2 id="configuring-bamboo-plans-using-iac-with-java">Configuring Bamboo Plans Using IaC with Java</h2>
-<p>Bamboo allows plans to be defined and managed programmatically using Infrastructure as Code (IaC). This approach ensures consistency, repeatability, and easier integration with version control systems.<br />
-As of now, Atlassian Bamboo supports Java (via the Bamboo Specs API) and YAML (for declarative configurations).</p>
-<h3 id="example-defining-a-bamboo-plan-with-java">Example: Defining a Bamboo Plan with Java</h3>
-<div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// Initialize Bamboo Server</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">BambooServer</span><span class="w"> </span><span class="n">bambooServer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BambooServer</span><span class="p">(</span><span class="s">&quot;https://your-bamboo-server.com&quot;</span><span class="p">);</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1">// Create the Bamboo Plan</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">Plan</span><span class="w"> </span><span class="n">plan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Plan</span><span class="p">(</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="n">Project</span><span class="p">().</span><span class="na">key</span><span class="p">(</span><span class="s">&quot;DOCKER&quot;</span><span class="p">).</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;Docker Project&quot;</span><span class="p">),</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="s">&quot;Docker Image Build Plan&quot;</span><span class="p">,</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="s">&quot;DIB&quot;</span><span class="p">)</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="p">.</span><span class="na">description</span><span class="p">(</span><span class="s">&quot;Plan to build Docker images for ECS deployment&quot;</span><span class="p">)</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="p">.</span><span class="na">stages</span><span class="p">(</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">Stage</span><span class="p">(</span><span class="s">&quot;Build Stage&quot;</span><span class="p">)</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">            </span><span class="p">.</span><span class="na">jobs</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Job</span><span class="p">(</span><span class="s">&quot;Build and Dockerize Job&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;BUILD&quot;</span><span class="p">)</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">                </span><span class="p">.</span><span class="na">tasks</span><span class="p">(</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">                    </span><span class="c1">// Step 1: Checkout the source code</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">                    </span><span class="k">new</span><span class="w"> </span><span class="n">VcsCheckoutTask</span><span class="p">()</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">                        </span><span class="p">.</span><span class="na">description</span><span class="p">(</span><span class="s">&quot;Checkout Code&quot;</span><span class="p">)</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">                        </span><span class="p">.</span><span class="na">checkoutItems</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">CheckoutItem</span><span class="p">().</span><span class="na">repository</span><span class="p">(</span><span class="s">&quot;MyRepo&quot;</span><span class="p">)),</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">                    </span><span class="c1">// Step 2: Build the application (e.g., Maven build)</span>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">                    </span><span class="k">new</span><span class="w"> </span><span class="n">ScriptTask</span><span class="p">()</span>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">                        </span><span class="p">.</span><span class="na">description</span><span class="p">(</span><span class="s">&quot;Build Application&quot;</span><span class="p">)</span>
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">                        </span><span class="p">.</span><span class="na">inlineBody</span><span class="p">(</span><span class="s">&quot;mvn clean install&quot;</span><span class="p">),</span>
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">                    </span><span class="c1">// Step 3: Build the Docker image</span>
-</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">                    </span><span class="k">new</span><span class="w"> </span><span class="n">DockerBuildImageTask</span><span class="p">()</span>
-</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">                        </span><span class="p">.</span><span class="na">description</span><span class="p">(</span><span class="s">&quot;Build Docker Image&quot;</span><span class="p">)</span>
-</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">                        </span><span class="p">.</span><span class="na">imageName</span><span class="p">(</span><span class="s">&quot;my-ecr-repo/my-app:latest&quot;</span><span class="p">)</span>
-</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">                        </span><span class="p">.</span><span class="na">dockerfileInWorkingDir</span><span class="p">()</span>
-</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">                </span><span class="p">)</span>
-</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">            </span><span class="p">)</span>
-</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">    </span><span class="p">);</span>
-</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>
-</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="c1">// Publish the plan to Bamboo</span>
-</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="n">bambooServer</span><span class="p">.</span><span class="na">publish</span><span class="p">(</span><span class="n">plan</span><span class="p">);</span>
-</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>
-</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Plan published successfully!&quot;</span><span class="p">);</span>
-</span></code></pre></div>
-<h2 id="choosing-between-java-and-yaml">Choosing Between Java and YAML</h2>
+<p>In <a href="../From 2PC to Sagas, Managing Transactions in Distributed Systems">the previous post</a>, we established that Sagas replace <strong>XA/2PC-style global transactions</strong> with <strong>local transactions + compensation</strong>. But that leaves a critical gap:</p>
+<blockquote>
+<p>What prevents multiple sagas from interfering with each other?</p>
+</blockquote>
+<p>In traditional systems built on <strong>Two-Phase Commit</strong> (2PC) and <strong>XA specification</strong>, isolation is handled by <strong>database locks</strong>.
+In Saga-based systems, there are no such locks across services.</p>
+<p>Instead, we rely on <strong>semantic locks</strong>—explicit, business-level state transitions such as <code>PENDING</code>, <code>IN_PROGRESS</code>, or <code>RESERVED</code>.</p>
+<p>A <strong>pending state</strong> is the most common example:</p>
+<ul>
+<li>It signals that a business process is ongoing</li>
+<li>It prevents conflicting operations</li>
+<li>It encodes isolation directly into the domain model</li>
+</ul>
+<p>This is not a technical mechanism—it is a <strong>modeling decision</strong>.</p>
+<h2 id="database-locks-vs-semantic-locks">Database Locks vs Semantic Locks</h2>
+<p>Here is the precise comparison:</p>
 <table>
 <thead>
 <tr>
-<th>Feature</th>
-<th>Java</th>
-<th>YAML</th>
+<th>Dimension</th>
+<th>Database Locks (2PC/XA)</th>
+<th>Semantic Locks (Saga)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Complexity</td>
-<td>Suitable for complex configurations</td>
-<td>Ideal for simple and straightforward setups</td>
+<td>Enforcement</td>
+<td>Infrastructure (DB engine)</td>
+<td>Application / domain logic</td>
 </tr>
 <tr>
-<td>Flexibility</td>
-<td>Highly flexible, supports logic and dynamic plans</td>
-<td>Limited to static declarative configurations</td>
+<td>Visibility</td>
+<td>Hidden from business logic</td>
+<td>Explicit in domain model</td>
 </tr>
 <tr>
-<td>Ease of Use</td>
-<td>Requires Java knowledge and tools</td>
-<td>Easy for non-developers to use</td>
+<td>Blocking</td>
+<td>Yes (transactions wait)</td>
+<td>No (fail fast or branch logic)</td>
 </tr>
 <tr>
-<td>Tooling</td>
-<td>IDE support, type checking</td>
-<td>Plain text editor is sufficient</td>
+<td>Scope</td>
+<td>Single database / tightly coupled systems</td>
+<td>Cross-service, distributed</td>
+</tr>
+<tr>
+<td>Duration</td>
+<td>Short-lived</td>
+<td>Can be long-running</td>
+</tr>
+<tr>
+<td>Failure handling</td>
+<td>Automatic rollback</td>
+<td>Explicit compensation</td>
+</tr>
+<tr>
+<td>Scalability</td>
+<td>Limited</td>
+<td>High (non-blocking)</td>
 </tr>
 </tbody>
 </table>
-<p>For most teams, YAML is easier for basic use cases, while Java offers the power and flexibility needed for advanced configurations. This approach complements AWS ECS, where you can similarly define infrastructure using tools like AWS CloudFormation or Terraform, enabling end-to-end IaC workflows.</p>
-<h2 id="conclusion">Conclusion</h2>
-<p>Using Bamboo and AWS ECS in parallel leverages the strengths of both platforms: Bamboo’s robust CI/CD pipelines and ECS’s efficient container orchestration. Adding IaC capabilities to Bamboo plans using Java enhances automation, consistency, and collaboration. Together, these tools empower teams to streamline workflows, scale workloads, and maintain reliable deployments across diverse environments.</p>
+<p>The key shift:</p>
+<blockquote>
+<p>You move from <strong>implicit isolation enforced by the database</strong> to <strong>explicit isolation encoded in business state</strong>.</p>
+</blockquote>
+<h2 id="interaction-with-choreography-vs-orchestration">Interaction with Choreography vs Orchestration</h2>
+<p>Semantic locks behave differently depending on how the Saga is implemented.</p>
+<h3 id="1-choreography-event-driven-sagas">1. Choreography (Event-driven Sagas)</h3>
+<ul>
+<li>Each service reacts to events independently</li>
+<li>
+<p>Each service must:</p>
+<ul>
+<li>Check semantic state (e.g., <code>PENDING</code>)</li>
+<li>Decide whether to proceed or reject</li>
+</ul>
+</li>
+</ul>
+<p>Implication:</p>
+<ul>
+<li>Isolation logic is <strong>distributed</strong></li>
+<li>Every service must consistently interpret state transitions</li>
+<li>Risk of divergence if rules are not aligned</li>
+</ul>
+<p>Typical pattern:</p>
+<ul>
+<li>Service A sets <code>ORDER_PENDING</code></li>
+<li>Service B receives event → validates state before acting</li>
+<li>Service C ignores or compensates if state is incompatible</li>
+</ul>
+<h3 id="2-orchestration-centralized-sagas">2. Orchestration (Centralized Sagas)</h3>
+<ul>
+<li>A central orchestrator controls the workflow</li>
+<li>It enforces ordering and guards transitions</li>
+</ul>
+<p>Implication:</p>
+<ul>
+<li>Isolation logic is <strong>centralized</strong></li>
+<li>Easier to enforce consistent rules</li>
+<li>The orchestrator becomes the authority on valid transitions</li>
+</ul>
+<p>Typical pattern:</p>
+<ul>
+<li>Orchestrator sets <code>PENDING</code></li>
+<li>Calls downstream services only when state is valid</li>
+<li>Triggers compensation if a step fails</li>
+</ul>
+<h3 id="key-difference">Key Difference</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Choreography</th>
+<th>Orchestration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Isolation enforcement</td>
+<td>Distributed</td>
+<td>Centralized</td>
+</tr>
+<tr>
+<td>Risk of inconsistency</td>
+<td>Higher</td>
+<td>Lower</td>
+</tr>
+<tr>
+<td>Flexibility</td>
+<td>Higher</td>
+<td>Lower</td>
+</tr>
+<tr>
+<td>Observability</td>
+<td>Harder</td>
+<td>Easier</td>
+</tr>
+</tbody>
+</table>
+<h2 id="real-production-failure-scenarios">Real Production Failure Scenarios</h2>
+<p>This is where semantic locks become critical—not theoretical.</p>
+<h3 id="1-double-booking-resource-conflict">1. Double Booking / Resource Conflict</h3>
+<p><strong>Scenario</strong></p>
+<ul>
+<li>Two sagas attempt to reserve the same inventory item</li>
+</ul>
+<p>Without semantic lock:</p>
+<ul>
+<li>Both succeed → overselling</li>
+</ul>
+<p>With semantic lock:</p>
+<ul>
+<li>First saga sets <code>RESERVED_PENDING</code></li>
+<li>Second saga sees state → fails or retries</li>
+</ul>
+<h3 id="2-concurrent-cancel-vs-confirm">2. Concurrent Cancel vs Confirm</h3>
+<p><strong>Scenario</strong></p>
+<ul>
+<li>User cancels an order while payment is being processed</li>
+</ul>
+<p>Without semantic lock:</p>
+<ul>
+<li>Payment succeeds</li>
+<li>Order is already canceled → inconsistent state</li>
+</ul>
+<p>With semantic lock:</p>
+<ul>
+<li><code>ORDER_PENDING</code> prevents cancellation</li>
+<li>Or cancellation triggers compensation (refund)</li>
+</ul>
+<h3 id="3-retry-storms-and-duplicate-processing">3. Retry Storms and Duplicate Processing</h3>
+<p><strong>Scenario</strong></p>
+<ul>
+<li>A service retries due to timeout</li>
+<li>Same Saga step executes multiple times</li>
+</ul>
+<p>Without semantic lock:</p>
+<ul>
+<li>Duplicate side effects (e.g., double charge)</li>
+</ul>
+<p>With semantic lock:</p>
+<ul>
+<li>State check (<code>PAYMENT_COMPLETED</code>) prevents re-execution</li>
+</ul>
+<h3 id="4-cross-saga-interference">4. Cross-Saga Interference</h3>
+<p><strong>Scenario</strong></p>
+<ul>
+<li>One Saga updates an entity while another Saga is mid-flight</li>
+</ul>
+<p>Without semantic lock:</p>
+<ul>
+<li>Interleaved updates corrupt business invariants</li>
+</ul>
+<p>With semantic lock:</p>
+<ul>
+<li>Entity marked <code>IN_PROGRESS</code></li>
+<li>Competing Saga rejects or queues operation</li>
+</ul>
+<h2 id="final-takeaway">Final Takeaway</h2>
+<p>The evolution now becomes complete:</p>
+<ul>
+<li><strong>2PC/XA</strong> → atomicity + isolation via infrastructure</li>
+<li><strong>Outbox</strong> → reliable communication</li>
+<li><strong>Saga</strong> → distributed consistency via compensation</li>
+<li><strong>Semantic locks</strong> → isolation via business semantics</li>
+</ul>
+<blockquote>
+<p>In distributed systems, correctness is no longer enforced by the database—it is encoded in your domain model.</p>
+</blockquote>
+<p>That is the real shift.</p>
 <hr />
 <p>Happy coding! 💻</p>
 
