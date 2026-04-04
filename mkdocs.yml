@@ -40,8 +40,10 @@ nav:
   - Design:
     - Don’t Mix Up Aggregates and Aggregators: design/Don’t Mix Up Aggregates and Aggregators.md
     - Don't Mix Up Polling and Pooling: design/Don't Mix Up Polling and Pooling.md
-    - From State-Centric Persistence to Event-Centric Architecture: design/From State-Centric Persistence to Event-Centric Architecture.md
     - Don’t Do DDD — Just Do These 5 Things in Your Next Project: design/Don’t Do DDD — Just Do These 5 Things in Your Next Project.md
+    - From State-Centric Persistence to Event-Centric Architecture: design/From State-Centric Persistence to Event-Centric Architecture.md
+    - From 2PC to Sagas, Managing Transactions in Distributed Systems: design/From 2PC to Sagas, Managing Transactions in Distributed Systems.md
+    - Saga Isolation and Semantic Locks: design/Saga Isolation and Semantic Locks.md
   - Data:
     - PostgreSQL Transactions - Part 2: data/PostgreSQL Transactions - Part 2.md
     - PostgreSQL Transactions - Part 1: data/PostgreSQL Transactions - Part 1.md

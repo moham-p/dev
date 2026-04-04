@@ -52,3 +52,7 @@ A well-established solution is to **upgrade events to the latest schema version 
 ## Closing Thoughts
 
 Traditional persistence treats event publication, auditing, and integration as secondary concerns—features that must be manually bolted on and carefully maintained. Event sourcing makes a different trade-off: it elevates events to the source of truth. In doing so, it aligns business state with system integration, provides reliable event publication, enables accurate auditing, and offers a scalable foundation for event-driven architectures—provided its additional complexity is handled with discipline.
+
+---
+
+Happy coding! 💻
