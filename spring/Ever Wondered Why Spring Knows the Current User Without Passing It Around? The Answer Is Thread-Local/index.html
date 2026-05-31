@@ -1,0 +1,1651 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <meta name="description" content="Moham Pandi technical blog">
+  
+  
+  
+  <link rel="canonical" href="https://moham.dev/spring/Ever%20Wondered%20Why%20Spring%20Knows%20the%20Current%20User%20Without%20Passing%20It%20Around%3F%20The%20Answer%20Is%20Thread-Local/">
+  
+  
+  <link rel="prev" href="../Being%20Reactive%20Even%20When%20Your%20Upstream%20Isn%27t/">
+  
+  
+  <link rel="next" href="../../design/Don%E2%80%99t%20Mix%20Up%20Aggregates%20and%20Aggregators/">
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../feed_rss_created.xml">
+  <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="../../feed_rss_updated.xml">
+  
+  <link rel="icon" href="../../img/favicon.ico">
+  <link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
+  <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.33">
+  
+  
+  
+  <title>Ever Wondered Why Spring Knows the Current User Without Passing It Around? The Answer Is Thread-Local - Curiosity into `Code`</title>
+  
+  
+  
+  <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+  <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+  
+  
+  
+  <link rel="stylesheet" href="../../extra.css">
+  
+  <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+  
+  
+
+  
+  
+  
+</head>
+
+
+<body dir="ltr">
+
+
+<input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+<input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+  
+  
+  <a href="#what-does-thread-local-mean" class="md-skip">
+    Skip to content
+  </a>
+  
+</div>
+<div data-md-component="announce">
+  
+</div>
+
+
+
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Curiosity into `Code`" class="md-header__button md-logo" aria-label="Curiosity into `Code`" data-md-component="logo">
+      
+  <img src="../../img/_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Curiosity into `Code`
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Ever Wondered Why Spring Knows the Current User Without Passing It Around? The Answer Is Thread-Local
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+
+<div class="md-container" data-md-component="container">
+  
+  
+  
+  
+  
+  
+  <main class="md-main" data-md-component="main">
+    <div class="md-main__inner md-grid">
+      
+      
+      
+      <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+        <div class="md-sidebar__scrollwrap">
+          <div class="md-sidebar__inner">
+            
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Curiosity into `Code`" class="md-nav__button md-logo" aria-label="Curiosity into `Code`" data-md-component="logo">
+      
+  <img src="../../img/_logo.png" alt="logo">
+
+    </a>
+  </label>
+  
+    <ul class="md-nav__list">
+        <li class="md-nav__item md-nav__item--home">
+            <a href="/" class="md-nav__link md-nav__link--home" title="Home">
+                <svg class="md-icon md-icon--home" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                </svg>
+                Home
+            </a>
+        </li>
+        
+        
+        
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Soft Skills
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Soft Skills
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../soft-skills/Invisible%20Ownership%20Subtasks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Invisible Ownership Subtasks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../soft-skills/Staying%20on%20Track%20When%20a%20Ticket%20Gets%20Complicated/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Staying on Track When a Ticket Gets Complicated
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+        
+        
+        
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Java
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/How%20HashMap%20Handles%20Collisions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How HashMap Handles Collisions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/Stay%20Friends%20with%20the%20Console/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stay Friends with the Console
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/Concurrency%20-%20Part%201/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concurrency - Part 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/Concurrency%20-%20Part%202/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concurrency - Part 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/Mock%20vs%20Spy%20in%20Mockito%20%E2%80%94%20Never%20Ask%20Again/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mock vs Spy in Mockito — Never Ask Again
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/Concurrency%20-%20Part%203/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concurrency - Part 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/Java%20Generics%20as%20a%20Compile-Time%20Gift%20With%20a%20Runtime%20Disguise/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java Generics as a Compile-Time Gift With a Runtime Disguise
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/Concurrency%20-%20Part%204/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concurrency - Part 4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/Concurrency%20-%20Part%205/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concurrency - Part 5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/Java%E2%80%99s%20Mission%20-%20No%20More%20Excuses/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java’s Mission, No More Excuses
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/How%20Threads%20Share%20Code%20in%20Java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How Threads Share Code in Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/Don%E2%80%99t%20Let%20Your%20Java%20Debugger%20Fool%20You/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Don’t Let Your Java Debugger Fool You
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/Three%20Streams%2C%20Three%20Worlds%2C%20Java%20Streams%20vs%20Reactive%20Streams%20vs%20Kafka%20Streams/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Three Streams, Three Worlds, Java Streams vs Reactive Streams vs Kafka Streams
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/Compiler%20Bootstrapping/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compiler Bootstrapping
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+        
+        
+        
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Spring
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Spring
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Method-Level%20Authorization%20in%20Spring%20Security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Method-Level Authorization in Spring Security
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../How%20Singleton%20Components%20Work%20with%20Thread%20Pools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How Singleton Components Work with Thread Pools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../How%20to%20Scale%20Spring%20Boot%20for%20High%20Concurrency/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to Scale Spring Boot for High Concurrency
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../If%20You%20Don%E2%80%99t%20Practice%20TDD%2C%20Do%20This%20Instead/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    If You Don’t Practice TDD, Do This Instead
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Being%20Reactive%20Even%20When%20Your%20Upstream%20Isn%27t/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Being Reactive Even When Your Upstream Isn't
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Ever Wondered Why Spring Knows the Current User Without Passing It Around? The Answer Is Thread-Local
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Ever Wondered Why Spring Knows the Current User Without Passing It Around? The Answer Is Thread-Local
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-does-thread-local-mean" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Does Thread-Local Mean?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-is-this-useful-in-spring-web-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Is This Useful in Spring Web Applications?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-1-spring-security-and-securitycontextholder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 1: Spring Security and SecurityContextHolder
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-2-request-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 2: Request Context
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-3-spring-transactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 3: Spring Transactions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-main-benefit-cleaner-application-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Main Benefit: Cleaner Application Code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-important-limitation" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Important Limitation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-1-lost-security-context-in-async-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Risk 1: Lost Security Context in Async Execution
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-2-lost-transaction-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      Risk 2: Lost Transaction Context
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-3-data-leakage-if-thread-local-values-are-not-cleared" class="md-nav__link">
+    <span class="md-ellipsis">
+      Risk 3: Data Leakage if Thread-Local Values Are Not Cleared
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-4-hidden-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Risk 4: Hidden Dependencies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thread-local-and-webflux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thread-Local and WebFlux
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters-in-real-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why This Matters in Real Projects
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-rule-of-thumb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practical Rule of Thumb
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+        
+        
+        
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Design
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Design
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/Don%E2%80%99t%20Mix%20Up%20Aggregates%20and%20Aggregators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Don’t Mix Up Aggregates and Aggregators
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/Don%27t%20Mix%20Up%20Polling%20and%20Pooling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Don't Mix Up Polling and Pooling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/Don%E2%80%99t%20Do%20DDD%20%E2%80%94%20Just%20Do%20These%205%20Things%20in%20Your%20Next%20Project/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Don’t Do DDD — Just Do These 5 Things in Your Next Project
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/From%20State-Centric%20Persistence%20to%20Event-Centric%20Architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    From State-Centric Persistence to Event-Centric Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/From%202PC%20to%20Sagas%2C%20Managing%20Transactions%20in%20Distributed%20Systems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    From 2PC to Sagas, Managing Transactions in Distributed Systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/Saga%20Isolation%20and%20Semantic%20Locks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Saga Isolation and Semantic Locks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+        
+        
+        
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Data
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/PostgreSQL%20Transactions%20-%20Part%202/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PostgreSQL Transactions - Part 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/PostgreSQL%20Transactions%20-%20Part%201/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PostgreSQL Transactions - Part 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+        
+        
+        
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Security
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Security
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/Seamless%20AWS%20Access%20-%20Setting%20Up%20Azure%20AD%20as%20a%20Federated%20Identity%20Provider/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Seamless AWS Access - Setting Up Azure AD as a Federated Identity Provider
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/Defending%20Against%20XSS%20in%20React%20and%20JSP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Defending Against XSS in React and JSP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+        
+        
+        
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    DevOps
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            DevOps
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../devops/Using%20Nginx%20to%20Front%20Both%20Backend%20and%20Frontend/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using Nginx to Front Both Backend and Frontend
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../devops/Correlating%20Bamboo%20Concepts%20with%20AWS%20ECS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Correlating Bamboo Concepts with AWS ECS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../devops/How%20Web%20Servers%20Handle%20Logging%20Efficiently/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How Web Servers Handle Logging Efficiently
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../devops/Making%20the%20Invisible%20Visible/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Making the Invisible Visible
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+        
+    </ul>
+
+
+</nav>
+          </div>
+        </div>
+      </div>
+      
+      
+      
+
+      
+      
+      
+      <div class="md-content" data-md-component="content">
+        <article class="md-content__inner md-typeset">
+          
+          
+
+
+
+
+
+<h1>Ever Wondered Why Spring Knows the Current User Without Passing It Around? The Answer Is Thread-Local</h1>
+
+<p>At first, this sounds like a low-level Java detail. But in practice, it is an important concept behind many familiar Spring features, including security, request handling, transactions, and logging context.</p>
+<p>Understanding it helps explain why some things “just work” in a normal request flow, but suddenly break when we introduce async execution, custom executors, or reactive programming.</p>
+<h2 id="what-does-thread-local-mean">What Does Thread-Local Mean?</h2>
+<p>A <strong>thread-local</strong> mechanism stores data against the <strong>current Java thread</strong>.</p>
+<p>Instead of sharing one global value across the whole application, each thread gets its own isolated copy of the value.</p>
+<p>For example, imagine two HTTP requests are handled at the same time:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Request A -&gt; Thread-1
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Request B -&gt; Thread-2
+</span></code></pre></div>
+<p>If some data is stored in a <code>ThreadLocal</code>, then:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Thread-1 sees data for Request A
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Thread-2 sees data for Request B
+</span></code></pre></div>
+<p>Even if the same static <code>ThreadLocal</code> variable is used internally, the actual value is different per thread.</p>
+<p>That is the core idea.</p>
+<h2 id="why-is-this-useful-in-spring-web-applications">Why Is This Useful in Spring Web Applications?</h2>
+<p>In a traditional Spring MVC application, each HTTP request is usually processed by a thread from the servlet container’s thread pool.</p>
+<p>The request enters the application, passes through filters, controllers, services, repositories, and finally returns a response.</p>
+<p>A simplified flow looks like this:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>HTTP request
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  -&gt; Filter chain
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  -&gt; Controller
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  -&gt; Service
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  -&gt; Repository
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  -&gt; Response
+</span></code></pre></div>
+<p>During this flow, Spring can attach contextual information to the current thread. That context can then be accessed later without passing it explicitly through every method call.</p>
+<p>This is why thread-local storage is significant: it allows framework-level context to be available implicitly within the current request execution.</p>
+<h2 id="example-1-spring-security-and-securitycontextholder">Example 1: Spring Security and <code>SecurityContextHolder</code></h2>
+<p>One of the most common examples is Spring Security.</p>
+<p>When a user is authenticated, Spring Security stores the authentication information in a security context. By default, this context is associated with the current thread.</p>
+<p>That is why code like this works inside a controller or service:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">Authentication</span><span class="w"> </span><span class="n">authentication</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="n">SecurityContextHolder</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">getAuthentication</span><span class="p">();</span>
+</span></code></pre></div>
+<p>You do not need to pass the current user from the controller to every service method manually.</p>
+<p>For example, you usually do not write code like this everywhere:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">service</span><span class="p">.</span><span class="na">doSomething</span><span class="p">(</span><span class="n">currentUser</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Instead, Spring Security makes the authenticated user available through <code>SecurityContextHolder</code>.</p>
+<p>Under the hood, this works because the security context is bound to the current request-processing thread.</p>
+<h2 id="example-2-request-context">Example 2: Request Context</h2>
+<p>Spring can also bind request-related information to the current thread.</p>
+<p>For example, <code>RequestContextHolder</code> allows access to request attributes from code that does not directly receive <code>HttpServletRequest</code>.</p>
+<p>This can be useful in infrastructure-level code, interceptors, logging, auditing, or other cross-cutting concerns.</p>
+<p>The important point is the same: the request context is tied to the current thread.</p>
+<h2 id="example-3-spring-transactions">Example 3: Spring Transactions</h2>
+<p>Spring transaction management also relies heavily on thread-bound context.</p>
+<p>When a method annotated with <code>@Transactional</code> starts, Spring binds transaction-related resources to the current thread. This can include things like the current database connection and transaction synchronization state.</p>
+<p>For example:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nd">@Transactional</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">updateSomething</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="n">repositoryA</span><span class="p">.</span><span class="na">save</span><span class="p">(...);</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="n">repositoryB</span><span class="p">.</span><span class="na">save</span><span class="p">(...);</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Both repository calls participate in the same transaction because Spring knows that the transaction belongs to the current thread.</p>
+<p>This is one reason Spring’s transaction model feels so natural in imperative Spring MVC applications.</p>
+<h2 id="the-main-benefit-cleaner-application-code">The Main Benefit: Cleaner Application Code</h2>
+<p>Thread-local context allows Spring to avoid passing infrastructure details through every method signature.</p>
+<p>Without thread-local context, many methods would need extra parameters such as:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">service</span><span class="p">.</span><span class="na">process</span><span class="p">(</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="n">currentUser</span><span class="p">,</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="n">requestId</span><span class="p">,</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="n">locale</span><span class="p">,</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="n">transactionContext</span><span class="p">,</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="n">securityContext</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="p">);</span>
+</span></code></pre></div>
+<p>That would quickly pollute the business code.</p>
+<p>Instead, Spring keeps certain contextual data attached to the current thread, allowing application code to stay cleaner and more focused on business behavior.</p>
+<h2 id="the-important-limitation">The Important Limitation</h2>
+<p>Thread-local data is only reliable while execution stays on the same thread.</p>
+<p>This is the key point.</p>
+<p>In a normal Spring MVC request, this is usually fine. The same request thread handles the controller, service, and repository calls.</p>
+<p>But problems appear when work moves to another thread.</p>
+<p>For example:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">CompletableFuture</span><span class="p">.</span><span class="na">runAsync</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="n">Authentication</span><span class="w"> </span><span class="n">authentication</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">        </span><span class="n">SecurityContextHolder</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">getAuthentication</span><span class="p">();</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">authentication</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="p">});</span>
+</span></code></pre></div>
+<p>This code may fail because the async task runs on a different thread.</p>
+<p>The new thread does not automatically have the same thread-local values as the original request thread.</p>
+<p>So this may be <code>null</code> or empty:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">SecurityContextHolder</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">getAuthentication</span><span class="p">()</span>
+</span></code></pre></div>
+<p>The same issue can happen with:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nd">@Async</span>
+</span></code></pre></div>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">CompletableFuture</span>
+</span></code></pre></div>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">ExecutorService</span>
+</span></code></pre></div>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(...)</span>
+</span></code></pre></div>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">scheduled</span><span class="w"> </span><span class="n">jobs</span>
+</span></code></pre></div>
+<p>Once execution crosses a thread boundary, the original thread-local context may no longer be available.</p>
+<h2 id="risk-1-lost-security-context-in-async-execution">Risk 1: Lost Security Context in Async Execution</h2>
+<p>This is especially important for Spring Security.</p>
+<p>Inside the original request thread, this works:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">Authentication</span><span class="w"> </span><span class="n">authentication</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">    </span><span class="n">SecurityContextHolder</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">getAuthentication</span><span class="p">();</span>
+</span></code></pre></div>
+<p>But inside an async task, it may not.</p>
+<p>That means authorization logic, auditing logic, or user-specific processing may behave incorrectly if it assumes the security context is always available.</p>
+<p>If async execution needs the security context, it must be propagated intentionally.</p>
+<h2 id="risk-2-lost-transaction-context">Risk 2: Lost Transaction Context</h2>
+<p>Spring transactions are also thread-bound.</p>
+<p>A transaction started in one thread does not automatically continue in another thread.</p>
+<p>For example, if a <code>@Transactional</code> method starts async work in another thread, that async work does not automatically participate in the original transaction.</p>
+<p>This matters because developers may assume that all work inside a transactional method belongs to the same transaction, but that assumption breaks when another thread is involved.</p>
+<h2 id="risk-3-data-leakage-if-thread-local-values-are-not-cleared">Risk 3: Data Leakage if Thread-Local Values Are Not Cleared</h2>
+<p>Application servers use thread pools.</p>
+<p>That means a physical thread is reused across many requests.</p>
+<p>For example:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Thread-1 handles Request A
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>Thread-1 later handles Request B
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>Thread-1 later handles Request C
+</span></code></pre></div>
+<p>If thread-local data is not cleared properly, stale data from one request can accidentally remain on the thread and affect another request.</p>
+<p>This is one of the biggest dangers of using custom <code>ThreadLocal</code> variables.</p>
+<p>Frameworks like Spring Security and Spring MVC usually clean up their own thread-local state at the end of the request. But if we introduce our own <code>ThreadLocal</code>, we must be disciplined about cleanup:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">    </span><span class="n">threadLocal</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="c1">// business logic</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">    </span><span class="n">threadLocal</span><span class="p">.</span><span class="na">remove</span><span class="p">();</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>The <code>remove()</code> call is critical.</p>
+<p>Without it, data may remain attached to a pooled thread longer than expected.</p>
+<h2 id="risk-4-hidden-dependencies">Risk 4: Hidden Dependencies</h2>
+<p>Thread-local context is convenient, but it can also hide dependencies.</p>
+<p>For example, a service method may secretly depend on the current authenticated user:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">approveCase</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">caseId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">    </span><span class="n">Authentication</span><span class="w"> </span><span class="n">authentication</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">        </span><span class="n">SecurityContextHolder</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">getAuthentication</span><span class="p">();</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">    </span><span class="c1">// approval logic</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>The method signature does not show that the method depends on the current user.</p>
+<p>This can make code harder to test and reason about.</p>
+<p>Sometimes this is acceptable, especially for cross-cutting infrastructure concerns. But for core business logic, it is often better to make important dependencies explicit.</p>
+<h2 id="thread-local-and-webflux">Thread-Local and WebFlux</h2>
+<p>Traditional <code>ThreadLocal</code> usage fits better with imperative Spring MVC applications.</p>
+<p>In Spring WebFlux, execution may move between different threads as part of the reactive pipeline.</p>
+<p>Because of that, relying on normal <code>ThreadLocal</code> storage is not safe in the same way.</p>
+<p>Reactor provides its own <code>Context</code> mechanism for propagating contextual data in reactive flows.</p>
+<p>So if an application uses WebFlux or Reactor heavily, thread-local assumptions need to be reconsidered.</p>
+<h2 id="why-this-matters-in-real-projects">Why This Matters in Real Projects</h2>
+<p>Thread-local behavior becomes important when debugging issues like:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Why is the authenticated user null here?
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>Why is my transaction not active in this async method?
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Why is my MDC request ID missing from logs?
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>Why does this work in the controller but not inside CompletableFuture?
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>Why does this scheduled job not have a security context?
+</span></code></pre></div>
+<p>In many cases, the root cause is the same: the code moved away from the original request thread.</p>
+<h2 id="practical-rule-of-thumb">Practical Rule of Thumb</h2>
+<p>In a normal Spring MVC request flow, thread-local context usually works as expected.</p>
+<p>But be careful whenever you introduce:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>@Async
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>CompletableFuture
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>ExecutorService
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>custom thread pools
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>scheduled jobs
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>reactive pipelines
+</span></code></pre></div>
+<p>At those boundaries, do not assume that security context, request context, transaction context, locale, or logging MDC will automatically be available.</p>
+<p>They may need explicit propagation, redesign, or a different context mechanism.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>When someone says a Spring mechanism is <strong>thread-local</strong>, it means the data is bound to the current Java thread.</p>
+<p>In Spring Web applications, this is how many important features become conveniently available during request processing. Spring Security, request context, transaction management, and logging context all rely on this idea in different ways.</p>
+<p>The benefit is clean and convenient application code.</p>
+<p>The trade-off is that thread-local context is fragile when execution crosses thread boundaries.</p>
+<p>So the most important lesson is this:</p>
+<blockquote>
+<p>Thread-local context works naturally in a normal request thread, but it should not be blindly trusted in async, scheduled, reactive, or custom executor-based code.</p>
+</blockquote>
+<p>For Spring developers, understanding this concept is essential for writing secure, predictable, and production-grade applications.</p>
+<hr />
+<p>Happy coding! 💻</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </article>
+      </div>
+      
+      
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+    </div>
+    
+  </main>
+  
+  <footer class="md-footer">
+
+    <div class="md-footer-meta md-typeset">
+        <div class="md-footer-meta__inner md-grid">
+            <p>Email: <a href="mailto:your_email@example.com">me@moham.dev</a> &nbsp; | &nbsp; <a href="https://www.linkedin.com/in/mhpandi/" target="_blank">LinkedIn Profile</a></p>
+        </div>
+    </div>
+</footer>
+  
+</div>
+<div class="md-dialog" data-md-component="dialog">
+  <div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+<script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+
+
+<script src="../../assets/javascripts/bundle.af256bd8.min.js"></script>
+
+
+</body>
+</html>
