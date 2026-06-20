@@ -38,6 +38,7 @@ nav:
     - If You Don’t Practice TDD, Do This Instead: spring/If You Don’t Practice TDD, Do This Instead.md
     - Being Reactive Even When Your Upstream Isn't: spring/Being Reactive Even When Your Upstream Isn't.md
     - Ever Wondered Why Spring Knows the Current User Without Passing It Around? The Answer Is Thread-Local: spring/Ever Wondered Why Spring Knows the Current User Without Passing It Around? The Answer Is Thread-Local.md
+    - The Request That Looked Like a Forward, But Wasn’t: spring/The Request That Looked Like a Forward, But Wasn’t.md
   - Design:
     - Don’t Mix Up Aggregates and Aggregators: design/Don’t Mix Up Aggregates and Aggregators.md
     - Don't Mix Up Polling and Pooling: design/Don't Mix Up Polling and Pooling.md
