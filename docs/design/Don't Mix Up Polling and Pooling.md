@@ -3,7 +3,7 @@ different challenges — one deals with **when to act**, the other with **how to
 
 ---
 
-## Polling — Checking for New Data
+## Polling — Checking for New Data 
 
 Polling is when a consumer repeatedly checks if new data is available. The consumer tracks what it last saw (e.g., a timestamp or ID), then asks the producer:
 
