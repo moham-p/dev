@@ -62,7 +62,7 @@ nav:
 theme:
   name: material
   custom_dir: overrides
-  logo: img/_logo.png
+  logo: img/Froyoshark-Enkel-ITerm.256.png
   favicon: img/favicon.ico
 
 markdown_extensions:
