@@ -82,6 +82,8 @@
     background-color: #212f3c;
         color: var(--md-primary-bg-color);
         font-weight: 700;
+        height: 3.4rem;
+        padding: 0 .8rem;
 }
 
 .md-nav__link {
