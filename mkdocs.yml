@@ -1,8 +1,9 @@
 site_description: Moham Pandi technical blog
-site_name: Curiosity into `Code`
+site_name: Moham.dev
 site_url: https://moham.dev
 
 plugins:
+  - search
   - rss:
       feeds_filenames:
         rss_created: rss.xml
