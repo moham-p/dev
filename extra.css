@@ -86,6 +86,14 @@
         padding: 0 .8rem;
 }
 
+/* On desktop the sidebar's own title bar is just an empty duplicate of the
+   header logo (which Material hides at this breakpoint), so drop it. */
+@media screen and (min-width: 76.25em) {
+    .md-nav--primary .md-nav__title[for=__drawer] {
+        display: none;
+    }
+}
+
 .md-nav__link {
     border-top: 1px solid #f0f0f0;
     padding-top: 12px;

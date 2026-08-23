@@ -10,13 +10,13 @@
   
   
   
-  <link rel="canonical" href="https://moham.dev/java/Concurrency%20-%20Part%204/">
+  <link rel="canonical" href="https://moham.dev/java/Three%20Things%20Have%20to%20Line%20Up%20Before%20a%20Breakpoint%20Works/">
   
   
-  <link rel="prev" href="../Java%20Generics%20as%20a%20Compile-Time%20Gift%20With%20a%20Runtime%20Disguise/">
+  <link rel="prev" href="../Compiler%20Bootstrapping/">
   
   
-  <link rel="next" href="../Concurrency%20-%20Part%205/">
+  <link rel="next" href="../../spring/Method-Level%20Authorization%20in%20Spring%20Security/">
   
   
   <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../feed_rss_created.xml">
@@ -28,7 +28,7 @@
   
   
   
-  <title>Concurrency - Part 4 - Moham.dev</title>
+  <title>Three Things Have to Line Up Before a Breakpoint Works - Moham.dev</title>
   
   
   
@@ -72,7 +72,7 @@
 <div data-md-component="skip">
   
   
-  <a href="#reactive-vs-imperative-concurrency" class="md-skip">
+  <a href="#what-the-jvm-is-actually-running" class="md-skip">
     Skip to content
   </a>
   
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Concurrency - Part 4
+              Three Things Have to Line Up Before a Breakpoint Works
             
           </span>
         </div>
@@ -471,28 +471,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Concurrency - Part 4
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../Concurrency%20-%20Part%204/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -501,135 +483,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#reactive-vs-imperative-concurrency" class="md-nav__link">
-    <span class="md-ellipsis">
-      Reactive vs. Imperative Concurrency
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#project-reactor-a-reactive-concurrency-engine" class="md-nav__link">
-    <span class="md-ellipsis">
-      Project Reactor: A Reactive Concurrency Engine
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#threading-in-reactor-with-schedulers" class="md-nav__link">
-    <span class="md-ellipsis">
-      Threading in Reactor with Schedulers
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Threading in Reactor with Schedulers">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example-parallel-processing-without-threads" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example: Parallel Processing without Threads
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#built-in-backpressure-controlled-concurrency" class="md-nav__link">
-    <span class="md-ellipsis">
-      Built-in Backpressure = Controlled Concurrency
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#integrating-reactive-concurrency-with-spring" class="md-nav__link">
-    <span class="md-ellipsis">
-      Integrating Reactive Concurrency with Spring
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Integrating Reactive Concurrency with Spring">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#reactive-repository-interface" class="md-nav__link">
-    <span class="md-ellipsis">
-      Reactive Repository Interface:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#project-reactor-vs-nodejs-a-conceptual-parallel" class="md-nav__link">
-    <span class="md-ellipsis">
-      Project Reactor vs. Node.js: A Conceptual Parallel
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#when-to-go-reactive" class="md-nav__link">
-    <span class="md-ellipsis">
-      When to Go Reactive
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-does-the-project-reactor-relate-to-completablefuture" class="md-nav__link">
-    <span class="md-ellipsis">
-      How does the Project Reactor relate to CompletableFuture?
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#final-thoughts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Final Thoughts
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -765,10 +618,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../Three%20Things%20Have%20to%20Line%20Up%20Before%20a%20Breakpoint%20Works/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Three Things Have to Line Up Before a Breakpoint Works
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -777,6 +648,69 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-jvm-is-actually-running" class="md-nav__link">
+    <span class="md-ellipsis">
+      What the JVM is actually running
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-the-source-on-your-screen-comes-from" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where the source on your screen comes from
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-bridge-back-to-line-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      The bridge back to line numbers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#so-my-production-image-ships-all-that-debug-info-too" class="md-nav__link">
+    <span class="md-ellipsis">
+      So my production image ships all that debug info too?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      Putting it together
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1463,205 +1397,32 @@
 
 
 
-<h1>Concurrency - Part 4</h1>
+<h1>Three Things Have to Line Up Before a Breakpoint Works</h1>
 
-<p>As applications demand higher scalability, non-blocking I/O, and minimal thread usage, these traditional models start to show limitations. This is where <strong>reactive programming</strong> enters the scene—not as a replacement, but as a fundamentally different approach to concurrency.</p>
-<p>In this post, we’ll dive into reactive concurrency in Java with <strong>Project Reactor</strong> and explore how it transforms the way we handle asynchronous, concurrent tasks—especially in high-throughput systems.</p>
-<hr />
-<h2 id="reactive-vs-imperative-concurrency">Reactive vs. Imperative Concurrency</h2>
-<table>
-<thead>
-<tr>
-<th>Feature</th>
-<th>Imperative Model (Threads, Executors)</th>
-<th>Reactive Model (Project Reactor)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Execution control</td>
-<td>You manage when and how threads run</td>
-<td>You describe <em>what</em> should happen, not <em>how</em></td>
-</tr>
-<tr>
-<td>Blocking</td>
-<td>Often blocking (e.g., thread waits)</td>
-<td>Non-blocking, event-driven</td>
-</tr>
-<tr>
-<td>Thread usage</td>
-<td>One thread per task (virtual threads improve this)</td>
-<td>Small thread pool, I/O multiplexing</td>
-</tr>
-<tr>
-<td>Backpressure</td>
-<td>Manual, if at all</td>
-<td>Built-in flow control</td>
-</tr>
-</tbody>
-</table>
-<p>Reactive programming focuses on <strong>declarative concurrency</strong>—you define a pipeline of operations, and the system executes them asynchronously and concurrently <em>behind the scenes</em>.</p>
-<h2 id="project-reactor-a-reactive-concurrency-engine">Project Reactor: A Reactive Concurrency Engine</h2>
-<p><strong>Project Reactor</strong> brings <a href="https://github.com/reactive-streams/reactive-streams-jvm/blob/v1.0.4/README.md">Reactive Streams</a> to Java. Instead of managing threads, queues, and futures, you work with two key abstractions:</p>
+<p>Here's something a little unsettling: set a breakpoint inside a library class — some file deep in a dependency you pulled from Maven — and your debugger stops right there, on that exact line, with the variables laid out in front of you. It feels like the JVM read that file and paused mid-sentence.</p>
+<p>It didn't. That <code>.java</code> file was never executed. It may not even have been on your machine until the moment you clicked into it. What's really happening is three separate pieces working together, and once you see how they fit, it stops feeling like magic.</p>
+<h2 id="what-the-jvm-is-actually-running">What the JVM is actually running</h2>
+<p>Start with the thing that's really running. <code>javac</code> turns <code>.java</code> files into <code>.class</code> files containing bytecode — and the same is true of every dependency you pull in. Those jars hold compiled classes, never source. The file you're looking at in the editor was never shipped, loaded, or run.</p>
+<p>The JVM then works through that bytecode. It interprets it at first, then hands the hot paths to a JIT compiler that turns them into native machine code on the fly. So by the time your breakpoint hits, that code may be running as raw machine instructions — several steps removed from the text on your screen.</p>
+<p>Which makes the puzzle sharper. If the JVM only ever sees bytecode, how does anything know that a given instruction is line 42 of a file it never read? And where did that file come from in the first place?</p>
+<h2 id="where-the-source-on-your-screen-comes-from">Where the source on your screen comes from</h2>
+<p>Take the second question first. The code IntelliJ shows you isn't what's running — it's a separate lookup, and it happens one of two ways.</p>
+<p>Its first choice is a <code>-sources.jar</code> (for example <code>some-library-2.x.x-sources.jar</code>), either already cached in your local <code>.m2</code> repo or fetched from Maven Central on the spot. Most popular open-source libraries publish one. It's a completely separate artifact from the compiled jar your app runs — it exists purely so a human can read it, and IntelliJ matches it to the bytecode using class and method names.</p>
+<p>If no sources jar exists for a dependency, IntelliJ falls back to its built-in decompiler (Fernflower) and rebuilds readable-ish source straight from the bytecode. You can spot this in the UI — it shows a banner saying something like "Class file decompiled — no sources found." The rebuilt code won't match the original as closely; things like real variable names can be missing if the class wasn't compiled with full debug info, so you'll see placeholders instead.</p>
+<h2 id="the-bridge-back-to-line-numbers">The bridge back to line numbers</h2>
+<p>Now the harder question — how a bytecode instruction knows which source line it came from. The answer is that the mapping is built into the bytecode itself. When code is compiled, <code>javac</code> can embed debug attributes next to the instructions: a <code>LineNumberTable</code> and a <code>LocalVariableTable</code>, which tie bytecode offsets back to source lines and variable names.</p>
+<p>This debug info is <em>optional</em> — the JVM spec doesn't require it. It's only there if the code was compiled with debug flags on (<code>javac -g</code>, or the more specific <code>-g:lines,vars,source</code>). In practice most published library jars include all of it, since build plugins turn it on by default and stripping it out is rare. That's why breakpoints in dependency code usually just work, even though nothing forces a library author to make that happen.</p>
+<p>When you run in debug mode, the JVM exposes a debugger interface (JDWP). IntelliJ uses it to say: "pause when execution reaches the bytecode instruction for line N in class X." The JVM does that using the embedded line-number table — the sources jar plays no part here at all. It only comes in afterward, to show readable code once execution has paused, and to let you click a line to set the breakpoint in the first place.</p>
+<h2 id="so-my-production-image-ships-all-that-debug-info-too">So my production image ships all that debug info too?</h2>
+<p>Yes — the jars in your container image are the same artifacts your build tool downloaded, debug info and all. But the cost is smaller than you'd think, and you want most of it anyway.</p>
+<p>Together the two attributes add roughly 10–20% to raw <code>.class</code> size, and jars are zip-compressed, so the packaged difference is smaller still. Runtime cost is basically zero: the JIT never reads them. And <code>LineNumberTable</code> is what puts line numbers in your stack traces — strip it and every frame reads <code>Unknown Source</code>, a bad trade when a stack trace is often all you have during an incident.</p>
+<h2 id="putting-it-together">Putting it together</h2>
 <ul>
-<li><code>Mono&lt;T&gt;</code>: A publisher of <strong>zero or one</strong> item.</li>
-<li><code>Flux&lt;T&gt;</code>: A publisher of <strong>zero to many</strong> items (a reactive stream).</li>
+<li><strong>Compiled bytecode</strong> (from the Maven jar) — what the JVM actually loads and runs, interpreted and then JIT-compiled</li>
+<li><strong>Sources jar, or a decompiler as fallback</strong> — what IntelliJ shows you, purely so you can read it and click breakpoint gutters</li>
+<li><strong>Debug metadata inside the bytecode, if the library was compiled with it</strong> — the bridge that ties "line 42 in Foo.java" to "bytecode offset 17 in Foo.class"</li>
 </ul>
-<p>These types form the backbone of reactive pipelines, offering powerful operators and built-in support for concurrency and error handling.</p>
-<h2 id="threading-in-reactor-with-schedulers">Threading in Reactor with Schedulers</h2>
-<p>In reactive programming, execution doesn't happen immediately in the calling thread. Instead, Reactor uses <strong>Schedulers</strong> to control where and how tasks run, allowing better separation of concerns and optimal use of system resources.</p>
-<table>
-<thead>
-<tr>
-<th>Scheduler</th>
-<th>Common Use Case</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Schedulers.parallel()</code></td>
-<td>CPU-bound tasks (e.g., data crunching)</td>
-</tr>
-<tr>
-<td><code>Schedulers.boundedElastic()</code></td>
-<td>Blocking I/O (e.g., file or DB access)</td>
-</tr>
-<tr>
-<td><code>Schedulers.single()</code></td>
-<td>Work that must run on a single thread</td>
-</tr>
-<tr>
-<td><code>Schedulers.immediate()</code></td>
-<td>Execute directly on the current thread</td>
-</tr>
-</tbody>
-</table>
-<h3 id="example-parallel-processing-without-threads">Example: Parallel Processing without Threads</h3>
-<div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">Flux</span><span class="p">.</span><span class="na">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="p">.</span><span class="na">flatMap</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Mono</span><span class="p">.</span><span class="na">just</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">          </span><span class="p">.</span><span class="na">subscribeOn</span><span class="p">(</span><span class="n">Schedulers</span><span class="p">.</span><span class="na">parallel</span><span class="p">())</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">          </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="k">this</span><span class="p">::</span><span class="n">process</span><span class="p">))</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="p">.</span><span class="na">collectList</span><span class="p">()</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="p">.</span><span class="na">block</span><span class="p">();</span>
-</span></code></pre></div>
-<p>Here, <code>flatMap</code> handles parallelism, and <code>subscribeOn</code> ensures each task runs concurrently—without you ever creating a thread.</p>
-<h2 id="built-in-backpressure-controlled-concurrency">Built-in Backpressure = Controlled Concurrency</h2>
-<p>Reactive streams (and Project Reactor) support <strong>backpressure</strong>, a critical feature absent in models like <code>CompletableFuture</code>. Backpressure allows the <strong>consumer to control the rate of data flow</strong>, preventing memory overload or CPU exhaustion.</p>
-<p>This makes reactive pipelines <strong>self-regulating</strong>, especially in systems that process data continuously or unevenly (e.g., stream ingestion, APIs, or message queues).</p>
-<h2 id="integrating-reactive-concurrency-with-spring">Integrating Reactive Concurrency with Spring</h2>
-<p>To build fully non-blocking applications in the Spring ecosystem, you can combine <strong>Project Reactor</strong> with:</p>
-<ul>
-<li><strong>Spring WebFlux</strong>: A reactive web framework.</li>
-<li><strong>Spring Data R2DBC</strong>: A reactive relational database integration.</li>
-</ul>
-<h3 id="reactive-repository-interface">Reactive Repository Interface:</h3>
-<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">PersonRepository</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ReactiveCrudRepository</span><span class="o">&lt;</span><span class="n">Person</span><span class="p">,</span><span class="w"> </span><span class="n">Long</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="n">Flux</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findAll</span><span class="p">();</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">Mono</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findById</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">);</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">}</span>
-</span></code></pre></div>
-<p>Unlike blocking repositories, this interface returns <code>Flux</code> and <code>Mono</code>, fully integrated with Reactor and WebFlux for end-to-end reactive pipelines.</p>
-<h2 id="project-reactor-vs-nodejs-a-conceptual-parallel">Project Reactor vs. Node.js: A Conceptual Parallel</h2>
-<p>Reactive programming isn’t unique to Java. Node.js has long used <strong>event loops and non-blocking I/O</strong>. Reactor brings similar principles to the JVM with stronger type safety and backpressure:</p>
-<table>
-<thead>
-<tr>
-<th>Concept</th>
-<th>Project Reactor</th>
-<th>Node.js</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Async Type</td>
-<td><code>Mono</code>, <code>Flux</code></td>
-<td>Promises, Streams</td>
-</tr>
-<tr>
-<td>Execution</td>
-<td>Scheduler-based</td>
-<td>Event loop</td>
-</tr>
-<tr>
-<td>Backpressure</td>
-<td>✅ Built-in</td>
-<td>⚠️ Rudimentary</td>
-</tr>
-<tr>
-<td>Stream control</td>
-<td>Functional operators</td>
-<td>Streams with <code>pause()/resume()</code></td>
-</tr>
-<tr>
-<td>Integration</td>
-<td>Spring WebFlux, R2DBC</td>
-<td>Express, native modules</td>
-</tr>
-</tbody>
-</table>
-<h2 id="when-to-go-reactive">When to Go Reactive</h2>
-<p>✅ Choose reactive concurrency when your application must:</p>
-<ul>
-<li>
-<p>Handle a high volume of concurrent I/O (e.g., HTTP APIs, messaging)</p>
-</li>
-<li>
-<p>Support streaming or real-time data pipelines</p>
-</li>
-<li>
-<p>Scale with fewer threads and predictable resource usage</p>
-</li>
-</ul>
-<p>❌ Avoid it when:</p>
-<ul>
-<li>
-<p>You need synchronous, CPU-heavy workflows</p>
-</li>
-<li>
-<p>Your team isn’t familiar with functional or stream-based programming</p>
-</li>
-<li>
-<p>You’re working with libraries that aren’t reactive-compatible</p>
-</li>
-</ul>
-<h2 id="how-does-the-project-reactor-relate-to-completablefuture">How does the Project Reactor relate to CompletableFuture?</h2>
-<p>CompletableFuture:</p>
-<ul>
-<li>
-<p>Part of Java’s standard library (introduced in Java 8).</p>
-</li>
-<li>
-<p>Represents a single future result of an asynchronous computation.</p>
-</li>
-<li>
-<p>Provides a straightforward API to handle asynchronous tasks and their results.</p>
-</li>
-<li>
-<p>Does not implement the <a href="https://github.com/reactive-streams/reactive-streams-jvm/blob/v1.0.4/README.md#specification">Reactive Streams specification</a>. It is more focused on individual, one-time asynchronous tasks
-  rather than streams of data.</p>
-</li>
-<li>
-<p>Supports chaining of asynchronous operations through methods like thenApply, thenAccept, thenCompose, etc.</p>
-</li>
-</ul>
-<p>Project Reactor:</p>
-<ul>
-<li>
-<p>A library that implements the <a href="https://github.com/reactive-streams/reactive-streams-jvm/blob/v1.0.4/README.md#specification">Reactive Streams specification</a> and provides a powerful API for reactive programming.</p>
-</li>
-<li>
-<p>Offers two main types: Mono (for zero or one result) and Flux (for zero or more results).</p>
-</li>
-<li>
-<p>Designed for building non-blocking, event-driven applications.</p>
-</li>
-<li>
-<p>Supports backpressure, a critical feature for handling the flow of data in a robust and efficient manner.</p>
-</li>
-</ul>
-<h2 id="final-thoughts">Final Thoughts</h2>
-<p>With Project Reactor, you gain a powerful model for asynchronous concurrency that eliminates many pitfalls of traditional thread-based programming.</p>
-<p>It’s not about replacing threads—it’s about <strong>thinking differently and shifting paradigms</strong>. Let the system manage the “how,” while you focus on the “what.”</p>
+<p>It <em>looks</em> like your program is running from source. In reality the JVM is running bytecode the whole time, and the debugger plus the sources jar are just giving you a readable window into it.</p>
 <hr />
 <p>Happy coding! 💻</p>
 
