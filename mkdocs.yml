@@ -32,6 +32,7 @@ nav:
     - Don’t Let Your Java Debugger Fool You: java/Don’t Let Your Java Debugger Fool You.md
     - Three Streams, Three Worlds, Java Streams vs Reactive Streams vs Kafka Streams: java/Three Streams, Three Worlds, Java Streams vs Reactive Streams vs Kafka Streams.md
     - Compiler Bootstrapping: java/Compiler Bootstrapping.md
+    - Three Things Have to Line Up Before a Breakpoint Works: java/Three Things Have to Line Up Before a Breakpoint Works.md
   - Spring:
     - Method-Level Authorization in Spring Security: spring/Method-Level Authorization in Spring Security.md
     - How Singleton Components Work with Thread Pools: spring/How Singleton Components Work with Thread Pools.md
