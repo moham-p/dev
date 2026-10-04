@@ -33,6 +33,7 @@ nav:
     - Three Streams, Three Worlds, Java Streams vs Reactive Streams vs Kafka Streams: java/Three Streams, Three Worlds, Java Streams vs Reactive Streams vs Kafka Streams.md
     - Compiler Bootstrapping: java/Compiler Bootstrapping.md
     - Three Things Have to Line Up Before a Breakpoint Works: java/Three Things Have to Line Up Before a Breakpoint Works.md
+    - Do Different Programming Languages Use Different Threads?: java/Do Different Programming Languages Use Different Threads?.md
   - Spring:
     - Method-Level Authorization in Spring Security: spring/Method-Level Authorization in Spring Security.md
     - How Singleton Components Work with Thread Pools: spring/How Singleton Components Work with Thread Pools.md
