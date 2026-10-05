@@ -8,19 +8,20 @@
 .md-tag {
   font-weight: 500;
   letter-spacing: .01em;
-  color: #7a5200;
-  background: linear-gradient(135deg, #fff8e1, #ffe9a8);
-  border: 1px solid #f3cf6b;
+  color: #334155;
+  background: #cbd5e1;
+  border: 1px solid #b6c2d1;
   text-decoration: none;
-  box-shadow: 0 1px 2px rgba(154, 115, 0, .15);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, .12);
   transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
 }
 
 a.md-tag:hover {
-  background: linear-gradient(135deg, #ffe9a8, #ffdd7a);
-  box-shadow: 0 3px 8px rgba(154, 115, 0, .25);
+  background: #94a3b8;
+  border-color: #94a3b8;
+  box-shadow: 0 3px 8px rgba(15, 23, 42, .2);
   transform: translateY(-1px);
-  color: #5c3e00;
+  color: #0f172a;
   text-decoration: none;
 }
 
@@ -215,6 +216,13 @@ a.md-tag:hover {
   padding: .5rem .75rem;
   margin: 1.25rem 0 .75rem;
   line-height: 1.25;
+}
+
+/* Tag headings on the Tags page: no banner, just the tag pill */
+.md-typeset h2:has(> .md-tag) {
+  background: none;
+  border-left: 0;
+  padding: 0;
 }
 
 .md-typeset h1 .headerlink,
