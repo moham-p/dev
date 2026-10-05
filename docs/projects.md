@@ -1,6 +1,15 @@
 ###  **Software Development Engineer \- [Envista](https://envistaco.com/en/)** (October 2024 \- Present)
 
-* Apply security and compliance best practices in the [Spark](https://ormco.com/en-us/spark-clear-aligners) solution. 
+* Implemented and integrated the PHI service for the [Spark](https://ormco.com/en-us/spark-clear-aligners) platform, separating patient data from the core application.
+* Moved patient photos, scans, notes and text data to the PHI service across the web UI, desktop apps and public API, gated by feature flags.
+* Implemented permission-based access to patient data and admin features, including restrictions for admin impersonation.
+* Created technical designs and architecture decision records for PHI removal, SSO login and the PHI service.
+* Built Support Tool features for role and permission management, user and admin administration, and notifications.
+* Enabled Azure AD single sign-on for selected operators and kept user permissions in sync across regions.
+* Removed patient names from messages, logs, read paths and stored data, and wrote scripts to backfill and anonymize existing data.
+* Fixed security vulnerabilities in dependencies and tightened authentication, token handling and API access.
+* Added CloudWatch dashboards and alarms, PagerDuty alerts, structured logging and load benchmarks, and investigated production incidents.
+* Rebuilt CMS report and support pages in React, and prepared release branches and environments for the PHI service.
 
 
 ###  **Senior Backend Engineer, Maps API \- [Mapbox](https://www.mapbox.com/)** (Feb 2022 \- May 2024)
