@@ -1,3 +1,9 @@
+---
+tags:
+  - Observability
+  - Language Internals
+---
+
 Here's something a little unsettling: set a breakpoint inside a library class — some file deep in a dependency you pulled from Maven — and your debugger stops right there, on that exact line, with the variables laid out in front of you. It feels like the JVM read that file and paused mid-sentence.
 
 It didn't. That `.java` file was never executed. It may not even have been on your machine until the moment you clicked into it. What's really happening is three separate pieces working together, and once you see how they fit, it stops feeling like magic.

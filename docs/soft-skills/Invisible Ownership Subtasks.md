@@ -1,3 +1,8 @@
+---
+tags:
+  - Engineering Practice
+---
+
 When software developers pick up a new ticket, they often see a list of clearly defined subtasks—requirements documented in tools like Jira that need to be completed to move the ticket forward. However, the best developers recognize that visible subtasks are only part of the picture. There's another category, the "invisible ownership subtasks," that distinguishes those who truly take ownership from those who just check the boxes.
 
 Invisible ownership subtasks are those that never make it into a ticket management system. They require thinking about the wider impact of the change—how it affects other modules, edge cases, and dependencies. Developers with this mindset have a deeper sense of responsibility and seek to understand the consequences of their work.

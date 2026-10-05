@@ -1,3 +1,9 @@
+---
+tags:
+  - Concurrency
+  - Security
+---
+
 At first, this sounds like a low-level Java detail. But in practice, it is an important concept behind many familiar Spring features, including security, request handling, transactions, and logging context.
 
 Understanding it helps explain why some things “just work” in a normal request flow, but suddenly break when we introduce async execution, custom executors, or reactive programming.

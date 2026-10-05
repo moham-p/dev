@@ -1,3 +1,8 @@
+---
+tags:
+  - Software Architecture
+---
+
 In system design, two similar-sounding terms often cause confusion: polling and pooling. They address completely 
 different challenges — one deals with **when to act**, the other with **how to manage resources**.
 

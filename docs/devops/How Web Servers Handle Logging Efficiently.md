@@ -1,3 +1,9 @@
+---
+tags:
+  - Observability
+  - Performance
+---
+
 Have you ever wondered how web servers generate log files so quickly, even though writing to files is known to be an expensive operation? Logging is an essential aspect of web servers, providing critical insights into application behavior, performance, and errors. However, if every log entry triggered an immediate disk write, it would significantly slow down the server. So, how do web servers manage to write logs efficiently while maintaining high performance??
 
 ## The Challenges of Logging

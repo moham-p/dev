@@ -1,3 +1,8 @@
+---
+tags:
+  - Software Architecture
+---
+
 Let’s be honest.
 
 **Domain-Driven Design (DDD) is rarely implemented “by the book.”**

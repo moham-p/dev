@@ -1,3 +1,9 @@
+---
+tags:
+  - Distributed Systems
+  - Software Architecture
+---
+
 Traditional persistence models—typically ORM-based and CRUD-oriented—are optimized for storing *current state*. Aggregates are mapped to tables, fields to columns, and instances to rows. While this approach is familiar and effective for basic data storage, it has a structural weakness that becomes increasingly visible in modern systems: **domain events are not a first-class concern**.
 
 When an aggregate changes state—an order is placed, a payment is captured, an address is updated—those changes often need to be communicated to other parts of the system. In event-driven and microservice architectures, this communication happens through **domain events**. Yet in traditional persistence, event publication is usually *bolted on* to the business logic rather than being an inherent part of it.

@@ -1,3 +1,8 @@
+---
+tags:
+  - Concurrency
+---
+
 Modern Java applications often need to perform multiple tasks asynchronously without blocking threads or slowing down the system. One of the essential tools introduced in Java 8 to address this need is the **`CompletableFuture`**.
 
 This blog post focuses on how `CompletableFuture` makes asynchronous programming easier, compared with JavaScript’s Promise concept, and demonstrates its real-world use in a Java application.

@@ -4,6 +4,8 @@ site_url: https://moham.dev
 
 plugins:
   - search
+  - tags:
+      tags_file: tags.md
   - rss:
       feeds_filenames:
         rss_created: rss.xml
@@ -14,6 +16,7 @@ plugins:
 dev_addr: 127.0.0.1:9000
 
 nav:
+  - Tags: tags.md
   - Soft Skills:
       - Invisible Ownership Subtasks: soft-skills/Invisible Ownership Subtasks.md
       - Staying on Track When a Ticket Gets Complicated: soft-skills/Staying on Track When a Ticket Gets Complicated.md

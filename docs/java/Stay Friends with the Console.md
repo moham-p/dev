@@ -1,3 +1,9 @@
+---
+tags:
+  - Observability
+  - Engineering Practice
+---
+
 As developers, we often choose tools that enhance productivity and streamline our workflows. For Java developers, IntelliJ IDEA and Visual Studio Code (VS Code) are two popular choices. Each brings unique strengths to the table—IntelliJ's rich UI simplifies complex setups, while VS Code's explicit configurations encourage familiarity with command-line operations.
 
 But here's a critical observation: developers using IntelliJ often become less familiar with the actual commands their tools execute behind the scenes. This post argues why staying "friends with the console" is vital, even if you rely on an IDE with advanced features.

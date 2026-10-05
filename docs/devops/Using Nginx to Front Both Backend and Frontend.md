@@ -1,3 +1,9 @@
+---
+tags:
+  - Infrastructure
+  - Performance
+---
+
 When setting up a web application with a Spring Boot backend and a React frontend, you can choose to deploy them directly or use Nginx as a reverse proxy. Both options are viable, but using Nginx offers several advantages, especially for production environments.
 
 ## 1. **Without Nginx: Direct Setup**

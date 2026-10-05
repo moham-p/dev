@@ -1,3 +1,8 @@
+---
+tags:
+  - Security
+---
+
 Cross-Site Scripting (XSS) is one of the most common and dangerous vulnerabilities in web applications. While modern 
 frontend frameworks like React provide strong built‑in protection, older technologies like JSP rely on manual escaping, 
 making it easier to introduce XSS bugs.

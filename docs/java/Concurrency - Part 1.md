@@ -1,3 +1,8 @@
+---
+tags:
+  - Concurrency
+---
+
 When building concurrent applications in Java, managing threads properly is crucial. Spawning raw threads (`new Thread(...)`) works for simple cases, but it's inefficient and hard to scale. Java’s concurrency package offers a more powerful approach: **thread pools**.
 
 This post will walk you through the fundamentals of using `ExecutorService` and customizing threads with `ThreadFactory`. 

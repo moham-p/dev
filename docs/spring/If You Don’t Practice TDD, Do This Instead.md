@@ -1,3 +1,9 @@
+---
+tags:
+  - Testing
+  - Engineering Practice
+---
+
 Despite years of recommendations, TDD still isn’t mainstream. But that doesn’t mean testing itself has to be dull or mechanical.
 In fact, testing becomes much more enjoyable when you understand the tools and purpose behind it.
 

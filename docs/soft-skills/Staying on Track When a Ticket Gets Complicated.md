@@ -1,3 +1,8 @@
+---
+tags:
+  - Engineering Practice
+---
+
 You start working on a ticket thinking it’ll be done in a day or two. But then… things get complicated. Something doesn’t work. Docs aren’t clear. You fix one thing, and two new problems show up.
 
 Don’t worry — it happens to all of us. Here are some simple and helpful tips to keep moving when a ticket starts dragging on.

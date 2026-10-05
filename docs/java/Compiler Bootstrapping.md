@@ -1,3 +1,8 @@
+---
+tags:
+  - Language Internals
+---
+
 You may have heard that a **language X is written in X**, and you may be wondering how that is possible. How can a language exist before it exists? The answer is **compiler bootstrapping** — a staged engineering process that allows a language to evolve into a self-hosted system. 
 
 Let’s walk through it using Kotlin as a concrete example, developed by the team at JetBrains.

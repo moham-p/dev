@@ -1,3 +1,9 @@
+---
+tags:
+  - Security
+  - Infrastructure
+---
+
 Imagine you run a growing organization where employees need access to AWS services. Managing individual IAM users for each employee would be complex and inefficient. This is where identity federation becomes a game-changer. Instead of creating separate IAM users, you can configure Azure AD as an identity provider, allowing employees to log into AWS using their existing Azure AD credentials. This setup leverages SAML federation, ensuring seamless and secure access management without the overhead of IAM user administration.
 
 In this blog post, we'll explore **identity federation**, its key concepts, and how to set up **Azure AD as an identity provider for AWS**.

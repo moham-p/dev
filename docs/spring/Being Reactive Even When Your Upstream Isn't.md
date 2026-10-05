@@ -1,3 +1,9 @@
+---
+tags:
+  - Concurrency
+  - Performance
+---
+
 Modern systems rarely get built in a perfect greenfield. You inherit blocking SDKs, legacy REST services, JDBC drivers, and upstream APIs that have never heard the word “reactive.” Yet you still want to design your own service using **Spring WebFlux**, **R2DBC**, and reactive patterns—because your *downstream* consumers benefit massively from it.
 
 And that’s the key idea of this post:

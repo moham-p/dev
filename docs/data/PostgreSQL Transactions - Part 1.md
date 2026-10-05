@@ -1,3 +1,8 @@
+---
+tags:
+  - Distributed Systems
+---
+
 Understanding transactions is a foundational skill in database systems. Transactions are critical for ensuring database 
 reliability and consistency. By exploring transactions, you can:
 

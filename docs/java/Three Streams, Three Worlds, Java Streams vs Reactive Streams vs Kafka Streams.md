@@ -1,3 +1,9 @@
+---
+tags:
+  - Software Architecture
+  - Concurrency
+---
+
 If you have worked with modern Java or Kafka-based systems, you have almost certainly encountered the term *stream* in multiple contexts:
 
 * Java 8 Streams

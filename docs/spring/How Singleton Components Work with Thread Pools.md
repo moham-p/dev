@@ -1,3 +1,8 @@
+---
+tags:
+  - Concurrency
+---
+
 Spring’s component model is built on the principle of *singletons* for many of its core beans, ensuring efficiency and 
 consistency across your application. If you’ve ever wondered how Spring handles multiple requests while maintaining a 
 single instance for components like controllers, services, and repositories, this article will walk you through it with 

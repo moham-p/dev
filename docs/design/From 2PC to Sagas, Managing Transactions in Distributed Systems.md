@@ -1,3 +1,8 @@
+---
+tags:
+  - Distributed Systems
+---
+
 Modern distributed applications rarely resemble the monoliths we built a decade ago. Instead of a single codebase and database, today’s systems are composed of many independently deployed services, often communicating through an event bus such as Apache Kafka.
 This architectural shift brings scalability and autonomy—but it fundamentally changes how transactions work.
 

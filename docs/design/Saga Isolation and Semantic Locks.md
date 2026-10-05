@@ -1,3 +1,8 @@
+---
+tags:
+  - Distributed Systems
+---
+
 In [the previous post](../From 2PC to Sagas, Managing Transactions in Distributed Systems), we established that Sagas replace **XA/2PC-style global transactions** with **local transactions + compensation**. But that leaves a critical gap:
 
 > What prevents multiple sagas from interfering with each other?

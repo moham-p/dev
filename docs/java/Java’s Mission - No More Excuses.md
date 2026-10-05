@@ -1,3 +1,9 @@
+---
+tags:
+  - Language Internals
+  - Performance
+---
+
 Java isn't trying to be the flashiest language or lead every trend — it’s focused on one strategic goal: removing every valid excuse not to use it.
 
 ### How Java Identifies What to Improve

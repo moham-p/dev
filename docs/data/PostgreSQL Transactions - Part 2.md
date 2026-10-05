@@ -1,3 +1,9 @@
+---
+tags:
+  - Distributed Systems
+  - Concurrency
+---
+
 In [part one](../PostgreSQL Transactions - Part 1), we explained how **SELECT** queries benefit from running as a transaction. In this part, let’s explore why transactions are essential for **UPDATE** statements.
 
 We mentioned earlier that **autocommit mode** is the default in PostgreSQL. This means that if you do not explicitly use **BEGIN** to start a transaction, each individual SQL statement (**SELECT**, **INSERT**, **UPDATE**, **DELETE**, etc.) is treated as a separate transaction. PostgreSQL will automatically commit the statement immediately after its execution.

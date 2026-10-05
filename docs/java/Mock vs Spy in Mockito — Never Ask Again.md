@@ -1,3 +1,8 @@
+---
+tags:
+  - Testing
+---
+
 When writing unit tests in Java using Mockito, a common question pops up:
 
 > “Should I use `@Mock` or `@Spy`?”

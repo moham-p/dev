@@ -1,3 +1,9 @@
+---
+tags:
+  - Software Architecture
+  - Distributed Systems
+---
+
 When discussing software design, two terms that often get confused are **Aggregates** and **Aggregators**. While they may sound similar, they serve entirely different purposes. If you’re working with **Domain-Driven Design (DDD)** or **microservices**, understanding this distinction is crucial.
 
 ## Aggregates: A Core DDD Concept

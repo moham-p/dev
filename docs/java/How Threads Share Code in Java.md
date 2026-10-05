@@ -1,3 +1,9 @@
+---
+tags:
+  - Concurrency
+  - Language Internals
+---
+
 In [a previous post](../../spring/How Singleton Components Work with Thread Pools) we explored how Spring Boot handles multiple requests using thread pools, 
 and how singleton-scoped components (like controllers and services) work in such an environment. But an equally important question remains:
 *“If all threads share the same singleton, do they each copy the code into their stack?”*

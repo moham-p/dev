@@ -1,3 +1,8 @@
+---
+tags:
+  - Language Internals
+---
+
 Collisions in a `HashMap` occur when multiple keys hash to the same bucket index. This situation arises because different keys can produce the same hash value. To handle such cases, `HashMap` employs **separate chaining**, where it stores multiple key-value pairs in a bucket using a linked list (or a balanced tree for performance optimization, starting from Java 8).
 
 Let’s dive into an example to understand how this works.

@@ -1,3 +1,8 @@
+---
+tags:
+  - Infrastructure
+---
+
 When managing CI/CD pipelines with Atlassian Bamboo and deploying containerized workloads using AWS Elastic Container Service (ECS), understanding how their concepts align can help streamline workflows. This post explores how Bamboo and ECS can complement each other, enabling parallel usage for seamless integration of CI/CD and container orchestration.
 
 ## Atlassian Bamboo Concepts

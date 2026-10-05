@@ -1,3 +1,8 @@
+---
+tags:
+  - Concurrency
+---
+
 As applications demand higher scalability, non-blocking I/O, and minimal thread usage, these traditional models start to show limitations. This is where **reactive programming** enters the scene—not as a replacement, but as a fundamentally different approach to concurrency.
 
 In this post, we’ll dive into reactive concurrency in Java with **Project Reactor** and explore how it transforms the way we handle asynchronous, concurrent tasks—especially in high-throughput systems.

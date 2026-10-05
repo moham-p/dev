@@ -1,3 +1,9 @@
+---
+tags:
+  - Concurrency
+  - Language Internals
+---
+
 Imagine two multi-threaded programs running on a Mac: one written in Java, the other in Go. Do they use different kinds of threads? The short answer: underneath, no. On top, yes.
 
 ## Same processes, same kernel threads

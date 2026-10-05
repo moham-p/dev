@@ -1,3 +1,8 @@
+---
+tags:
+  - Language Internals
+---
+
 As someone who's been around Java long enough to remember writing raw `List` and `Map` code in Java 1.4, I often remind junior developers that **generics weren't added to Java just for nicer-looking syntax**. They were introduced to solve real problems — but with very real trade-offs. If you're writing Java today and treating generics like magic, you might be missing their original purpose — and their limitations.
 
 ## Life Before Generics

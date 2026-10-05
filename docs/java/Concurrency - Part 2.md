@@ -1,3 +1,9 @@
+---
+tags:
+  - Concurrency
+  - Performance
+---
+
 In [part one](../Concurrency - Part 1), we explored how to manage thread pools in Java using `ExecutorService` and how that 
 helps you write scalable, concurrent applications. In this post, we look at how Apache Tomcat, a popular Java HTTP 
 server, uses thread pools internally to manage concurrent HTTP requests.

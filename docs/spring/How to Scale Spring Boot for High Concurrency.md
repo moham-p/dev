@@ -1,3 +1,9 @@
+---
+tags:
+  - Concurrency
+  - Performance
+---
+
 In [my previous post](../How Singleton Components Work with Thread Pools), we explored how Spring Boot uses singleton-scoped components (like controllers, services, and repositories) and how multiple threads can safely share these instances thanks to stateless design. We verified singleton behavior using `System.identityHashCode` and explained how Spring delegates concurrent request processing to the servlet container’s thread pool (e.g., Tomcat).
 
 In this follow-up post, we go one level deeper — tackling questions like:

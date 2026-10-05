@@ -1,3 +1,8 @@
+---
+tags:
+  - Observability
+---
+
 It’s Friday afternoon. Everything seems fine — until it isn’t.
 A flood of customer complaints suddenly hits support: orders are timing out. Your dashboards show healthy CPU, low memory, and “green” service statuses. The logs? A maze of JSON lines and timestamps, none of which point to the real issue.
 

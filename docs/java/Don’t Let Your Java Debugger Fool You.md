@@ -1,3 +1,9 @@
+---
+tags:
+  - Observability
+  - Language Internals
+---
+
 If you’ve ever set a breakpoint in your IDE and stepped through some Java code, you might have assumed you were literally running that source line by line.
 
 Not quite.

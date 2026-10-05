@@ -1,3 +1,8 @@
+---
+tags:
+  - Software Architecture
+---
+
 Imagine this flow:
 
 ```text

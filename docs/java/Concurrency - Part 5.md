@@ -1,3 +1,9 @@
+---
+tags:
+  - Concurrency
+  - Performance
+---
+
 Before virtual threads, if you wanted to write scalable concurrent code without blocking physical OS threads, you typically chose one of these approaches:
 
 * CompletableFuture — for async, non-blocking computation using futures and chaining.
