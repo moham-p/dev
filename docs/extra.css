@@ -67,6 +67,29 @@ a.md-tag:hover {
   background-color: rgba(255, 255, 255, .15);
 }
 
+/* Search box styled to match the header Home pill */
+@media screen and (min-width: 60em) {
+  .md-search {
+    margin-left: .5rem;
+  }
+  .md-search__form {
+    border-radius: 1.2rem;
+    background-color: rgba(255, 255, 255, .15);
+    transition: background-color .2s;
+  }
+  .md-search__form:hover,
+  [data-md-toggle="search"]:checked ~ .md-header .md-search__form {
+    background-color: rgba(255, 255, 255, .25);
+  }
+  .md-search__input {
+    border-radius: 1.2rem;
+    font-weight: 600;
+  }
+  .md-search__input::placeholder {
+    color: rgba(255, 255, 255, .8);
+  }
+}
+
 @media screen and (max-width: 59.9375em) {
   .md-header__tags-link span {
     display: none;
